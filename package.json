@@ -1,0 +1,23 @@
+{
+  "name": "learningapp",
+  "version": "1.0.0",
+  "description": "Kevin's first node app, with mysql, node/express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kevin Kononenko",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.3",
+    "grunt": "^0.4.5"
+  },
+  "devDependencies": {
+    "grunt-concurrent": "^2.0.3",
+    "grunt-contrib-jshint": "^0.11.3",
+    "grunt-contrib-stylus": "^0.22.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-nodemon": "^0.4.0",
+    "jshint-stylish": "^2.0.1"
+  }
+}
