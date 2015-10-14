@@ -177,19 +177,24 @@ $('form').on('submit', function(ev){
 });
 
 //User can add only one vote to indicate their support for a plan, currently can refresh the page and then upvote again which needs to be fixed
+var preClicked=[];
 $('.pathsBody').on('click', ".upvoteBtn", function(){
 	var upvoteCount=parseInt($(this).siblings('.upTotal').text());
-	upvoteCount++;
-	$(this).css('color', '#3498db');
-	$(this).siblings('.upTotal').text(upvoteCount);
-	$(this).click(false);
-	var newVoteCount=parseInt($(this).siblings('.upTotal').text());
+	var category= $('.listHighlight').data('filter');
 	var uniqueID = $(this).parents('.userPath').data('uniqueid');
-	$.ajax({
-		type:'POST',
-		url: '/addVote',
-		headers: { 'Access-Control-Allow-Origin': '*' },
-		crossDomain: true,
-		data: {myid:uniqueID, votecount:newVoteCount}
-	});
+	var justClicked= category+uniqueID;
+	// if the user has not already added a vote this session
+	if($.inArray(justClicked, preClicked) ==-1){
+		upvoteCount++;
+		$(this).addClass('upvoted');
+		$(this).siblings('.upTotal').text(upvoteCount);
+		preClicked.push(justClicked);
+		$.ajax({
+			type:'POST',
+			url: '/addVote',
+			headers: { 'Access-Control-Allow-Origin': '*' },
+			crossDomain: true,
+			data: {myid:uniqueID, votecount:upvoteCount, category:category}
+		});
+	}
 });
