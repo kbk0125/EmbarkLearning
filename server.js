@@ -4,7 +4,6 @@ var path = require('path');
 var basicRouter = express.Router();
 var bodyParser = require('body-parser')
 var parseUrlencoded= bodyParser.urlencoded({extended:false});
-var userPlans={};
 
 // MySql Init
 //https://www.npmjs.com/package/mysql
@@ -16,21 +15,23 @@ var connection = mysql.createConnection({
   password : 'sql',
   database : 'embark'
 });
+
+app.use(bodyParser.urlencoded({extended:false}));
  
 connection.connect();
-//connection.query('DROP TABLE Plans');
-//connection.query('DROP TABLE Entries');
+connection.query('DROP TABLE Plans');
+connection.query('DROP TABLE Entries');
 
 connection.query('SELECT 1 FROM Plans LIMIT 1;', function(err, rows, fields) { 
 	if(err){
 		connection.query('CREATE TABLE Plans (' +
 			'id int PRIMARY KEY NOT NULL AUTO_INCREMENT,' +
-			'category VARCHAR(10),' +
-			'title VARCHAR(50),' +
-			'name VARCHAR(50),' +
-			'advice VARCHAR(140),' +
-			'upvotes int,' +
 			'uniqueid int,' +
+			'category VARCHAR(10),' +
+			'upvotes int,' +
+			'name VARCHAR(50),' +
+			'title VARCHAR(50),' +
+			'advice VARCHAR(140),' +
 		  	'plan_id VARCHAR(10) NOT NULL)', function(err, rows, fields) { 
 		  	if (err) throw err;
 		});
@@ -43,27 +44,12 @@ connection.query('SELECT 1 FROM Plans LIMIT 1;', function(err, rows, fields) {
 connection.query('SELECT 1 FROM Entries LIMIT 1;', function(err, rows, fields) { 
 	if(err){
 		connection.query('CREATE TABLE Entries (' +
-			'plan_id VARCHAR(10) PRIMARY KEY NOT NULL,' +
-			'plancat1 VARCHAR(10),' +
-			'planname1 VARCHAR(40),' +
-			'planlink1 VARCHAR(1000),' +
-			'plandesc1 VARCHAR(140),' +
-			'plancat2 VARCHAR(10),' +
-			'planname2 VARCHAR(40),' +
-			'planlink2 VARCHAR(1000),' +
-			'plandesc2 VARCHAR(140),' +
-			'plancat3 VARCHAR(10),' +
-			'planname3 VARCHAR(40),' +
-			'planlink3 VARCHAR(1000),' +
-			'plandesc3 VARCHAR(140),' +
-			'plancat4 VARCHAR(10),' +
-			'planname4 VARCHAR(40),' +
-			'planlink4 VARCHAR(1000),' +
-			'plandesc4 VARCHAR(140),' +
-			'plancat5 VARCHAR(10),' +
-			'planname5 VARCHAR(40),' +
-			'planlink5 VARCHAR(1000),' +
-			'plandesc5 VARCHAR(140))', function(err, rows, fields) {	
+			'id int PRIMARY KEY NOT NULL AUTO_INCREMENT,' +
+			'plan_id VARCHAR(10) NOT NULL,' +
+			'plancat VARCHAR(10),' +
+			'planname VARCHAR(40),' +
+			'planlink VARCHAR(1000),' +
+			'plandesc VARCHAR(140))', function(err, rows, fields) {	
 		  	if (err) throw err;
 		});
 	}
@@ -79,69 +65,76 @@ basicRouter.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
 
-app.use(bodyParser.urlencoded({extended:false}));
+
 
 app.use(express.static(__dirname + '/public'));
 
 app.get('/planList', function(req, res){
 	var listKey= req.query.listKey;
-	if(listKey in userPlans){
-		//push all the arrays in that bucket so they can be listed for user
-		for(var i=0; i<userPlans[listKey].length; i++){
-			res.json(userPlans[listKey][i]);
-			connection.query('SELECT * FROM Plans INNER JOIN Entries ON Plans.plan_id = Entries.plan_id WHERE Plans.plan_id="'+listKey+i+'";', function(err, result, fields) { 
-				if (err) throw err;
-			})
+	var specPlans = [];
+	connection.query('SELECT p.uniqueid, p.category, p.upvotes, p.name, p.title, p.advice, e.planname, e.planlink, e.plandesc, e.plancat FROM Entries e INNER JOIN Plans p ON e.plan_id = p.plan_id WHERE p.category=?;', [listKey] ,function(err, result, fields) {
+		if (err) throw err;
+		for(var i=0; i<result.length; i++){
+			var eachEntry = result[i];
+			var arrayConvert = Object.keys(eachEntry).map(function (key) {return eachEntry[key]});
+			var firstNum= arrayConvert[0];
+			if(specPlans[firstNum]){
+				var origArray= specPlans[firstNum]
+				var fullConvert=arrayConvert.slice(6, 10)
+				var newArray = origArray.concat(fullConvert)
+				specPlans[firstNum] = newArray;
+			}
+			else{
+				specPlans[firstNum]=arrayConvert;
+			}
 		}
-	}
-	res.end();
+		for(var i=0; i<specPlans.length; i++){
+			res.json(specPlans[i])
+		}
+		res.end();
+	})
 });
 
 app.post('/addPlan', function(req, res){
 	var newPlan = req.body;
-	var planData=[];
+	var uniqueid;
 	//what category to use to bucket it
 	var catKey= req.body.category;
 
-	//Overall header for the new plan
-	planData.push(req.body.title, req.body.firstname, req.body.advice)
 	//Do not count the category, three items in header and number of upvotes
 	var arrLength= Object.keys(newPlan).length -5
-	//Add to the array each of the appropriate fields for each category
+
+	//To be sent with each entry
 	var entries = {};
-	for(var i=1; i<=(arrLength/4); i++){
-		planData.push(newPlan['radio'+i], newPlan['name['+i+']'], newPlan['link['+i+']'], newPlan['desc['+i+']']);
-		entries['plancat'+i] = newPlan['radio'+i];
-		entries['planname'+i] = newPlan['name['+i+']'];
-		entries['planlink'+i] = newPlan['link['+i+']'];
-		entries['plandesc'+i] = newPlan['desc['+i+']'];
-	}
-
-	//finally, add the number of upvotes as last array item
-	planData.push(req.body.upvotes);
-	//initialize category if it does not already exist
-	if (!userPlans[catKey]) {
-		userPlans[catKey] = [];
-	}
-	//unique identifier that is the key, in the array
-	var uniqueid= userPlans[catKey].length
-	planData.push(uniqueid)
-
-	//Add it to the Entries table, then check out results
-	entries['plan_id']= catKey+uniqueid;
-	connection.query('INSERT INTO Entries SET ?', entries,  function(err, result, fields) {
+	//unique identifier that is the key, in the array taken from # of plans already in that cat
+	connection.query('SELECT * From Plans WHERE category=?;', [catKey], function(err, result, fields){
 		if (err) throw err;
-	});
+		uniqueid= result.length;
+		entries['plan_id']= catKey+uniqueid;
 
-	//Add it to the Plans table, then check out results
-	var plan = {category: catKey, title: req.body.title, name: req.body.firstname,advice: req.body.advice, upvotes: req.body.upvotes, uniqueid: uniqueid, plan_id : catKey+uniqueid};
-	connection.query('INSERT INTO Plans SET ?', plan,  function(err, result, fields) {
-		if (err) throw err;
-	});
+		for(var i=1; i<=(arrLength/4); i++){
+			entries['plancat'] = newPlan['radio'+i];
+			entries['planname'] = newPlan['name['+i+']'];
+			entries['planlink'] = newPlan['link['+i+']'];
+			entries['plandesc'] = newPlan['desc['+i+']'];
 
-	//Add it to the universal object so that we can access it again
-	userPlans[catKey].push(planData);
-	res.send(planData);
+			//Add it to the Entries table, then check out results
+			connection.query('INSERT INTO Entries SET ?', entries,  function(err, result, fields) {
+				if (err) throw err;
+			});
+		}
+
+		//Add it to the Plans table, then check out results
+		var plan = {uniqueid: uniqueid, category: catKey, upvotes: req.body.upvotes, title: req.body.title, name: req.body.firstname,advice: req.body.advice, plan_id : catKey+uniqueid};
+		connection.query('INSERT INTO Plans SET ?', plan,  function(err, result, fields) {
+			if (err) throw err;
+		});
+
+		//Add it to the universal object so that we can access it again
+		var arrayIfy = Object.keys(newPlan).map(function (key) {return newPlan[key]});
+		arrayIfy.unshift(uniqueid)
+		res.send(arrayIfy);
+	})	
 })
 
 //update vote count in userplans
@@ -149,9 +142,6 @@ app.post('/addVote', function(req, res){
 	var uniqueid= req.body.myid;
 	var voteCount = req.body.votecount;
 	var category= req.body.category;
-	var voteCountIndex= userPlans[category][uniqueid].length-2;
-	var fullArray=userPlans[category];
-	fullArray[uniqueid][voteCountIndex]= voteCount;
 	connection.query('UPDATE Plans SET upvotes="'+voteCount+'" WHERE plan_id="'+category+uniqueid+'";', function(err, result, fields) {
 		if (err) throw err;
 	});

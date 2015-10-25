@@ -23,6 +23,7 @@ $('.listSelect').click(function(){
 	})
 	.done(function(planList){
 		//Add user submitted plans to the list based on what users have added in past
+		console.log(planList);
 		if(planList.length)
 			addPlan(planList);
 	});
@@ -87,28 +88,28 @@ $('.validUrl').blur(function(){
 
 // Add the plan once the user adds it
 function addPlan(planData){
-	// Array looks like : Plan Title, First Name of Author, Brief Advice, Label 1, Resource 1 Name, Resource 1 Link, Resource 1 Desc, etc.
-	var topSegment = '<div class="titleTop"><h3>'+planData[0]+'</h3><p> By: '+planData[1]+'</div><p class="advice">' +planData[2]+ '</p>';
+	// Array looks like : uniqueid, category, upvotes, First Name of Author, Plan Title, Brief Advice, Resource 1 Name, Resource 1 Link, Resource 1 Desc, Label 1, etc.,
+	var topSegment = '<div class="titleTop"><h3>'+planData[4]+'</h3><p> By: '+planData[3]+'</div><p class="advice">' +planData[5]+ '</p>';
 	var allBod= [];
 
 	//If it is new, put it in new category. If part of repeated category, put it in bucket with similar ones.
-	for(var i =3; i < planData.length-2; i+=4){
+	for(var i =6; i < planData.length; i+=4){
 		var resource, index, link, desc, catTitle;
-		if(allBod.indexOf('<h3>'+planData[i]+'</h3>') > -1){
-			index = allBod.indexOf('<h3>'+planData[i]+'</h3>');
-			desc = '<p>'+planData[i+3]+'</p>';
+		if(allBod.indexOf('<h3>'+planData[i+3]+'</h3>') > -1){
+			index = allBod.indexOf('<h3>'+planData[i+3]+'</h3>');
+			desc = '<p>'+planData[i+2]+'</p>';
 			allBod.splice(index+1, 0, desc);
-			resource='<p>'+planData[i+1]+'</p>';
-			link = '<a href="http://'+planData[i+2]+'" target="blank">'+resource+'</a>';
+			resource='<p>'+planData[i]+'</p>';
+			link = '<a href="http://'+planData[i+1]+'" target="_blank">'+resource+'</a>';
 			allBod.splice(index+1, 0, link);
 		}
 		else{
-			catTitle = '<h3>'+planData[i]+'</h3>';
+			catTitle = '<h3>'+planData[i+3]+'</h3>';
 			allBod.push(catTitle);
-			resource='<p>'+planData[i+1]+'</p>';
-			link = '<a href="http://'+planData[i+2]+'" target="blank">'+resource+'</a>';
+			resource='<p>'+planData[i]+'</p>';
+			link = '<a href="http://'+planData[i+1]+'" target="_blank">'+resource+'</a>';
 			allBod.push(link);
-			desc = '<p>'+planData[i+3]+'</p>';
+			desc = '<p>'+planData[i+2]+'</p>';
 			allBod.push(desc);
 		}
 	}
@@ -119,9 +120,9 @@ function addPlan(planData){
 
 	$('.pathsBody').append(pathContain);
 	//Count number of upvotes done, but how to localize this in scope without long jquery selector?
-	$('.pathsBody').children('.userPath').last().find('.upTotal').text(planData[planData.length-2]);
+	$('.pathsBody').children('.userPath').last().find('.upTotal').text(planData[2]);
 	// make sure unique ID is available on front end
-	$('.pathsBody').children('.userPath').last().data('uniqueid', planData[planData.length-1]);
+	$('.pathsBody').children('.userPath').last().data('uniqueid', planData[0]);
 }
 
 //Find which submit button was clicked within form
