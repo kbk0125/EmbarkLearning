@@ -10,164 +10,139 @@
 <body>
     <div class="container">
         <div id="topBar">
-            <h3>Embark</h3>
-            <p> Made with love in Boxboro, MA </p>
+            <img src='/img/mainlogo.png'>
+            <h3>Manual</h3>
+            <p> Crowd's guide to top web development resources </p>
+            <div class='search'>
+                <input type='text' placeholder='Search' class='searchBox'>
+                <i class="fa fa-search"></i>
+            </div>
         </div>
         <div id="sidebar">
             <div class='sideHead'>
-                <h3> Learning Tracks </h3>
-                <p> Pick a path for best practices </p>
+                <h3> Skill Categories </h3>
             </div>
             <div class='category'>
-                <div class='catHead'>
+                <div class='catHead' data-category='html'>
                     <i class="fa fa-chevron-right"></i>
-                    <p> Full Stack Web Dev</p>
+                    <p> HTML/CSS</p>
                 </div>
                 <ul>
+                    <li class='listSelect' data-filter='fundamentals' data-count='0'> Fundamentals </li>
+                    <li class='listSelect' data-filter='firstsite' data-count='0'> Build First Website </li>
+                    <li class='listSelect' data-filter='responsive' data-count='0'> Responsive Web Design </li>
+                </ul>
+            </div>
+            <div class='category'>
+                <div class='catHead' data-category='javascript'>
+                    <i class="fa fa-chevron-right"></i>
+                    <p> Javascript</p>
+                </div>
+                <ul>
+                    <li class='listSelect' data-filter='fundamentals' data-count='0'> Fundamentals </li>
+                    <li class='listSelect' data-filter='jquery' data-count='0'> JQuery </li>
                     <li class='listSelect' data-filter='node' data-count='0'> Node.js </li>
-                    <li class='listSelect' data-filter='ruby' data-count='0'> Ruby on Rails </li>
-                    <li class='listSelect' data-filter='allweb' data-count='0'> Other </li>
+                    <li class='listSelect' data-filter='d3' data-count='0'> D3.js </li>
+                    <li class='listSelect' data-filter='react' data-count='0'> React </li>
                 </ul>
             </div>
             <div class='category'>
-                <div class='catHead'>
+                <div class='catHead' data-category='sql'>
                     <i class="fa fa-chevron-right"></i>
-                    <p> Web/UX Design</p>
+                    <p> SQL</p>
                 </div>
                 <ul>
-                    <li class='listSelect' data-filter='useri' data-count='0'> UI Principles </li>
-                    <li class='listSelect' data-filter='design' data-count='0'> Illustrator </li>
-                    <li class='listSelect' data-filter='userx' data-count='0'> UX/Product Management </li>
+                    <li class='listSelect' data-filter='fundamentals' data-count='0'> Fundamentals </li>
+                    <li class='listSelect' data-filter='analytics' data-count='0'> Intro to Analytics </li>
+                    <li class='listSelect' data-filter='dbmgmt' data-count='0'> Database Management </li>
                 </ul>
             </div>
-            <div class='category'>
-                <div class='catHead'>
-                    <i class="fa fa-chevron-right"></i>
-                    <p> Web Marketing</p>
-                </div>
-                <ul>
-                    <li class='listSelect' data-filter='email' data-count='0'> Email Marketing </li>
-                    <li class='listSelect' data-filter='content' data-count='0'> Content Marketing </li>
-                    <li class='listSelect' data-filter='copy' data-count='0'> Copywriting </li>
-                </ul>
-            </div>
+            <a href="http://goo.gl/forms/wnzrCwAHU3" target="_blank"><div class='actionBtnMin suggest'> Suggest A New Category </div></a>
         </div>
         <div class="window">
+            <a href="http://goo.gl/forms/4NfzYQTSpp" target="_blank"><div class='actionBtnMin comments'> Question or Comment?</div></a>
             <div id='opening'>
-                <h1> Embark </h1>
-                <h3> The one-stop shop to begin learning any web technology </h3>
-                <p>Click a category to the left to see the most efficient way to learn any web-oriented tech, as voted on by your peers</p>
+                <img src='/img/mainlogo.png'>
+                <h1> Manual </h1>
+                <h3> The most useful web development resources on the planet </h3>
+                <p>Learn any skill related to building websites with the top resources, hand-picked by fellow web developers</p>
+                <div class='actionBtn initChoice specClick' data-category='html'><span class='symbol'>< /></span><p> HTML/CSS</p></div>
+                <div class='actionBtn initChoice specClick' data-category='javascript'><span class='symbol'>{..}</span><p> Javascript</p></div>
+                <div class='actionBtn initChoice specClick' data-category='sql'><i class="fa fa-database"></i><p> SQL </p></div>
             </div>
+            <!-- This level means we have entered the guide portion top level, including user entry field, selectors on right and list -->
             <div class='learningCat'>
-                <div class='header'>
-                    <h2> Node.js </h2>
-                    <p> The ONLY web dev language </p>
-                </div>
-                <div class='pathsBody'>
-                    <div class='path'>
-                        <div class='intro'>
-                            <i class="fa fa-plus-square-o"></i>
-                            <p> Add Your 5-Step Learning Path </p>
-                        </div>
-                        <div class='form'>
-                            <form>
-                                <div class='basicInfo chunk'>
-                                    <input type='text' name='category' class='nameOfCat'>
-                                    <input type='number' name='upvotes' class='upVoteTotal' value='0'>
-                                    <p> First name: </p>
-                                    <input type="text" name="firstname">
-                                    <p> Title/Goal (7 Words Max) </p>
-                                    <input type="text" class='wordLimit' name="title" maxlenth="50">
-                                    <p> Overall Advice? (140 Char Max) </p>
-                                    <textarea class='charLimit' name="advice" maxlenth="140"></textarea>
-                                    <div class='formBtn'> Get Started </div>
-                                </div>
-                                <div class='chunk'>
-                                    <h3> Resource #1 </h3>
-                                    <p> Name of Resource (7 Words Max): </p> 
-                                    <input type="text" class='wordLimit' name="name[1]">
-                                    <p> Link </p> 
-                                    <input type="text" class= "validUrl" name="link[1]">
-                                    <p> Brief Description (0/100): </p> 
-                                    <textarea class='descLimit' name="desc[1]" maxlenth="100"></textarea>
-                                    <p> Category </p>
-                                    <div class="radioSet">
-                                        <input type="radio" id="choice1" name="radio1" value='reading'><label for="choice1">Reading</label>
-                                        <input type="radio" id="choice2" name="radio1" value='tutorials'><label for="choice2">Tutorial</label>
-                                        <input type="radio" id="choice3" name="radio1" value='example'><label for="choice3">Example</label>
-                                    </div>
-                                    <div class='formBtn'> Next </div>
-                                </div>
-                                <div class='chunk'>
-                                    <h3> Resource #2 </h3>
-                                    <p> Name of Resource (7 Words Max): </p> 
-                                    <input type="text" class='wordLimit' name="name[2]">
-                                    <p> Link </p> 
-                                    <input type="text" class= "validUrl" name="link[2]">
-                                    <p> Brief Description (0/100): </p> 
-                                    <textarea class='descLimit' name="desc[2]" maxlenth="100"></textarea>
-                                    <p> Category </p>
-                                    <div class="radioSet">
-                                        <input type="radio" id="choice4" name="radio2" value='reading'><label for="choice4">Reading</label>
-                                        <input type="radio" id="choice5" name="radio2" value='tutorials'><label for="choice5">Tutorial</label>
-                                        <input type="radio" id="choice6" name="radio2" value='example'><label for="choice6">Example</label>
-                                    </div>
-                                    <div class='formBtn'> Next </div>
-                                </div>
-                                <div class='chunk'>
-                                    <h3> Resource #3 </h3>
-                                    <p> Name of Resource (7 Words Max): </p> 
-                                    <input type="text" class='wordLimit' name="name[3]">
-                                    <p> Link </p> 
-                                    <input type="text" class= "validUrl" name="link[3]">
-                                    <p> Brief Description (0/100): </p> 
-                                    <textarea class='descLimit' name="desc[3]" maxlenth="100"></textarea>
-                                    <p> Category </p>
-                                    <div class="radioSet">
-                                        <input type="radio" id="choice7" name="radio3" value='reading'><label for="choice7">Reading</label>
-                                        <input type="radio" id="choice8" name="radio3" value='tutorials'><label for="choice8">Tutorial</label>
-                                        <input type="radio" id="choice9" name="radio3" value='example'><label for="choice9">Example</label>
-                                    </div>
-                                    <div class='formBtn'> Next </div>
-                                    <input type='submit' value='Done' class='doneBtn'>
-                                </div>
-                                <div class='chunk'>
-                                    <h3> Resource #4 (optional) </h3>
-                                    Name of Resorce: 
-                                    <input type="text" class='wordLimit' name="name[4]">
-                                    <p> Link </p> 
-                                    <input type="text" class= "validUrl" name="link[4]">
-                                    <p> Brief Description (0/100): </p> 
-                                    <textarea class='descLimit' name="desc[4]" maxlenth="100"></textarea>
-                                    <p> Category </p>
-                                    <div class="radioSet">
-                                        <input type="radio" id="choice10" name="radio4" value='reading'><label for="choice10">Reading</label>
-                                        <input type="radio" id="choice11" name="radio4" value='tutorials'><label for="choice11">Tutorial</label>
-                                        <input type="radio" id="choice12" name="radio4" value='example'><label for="choice12">Example</label>
-                                    </div>
-                                    <div class='formBtn'> Next </div>
-                                    <input type='submit' value='Done' class='doneBtn'>
-                                </div>
-                                <div class='chunk'>
-                                    <h3> Resource #5 (optional) </h3>
-                                    <p> Name of Resource (7 Words Max): </p> 
-                                    <input type="text" class='wordLimit' name="name[5]">
-                                    <p> Link </p> 
-                                    <input type="text" class= "validUrl" name="link[5]">
-                                    <p> Brief Description (0/100): </p> 
-                                    <textarea class='descLimit' name="desc[5]" maxlenth="100"></textarea> 
-                                    <p> Category </p>
-                                    <div class="radioSet">
-                                        <input type="radio" id="choice13" name="radio5" value='reading'><label for="choice13">Reading</label>
-                                        <input type="radio" id="choice14" name="radio5" value='tutorials'><label for="choice14">Tutorial</label>
-                                        <input type="radio" id="choice15" name="radio5" value='example'><label for="choice15">Example</label>
-                                    </div>
-                                    <input type='submit' value='Done' class='doneBtn'>
-                                </div>
-                            </form>
-                            <p id='formError'></p>
-                        </div>
+                <!-- User filters go here-->
+                <div class='legend'>
+                    <p> Type of Content </p>
+                    <div>
+                        <input type="checkbox" class='legendBox content' name="contentFilter" id="contentFilter1" value="article" ><label for="contentFilter1"> Article/Blog</label> 
                     </div>
+                    <div>
+                        <input type="checkbox" class='legendBox content' name="contentFilter" id="contentFilter2" value="practical" ><label for="contentFilter2"> Hands On </label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class='legendBox content' name="contentFilter" id="contentFilter3" value="video" ><label for="contentFilter3"> Video </label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class='legendBox content' name="contentFilter" id="contentFilter4" value="book" ><label for="contentFilter4"> Book </label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class='legendBox content' name="contentFilter" id="contentFilter4" value="course" ><label for="contentFilter4"> Course </label>
+                    </div>
+                    <p class='second'> Difficulty </p>
+                    <div>
+                        <input type="checkbox" class='legendBox diff' name="diffFilter" id="diffFilter1" value="beginner" ><label for="diffFilter1"> Beginner </label> 
+                    </div>
+                    <div>
+                        <input type="checkbox" class='legendBox diff' name="diffFilter" id="diffFilter2" value="intermediate" ><label for="diffFilter2"> Intermediate </label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class='legendBox diff' name="diffFilter" id="diffFilter3" value="advanced" ><label for="diffFilter3"> Advanced </label>
+                    </div>
+                </div>
+                <div class='newPath'>
+                    <div class='formWrap'>
+                        <form>
+                            <input type='text' class='invis' name='category'>
+                            <input type='text' class='invis' name='subcat'>
+                            <div class='chunk'>
+                                <div class='head'>
+                                    <h3> Have A Resource That Helped You? </h3>
+                                    <p class='curCat'> Category: </p>
+                                </div>
+                                <div class='col1'>
+                                    <p> Link </p> 
+                                    <input type="text" class= "validUrl" name="link">
+                                    <p> Name of Resource (10 Words Max): </p> 
+                                    <input type="text" class='wordLimit' name="title">
+                                    <p> Challenge Level </p>
+                                    <div class="radioSet">
+                                        <input type="radio" id="choice1" name="radio1" value='beginner'><label for="choice1">Beginner</label>
+                                        <input type="radio" id="choice2" name="radio1" value='intermediate'><label for="choice2">Intermediate</label>
+                                        <input type="radio" id="choice3" name="radio1" value='advanced'><label for="choice3">Advanced</label>
+                                    </div>
+                                    <p id='formError'></p>
+                                </div>
+                                <div class='col2'>
+                                    <p> Brief Description (0/140): </p> 
+                                    <textarea class='descLimit' name="desc" maxlength="140"></textarea>
+                                    <p> Type of Content </p>
+                                    <div class="radioSet">
+                                        <input type="radio" id="choice2.1" name="radio2" value='article'><label for="choice2.1">Article/Blog</label>
+                                        <input type="radio" id="choice2.2" name="radio2" value='practical'><label for="choice2.2">Hands On</label>
+                                        <input type="radio" id="choice2.3" name="radio2" value='video'><label for="choice2.3">Video</label>
+                                        <input type="radio" id="choice2.4" name="radio2" value='book'><label for="choice2.4">Book</label>
+                                        <input type="radio" id="choice2.5" name="radio2" value='course'><label for="choice2.5">Course</label>
+                                    </div>
+                                    <input type='submit' value='Done' class='actionBtn formBtn'>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- This div is all the plans that we are showing at time-->
+                <div class='addPathsBody'>                    
                 </div>
             </div>
         </div>

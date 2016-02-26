@@ -1,6 +1,6 @@
 body
 	margin 0
-	background-color #ECF0F1
+	background-color #fafafa
 	transition 250ms
 @font-face
 	font-family 'Roboto', sans-serif
@@ -9,40 +9,74 @@ h1, h2, h3
 	font-family 'Roboto'
 	font-weight 700
 	margin 0
-p, li, form, input, textarea
+p, li, form, input, textarea, div
 	color #999
 	font-family 'Roboto'
 	font-weight 400
 	margin 0
+input, textarea
+	font-family inherit
 a
 	text-decoration none
 	&:hover
 		text-decoration underline
+.actionBtn
+	border-radius 2px
+	background-color #63ACD9
+	color white
+	padding 0.5em 1em
+	cursor pointer
+.actionBtnMin
+	border-radius 2px
+	background-color #7979c7
+	color white
+	padding 0.5em 1em
+	cursor pointer
+	
 .container
 	position relative
 	height 100%
 #topBar
-	background-color #3498DB
+	background-color #e6e6e6
 	width 100%
-	padding 10px 0
-
-
-#topBar p
-	float right
-	margin 0
-	margin-right 10px
-
-#topBar h3
-	color #404040
-	margin 0
-	display inline-block
-	margin-left 10px
-
+	padding 6px 0
+	position fixed
+	z-index 10
+	img
+		display inline-block
+		height 33px
+		margin-left 8px
+	h3
+		color #404040
+		vertical-align top
+		margin 6px 0 0 6px
+		display inline-block
+	p
+		display inline-block
+		vertical-align top
+		font-size 14px
+		margin 10px 0 0 4px
+	.search
+		float right
+		margin-top 3px
+		margin-right 16px
+		background-color #ccc	
+		margin-right 5px
+		border-radius 0 2px 2px 0
+		input
+			padding 6px 4px
+			width 250px
+			font-size 14px
+			border none
+		i
+			padding 0 8px 0 4px
+			cursor pointer
+			color #404040	
 #sideBar
 	background-color #2C3E50
 	width 280px
-	position absolute
-	top 43px
+	position fixed
+	top 49px
 	left 0
 	bottom 0
 	.sideHead
@@ -53,6 +87,8 @@ a
 			color white
 	p
 		color #999
+	a:hover
+		text-decoration none
 	.category
 		padding-top 16px
 		.catHead
@@ -88,124 +124,189 @@ a
 				cursor pointer
 			.listHighlight
 				color #e74c3c
+	.suggest
+		margin-top 8px
+		width 160px
+		margin 16px auto 0 auto
+		font-size 14px
+		text-align center
 .window
 	position absolute
-	top 43px
+	top 49px
 	left 280px
 	bottom 0
 	right 0
+	.comments
+		bottom 8px
+		right 8px
+		position fixed
+		font-size 14px
 	#opening
 		text-align center
-		margin-top 250px
+		margin-top 120px
+		img
+			height 150px
 		h1
-			margin-bottom 2em
-		p
+			margin-top 0.5em
+			margin-bottom 1em
+		> p
 			width 500px
 			margin 0.5em auto
+		.initChoice
+			display inline-block
+			margin 32px 8px 0 8px
+			span
+				font-weight 700
+				font-size 22px
+			.fa
+				font-size 22px
+				padding 2px 0 3px 0
+			p
+				display inline-block
+				color white
+				vertical-align top
+				margin-top 4px
+				margin-left 6px
 	.learningCat
 		display none
-		.header
-			background-color #ccc
-			border-bottom 2px solid #999
-			padding-left 16px
-			margin-bottom 16px
-			padding-top 8px
-			padding-bottom 8px
-			h2
-				color #2980B9
+		.legend
+			position fixed
+			top 57px
+			right 8px
+			padding 4px 8px
+			background-color #e6e6e6
 			p
-				font-size 1.2em
-		.pathsBody
-			margin-left 16px
-			display inline-block
-			.path
-				margin 4px
-				border 5px solid #ccc
-				display inline-block
-				float left
-				width 250px
-				height 400px
-				.intro
-					text-align center
-					margin-top 120px
-					cursor pointer
-					transition 250ms
-					i
-						font-size 5em
-						color #E74C3C
-					p
-						line-height 140%
-						margin-top 0.5em
-						font-size 1.2em
-					&:hover
-						margin-top 110px
-				.form
-					display none
-					form
-						margin 8px 0 0 8px
-						.basicInfo.chunk
-							display block
-							.nameOfCat, .upVoteTotal
+				color #7979c7
+				margin-bottom 4px
+				font-weight 700
+			p.second
+				margin-top 8px
+			input
+				margin-right 2px
+				margin-bottom 8px
+				margin-left 8px
+			label
+				color #404040
+				font-weight 300
+				cursor pointer
+		.newPath
+			margin 4px
+			width 800px
+			border 2px solid #7979c7
+			border-radius 4px
+			position relative
+			.formWrap
+				form
+					margin 4px 0 12px 8px
+					.invis
+						display none
+					.chunk
+						h3
+							color #3394d4
+							display inline-block
+						p.curCat
+							display inline-block
+							margin 0
+							color #999
+							margin-left 4px
+							font-weight 300
+							font-size 14px
+						p
+							color #404040
+							margin-bottom 4px
+							margin-top 8px
+						.col1
+							width 33%
+						.col2
+							width 60%
+							margin-left 6%
+						.col1, .col2
+							font-size 14px
+							display inline-block
+							vertical-align top
+							input[type="text"], textarea
+								width 80%
+								padding 2px
+							textarea
+								height 76px
+						.formBtn
+							border none
+							position absolute
+							font-size 14px
+							bottom 4px
+							right 4px
+						.ui-buttonset
+							display inline-block
+							input
 								display none
-						.chunk
-							display none
-							.formBtn
-								margin-top 8px
-							.ui-buttonset
-								display inline-block
-								input
-									display none
-								label
-									float left
-									padding 2px
-									font-size 1em
-									font-weight 400
-									font-family inherit
-									cursor pointer
+							label
+								float left
+								padding 4px 8px
+								font-size 1em
+								font-weight 400
+								font-family inherit
+								cursor pointer
+						#formError
+							color red
+							margin-left 4px
+		.addPathsBody
+			margin 8px 8px 0 8px
+			width 796px
+			display inline-block
 			.userPath
 				position relative
-				.titleTop
-					background-color #f3f3f3
-					padding-left 8px
-					margin-bottom 4px
-					border-bottom 1px solid #999
-					h3
-						color #E74C3C
-				.advice
-					margin-bottom 8px
-				.list
-					margin-top 10px
-				.popBar
-					position absolute
-					left 0
-					right 0
-					bottom 0
-					background-color #f3f3f3
-					font-size 1.2em
-					.upTotal
-						color #3498db
-						margin 0 0 0 4px
-						padding 8px 0
+				font-size 14px
+				margin-bottom 16px
+				.upVoteBox
+					display inline-block
+					vertical-align top
+					h2.upTotal
 						display inline-block
+						color #404040
+					.approval
+						opacity 0
+						transition 250ms
+						font-size 12px
 					i
 						margin-left 8px
+						display inline-block
 						color #999
 						transition 250ms
+						font-size 21px
+						vertical-align top
+						margin-top 3px
 						&:hover
 							color #3498db
 							cursor pointer
+							~ p
+								opacity 1
+								transition 250ms
 					i.upvoted
 						pointer-events none
-						color #3498db				
-
-.formBtn
-	border-radius 2px
-	padding 4px
-	background-color #2980B9
-	color white
-	width 100px
-	cursor pointer
-	text-align center
-	font-weight 300
-	&:hover
-		background-color #3498DB
+						color #3498db
+				.linkSum
+					display inline-block
+					margin-left 12px
+					h3, .subcat, .filter, .diff
+						text-transform capitalize
+					.subcat, .filter, .diff
+						display inline-block
+						border-radius 2px
+						padding 2px 4px
+						color white
+						margin 0 0 0 8px
+					.subcat
+						background-color red
+					.filter
+						background-color green
+					.diff
+						background-color blue
+					.linkLab
+						font-weight 300
+						color #ccc
+					h3
+						display inline-block
+						color #3394d4
+					.description
+						color #404040
+						margin-top 6px				

@@ -19,46 +19,28 @@ var connection = mysql.createConnection({
 app.use(bodyParser.urlencoded({extended:false}));
  
 connection.connect();
-connection.query('DROP TABLE Plans');
-connection.query('DROP TABLE Entries');
+//connection.query('DROP TABLE Links');
 
-connection.query('SELECT 1 FROM Plans LIMIT 1;', function(err, rows, fields) { 
+connection.query('SELECT 1 FROM Links LIMIT 1;', function(err, rows, fields) { 
 	if(err){
-		connection.query('CREATE TABLE Plans (' +
+		connection.query('CREATE TABLE Links (' +
 			'id int PRIMARY KEY NOT NULL AUTO_INCREMENT,' +
-			'uniqueid int,' +
-			'category VARCHAR(10),' +
-			'upvotes int,' +
-			'name VARCHAR(50),' +
-			'title VARCHAR(50),' +
-			'advice VARCHAR(140),' +
-		  	'plan_id VARCHAR(10) NOT NULL)', function(err, rows, fields) { 
+			'datecreated int,' +
+			'category VARCHAR(20) NOT NULL,' +
+			'subcategory VARCHAR(20),' +
+			'title VARCHAR(50) NOT NULL,' +
+			'link VARCHAR(200) NOT NULL,' +
+			'challenge VARCHAR(20) NOT NULL,' +
+			'description VARCHAR(150) NOT NULL,' +
+			'filter VARCHAR(20) NOT NULL,' +
+			'upvotes int)', function(err, rows, fields) { 
 		  	if (err) throw err;
 		});
 	}
 	else{
-		console.log("plans table exists")
+		console.log("Links table exists")
 	}
 });
-
-connection.query('SELECT 1 FROM Entries LIMIT 1;', function(err, rows, fields) { 
-	if(err){
-		connection.query('CREATE TABLE Entries (' +
-			'id int PRIMARY KEY NOT NULL AUTO_INCREMENT,' +
-			'plan_id VARCHAR(10) NOT NULL,' +
-			'plancat VARCHAR(10),' +
-			'planname VARCHAR(40),' +
-			'planlink VARCHAR(1000),' +
-			'plandesc VARCHAR(140))', function(err, rows, fields) {	
-		  	if (err) throw err;
-		});
-	}
-	else{
-		console.log("Entries table exists")
-	}
-});
-
-
 
 // viewed at http://localhost:8080
 basicRouter.get('/', function(req, res) {
@@ -69,80 +51,43 @@ basicRouter.get('/', function(req, res) {
 
 app.use(express.static(__dirname + '/public'));
 
-app.get('/planList', function(req, res){
+//COMMENT APPROPRIATELY THROUGHOUT
+app.get('/linkList', function(req, res){
 	var listKey= req.query.listKey;
-	var specPlans = [];
-	connection.query('SELECT p.uniqueid, p.category, p.upvotes, p.name, p.title, p.advice, e.planname, e.planlink, e.plandesc, e.plancat FROM Entries e INNER JOIN Plans p ON e.plan_id = p.plan_id WHERE p.category=?;', [listKey] ,function(err, result, fields) {
+
+	connection.query('SELECT * FROM Links l WHERE l.category=?;', [listKey] ,function(err, result, fields) {
 		if (err) throw err;
-		for(var i=0; i<result.length; i++){
-			var eachEntry = result[i];
-			var arrayConvert = Object.keys(eachEntry).map(function (key) {return eachEntry[key]});
-			var firstNum= arrayConvert[0];
-			if(specPlans[firstNum]){
-				var origArray= specPlans[firstNum]
-				var fullConvert=arrayConvert.slice(6, 10)
-				var newArray = origArray.concat(fullConvert)
-				specPlans[firstNum] = newArray;
-			}
-			else{
-				specPlans[firstNum]=arrayConvert;
-			}
-		}
-		for(var i=0; i<specPlans.length; i++){
-			res.json(specPlans[i])
-		}
-		res.end();
+		res.send(result)
 	})
 });
 
-app.post('/addPlan', function(req, res){
-	var newPlan = req.body;
-	var uniqueid;
-	//what category to use to bucket it
-	var catKey= req.body.category;
-
-	//Do not count the category, three items in header and number of upvotes
-	var arrLength= Object.keys(newPlan).length -5
-
-	//To be sent with each entry
-	var entries = {};
-	//unique identifier that is the key, in the array taken from # of plans already in that cat
-	connection.query('SELECT * From Plans WHERE category=?;', [catKey], function(err, result, fields){
+app.get('/subLinkList', function(req, res){
+	var listKey= req.query.listKey;
+	var subKey= req.query.subKey;
+	connection.query('SELECT * FROM Links l WHERE l.category=? AND l.subcategory=?;', [listKey,subKey] ,function(err, result, fields) {
 		if (err) throw err;
-		uniqueid= result.length;
-		entries['plan_id']= catKey+uniqueid;
+		res.send(result)
+	})
+});
 
-		for(var i=1; i<=(arrLength/4); i++){
-			entries['plancat'] = newPlan['radio'+i];
-			entries['planname'] = newPlan['name['+i+']'];
-			entries['planlink'] = newPlan['link['+i+']'];
-			entries['plandesc'] = newPlan['desc['+i+']'];
+app.post('/addLink', function(req, res){
+	var newPlan = req.body;
+	var curTime = Math.floor(Date.now() / 1000)
 
-			//Add it to the Entries table, then check out results
-			connection.query('INSERT INTO Entries SET ?', entries,  function(err, result, fields) {
-				if (err) throw err;
-			});
-		}
+	var link = {datecreated: curTime, category: req.body.category, subcategory: req.body.subcat, title: req.body.title, link: req.body.link, challenge: req.body.radio1, description: req.body.desc, filter: req.body.radio2, upvotes: 1};
+	connection.query('INSERT INTO Links SET ?', link,  function(err, result, fields) {
+		if (err) throw err;
+	});
 
-		//Add it to the Plans table, then check out results
-		var plan = {uniqueid: uniqueid, category: catKey, upvotes: req.body.upvotes, title: req.body.title, name: req.body.firstname,advice: req.body.advice, plan_id : catKey+uniqueid};
-		connection.query('INSERT INTO Plans SET ?', plan,  function(err, result, fields) {
-			if (err) throw err;
-		});
-
-		//Add it to the universal object so that we can access it again
-		var arrayIfy = Object.keys(newPlan).map(function (key) {return newPlan[key]});
-		arrayIfy.unshift(uniqueid)
-		res.send(arrayIfy);
-	})	
+	res.send(link);	
 })
 
 //update vote count in userplans
 app.post('/addVote', function(req, res){
 	var uniqueid= req.body.myid;
-	var voteCount = req.body.votecount;
-	var category= req.body.category;
-	connection.query('UPDATE Plans SET upvotes="'+voteCount+'" WHERE plan_id="'+category+uniqueid+'";', function(err, result, fields) {
+	var count = req.body.votecount
+	//Need to make this an array with 2 elements to feed it in
+	connection.query('UPDATE Links SET upvotes=? WHERE id=?;',[count, uniqueid], function(err, result, fields) {
 		if (err) throw err;
 	});
 	return res.sendStatus(200);
