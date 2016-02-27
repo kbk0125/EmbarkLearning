@@ -36,6 +36,22 @@ a
 .container
 	position relative
 	height 100%
+.search
+	float right
+	margin-top 3px
+	margin-right 16px
+	background-color #ccc	
+	margin-right 5px
+	border-radius 0 2px 2px 0
+	input
+		padding 6px 4px
+		width 250px
+		font-size 14px
+		border none
+	i
+		padding 0 8px 0 4px
+		cursor pointer
+		color #404040	
 #topBar
 	background-color #e6e6e6
 	width 100%
@@ -56,22 +72,6 @@ a
 		vertical-align top
 		font-size 14px
 		margin 10px 0 0 4px
-	.search
-		float right
-		margin-top 3px
-		margin-right 16px
-		background-color #ccc	
-		margin-right 5px
-		border-radius 0 2px 2px 0
-		input
-			padding 6px 4px
-			width 250px
-			font-size 14px
-			border none
-		i
-			padding 0 8px 0 4px
-			cursor pointer
-			color #404040	
 #sideBar
 	background-color #2C3E50
 	width 280px
@@ -91,6 +91,8 @@ a
 		text-decoration none
 	.category
 		padding-top 16px
+		p.listHighlight, li.listHighlight
+			color #e74c3c
 		.catHead
 			cursor pointer
 			margin-bottom 4px
@@ -122,8 +124,6 @@ a
 				margin 2px 0
 				padding-left 29px
 				cursor pointer
-			.listHighlight
-				color #e74c3c
 	.suggest
 		margin-top 8px
 		width 160px
@@ -143,30 +143,51 @@ a
 		font-size 14px
 	#opening
 		text-align center
-		margin-top 120px
-		img
-			height 150px
+		.backImg
+			width 100%
+			background url('/img/mainBackSM.jpg') no-repeat center center
+			background-size cover
+			position absolute
+			top 0
+			left 0
+			right 0
+			height 400px
+			z-index -1
+			.screen
+				width 100%
+				height 100%
+				background-color rgba(0,0,0,0.5)
 		h1
-			margin-top 0.5em
-			margin-bottom 1em
+			color white
+			margin-top 5.5em
+			margin-bottom 0.75em
 		> p
+			color white
+			font-size 18px
 			width 500px
-			margin 0.5em auto
-		.initChoice
+			line-height 140%
+			margin 0 auto
+		.mainPgCat
 			display inline-block
-			margin 32px 8px 0 8px
-			span
-				font-weight 700
-				font-size 22px
-			.fa
-				font-size 22px
-				padding 2px 0 3px 0
-			p
-				display inline-block
-				color white
-				vertical-align top
-				margin-top 4px
-				margin-left 6px
+			width 160px
+			margin 160px 16px 0 16px
+			> p
+				color #ccc
+			.links
+				margin 8px 0 4px 0
+			.initChoice
+				span
+					font-weight 700
+					font-size 22px
+				.fa
+					font-size 22px
+					padding 2px 0 3px 0
+				p
+					display inline-block
+					color white
+					vertical-align top
+					margin-top 4px
+					margin-left 6px
 	.learningCat
 		display none
 		.legend
@@ -189,68 +210,87 @@ a
 				color #404040
 				font-weight 300
 				cursor pointer
-		.newPath
-			margin 4px
+		.topOptions
+			margin 4px 8px
 			width 800px
-			border 2px solid #7979c7
-			border-radius 4px
-			position relative
-			.formWrap
-				form
-					margin 4px 0 12px 8px
-					.invis
-						display none
-					.chunk
-						h3
-							color #3394d4
-							display inline-block
-						p.curCat
-							display inline-block
-							margin 0
-							color #999
-							margin-left 4px
-							font-weight 300
-							font-size 14px
-						p
-							color #404040
-							margin-bottom 4px
-							margin-top 8px
-						.col1
-							width 33%
-						.col2
-							width 60%
-							margin-left 6%
-						.col1, .col2
-							font-size 14px
-							display inline-block
-							vertical-align top
-							input[type="text"], textarea
-								width 80%
-								padding 2px
-							textarea
-								height 76px
-						.formBtn
-							border none
-							position absolute
-							font-size 14px
-							bottom 4px
-							right 4px
-						.ui-buttonset
-							display inline-block
-							input
-								display none
-							label
-								float left
-								padding 4px 8px
-								font-size 1em
+			.secondSearch
+				overflow hidden
+				display none
+				.add
+					color white
+					display inline-block
+					i
+						margin-right 4px
+					p
+						color white
+						display inline-block
+				.search
+					float right
+					border 1px solid #ccc
+			.newPath
+				border 2px solid #7979c7
+				border-radius 4px
+				position relative
+				.formWrap
+					form
+						margin 4px 0 12px 8px
+						.invis
+							display none
+						.chunk
+							h3
+								color #3394d4
+								display inline-block
+							select.curCat
+								display inline-block
+								margin 0
+								color #999
+								margin-left 8px
 								font-weight 400
-								font-family inherit
-								cursor pointer
-						#formError
-							color red
-							margin-left 4px
+								font-size 14px
+								.genCat
+									color #404040
+								.specCat
+									font-weight 300
+							p
+								color #404040
+								margin-bottom 4px
+								margin-top 8px
+							.col1
+								width 33%
+							.col2
+								width 60%
+								margin-left 6%
+							.col1, .col2
+								font-size 14px
+								display inline-block
+								vertical-align top
+								input[type="text"], textarea
+									width 80%
+									padding 2px
+								textarea
+									height 76px
+							.formBtn
+								border none
+								position absolute
+								font-size 14px
+								bottom 4px
+								right 4px
+							.ui-buttonset
+								display inline-block
+								input
+									display none
+								label
+									float left
+									padding 4px 8px
+									font-size 1em
+									font-weight 400
+									font-family inherit
+									cursor pointer
+							#formError
+								color red
+								margin-left 4px
 		.addPathsBody
-			margin 8px 8px 0 8px
+			margin 8px 12px 0 12px
 			width 796px
 			display inline-block
 			.userPath
@@ -278,9 +318,6 @@ a
 						&:hover
 							color #3498db
 							cursor pointer
-							~ p
-								opacity 1
-								transition 250ms
 					i.upvoted
 						pointer-events none
 						color #3498db
@@ -295,18 +332,27 @@ a
 						padding 2px 4px
 						color white
 						margin 0 0 0 8px
+					> p:first-of-type
+						margin-left 16px
 					.subcat
-						background-color red
+						background-color #d47333
 					.filter
-						background-color green
+						background-color #33d473
 					.diff
-						background-color blue
+						background-color #d43394
 					.linkLab
 						font-weight 300
 						color #ccc
+						width 725px
+						white-space nowrap
+						overflow hidden
+						text-overflow ellipsis
 					h3
 						display inline-block
 						color #3394d4
+						transition 250ms
+						&:hover
+							text-decoration underline
 					.description
 						color #404040
 						margin-top 6px				

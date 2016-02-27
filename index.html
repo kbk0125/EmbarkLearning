@@ -1,18 +1,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Embark Learning Tools</title>
+     <meta name='description', content='Manual aggregates the most popular tutorials on the web for learning how to code. Users can vote on each link to decide which ones get the most exposure.'>
+    <title>Manual- Top Coding Tutorials On The Web</title>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700,900' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link rel="stylesheet" type="text/css" href="/css/theme.css">
+    <link rel="shortcut icon" type="image/ico" href='/img/favicon.ico'>
 </head>
 <body>
     <div class="container">
         <div id="topBar">
             <img src='/img/mainlogo.png'>
             <h3>Manual</h3>
-            <p> Crowd's guide to top web development resources </p>
+            <p> User-generated guide to top coding resources </p>
             <div class='search'>
                 <input type='text' placeholder='Search' class='searchBox'>
                 <i class="fa fa-search"></i>
@@ -62,13 +64,26 @@
         <div class="window">
             <a href="http://goo.gl/forms/4NfzYQTSpp" target="_blank"><div class='actionBtnMin comments'> Question or Comment?</div></a>
             <div id='opening'>
-                <img src='/img/mainlogo.png'>
-                <h1> Manual </h1>
-                <h3> The most useful web development resources on the planet </h3>
-                <p>Learn any skill related to building websites with the top resources, hand-picked by fellow web developers</p>
-                <div class='actionBtn initChoice specClick' data-category='html'><span class='symbol'>< /></span><p> HTML/CSS</p></div>
-                <div class='actionBtn initChoice specClick' data-category='javascript'><span class='symbol'>{..}</span><p> Javascript</p></div>
-                <div class='actionBtn initChoice specClick' data-category='sql'><i class="fa fa-database"></i><p> SQL </p></div>
+                <div class="backImg">
+                    <div class='screen'></div>
+                </div>
+                <h1> Learn from the most helpful coding tutorials on the planet </h1>
+                <p> Upvote the ones you like or add new ones that helped you. </br> For the developers, by the devlopers.</p>
+                <div class='mainPgCat' data-category='html'>
+                    <div class='actionBtn initChoice specClick' data-category='html'><span class='symbol'>< /></span><p> HTML/CSS</p></div>
+                    <p class='links'> 0 Tutorials </p>
+                    <p class='votes'> 0 Votes </p>
+                </div>
+                <div class='mainPgCat' data-category='javascript'>
+                    <div class='actionBtn initChoice specClick' data-category='javascript'><span class='symbol'>{..}</span><p> Javascript</p></div>
+                    <p class='links'> 0 Tutorials </p>
+                    <p class='votes'> 0 Votes </p>
+                </div>
+                <div class='mainPgCat' data-category='sql'>
+                    <div class='actionBtn initChoice specClick' data-category='sql'><i class="fa fa-database"></i><p> SQL </p></div>
+                    <p class='links'> 0 Tutorials </p>
+                    <p class='votes'> 0 Votes </p>
+                </div>
             </div>
             <!-- This level means we have entered the guide portion top level, including user entry field, selectors on right and list -->
             <div class='learningCat'>
@@ -101,44 +116,71 @@
                         <input type="checkbox" class='legendBox diff' name="diffFilter" id="diffFilter3" value="advanced" ><label for="diffFilter3"> Advanced </label>
                     </div>
                 </div>
-                <div class='newPath'>
-                    <div class='formWrap'>
-                        <form>
-                            <input type='text' class='invis' name='category'>
-                            <input type='text' class='invis' name='subcat'>
-                            <div class='chunk'>
-                                <div class='head'>
-                                    <h3> Have A Resource That Helped You? </h3>
-                                    <p class='curCat'> Category: </p>
-                                </div>
-                                <div class='col1'>
-                                    <p> Link </p> 
-                                    <input type="text" class= "validUrl" name="link">
-                                    <p> Name of Resource (10 Words Max): </p> 
-                                    <input type="text" class='wordLimit' name="title">
-                                    <p> Challenge Level </p>
-                                    <div class="radioSet">
-                                        <input type="radio" id="choice1" name="radio1" value='beginner'><label for="choice1">Beginner</label>
-                                        <input type="radio" id="choice2" name="radio1" value='intermediate'><label for="choice2">Intermediate</label>
-                                        <input type="radio" id="choice3" name="radio1" value='advanced'><label for="choice3">Advanced</label>
+                <div class='topOptions'>
+                    <div class='secondSearch'>
+                        <div class='add actionBtn'>
+                            <i class='fa fa-plus'></i>
+                            <p> Add A Resource</p>
+                        </div>
+                        <div class='search'>
+                            <input type='text' placeholder='Search' class='searchBox'>
+                            <i class="fa fa-search"></i>
+                        </div>
+                    </div>
+                    <div class='newPath'>
+                        <div class='formWrap'>
+                            <form>
+                                <input type='text' class='invis' name='category'>
+                                <input type='text' class='invis' name='subcat'>
+                                <div class='chunk'>
+                                    <div class='head'>
+                                        <h3> Have A Resource That Helped You? </h3>
+                                        <select class='curCat'>
+                                            <option class='genCat' value='html'> HTML/CSS, All </option>
+                                            <option class='specCat' value='html' data-filter='fundamentals'>&nbsp;&nbsp; Fundamentals </option>
+                                            <option class='specCat' value='html' data-filter='firstsite'>&nbsp;&nbsp; Build First Website </option>
+                                            <option class='specCat' value='html' data-filter='responsive'>&nbsp;&nbsp; Responsive Web Design </option>
+                                            <option class='genCat' value='javascript'> Javascript, All </option>
+                                            <option class='specCat' value='javascript' data-filter='fundamentals'>&nbsp;&nbsp; Fundamentals </option>
+                                            <option class='specCat' value='javascript' data-filter='jquery'>&nbsp;&nbsp; jQuery </option>
+                                            <option class='specCat' value='javascript' data-filter='node'>&nbsp;&nbsp; Node.js </option>
+                                            <option class='specCat' value='javascript' data-filter='d3'>&nbsp;&nbsp; D3.js </option>
+                                            <option class='specCat' value='javascript' data-filter='react'>&nbsp;&nbsp; React </option>
+                                            <option class='genCat' value='sql'> SQL, All </option>
+                                            <option class='specCat' value='sql' data-filter='fundamentals'>&nbsp;&nbsp; Fundamentals </option>
+                                            <option class='specCat' value='sql' data-filter='analytics'>&nbsp;&nbsp; Intro To Analytics </option>
+                                            <option class='specCat' value='sql' data-filter='dbmgmt'>&nbsp;&nbsp; Database Management </option>
+                                        </select>
                                     </div>
-                                    <p id='formError'></p>
-                                </div>
-                                <div class='col2'>
-                                    <p> Brief Description (0/140): </p> 
-                                    <textarea class='descLimit' name="desc" maxlength="140"></textarea>
-                                    <p> Type of Content </p>
-                                    <div class="radioSet">
-                                        <input type="radio" id="choice2.1" name="radio2" value='article'><label for="choice2.1">Article/Blog</label>
-                                        <input type="radio" id="choice2.2" name="radio2" value='practical'><label for="choice2.2">Hands On</label>
-                                        <input type="radio" id="choice2.3" name="radio2" value='video'><label for="choice2.3">Video</label>
-                                        <input type="radio" id="choice2.4" name="radio2" value='book'><label for="choice2.4">Book</label>
-                                        <input type="radio" id="choice2.5" name="radio2" value='course'><label for="choice2.5">Course</label>
+                                    <div class='col1'>
+                                        <p> Link </p> 
+                                        <input type="text" class= "validUrl" name="link">
+                                        <p> Name of Resource (10 Words Max): </p> 
+                                        <input type="text" class='wordLimit' name="title">
+                                        <p> Challenge Level </p>
+                                        <div class="radioSet">
+                                            <input type="radio" id="choice1" name="radio1" value='beginner'><label for="choice1">Beginner</label>
+                                            <input type="radio" id="choice2" name="radio1" value='intermediate'><label for="choice2">Intermediate</label>
+                                            <input type="radio" id="choice3" name="radio1" value='advanced'><label for="choice3">Advanced</label>
+                                        </div>
+                                        <p id='formError'></p>
                                     </div>
-                                    <input type='submit' value='Done' class='actionBtn formBtn'>
+                                    <div class='col2'>
+                                        <p> Brief Description (0/140): </p> 
+                                        <textarea class='descLimit' name="desc" maxlength="140"></textarea>
+                                        <p> Type of Content </p>
+                                        <div class="radioSet">
+                                            <input type="radio" id="choice2.1" name="radio2" value='article'><label for="choice2.1">Article/Blog</label>
+                                            <input type="radio" id="choice2.2" name="radio2" value='practical'><label for="choice2.2">Hands On</label>
+                                            <input type="radio" id="choice2.3" name="radio2" value='video'><label for="choice2.3">Video</label>
+                                            <input type="radio" id="choice2.4" name="radio2" value='book'><label for="choice2.4">Book</label>
+                                            <input type="radio" id="choice2.5" name="radio2" value='course'><label for="choice2.5">Course</label>
+                                        </div>
+                                        <input type='submit' value='Done' class='actionBtn formBtn'>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
                 <!-- This div is all the plans that we are showing at time-->

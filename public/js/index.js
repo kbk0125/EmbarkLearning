@@ -1,6 +1,21 @@
 var activeCategory;
 var activeDataCategory;
+var activeSubCategory;
 var goodURL= false;
+
+$.ajax({
+	type:'GET',
+	url: '/voteTotal',
+	headers: { 'Access-Control-Allow-Origin': '*' },
+	crossDomain: true,
+})
+.done(function(votes){
+	for (var i= 0; i <votes.length; i++){
+		var container = $('#opening').find("[data-category='"+votes[i].category+"']");
+		$(container).children('.votes').text(votes[i].voteTot+' Votes');
+		$(container).children('.links').text(votes[i].linkTot+' Tutorials');
+	}
+});
 
 // show/hide lists on sidebar
 $(".catHead").click(function(){
@@ -10,11 +25,14 @@ $(".catHead").click(function(){
 	var datum= $(this).data('category');
 	activeCategory=txt;
 	activeDataCategory =datum;
+	activeSubCategory = "";
 	$('#opening').hide();
+	$(".catHead").children('p').removeClass('listHighlight');
+	$(this).children('p').addClass('listHighlight');
+	$('.listSelect').removeClass('listHighlight');
 	$('.learningCat').show();
-	$('.learningCat').children('.newPath').find( ".radioSet" ).buttonset();
-	$('.learningCat').children('.newPath').find('.head').children('.curCat').text(activeCategory+', All');
-	$('.learningCat').children('.newPath').find('input[name="category"]').val(datum);
+	$('.learningCat').children('.topOptions').find( ".radioSet" ).buttonset();
+	$('.learningCat').children('.topOptions').find('.head').children('.curCat').val(datum).trigger('change');
 	$('.userPath').remove();
 	//AJAX to get list of user entered forms for the whole category
 	$.ajax({
@@ -69,20 +87,22 @@ $('.validUrl').blur(function(){
 		$(this).scrollLeft(0);
 	}
 	else
-		$('#formError').fadeIn().css('color', 'red').text('Please submit valid url');
+		$('#formError').fadeIn().css('color', 'red').text('Please submit valid url beginning with http or https');
 	goodURL=isValid;
 });
 
 //Show diff subcategories in main window
 $('.listSelect').click(function(){
 	var keyData = $(this).data('filter');
+	activeSubCategory =keyData;
 	var keyCat= $(this).parent().siblings('.catHead').data('category');
+	activeDataCategory = keyCat;
 	var txt= $(this).text();
 	$('.listSelect').removeClass('listHighlight');
 	$(this).addClass('listHighlight');
 	$('.userPath').remove();
-	$('.learningCat').children('.newPath').find('.head').children('.curCat').text(activeCategory+', '+txt);
-	$('.learningCat').children('.newPath').find('input[name="subcat"]').val(keyData);
+	$('.curCat option[value="'+keyCat+'"][data-filter="'+keyData+'"]').prop('selected', true).trigger('change');
+
 	//AJAX to get list of user entered forms based on both category and subcategory
 	$.ajax({
 		type:'GET',
@@ -101,9 +121,17 @@ $('.listSelect').click(function(){
 	});
 });
 
+$('.curCat').change(function(){
+	var selectVal= $('.curCat option:selected').val();
+	var dataEl= $('.curCat option:selected').data('filter');
+	$('.learningCat').children('.topOptions').find('input[name="category"]').val(selectVal);
+	$('.learningCat').children('.topOptions').find('input[name="subcat"]').val(dataEl);
+});
+
 //Filling out your key resources
 $('.formBtn').click(function(ev){
 	ev.preventDefault();
+
 	var emptyTxt = $(this).parents('.chunk').find('input:text, textarea').filter(function() {
 		return this.value === "";
 	});
@@ -125,8 +153,8 @@ $('.formBtn').click(function(ev){
 			data: newPlan
 		})
 		.done(function(linkData){
-			console.log(linkData);
-			addLink(linkData);
+			if (linkData.category == activeDataCategory && linkData.subcategory == activeSubCategory)
+				addLink(linkData);
 
 			//reset form
 			form.trigger('reset');
@@ -141,7 +169,7 @@ $('.formBtn').click(function(ev){
 function addLink(linkData){
 	var mainBody;
 	var shortDiff= linkData.challenge.slice(0, 1);
-	var upvoteSeg='<div class="upVoteBox"><h2 class="upTotal">'+linkData.upvotes+'</h2><i class="fa fa-thumbs-o-up upvoteBtn" data-uniqueid="'+linkData.id+'"></i><p class="approval">Helped!</p></div>';
+	var upvoteSeg='<div class="upVoteBox"><p class="approval">Helped!</p><h2 class="upTotal">'+linkData.upvotes+'</h2><i class="fa fa-thumbs-o-up upvoteBtn" data-uniqueid="'+linkData.id+'"></i></div>';
 	if(linkData.subcategory.length > 1)
 		mainBody = '<div class="linkSum"><a href="'+linkData.link+'" target="_blank"><h3>'+linkData.title+'</h3></a><p class="subcat">'+linkData.subcategory+'</p><p class="filter">'+linkData.filter+'</p><p class="diff">'+shortDiff+'</p><p class="linkLab">'+linkData.link+'</p><p class="description">'+linkData.description+'</p></div>';
 	else
@@ -204,6 +232,14 @@ $('.legendBox.diff').change(function(){
 	}	
 });
 
+$('.addPathsBody').on('mouseover', ".upvoteBtn", function(){
+	$(this).siblings('p').css('opacity', '1');
+});
+
+$('.addPathsBody').on('mouseout', ".upvoteBtn", function(){
+	$(this).siblings('p').css('opacity', '0');
+});
+
 //User can add only one vote to indicate their support for a plan, currently can refresh the page and then upvote again which needs to be fixed
 var preClicked=[];
 $('.addPathsBody').on('click', ".upvoteBtn", function(){
@@ -213,8 +249,9 @@ $('.addPathsBody').on('click', ".upvoteBtn", function(){
 	if($.inArray(uniqueID, preClicked) ==-1){
 		upvoteCount++;
 		$(this).addClass('upvoted');
+		$(this).unbind('click');
 		$(this).siblings('.upTotal').text(upvoteCount);
-		preClicked.push(justClicked);
+		preClicked.push(uniqueID);
 		$.ajax({
 			type:'POST',
 			url: '/addVote',

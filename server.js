@@ -29,7 +29,7 @@ connection.query('SELECT 1 FROM Links LIMIT 1;', function(err, rows, fields) {
 			'category VARCHAR(20) NOT NULL,' +
 			'subcategory VARCHAR(20),' +
 			'title VARCHAR(50) NOT NULL,' +
-			'link VARCHAR(200) NOT NULL,' +
+			'link VARCHAR(1000) NOT NULL,' +
 			'challenge VARCHAR(20) NOT NULL,' +
 			'description VARCHAR(150) NOT NULL,' +
 			'filter VARCHAR(20) NOT NULL,' +
@@ -51,11 +51,17 @@ basicRouter.get('/', function(req, res) {
 
 app.use(express.static(__dirname + '/public'));
 
+app.get('/voteTotal', function (req, res){
+	connection.query('SELECT SUM(upvotes) AS voteTot, COUNT(id) as linkTot, category FROM Links GROUP BY category;', function (err, result, fields) {
+		res.send(result)
+	})
+})
+
 //COMMENT APPROPRIATELY THROUGHOUT
 app.get('/linkList', function(req, res){
 	var listKey= req.query.listKey;
 
-	connection.query('SELECT * FROM Links l WHERE l.category=?;', [listKey] ,function(err, result, fields) {
+	connection.query('SELECT * FROM Links l WHERE l.category=? ORDER BY upvotes ASC;', [listKey] ,function(err, result, fields) {
 		if (err) throw err;
 		res.send(result)
 	})
@@ -64,7 +70,7 @@ app.get('/linkList', function(req, res){
 app.get('/subLinkList', function(req, res){
 	var listKey= req.query.listKey;
 	var subKey= req.query.subKey;
-	connection.query('SELECT * FROM Links l WHERE l.category=? AND l.subcategory=?;', [listKey,subKey] ,function(err, result, fields) {
+	connection.query('SELECT * FROM Links l WHERE l.category=? AND l.subcategory=? ORDER BY upvotes ASC;', [listKey,subKey] ,function(err, result, fields) {
 		if (err) throw err;
 		res.send(result)
 	})
@@ -86,6 +92,7 @@ app.post('/addLink', function(req, res){
 app.post('/addVote', function(req, res){
 	var uniqueid= req.body.myid;
 	var count = req.body.votecount
+
 	//Need to make this an array with 2 elements to feed it in
 	connection.query('UPDATE Links SET upvotes=? WHERE id=?;',[count, uniqueid], function(err, result, fields) {
 		if (err) throw err;

@@ -1,5 +1,5 @@
 
-/* line 312 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+/* line 358 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 
 /* line 1 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\node_modules\grunt-contrib-stylus\node_modules\stylus\lib\functions\index.styl */
 
@@ -79,39 +79,7 @@ a:hover {
 }
 
 /* line 39 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
-#topBar {
-  background-color: #e6e6e6;
-  width: 100%;
-  padding: 6px 0;
-  position: fixed;
-  z-index: 10;
-}
-
-/* line 45 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
-#topBar img {
-  display: inline-block;
-  height: 33px;
-  margin-left: 8px;
-}
-
-/* line 49 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
-#topBar h3 {
-  color: #404040;
-  vertical-align: top;
-  margin: 6px 0 0 6px;
-  display: inline-block;
-}
-
-/* line 54 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
-#topBar p {
-  display: inline-block;
-  vertical-align: top;
-  font-size: 14px;
-  margin: 10px 0 0 4px;
-}
-
-/* line 59 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
-#topBar .search {
+.search {
   float: right;
   margin-top: 3px;
   margin-right: 16px;
@@ -120,19 +88,51 @@ a:hover {
   border-radius: 0 2px 2px 0;
 }
 
-/* line 66 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
-#topBar .search input {
+/* line 46 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.search input {
   padding: 6px 4px;
   width: 250px;
   font-size: 14px;
   border: none;
 }
 
-/* line 71 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
-#topBar .search i {
+/* line 51 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.search i {
   padding: 0 8px 0 4px;
   cursor: pointer;
   color: #404040;
+}
+
+/* line 55 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+#topBar {
+  background-color: #e6e6e6;
+  width: 100%;
+  padding: 6px 0;
+  position: fixed;
+  z-index: 10;
+}
+
+/* line 61 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+#topBar img {
+  display: inline-block;
+  height: 33px;
+  margin-left: 8px;
+}
+
+/* line 65 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+#topBar h3 {
+  color: #404040;
+  vertical-align: top;
+  margin: 6px 0 0 6px;
+  display: inline-block;
+}
+
+/* line 70 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+#topBar p {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 14px;
+  margin: 10px 0 0 4px;
 }
 
 /* line 75 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
@@ -173,21 +173,27 @@ a:hover {
 }
 
 /* line 94 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+#sideBar .category p.listHighlight,
+#sideBar .category li.listHighlight {
+  color: #e74c3c;
+}
+
+/* line 96 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 #sideBar .category .catHead {
   cursor: pointer;
   margin-bottom: 4px;
   display: inline-block;
 }
 
-/* line 98 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+/* line 100 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 
-/* line 99 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+/* line 101 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 #sideBar .category .catHead:hover * {
   color: #999;
   transition: 500ms;
 }
 
-/* line 102 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+/* line 104 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 #sideBar .category i {
   color: #f3f3f3;
   float: left;
@@ -196,7 +202,7 @@ a:hover {
   transition: 500ms;
 }
 
-/* line 108 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+/* line 110 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 #sideBar .category p {
   color: #f3f3f3;
   float: left;
@@ -204,7 +210,7 @@ a:hover {
   margin-top: -4px;
 }
 
-/* line 113 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+/* line 115 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 #sideBar .category ul {
   clear: both;
   list-style-type: none;
@@ -213,18 +219,13 @@ a:hover {
   display: none;
 }
 
-/* line 119 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+/* line 121 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 #sideBar .category ul li {
   color: #ccc;
   padding: 2px 0;
   margin: 2px 0;
   padding-left: 29px;
   cursor: pointer;
-}
-
-/* line 125 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
-#sideBar .category ul .listHighlight {
-  color: #e74c3c;
 }
 
 /* line 127 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
@@ -256,46 +257,77 @@ a:hover {
 /* line 144 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 .window #opening {
   text-align: center;
-  margin-top: 120px;
 }
 
-/* line 147 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
-.window #opening img {
-  height: 150px;
+/* line 146 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.window #opening .backImg {
+  width: 100%;
+  background: url("/img/mainBackSM.jpg") no-repeat center center;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 400px;
+  z-index: -1;
 }
 
-/* line 149 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+/* line 156 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.window #opening .backImg .screen {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+/* line 160 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 .window #opening h1 {
-  margin-top: 0.5em;
-  margin-bottom: 1em;
+  color: #fff;
+  margin-top: 5.5em;
+  margin-bottom: 0.75em;
 }
 
-/* line 152 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+/* line 164 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 .window #opening > p {
+  color: #fff;
+  font-size: 18px;
   width: 500px;
-  margin: 0.5em auto;
+  line-height: 140%;
+  margin: 0 auto;
 }
 
-/* line 155 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
-.window #opening .initChoice {
+/* line 170 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.window #opening .mainPgCat {
   display: inline-block;
-  margin: 32px 8px 0 8px;
+  width: 160px;
+  margin: 160px 16px 0 16px;
 }
 
-/* line 158 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
-.window #opening .initChoice span {
+/* line 174 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.window #opening .mainPgCat > p {
+  color: #ccc;
+}
+
+/* line 176 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.window #opening .mainPgCat .links {
+  margin: 8px 0 4px 0;
+}
+
+/* line 178 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+
+/* line 179 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.window #opening .mainPgCat .initChoice span {
   font-weight: 700;
   font-size: 22px;
 }
 
-/* line 161 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
-.window #opening .initChoice .fa {
+/* line 182 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.window #opening .mainPgCat .initChoice .fa {
   font-size: 22px;
   padding: 2px 0 3px 0;
 }
 
-/* line 164 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
-.window #opening .initChoice p {
+/* line 185 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.window #opening .mainPgCat .initChoice p {
   display: inline-block;
   color: #fff;
   vertical-align: top;
@@ -303,12 +335,12 @@ a:hover {
   margin-left: 6px;
 }
 
-/* line 170 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+/* line 191 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 .window .learningCat {
   display: none;
 }
 
-/* line 172 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+/* line 193 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 .window .learningCat .legend {
   position: fixed;
   top: 57px;
@@ -317,114 +349,157 @@ a:hover {
   background-color: #e6e6e6;
 }
 
-/* line 178 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+/* line 199 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 .window .learningCat .legend p {
   color: #7979c7;
   margin-bottom: 4px;
   font-weight: 700;
 }
 
-/* line 182 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+/* line 203 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 .window .learningCat .legend p.second {
   margin-top: 8px;
 }
 
-/* line 184 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+/* line 205 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 .window .learningCat .legend input {
   margin-right: 2px;
   margin-bottom: 8px;
   margin-left: 8px;
 }
 
-/* line 188 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+/* line 209 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 .window .learningCat .legend label {
   color: #404040;
   font-weight: 300;
   cursor: pointer;
 }
 
-/* line 192 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
-.window .learningCat .newPath {
-  margin: 4px;
+/* line 213 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.window .learningCat .topOptions {
+  margin: 4px 8px;
   width: 800px;
+}
+
+/* line 216 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.window .learningCat .topOptions .secondSearch {
+  overflow: hidden;
+  display: none;
+}
+
+/* line 219 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.window .learningCat .topOptions .secondSearch .add {
+  color: #fff;
+  display: inline-block;
+}
+
+/* line 222 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.window .learningCat .topOptions .secondSearch .add i {
+  margin-right: 4px;
+}
+
+/* line 224 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.window .learningCat .topOptions .secondSearch .add p {
+  color: #fff;
+  display: inline-block;
+}
+
+/* line 227 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.window .learningCat .topOptions .secondSearch .search {
+  float: right;
+  border: 1px solid #ccc;
+}
+
+/* line 230 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.window .learningCat .topOptions .newPath {
   border: 2px solid #7979c7;
   border-radius: 4px;
   position: relative;
 }
 
-/* line 198 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+/* line 234 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 
-/* line 199 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
-.window .learningCat .newPath .formWrap form {
+/* line 235 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.window .learningCat .topOptions .newPath .formWrap form {
   margin: 4px 0 12px 8px;
 }
 
-/* line 201 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
-.window .learningCat .newPath .formWrap form .invis {
+/* line 237 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.window .learningCat .topOptions .newPath .formWrap form .invis {
   display: none;
 }
 
-/* line 203 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+/* line 239 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 
-/* line 204 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
-.window .learningCat .newPath .formWrap form .chunk h3 {
+/* line 240 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.window .learningCat .topOptions .newPath .formWrap form .chunk h3 {
   color: #3394d4;
   display: inline-block;
 }
 
-/* line 207 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
-.window .learningCat .newPath .formWrap form .chunk p.curCat {
+/* line 243 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.window .learningCat .topOptions .newPath .formWrap form .chunk select.curCat {
   display: inline-block;
   margin: 0;
   color: #999;
-  margin-left: 4px;
-  font-weight: 300;
+  margin-left: 8px;
+  font-weight: 400;
   font-size: 14px;
 }
 
-/* line 214 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
-.window .learningCat .newPath .formWrap form .chunk p {
+/* line 250 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.window .learningCat .topOptions .newPath .formWrap form .chunk select.curCat .genCat {
+  color: #404040;
+}
+
+/* line 252 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.window .learningCat .topOptions .newPath .formWrap form .chunk select.curCat .specCat {
+  font-weight: 300;
+}
+
+/* line 254 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.window .learningCat .topOptions .newPath .formWrap form .chunk p {
   color: #404040;
   margin-bottom: 4px;
   margin-top: 8px;
 }
 
-/* line 218 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
-.window .learningCat .newPath .formWrap form .chunk .col1 {
+/* line 258 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.window .learningCat .topOptions .newPath .formWrap form .chunk .col1 {
   width: 33%;
 }
 
-/* line 220 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
-.window .learningCat .newPath .formWrap form .chunk .col2 {
+/* line 260 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.window .learningCat .topOptions .newPath .formWrap form .chunk .col2 {
   width: 60%;
   margin-left: 6%;
 }
 
-/* line 223 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
-.window .learningCat .newPath .formWrap form .chunk .col1,
-.window .learningCat .newPath .formWrap form .chunk .col2 {
+/* line 263 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.window .learningCat .topOptions .newPath .formWrap form .chunk .col1,
+.window .learningCat .topOptions .newPath .formWrap form .chunk .col2 {
   font-size: 14px;
   display: inline-block;
   vertical-align: top;
 }
 
-/* line 227 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
-.window .learningCat .newPath .formWrap form .chunk .col1 input[type="text"],
-.window .learningCat .newPath .formWrap form .chunk .col2 input[type="text"],
-.window .learningCat .newPath .formWrap form .chunk .col1 textarea,
-.window .learningCat .newPath .formWrap form .chunk .col2 textarea {
+/* line 267 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.window .learningCat .topOptions .newPath .formWrap form .chunk .col1 input[type="text"],
+.window .learningCat .topOptions .newPath .formWrap form .chunk .col2 input[type="text"],
+.window .learningCat .topOptions .newPath .formWrap form .chunk .col1 textarea,
+.window .learningCat .topOptions .newPath .formWrap form .chunk .col2 textarea {
   width: 80%;
   padding: 2px;
 }
 
-/* line 230 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
-.window .learningCat .newPath .formWrap form .chunk .col1 textarea,
-.window .learningCat .newPath .formWrap form .chunk .col2 textarea {
+/* line 270 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.window .learningCat .topOptions .newPath .formWrap form .chunk .col1 textarea,
+.window .learningCat .topOptions .newPath .formWrap form .chunk .col2 textarea {
   height: 76px;
 }
 
-/* line 232 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
-.window .learningCat .newPath .formWrap form .chunk .formBtn {
+/* line 272 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.window .learningCat .topOptions .newPath .formWrap form .chunk .formBtn {
   border: none;
   position: absolute;
   font-size: 14px;
@@ -432,18 +507,18 @@ a:hover {
   right: 4px;
 }
 
-/* line 238 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
-.window .learningCat .newPath .formWrap form .chunk .ui-buttonset {
+/* line 278 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.window .learningCat .topOptions .newPath .formWrap form .chunk .ui-buttonset {
   display: inline-block;
 }
 
-/* line 240 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
-.window .learningCat .newPath .formWrap form .chunk .ui-buttonset input {
+/* line 280 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.window .learningCat .topOptions .newPath .formWrap form .chunk .ui-buttonset input {
   display: none;
 }
 
-/* line 242 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
-.window .learningCat .newPath .formWrap form .chunk .ui-buttonset label {
+/* line 282 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.window .learningCat .topOptions .newPath .formWrap form .chunk .ui-buttonset label {
   float: left;
   padding: 4px 8px;
   font-size: 1em;
@@ -452,46 +527,46 @@ a:hover {
   cursor: pointer;
 }
 
-/* line 249 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
-.window .learningCat .newPath .formWrap form .chunk #formError {
+/* line 289 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.window .learningCat .topOptions .newPath .formWrap form .chunk #formError {
   color: #f00;
   margin-left: 4px;
 }
 
-/* line 252 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+/* line 292 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 .window .learningCat .addPathsBody {
-  margin: 8px 8px 0 8px;
+  margin: 8px 12px 0 12px;
   width: 796px;
   display: inline-block;
 }
 
-/* line 256 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+/* line 296 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 .window .learningCat .addPathsBody .userPath {
   position: relative;
   font-size: 14px;
   margin-bottom: 16px;
 }
 
-/* line 260 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+/* line 300 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 .window .learningCat .addPathsBody .userPath .upVoteBox {
   display: inline-block;
   vertical-align: top;
 }
 
-/* line 263 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+/* line 303 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 .window .learningCat .addPathsBody .userPath .upVoteBox h2.upTotal {
   display: inline-block;
   color: #404040;
 }
 
-/* line 266 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+/* line 306 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 .window .learningCat .addPathsBody .userPath .upVoteBox .approval {
   opacity: 0;
   transition: 250ms;
   font-size: 12px;
 }
 
-/* line 270 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+/* line 310 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 .window .learningCat .addPathsBody .userPath .upVoteBox i {
   margin-left: 8px;
   display: inline-block;
@@ -502,31 +577,25 @@ a:hover {
   margin-top: 3px;
 }
 
-/* line 278 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+/* line 318 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 .window .learningCat .addPathsBody .userPath .upVoteBox i:hover {
   color: #3498db;
   cursor: pointer;
 }
 
-/* line 281 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
-.window .learningCat .addPathsBody .userPath .upVoteBox i:hover ~ p {
-  opacity: 1;
-  transition: 250ms;
-}
-
-/* line 284 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+/* line 321 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 .window .learningCat .addPathsBody .userPath .upVoteBox i.upvoted {
   pointer-events: none;
   color: #3498db;
 }
 
-/* line 287 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+/* line 324 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 .window .learningCat .addPathsBody .userPath .linkSum {
   display: inline-block;
   margin-left: 12px;
 }
 
-/* line 290 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+/* line 327 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 .window .learningCat .addPathsBody .userPath .linkSum h3,
 .window .learningCat .addPathsBody .userPath .linkSum .subcat,
 .window .learningCat .addPathsBody .userPath .linkSum .filter,
@@ -534,7 +603,7 @@ a:hover {
   text-transform: capitalize;
 }
 
-/* line 292 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+/* line 329 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 .window .learningCat .addPathsBody .userPath .linkSum .subcat,
 .window .learningCat .addPathsBody .userPath .linkSum .filter,
 .window .learningCat .addPathsBody .userPath .linkSum .diff {
@@ -545,34 +614,49 @@ a:hover {
   margin: 0 0 0 8px;
 }
 
-/* line 298 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+/* line 335 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.window .learningCat .addPathsBody .userPath .linkSum > p:first-of-type {
+  margin-left: 16px;
+}
+
+/* line 337 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 .window .learningCat .addPathsBody .userPath .linkSum .subcat {
-  background-color: #f00;
+  background-color: #d47333;
 }
 
-/* line 300 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+/* line 339 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 .window .learningCat .addPathsBody .userPath .linkSum .filter {
-  background-color: #008000;
+  background-color: #33d473;
 }
 
-/* line 302 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+/* line 341 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 .window .learningCat .addPathsBody .userPath .linkSum .diff {
-  background-color: #00f;
+  background-color: #d43394;
 }
 
-/* line 304 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+/* line 343 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 .window .learningCat .addPathsBody .userPath .linkSum .linkLab {
   font-weight: 300;
   color: #ccc;
+  width: 725px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* line 307 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+/* line 350 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 .window .learningCat .addPathsBody .userPath .linkSum h3 {
   display: inline-block;
   color: #3394d4;
+  transition: 250ms;
 }
 
-/* line 310 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+/* line 354 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
+.window .learningCat .addPathsBody .userPath .linkSum h3:hover {
+  text-decoration: underline;
+}
+
+/* line 356 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 .window .learningCat .addPathsBody .userPath .linkSum .description {
   color: #404040;
   margin-top: 6px;
