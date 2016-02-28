@@ -1,20 +1,18 @@
-var activeCategory;
-var activeDataCategory;
-var activeSubCategory;
+var activeCategory ="";
+var activeDataCategory ="";
+var activeSubCategory ="";
 var goodURL= false;
 
-$.ajax({
-	type:'GET',
-	url: '/voteTotal',
-	headers: { 'Access-Control-Allow-Origin': '*' },
-	crossDomain: true,
-})
-.done(function(votes){
+$.get('/voteTotal', function (votes){
 	for (var i= 0; i <votes.length; i++){
 		var container = $('#opening').find("[data-category='"+votes[i].category+"']");
-		$(container).children('.votes').text(votes[i].voteTot+' Votes');
+		$(container).children('.votes').text(votes[i].votes+' Votes');
 		$(container).children('.links').text(votes[i].linkTot+' Tutorials');
 	}
+});
+
+$('.menuToggle').click(function(){
+	$('#sidebar').toggle('slide', {direction: 'right'});
 });
 
 // show/hide lists on sidebar
@@ -31,8 +29,9 @@ $(".catHead").click(function(){
 	$(this).children('p').addClass('listHighlight');
 	$('.listSelect').removeClass('listHighlight');
 	$('.learningCat').show();
-	$('.learningCat').children('.topOptions').find( ".radioSet" ).buttonset();
-	$('.learningCat').children('.topOptions').find('.head').children('.curCat').val(datum).trigger('change');
+	$('#topBar .search').addClass('searchShown');
+	$( ".radioSet" ).buttonset();
+	$('.learningCat').children('#mainPane').children('.topOptions').find('.head').children('.curCat').val(datum).trigger('change');
 	$('.userPath').remove();
 	//AJAX to get list of user entered forms for the whole category
 	$.ajax({
@@ -83,11 +82,11 @@ $('.validUrl').blur(function(){
 	var isValid=validateURL(url);
 	//must have http/https at beginning, fair to expect this of user?
 	if(isValid){
-		$('#formError').fadeIn().css('color', 'green').text('This is a good url');
+		$('.formError').css('color', 'green').text('This is a good url');
 		$(this).scrollLeft(0);
 	}
 	else
-		$('#formError').fadeIn().css('color', 'red').text('Please submit valid url beginning with http or https');
+		$('.formError').css('color', 'red').text('Please submit valid url beginning with http(s)');
 	goodURL=isValid;
 });
 
@@ -104,14 +103,7 @@ $('.listSelect').click(function(){
 	$('.curCat option[value="'+keyCat+'"][data-filter="'+keyData+'"]').prop('selected', true).trigger('change');
 
 	//AJAX to get list of user entered forms based on both category and subcategory
-	$.ajax({
-		type:'GET',
-		url: '/subLinkList',
-		headers: { 'Access-Control-Allow-Origin': '*' },
-		crossDomain: true,
-		data: {listKey: keyCat, subKey:keyData}
-	})
-	.done(function(linkList){
+	$.get('/subLinkList', {listKey: keyCat, subKey:keyData}, function (linkList){
 		//Add user submitted plans to the list based on what users have added in past
 		if(linkList.length){
 			for(var i=0; i<linkList.length; i++){
@@ -124,8 +116,8 @@ $('.listSelect').click(function(){
 $('.curCat').change(function(){
 	var selectVal= $('.curCat option:selected').val();
 	var dataEl= $('.curCat option:selected').data('filter');
-	$('.learningCat').children('.topOptions').find('input[name="category"]').val(selectVal);
-	$('.learningCat').children('.topOptions').find('input[name="subcat"]').val(dataEl);
+	$('.learningCat').children('#mainPane').children('.topOptions').find('input[name="category"]').val(selectVal);
+	$('.learningCat').children('#mainPane').children('.topOptions').find('input[name="subcat"]').val(dataEl);
 });
 
 //Filling out your key resources
@@ -140,28 +132,24 @@ $('.formBtn').click(function(ev){
 
 	if(!emptyTxt.length && emptyRad >1 && goodURL){
 		// This is where form submission will need to happen		
-		$('#formError').hide();
+		$('.formError').text('');
 		var form = $(this).parents('form');
 		//eliminate empty fields
 		//form.find(':input').filter(function() { return !this.value; }).attr('disabled', 'disabled');
 		var newPlan = form.serialize();
-		$.ajax({
-			type:'POST',
-			url: '/addLink',
-			headers: { 'Access-Control-Allow-Origin': '*' },
-			crossDomain: true,
-			data: newPlan
-		})
-		.done(function(linkData){
-			if (linkData.category == activeDataCategory && linkData.subcategory == activeSubCategory)
+		$.post('/addLink', newPlan, function(linkData){
+			if (linkData.category == activeDataCategory)
 				addLink(linkData);
 
 			//reset form
-			form.trigger('reset');
+			$(form).children('.chunk').find('input:text, textarea').val("");
+			$(form).children('.chunk').find('input:radio').prop('checked', false);
+			$('.radioSet').buttonset('refresh');
+
 		});
 	}
 	else{
-		$('#formError').fadeIn().text('Please fill out each field');
+		$('.formError').css('color', 'red').text('Please fill out each field');
 	}
 });
 
@@ -169,67 +157,75 @@ $('.formBtn').click(function(ev){
 function addLink(linkData){
 	var mainBody;
 	var shortDiff= linkData.challenge.slice(0, 1);
-	var upvoteSeg='<div class="upVoteBox"><p class="approval">Helped!</p><h2 class="upTotal">'+linkData.upvotes+'</h2><i class="fa fa-thumbs-o-up upvoteBtn" data-uniqueid="'+linkData.id+'"></i></div>';
+	var upvoteSeg='<div class="upVoteBox"><p class="approval">Helped!</p><h2 class="upTotal">'+linkData.votes+'</h2><i class="fa fa-thumbs-o-up upvoteBtn" data-uniqueid="'+linkData.id+'"></i></div>';
 	if(linkData.subcategory.length > 1)
-		mainBody = '<div class="linkSum"><a href="'+linkData.link+'" target="_blank"><h3>'+linkData.title+'</h3></a><p class="subcat">'+linkData.subcategory+'</p><p class="filter">'+linkData.filter+'</p><p class="diff">'+shortDiff+'</p><p class="linkLab">'+linkData.link+'</p><p class="description">'+linkData.description+'</p></div>';
+		mainBody = '<div class="linkSum"><div class="topLine"><a href="'+linkData.link+'" target="_blank"><h3>'+linkData.title+'</h3></a><p class="subcat">'+linkData.subcategory+'</p><p class="filter">'+linkData.filter+'</p><p class="diff">'+shortDiff+'</p></div><p class="linkLab">'+linkData.link+'</p><p class="description">'+linkData.description+'</p></div>';
 	else
-		mainBody = '<div class="linkSum"><a href="'+linkData.link+'" target="_blank"><h3>'+linkData.title+'</h3></a><p class="filter">'+linkData.filter+'</p><p class="diff">'+shortDiff+'</p><p class="linkLab">'+linkData.link+'</p><p class="description">'+linkData.description+'</p></div>';
-	var linkEntry='<div class="userPath data-diff="'+linkData.challenge+'" data-type="'+linkData.filter+'"">'+upvoteSeg+mainBody+'</div>';
+		mainBody = '<div class="linkSum"><div class="topLine"><a href="'+linkData.link+'" target="_blank"><h3>'+linkData.title+'</h3></a><p class="filter">'+linkData.filter+'</p><p class="diff">'+shortDiff+'</p></div><p class="linkLab">'+linkData.link+'</p><p class="description">'+linkData.description+'</p></div>';
+	var linkEntry='<tr class="userPath" data-diff="'+linkData.challenge+'" data-type="'+linkData.filter+'"><td class="thumbUp">'+upvoteSeg+'</td><td class="mostTxt">'+mainBody+'</td></div>';
 	$('.addPathsBody').prepend(linkEntry);
 }
 
-//These need to be refined but whatevs- these 2 functions
-
-$('.legendBox.content').change(function(){
+$('.legendBox').change(function(){
 	var name = $(this).attr('name');
-	var dataAtt = $(this).val();
-	var checkStatus= $('input[name="contentFilter"]:checked').length;
-	if(checkStatus > 1){
-		if($(this).is(':checked')){
-			$('.addPathsBody').find("[data-type='"+dataAtt+"']").show();
-		}
-		else{
-			$('.addPathsBody').find("[data-type='"+dataAtt+"']").hide();
-		}
+	var otherName;
+	var att;
+	var otheratt;
+	var empty;
+	var thisVals= [];
+	var otherVals = [];
+	var oneCatEmpty;
+	if (name == 'diffFilter'){
+		att= 'diff';
+		otheratt ='type';
+		otherName='contentFilter';
 	}
-	else if(checkStatus == 1){
-		if($(this).is(':checked')){
+	else if (name == 'contentFilter'){
+		att= 'type';
+		otheratt='diff';
+		otherName='diffFilter';
+	}
+	var dataAtt = $(this).val();
+	var checkStatus= $('input[name="'+name+'"]:checked').length;
+	$('input[name="'+name+'"]:checked').each(function(){
+		thisVals.push($(this).val());
+	});
+	$('input[name="'+otherName+'"]:checked').each(function(){
+		otherVals.push($(this).val());
+	});
+
+	if(!(thisVals.length) && !(otherVals.length))
+		empty =true;
+	if(!(thisVals.length) || !(otherVals.length))
+		oneCatEmpty= true;
+
+	if($(this).is(':checked')){
+		if(checkStatus ===1)
 			$('.userPath').hide();
-			$('.addPathsBody').find("[data-type='"+dataAtt+"']").show();
-		}
+		if(oneCatEmpty)
+			$('.addPathsBody').find("[data-"+att+"='"+dataAtt+"']").show();
 		else{
-			$('.addPathsBody').find("[data-type='"+dataAtt+"']").hide();
+			for(var j=0; j <otherVals.length; j++){
+				$(".userPath[data-"+att+"='"+dataAtt+"'][data-"+otheratt+"='"+otherVals[j]+"']").show();
+			}
 		}
 	}
 	else{
-		$('.userPath').show();
-	}	
-});
+		$('.addPathsBody').find("[data-"+att+"='"+dataAtt+"']").hide();
+	}
 
-$('.legendBox.diff').change(function(){
-	var name = $(this).attr('name');
-	var dataAtt = $(this).val();
-	var checkStatus= $('input[name="diffFilter"]:checked').length;
-	if(checkStatus > 1){
-		if($(this).is(':checked')){
-			$('.addPathsBody').find("[data-type='"+dataAtt+"']").show();
+	// if we just unchecked back to 0, show everything in that category
+	if(checkStatus === 0){
+		if(empty){
+			$('.userPath').show();
 		}
 		else{
-			$('.addPathsBody').find("[data-type='"+dataAtt+"']").hide();
-		}
-	}
-	else if(checkStatus == 1){
-		if($(this).is(':checked')){
 			$('.userPath').hide();
-			$('.addPathsBody').find("[data-type='"+dataAtt+"']").show();
-		}
-		else{
-			$('.addPathsBody').find("[data-type='"+dataAtt+"']").hide();
+			for(var i=0; i <otherVals.length; i++){
+				$(".userPath[data-"+otheratt+"='"+otherVals[i]+"']").show();
+			}
 		}
 	}
-	else{
-		$('.userPath').show();
-	}	
 });
 
 $('.addPathsBody').on('mouseover', ".upvoteBtn", function(){
@@ -252,13 +248,7 @@ $('.addPathsBody').on('click', ".upvoteBtn", function(){
 		$(this).unbind('click');
 		$(this).siblings('.upTotal').text(upvoteCount);
 		preClicked.push(uniqueID);
-		$.ajax({
-			type:'POST',
-			url: '/addVote',
-			headers: { 'Access-Control-Allow-Origin': '*' },
-			crossDomain: true,
-			data: {myid:uniqueID, votecount:upvoteCount}
-		});
+		$.post('/addVote',  {myid:uniqueID, votecount:upvoteCount});
 	}
 });
 
@@ -274,4 +264,12 @@ $('.searchBox').keyup(function(e){
     if(e.keyCode == 13){
         $('.fa-search').click();
     }
+});
+
+$('.add').click(function(){
+	$('.lightBox').show();
+});
+
+$('.fa-times').click(function(){
+	$('.lightBox').hide();
 });

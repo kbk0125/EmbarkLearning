@@ -11,10 +11,69 @@
 </head>
 <body>
     <div class="container">
+        <div class='lightBox'>
+            <div class='newPath'>
+                <i class="fa fa-times"></i>
+                <div class='formWrap'>
+                    <form>
+                        <input type='text' class='invis' name='category'>
+                        <input type='text' class='invis' name='subcat'>
+                        <div class='chunk'>
+                            <div class='head'>
+                                <h3> Have A Resource That Helped You? </h3>
+                                <select class='curCat'>
+                                    <option class='genCat' value='html'> HTML/CSS, All </option>
+                                    <option class='specCat' value='html' data-filter='fundamentals'>&nbsp;&nbsp; Fundamentals </option>
+                                    <option class='specCat' value='html' data-filter='firstsite'>&nbsp;&nbsp; Build First Website </option>
+                                    <option class='specCat' value='html' data-filter='responsive'>&nbsp;&nbsp; Responsive Web Design </option>
+                                    <option class='genCat' value='javascript'> Javascript, All </option>
+                                    <option class='specCat' value='javascript' data-filter='fundamentals'>&nbsp;&nbsp; Fundamentals </option>
+                                    <option class='specCat' value='javascript' data-filter='jquery'>&nbsp;&nbsp; jQuery </option>
+                                    <option class='specCat' value='javascript' data-filter='node'>&nbsp;&nbsp; Node.js </option>
+                                    <option class='specCat' value='javascript' data-filter='d3'>&nbsp;&nbsp; D3.js </option>
+                                    <option class='specCat' value='javascript' data-filter='react'>&nbsp;&nbsp; React </option>
+                                    <option class='genCat' value='sql'> SQL, All </option>
+                                    <option class='specCat' value='sql' data-filter='fundamentals'>&nbsp;&nbsp; Fundamentals </option>
+                                    <option class='specCat' value='sql' data-filter='analytics'>&nbsp;&nbsp; Intro To Analytics </option>
+                                    <option class='specCat' value='sql' data-filter='dbmgmt'>&nbsp;&nbsp; Database Management </option>
+                                </select>
+                            </div>
+                            <div class='col1'>
+                                <p> Link </p> 
+                                <input type="text" class= "validUrl" name="link">
+                                <p> Name of Resource (10 Words Max): </p> 
+                                <input type="text" class='wordLimit' name="title">
+                                <p> Challenge Level </p>
+                                <div class="radioSet">
+                                    <input type="radio" id="smchoice1" name="radio1" value='beginner'><label for="smchoice1">Beginner</label>
+                                    <input type="radio" id="smchoice2" name="radio1" value='intermediate'><label for="smchoice2">Intermediate</label>
+                                    <input type="radio" id="smchoice3" name="radio1" value='advanced'><label for="smchoice3">Advanced</label>
+                                </div>
+                                <p class='formError large'></p>
+                            </div>
+                            <div class='col2'>
+                                <p> Brief Description (0/140): </p> 
+                                <textarea class='descLimit' name="desc" maxlength="140"></textarea>
+                                <p> Type of Content </p>
+                                <div class="radioSet">
+                                    <input type="radio" id="smchoice2.1" name="radio2" value='article'><label for="smchoice2.1">Article/Blog</label>
+                                    <input type="radio" id="smchoice2.2" name="radio2" value='practical'><label for="smchoice2.2">Hands On</label>
+                                    <input type="radio" id="smchoice2.3" name="radio2" value='video'><label for="smchoice2.3">Video</label>
+                                    <input type="radio" id="smchoice2.4" name="radio2" value='book'><label for="smchoice2.4">Book</label>
+                                    <input type="radio" id="smchoice2.5" name="radio2" value='course'><label for="smchoice2.5">Course</label>
+                                </div>
+                                <input type='submit' value='Done' class='actionBtn formBtn'>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
         <div id="topBar">
             <img src='/img/mainlogo.png'>
             <h3>Manual</h3>
             <p> User-generated guide to top coding resources </p>
+            <i class="fa fa-bars menuToggle"></i>
             <div class='search'>
                 <input type='text' placeholder='Search' class='searchBox'>
                 <i class="fa fa-search"></i>
@@ -103,7 +162,7 @@
                         <input type="checkbox" class='legendBox content' name="contentFilter" id="contentFilter4" value="book" ><label for="contentFilter4"> Book </label>
                     </div>
                     <div>
-                        <input type="checkbox" class='legendBox content' name="contentFilter" id="contentFilter4" value="course" ><label for="contentFilter4"> Course </label>
+                        <input type="checkbox" class='legendBox content' name="contentFilter" id="contentFilter5" value="course" ><label for="contentFilter5"> Course </label>
                     </div>
                     <p class='second'> Difficulty </p>
                     <div>
@@ -116,75 +175,81 @@
                         <input type="checkbox" class='legendBox diff' name="diffFilter" id="diffFilter3" value="advanced" ><label for="diffFilter3"> Advanced </label>
                     </div>
                 </div>
-                <div class='topOptions'>
-                    <div class='secondSearch'>
-                        <div class='add actionBtn'>
-                            <i class='fa fa-plus'></i>
-                            <p> Add A Resource</p>
+                <div id='mainPane'>
+                    <div class='topOptions'>
+                        <div class='secondSearch'>
+                            <div class='add actionBtn'>
+                                <i class='fa fa-plus'></i>
+                                <p> Add A Resource</p>
+                            </div>
+                            <div class='search'>
+                                <input type='text' placeholder='Search' class='searchBox'>
+                                <i class="fa fa-search"></i>
+                            </div>
                         </div>
-                        <div class='search'>
-                            <input type='text' placeholder='Search' class='searchBox'>
-                            <i class="fa fa-search"></i>
+                        <div class='newPath'>
+                            <div class='formWrap'>
+                                <form>
+                                    <input type='text' class='invis' name='category'>
+                                    <input type='text' class='invis' name='subcat'>
+                                    <div class='chunk'>
+                                        <div class='head'>
+                                            <h3> Have A Resource That Helped You? </h3>
+                                            <select class='curCat'>
+                                                <option class='genCat' value='html'> HTML/CSS, All </option>
+                                                <option class='specCat' value='html' data-filter='fundamentals'>&nbsp;&nbsp; Fundamentals </option>
+                                                <option class='specCat' value='html' data-filter='firstsite'>&nbsp;&nbsp; Build First Website </option>
+                                                <option class='specCat' value='html' data-filter='responsive'>&nbsp;&nbsp; Responsive Web Design </option>
+                                                <option class='genCat' value='javascript'> Javascript, All </option>
+                                                <option class='specCat' value='javascript' data-filter='fundamentals'>&nbsp;&nbsp; Fundamentals </option>
+                                                <option class='specCat' value='javascript' data-filter='jquery'>&nbsp;&nbsp; jQuery </option>
+                                                <option class='specCat' value='javascript' data-filter='node'>&nbsp;&nbsp; Node.js </option>
+                                                <option class='specCat' value='javascript' data-filter='d3'>&nbsp;&nbsp; D3.js </option>
+                                                <option class='specCat' value='javascript' data-filter='react'>&nbsp;&nbsp; React </option>
+                                                <option class='genCat' value='sql'> SQL, All </option>
+                                                <option class='specCat' value='sql' data-filter='fundamentals'>&nbsp;&nbsp; Fundamentals </option>
+                                                <option class='specCat' value='sql' data-filter='analytics'>&nbsp;&nbsp; Intro To Analytics </option>
+                                                <option class='specCat' value='sql' data-filter='dbmgmt'>&nbsp;&nbsp; Database Management </option>
+                                            </select>
+                                        </div>
+                                        <div class='col1'>
+                                            <p> Link </p> 
+                                            <input type="text" class= "validUrl" name="link">
+                                            <p> Name of Resource (10 Words Max): </p> 
+                                            <input type="text" class='wordLimit' name="title">
+                                            <p> Challenge Level </p>
+                                            <div class="radioSet">
+                                                <input type="radio" id="lgchoice1" name="radio1" value='beginner'><label for="lgchoice1">Beginner</label>
+                                                <input type="radio" id="lgchoice2" name="radio1" value='intermediate'><label for="lgchoice2">Intermediate</label>
+                                                <input type="radio" id="lgchoice3" name="radio1" value='advanced'><label for="lgchoice3">Advanced</label>
+                                            </div>
+                                            <p class='formError large'></p>
+                                        </div>
+                                        <div class='col2'>
+                                            <p> Brief Description (0/140): </p> 
+                                            <textarea class='descLimit' name="desc" maxlength="140"></textarea>
+                                            <p> Type of Content </p>
+                                            <div class="radioSet">
+                                                <input type="radio" id="lgchoice2.1" name="radio2" value='article'><label for="lgchoice2.1">Article/Blog</label>
+                                                <input type="radio" id="lgchoice2.2" name="radio2" value='practical'><label for="lgchoice2.2">Hands On</label>
+                                                <input type="radio" id="lgchoice2.3" name="radio2" value='video'><label for="lgchoice2.3">Video</label>
+                                                <input type="radio" id="lgchoice2.4" name="radio2" value='book'><label for="lgchoice2.4">Book</label>
+                                                <input type="radio" id="lgchoice2.5" name="radio2" value='course'><label for="lgchoice2.5">Course</label>
+                                            </div>
+                                            <input type='submit' value='Done' class='actionBtn formBtn'>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                    <div class='newPath'>
-                        <div class='formWrap'>
-                            <form>
-                                <input type='text' class='invis' name='category'>
-                                <input type='text' class='invis' name='subcat'>
-                                <div class='chunk'>
-                                    <div class='head'>
-                                        <h3> Have A Resource That Helped You? </h3>
-                                        <select class='curCat'>
-                                            <option class='genCat' value='html'> HTML/CSS, All </option>
-                                            <option class='specCat' value='html' data-filter='fundamentals'>&nbsp;&nbsp; Fundamentals </option>
-                                            <option class='specCat' value='html' data-filter='firstsite'>&nbsp;&nbsp; Build First Website </option>
-                                            <option class='specCat' value='html' data-filter='responsive'>&nbsp;&nbsp; Responsive Web Design </option>
-                                            <option class='genCat' value='javascript'> Javascript, All </option>
-                                            <option class='specCat' value='javascript' data-filter='fundamentals'>&nbsp;&nbsp; Fundamentals </option>
-                                            <option class='specCat' value='javascript' data-filter='jquery'>&nbsp;&nbsp; jQuery </option>
-                                            <option class='specCat' value='javascript' data-filter='node'>&nbsp;&nbsp; Node.js </option>
-                                            <option class='specCat' value='javascript' data-filter='d3'>&nbsp;&nbsp; D3.js </option>
-                                            <option class='specCat' value='javascript' data-filter='react'>&nbsp;&nbsp; React </option>
-                                            <option class='genCat' value='sql'> SQL, All </option>
-                                            <option class='specCat' value='sql' data-filter='fundamentals'>&nbsp;&nbsp; Fundamentals </option>
-                                            <option class='specCat' value='sql' data-filter='analytics'>&nbsp;&nbsp; Intro To Analytics </option>
-                                            <option class='specCat' value='sql' data-filter='dbmgmt'>&nbsp;&nbsp; Database Management </option>
-                                        </select>
-                                    </div>
-                                    <div class='col1'>
-                                        <p> Link </p> 
-                                        <input type="text" class= "validUrl" name="link">
-                                        <p> Name of Resource (10 Words Max): </p> 
-                                        <input type="text" class='wordLimit' name="title">
-                                        <p> Challenge Level </p>
-                                        <div class="radioSet">
-                                            <input type="radio" id="choice1" name="radio1" value='beginner'><label for="choice1">Beginner</label>
-                                            <input type="radio" id="choice2" name="radio1" value='intermediate'><label for="choice2">Intermediate</label>
-                                            <input type="radio" id="choice3" name="radio1" value='advanced'><label for="choice3">Advanced</label>
-                                        </div>
-                                        <p id='formError'></p>
-                                    </div>
-                                    <div class='col2'>
-                                        <p> Brief Description (0/140): </p> 
-                                        <textarea class='descLimit' name="desc" maxlength="140"></textarea>
-                                        <p> Type of Content </p>
-                                        <div class="radioSet">
-                                            <input type="radio" id="choice2.1" name="radio2" value='article'><label for="choice2.1">Article/Blog</label>
-                                            <input type="radio" id="choice2.2" name="radio2" value='practical'><label for="choice2.2">Hands On</label>
-                                            <input type="radio" id="choice2.3" name="radio2" value='video'><label for="choice2.3">Video</label>
-                                            <input type="radio" id="choice2.4" name="radio2" value='book'><label for="choice2.4">Book</label>
-                                            <input type="radio" id="choice2.5" name="radio2" value='course'><label for="choice2.5">Course</label>
-                                        </div>
-                                        <input type='submit' value='Done' class='actionBtn formBtn'>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                    <!-- This div is all the plans that we are showing at time-->
+                    <div class='addPathsBody'>
+                        <table>
+                            <tbody>
+                            </tbody>
+                        </table>                    
                     </div>
-                </div>
-                <!-- This div is all the plans that we are showing at time-->
-                <div class='addPathsBody'>                    
                 </div>
             </div>
         </div>

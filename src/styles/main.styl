@@ -1,6 +1,6 @@
 body
 	margin 0
-	background-color #fafafa
+	background-color #f1f1f1
 	transition 250ms
 @font-face
 	font-family 'Roboto', sans-serif
@@ -39,7 +39,6 @@ a
 .search
 	float right
 	margin-top 3px
-	margin-right 16px
 	background-color #ccc	
 	margin-right 5px
 	border-radius 0 2px 2px 0
@@ -51,7 +50,123 @@ a
 	i
 		padding 0 8px 0 4px
 		cursor pointer
-		color #404040	
+		color #404040
+.newPath
+	border 2px solid #7979c7
+	border-radius 4px
+	position relative
+	background-color #fafafa
+	.fa-times
+		position absolute
+		cursor pointer
+		font-size 1.5em
+		top 3px
+		right 3px
+		display none
+		@media (max-width: 850px)
+			display block
+	.formWrap
+		form
+			margin 4px 0 12px 8px
+			.invis
+				display none
+			.chunk
+				h3
+					color #7979c7
+					display inline-block
+					@media (max-width: 1240px)
+						font-size 16px
+				select.curCat
+					display inline-block
+					margin 0
+					color #999
+					margin-left 16px
+					font-weight 400
+					font-size 14px
+					width 150px
+					@media (max-width: 560px)
+						margin 8px 0
+					.genCat
+						color #404040
+					.specCat
+						font-weight 300
+				p
+					color #404040
+					margin-bottom 4px
+					margin-top 8px
+				.col1
+					width 33%
+					@media (max-width: 1240px)
+						width 40%
+				.col2
+					width 60%
+					margin-left 6%
+					@media (max-width: 1240px)
+						margin-left 4%
+						width 55%
+				.col1, .col2
+					font-size 14px
+					display inline-block
+					vertical-align top
+					@media (max-width: 850px)
+						display block
+						margin-left 3%
+						width 96%
+					input[type="text"], textarea
+						width 80%
+						padding 2px
+						@media (max-width: 1240px)
+							width 95%
+					textarea
+						height 76px
+				.formBtn
+					border none
+					position absolute
+					font-size 14px
+					bottom 4px
+					right 4px
+					@media (max-width: 1240px)
+						position initial
+						float right
+						margin-top 8px
+						margin-right 8px
+					@media (max-width: 850px)
+						float none
+						display block
+						margin-top 16px
+				.ui-buttonset
+					display inline-block
+					input
+						display none
+					label
+						float left
+						padding 4px 8px
+						font-size 1em
+						font-weight 400
+						font-family inherit
+						cursor pointer
+						@media (max-width: 1240px)
+							font-size 12px
+				.formError
+					color red
+					margin-left 4px
+					@media (max-width: 1240px)
+						margin-top 4px
+						width 400px	
+.lightBox
+	display none
+	z-index 100
+	position absolute
+	top 0
+	bottom 0
+	left 0
+	right 0
+	background-color rgba(0,0,0,0.3)
+	.newPath
+		margin 30px auto 0 auto
+		width 80%
+		@media (max-width: 560px)
+			width 100%
 #topBar
 	background-color #e6e6e6
 	width 100%
@@ -72,15 +187,42 @@ a
 		vertical-align top
 		font-size 14px
 		margin 10px 0 0 4px
+		@media (max-width: 850px)
+			display none
+	.search
+		display none
+		@media (max-width: 850px)
+			display none
+	.searchShown
+		display block
+		@media (max-width: 850px)
+			display none
+	.menuToggle
+		float right
+		color #404040
+		font-size 24px
+		margin 4px 12px 0 0
+		display none
+		cursor pointer
+		@media (max-width: 850px)
+			display block
 #sideBar
 	background-color #2C3E50
-	width 280px
+	width 270px
 	position fixed
 	top 49px
 	left 0
 	bottom 0
+	z-index 10
+	@media (max-width: 1240px)
+		width 220px
+	@media (max-width: 850px)
+		display none
+		left auto
+		right 0
+		text-align right
 	.sideHead
-		padding 8px 0px 8px 8px
+		padding 8px
 		background-color rgba(0,0,0,0.3)
 		border-bottom 2px solid black
 		h3
@@ -107,11 +249,17 @@ a
 			padding-left 8px
 			font-size 0.8em
 			transition 500ms
+			@media (max-width: 850px)
+				padding-left 0 
+				padding-right 8px
 		p
 			color #f3f3f3
 			float left
 			padding-left 8px
 			margin-top -4px
+			@media (max-width: 850px)
+				padding-left 0 
+				padding-right 8px
 		ul
 			clear both
 			list-style-type none
@@ -124,23 +272,36 @@ a
 				margin 2px 0
 				padding-left 29px
 				cursor pointer
+				@media (max-width: 850px)
+					padding-left 0
+					padding-right 8px
+					padding-bottom 6px
 	.suggest
 		margin-top 8px
 		width 160px
 		margin 16px auto 0 auto
 		font-size 14px
 		text-align center
+		@media (max-width: 1240px)
+			padding 0.5em
 .window
 	position absolute
 	top 49px
-	left 280px
+	left 270px
 	bottom 0
 	right 0
+	@media (max-width: 1240px)
+		left 220px
+	@media (max-width: 850px)
+		left 0
 	.comments
 		bottom 8px
 		right 8px
 		position fixed
 		font-size 14px
+		z-index 11
+		@media (max-width: 850px)
+			display none
 	#opening
 		text-align center
 		.backImg
@@ -153,6 +314,8 @@ a
 			right 0
 			height 400px
 			z-index -1
+			@media (max-width: 600px)
+				height 250px
 			.screen
 				width 100%
 				height 100%
@@ -161,26 +324,57 @@ a
 			color white
 			margin-top 5.5em
 			margin-bottom 0.75em
+			@media (max-width: 1240px)
+				font-size 27px
+				margin-top 5.5em
+				padding 0 1.5em
+			@media (max-width: 600px)
+				font-size 21px
+				margin-top 4.5em
+			@media (max-width: 400px)
+				font-size 18px
+				margin-top 4em
 		> p
 			color white
 			font-size 18px
 			width 500px
 			line-height 140%
 			margin 0 auto
+			@media (max-width: 600px)
+				font-size 14px
+				width auto
+				padding 0 1em
+			@media (max-width: 400px)
+				margin-bottom 24px
 		.mainPgCat
 			display inline-block
 			width 160px
 			margin 160px 16px 0 16px
+			@media (max-width: 1240px)
+				margin-top 180px
+			@media (max-width: 600px)
+				width 120px
+				margin 80px 4px 0 4px
+			@media (max-width: 400px)
+				margin 64px 4px 0 16px
+				float left
 			> p
 				color #ccc
 			.links
 				margin 8px 0 4px 0
 			.initChoice
+				@media (max-width: 600px)
+					padding 0.25em 0.5em
+					height 20px
+					p
+						font-size 12px
+				.fa, span
+					font-size 22px
+					@media (max-width: 600px)
+						font-size 16px
 				span
 					font-weight 700
-					font-size 22px
 				.fa
-					font-size 22px
 					padding 2px 0 3px 0
 				p
 					display inline-block
@@ -196,29 +390,70 @@ a
 			right 8px
 			padding 4px 8px
 			background-color #e6e6e6
+			@media (max-width: 1240px)
+				font-size 14px
+			@media (max-width: 850px)
+				position initial
+				margin 8px 0 4px 8px
+				border-radius 4px
+				display inline-block
+			> div
+				@media (max-width: 850px)
+					display inline-block
 			p
 				color #7979c7
 				margin-bottom 4px
 				font-weight 700
+				@media (max-width: 1240px)
+					margin-bottom 8px
+				@media (max-width: 850px)
+					margin-bottom 4px
 			p.second
 				margin-top 8px
 			input
 				margin-right 2px
 				margin-bottom 8px
 				margin-left 8px
+				cursor pointer
+				@media (max-width: 1240px)
+					margin-bottom 12px
+				@media (max-width: 850px)
+					margin-left 0
+					margin-top 2px
+					margin-right 0
+					margin-bottom 6px
 			label
 				color #404040
 				font-weight 300
 				cursor pointer
-		.topOptions
-			margin 4px 8px
+				@media (max-width: 850px)
+					margin-right 8px
+					vertical-align top
+		#mainPane
+			background-color #fafafa
+			display inline-block
+			border-right 2px solid #ccc
 			width 800px
+			@media (max-width: 1240px)
+				width 75%
+			@media (max-width: 850px)
+				width 99%
+		.topOptions
+			margin 4px 8px 0 8px
 			.secondSearch
 				overflow hidden
 				display none
+				@media (max-width: 850px)
+					display block
+					input
+						width 200px
 				.add
 					color white
 					display inline-block
+					@media (max-width: 500px)
+						width 140px
+						display block
+						margin 4px auto
 					i
 						margin-right 4px
 					p
@@ -227,76 +462,23 @@ a
 				.search
 					float right
 					border 1px solid #ccc
+					@media (max-width: 500px)
+						float none
+						display block
+						width 231px
+						margin 16px auto 4px auto
+						border 1px solid #ccc
 			.newPath
-				border 2px solid #7979c7
-				border-radius 4px
-				position relative
-				.formWrap
-					form
-						margin 4px 0 12px 8px
-						.invis
-							display none
-						.chunk
-							h3
-								color #3394d4
-								display inline-block
-							select.curCat
-								display inline-block
-								margin 0
-								color #999
-								margin-left 8px
-								font-weight 400
-								font-size 14px
-								.genCat
-									color #404040
-								.specCat
-									font-weight 300
-							p
-								color #404040
-								margin-bottom 4px
-								margin-top 8px
-							.col1
-								width 33%
-							.col2
-								width 60%
-								margin-left 6%
-							.col1, .col2
-								font-size 14px
-								display inline-block
-								vertical-align top
-								input[type="text"], textarea
-									width 80%
-									padding 2px
-								textarea
-									height 76px
-							.formBtn
-								border none
-								position absolute
-								font-size 14px
-								bottom 4px
-								right 4px
-							.ui-buttonset
-								display inline-block
-								input
-									display none
-								label
-									float left
-									padding 4px 8px
-									font-size 1em
-									font-weight 400
-									font-family inherit
-									cursor pointer
-							#formError
-								color red
-								margin-left 4px
+				@media (max-width: 850px)
+					display none
 		.addPathsBody
-			margin 8px 12px 0 12px
-			width 796px
+			margin 4px 12px 8px 12px
 			display inline-block
 			.userPath
 				position relative
 				font-size 14px
-				margin-bottom 16px
+				.thumbUp
+					vertical-align top
 				.upVoteBox
 					display inline-block
 					vertical-align top
@@ -332,8 +514,10 @@ a
 						padding 2px 4px
 						color white
 						margin 0 0 0 8px
-					> p:first-of-type
-						margin-left 16px
+					.topLine
+						padding-top 16px
+						> p:first-of-type
+							margin-left 16px
 					.subcat
 						background-color #d47333
 					.filter
@@ -343,10 +527,14 @@ a
 					.linkLab
 						font-weight 300
 						color #ccc
-						width 725px
 						white-space nowrap
 						overflow hidden
 						text-overflow ellipsis
+						width 725px
+						@media (max-width: 1240px)
+							width 400px
+						@media (max-width: 600px)
+							width 200px
 					h3
 						display inline-block
 						color #3394d4
@@ -355,4 +543,5 @@ a
 							text-decoration underline
 					.description
 						color #404040
-						margin-top 6px				
+						margin-top 6px
+						line-height 140%		
