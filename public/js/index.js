@@ -3,6 +3,11 @@ var activeDataCategory ="";
 var activeSubCategory ="";
 var goodURL= false;
 
+//Capitalize first letter of a string
+function capLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 $.get('/voteTotal', function (votes){
 	for (var i= 0; i <votes.length; i++){
 		var container = $('#opening').find("[data-category='"+votes[i].category+"']");
@@ -57,15 +62,23 @@ $('.specClick').click(function(){
 	$('#sidebar').find("[data-category='"+datum+"']").click();
 });
 
-//Counter as user types
+//Counter as user types, must have all thre for all types of user input
 $('.descLimit').keypress(function(){
 	$(this).prev().text('Brief Description ('+$(this).val().length+'/140):');
 });
 
-//set 7 word limit to some fields
+$('.descLimit').keyup(function(){
+	$(this).prev().text('Brief Description ('+$(this).val().length+'/140):');
+});
+
+$('.descLimit').keydown(function(){
+	$(this).prev().text('Brief Description ('+$(this).val().length+'/140):');
+});
+
+//set 8 word limit to some fields
 $('.wordLimit').keypress(function(e){
 	var words = $(this).val().split(' ');
-	if(words.length >10)
+	if(words.length >8)
 		e.preventDefault();
 });
 
@@ -98,6 +111,7 @@ $('.listSelect').click(function(){
 	activeDataCategory = keyCat;
 	var txt= $(this).text();
 	$('.listSelect').removeClass('listHighlight');
+	$(".catHead").children('p').removeClass('listHighlight');
 	$(this).addClass('listHighlight');
 	$('.userPath').remove();
 	$('.curCat option[value="'+keyCat+'"][data-filter="'+keyData+'"]').prop('selected', true).trigger('change');
@@ -159,11 +173,11 @@ function addLink(linkData){
 	var shortDiff= linkData.challenge.slice(0, 1);
 	var upvoteSeg='<div class="upVoteBox"><p class="approval">Helped!</p><h2 class="upTotal">'+linkData.votes+'</h2><i class="fa fa-thumbs-o-up upvoteBtn" data-uniqueid="'+linkData.id+'"></i></div>';
 	if(linkData.subcategory.length > 1)
-		mainBody = '<div class="linkSum"><div class="topLine"><a href="'+linkData.link+'" target="_blank"><h3>'+linkData.title+'</h3></a><p class="subcat">'+linkData.subcategory+'</p><p class="filter">'+linkData.filter+'</p><p class="diff">'+shortDiff+'</p></div><p class="linkLab">'+linkData.link+'</p><p class="description">'+linkData.description+'</p></div>';
+		mainBody = '<div class="linkSum"><div class="topLine"><a href="'+linkData.link+'" target="_blank"><h3>'+capLetter(linkData.title)+'</h3></a><p class="subcat">'+linkData.subcategory+'</p><p class="filter">'+linkData.filter+'</p><p class="diff">'+shortDiff+'</p></div><p class="linkLab">'+linkData.link+'</p><p class="description">'+linkData.description+'</p></div>';
 	else
-		mainBody = '<div class="linkSum"><div class="topLine"><a href="'+linkData.link+'" target="_blank"><h3>'+linkData.title+'</h3></a><p class="filter">'+linkData.filter+'</p><p class="diff">'+shortDiff+'</p></div><p class="linkLab">'+linkData.link+'</p><p class="description">'+linkData.description+'</p></div>';
+		mainBody = '<div class="linkSum"><div class="topLine"><a href="'+linkData.link+'" target="_blank"><h3>'+capLetter(linkData.title)+'</h3></a><p class="filter">'+linkData.filter+'</p><p class="diff">'+shortDiff+'</p></div><p class="linkLab">'+linkData.link+'</p><p class="description">'+linkData.description+'</p></div>';
 	var linkEntry='<tr class="userPath" data-diff="'+linkData.challenge+'" data-type="'+linkData.filter+'"><td class="thumbUp">'+upvoteSeg+'</td><td class="mostTxt">'+mainBody+'</td></div>';
-	$('.addPathsBody').prepend(linkEntry);
+	$('.addPathsBody').children('table').children('tbody').prepend(linkEntry);
 }
 
 $('.legendBox').change(function(){
@@ -256,7 +270,7 @@ $('.fa-search').click(function(){
 	var searchTxt= $(this).siblings('input').val();
 	var foundin = $('.userPath:contains("'+searchTxt+'")');
 	for (var i=0; i < foundin.length; i++){
-		$('.addPathsBody').prepend(foundin[i]);
+		$('.addPathsBody').children('table').children('tbody').prepend(foundin[i]);
 	}
 });
 
@@ -272,4 +286,12 @@ $('.add').click(function(){
 
 $('.fa-times').click(function(){
 	$('.lightBox').hide();
+});
+
+//undo the css media query on resize
+$(window).resize(function() {
+	var windowsize = $(window).width();
+	if (windowsize > 851) {
+		$('#sidebar').show();
+	}
 });

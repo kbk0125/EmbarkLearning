@@ -37,7 +37,7 @@ connection.query('SELECT 1 FROM Links LIMIT 1;', function(err, rows, fields) {
 			'datecreated int,' +
 			'category VARCHAR(20) NOT NULL,' +
 			'subcategory VARCHAR(20),' +
-			'title VARCHAR(50) NOT NULL,' +
+			'title VARCHAR(100) NOT NULL,' +
 			'link VARCHAR(1000) NOT NULL,' +
 			'challenge VARCHAR(20) NOT NULL,' +
 			'description VARCHAR(150) NOT NULL,' +

@@ -14,7 +14,11 @@ module.exports = function(grunt) {
     // this way we can use things like name and version (pkg.name)
     
     pkg: grunt.file.readJSON('package.json'),
-
+    uglify: {
+      options: {
+        banner: '/*! Manual  - <%= grunt.template.today("mm-dd-yyyy") %> */\n'
+      }
+    },
     // all of our configuration will go here
     // configure jshint to validate js files -----------------------------------
     jshint: {
@@ -54,7 +58,7 @@ module.exports = function(grunt) {
       },
       // for scripts, run jshint and uglify 
       scripts: { 
-        files: 'public/js/*.js', 
+        files: 'public/js/*.js',
         tasks: ['jshint'] 
       } 
     },
@@ -67,7 +71,7 @@ module.exports = function(grunt) {
       }
     }
   });
-  grunt.registerTask('default', ['concurrent']); 
+  grunt.registerTask('default', ['concurrent', 'uglify']); 
   // ===========================================================================
   // LOAD GRUNT PLUGINS ========================================================
   // ===========================================================================
@@ -78,4 +82,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-concurrent');
+   // Load the plugin that provides the "uglify" task.
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 };
