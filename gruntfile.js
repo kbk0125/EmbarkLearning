@@ -2,7 +2,7 @@
 
 // our wrapper function (required by grunt and its plugins)
 // all configuration goes inside this function
-var stylish = require('jshint-stylish');
+//var stylish = require('jshint-stylish');
 module.exports = function(grunt) {
 
   // ===========================================================================
@@ -89,5 +89,5 @@ module.exports = function(grunt) {
    // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.registerTask('default', ['concurrent', 'uglify']);
-  grunt.registerTask('test', ['jshint']); 
+  //grunt.registerTask('test', ['jshint']); 
 };
