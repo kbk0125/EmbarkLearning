@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Manual, Top Coding Tutorials",
   "main": "index.js",
-  "license": "MIT",
+  "license": "ISC",
   "scripts": {
     "postinstall": "grunt uglify",
     "start": "node server.js"
@@ -11,10 +11,8 @@
   "engines": {
     "npm": "2.2.0",
     "node": "0.10.32"
-
   },
   "author": "Kevin Kononenko",
-  "license": "ISC",
   "dependencies": {
     "body-parser": "^1.14.1",
     "express": "^4.13.3",
@@ -31,6 +29,6 @@
     "grunt-contrib-stylus": "^0.22.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-nodemon": "^0.4.0",
-    "jshint-stylish": "^2.0.1"
+    "jshint-stylish": "^2.1.0"
   }
 }
