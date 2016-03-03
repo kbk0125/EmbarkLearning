@@ -29,6 +29,7 @@ else{
 }
 
 app.use(bodyParser.urlencoded({extended:false}));
+app.use(require('serve-favicon')(__dirname+'/public/img/favicon.ico'));
 
 // taken from https://www.youtube.com/watch?v=cUWcZ4FzgmI
 app.use(function (req, res, next) { 
