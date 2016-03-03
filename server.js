@@ -11,8 +11,15 @@ var parseUrlencoded= bodyParser.urlencoded({extended:false});
 var mysql = require('mysql');
 if (process.env.NODE_ENV === 'production') {
 	console.log('PRODUCTION YO');
+	var connection = mysql.createConnection({
+	  host     : 'us-cdbr-iron-east-03.cleardb.net',
+	  user     : 'bbfca2878fc249',
+	  password : 'bbe76fea',
+	  database : 'heroku_12e17f2b1c1f730'
+	});
 }
 else{
+	console.log('local');
 	var connection = mysql.createConnection({
 	  host     : 'localhost',
 	  user     : 'root',
