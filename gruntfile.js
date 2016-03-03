@@ -25,14 +25,14 @@ module.exports = function(grunt) {
     },
     // all of our configuration will go here
     // configure jshint to validate js files -----------------------------------
-    jshint: {
+    /*jshint: {
       options: {
         reporter: require('jshint-stylish') // use jshint-stylish to make our errors look and read good
       }
 
       // when this task is run, lint the Gruntfile and all js files in src
       //build: ['gruntfile.js', 'public/js/*.js']
-    },
+    },*/
     stylus: {
       build: {
         options: {
