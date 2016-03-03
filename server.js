@@ -8,13 +8,18 @@ var parseUrlencoded= bodyParser.urlencoded({extended:false});
 // MySql Init
 //https://www.npmjs.com/package/mysql
 //http://code.tutsplus.com/tutorials/nodejs-for-beginners--net-26314
-var mysql      = require('mysql');
-var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'sql',
-  database : 'embark'
-});
+var mysql = require('mysql');
+if (process.env.NODE_ENV === 'production') {
+	console.log('PRODUCTION YO');
+}
+else{
+	var connection = mysql.createConnection({
+	  host     : 'localhost',
+	  user     : 'root',
+	  password : 'sql',
+	  database : 'embark'
+	});
+}
 
 app.use(bodyParser.urlencoded({extended:false}));
 
