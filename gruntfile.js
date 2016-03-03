@@ -17,6 +17,10 @@ module.exports = function(grunt) {
     uglify: {
       options: {
         banner: '/*! Manual  - <%= grunt.template.today("mm-dd-yyyy") %> */\n'
+      }, 
+      build: {
+        src: 'src/factorial.js',
+        dest: 'build/factorial.min.js'
       }
     },
     // all of our configuration will go here
@@ -71,7 +75,6 @@ module.exports = function(grunt) {
       }
     }
   });
-  grunt.registerTask('default', ['concurrent', 'uglify']); 
   // ===========================================================================
   // LOAD GRUNT PLUGINS ========================================================
   // ===========================================================================
@@ -84,4 +87,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-concurrent');
    // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.registerTask('default', ['concurrent', 'uglify']); 
 };

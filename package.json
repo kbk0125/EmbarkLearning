@@ -1,24 +1,24 @@
 {
-  "name": "learningapp",
+  "name": "Manual",
   "version": "1.0.0",
   "description": "Manual, Top Coding Tutorials",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "engines": {
-      "node": "0.10.32"
-  },
-  "scripts": {
     "postinstall": "grunt uglify",
     "start": "node server.js"
+  },
+  "engines": {
+    "npm": "2.2.0",
+    "node": "0.10.32"
+
   },
   "author": "Kevin Kononenko",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.14.1",
     "express": "^4.13.3",
-    "grunt": "^0.4.5",
+    "grunt": "0.4.5",
+    "grunt-cli": "0.1.13",
     "grunt-contrib-uglify": "^0.11.1",
     "mysql": "^2.9.0",
     "react": "^0.14.1",
