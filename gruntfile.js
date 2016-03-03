@@ -25,14 +25,14 @@ module.exports = function(grunt) {
     },
     // all of our configuration will go here
     // configure jshint to validate js files -----------------------------------
-    /*jshint: {
+    jshint: {
       options: {
         reporter: require('jshint-stylish') // use jshint-stylish to make our errors look and read good
-      }
+      },
 
       // when this task is run, lint the Gruntfile and all js files in src
-      //build: ['gruntfile.js', 'public/js/*.js']
-    },*/
+      build: ['gruntfile.js', 'public/js/**/*.js']
+    },
     stylus: {
       build: {
         options: {
@@ -87,5 +87,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-concurrent');
    // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.registerTask('default', ['concurrent', 'uglify', 'jshint']); 
+  grunt.registerTask('default', ['concurrent', 'uglify']);
+  grunt.registerTask('test', ['jshint']); 
 };
