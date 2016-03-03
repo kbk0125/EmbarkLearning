@@ -31,7 +31,7 @@ module.exports = function(grunt) {
       },
 
       // when this task is run, lint the Gruntfile and all js files in src
-      build: ['gruntfile.js', 'public/js/**/*.js']
+      build: ['gruntfile.js', 'public/js/*.js']
     },
     stylus: {
       build: {
@@ -87,5 +87,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-concurrent');
    // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.registerTask('default', ['concurrent', 'uglify']); 
+  grunt.registerTask('default', ['concurrent', 'uglify', 'jshint']); 
 };
