@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Manual, Top Coding Tutorials",
   "main": "index.js",
+  "license": "MIT",
   "scripts": {
     "postinstall": "grunt uglify",
     "start": "node server.js"
