@@ -28,10 +28,10 @@ module.exports = function(grunt) {
     jshint: {
       options: {
         reporter: require('jshint-stylish') // use jshint-stylish to make our errors look and read good
-      },
+      }
 
       // when this task is run, lint the Gruntfile and all js files in src
-      build: ['gruntfile.js', 'public/js/*.js']
+      //build: ['gruntfile.js', 'public/js/*.js']
     },
     stylus: {
       build: {
