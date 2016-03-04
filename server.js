@@ -71,7 +71,7 @@ handleDisconnect();
 connection.query('SELECT 1 FROM Links LIMIT 1;', function(err, rows, fields) { 
 	if(err){
 		connection.query('CREATE TABLE Links (' +
-			'id int PRIMARY KEY NOT NULL AUTO_INCREMENT,' +
+			'id int NOT NULL AUTO_INCREMENT,' +
 			'datecreated int,' +
 			'category VARCHAR(20) NOT NULL,' +
 			'subcategory VARCHAR(20),' +
@@ -79,7 +79,8 @@ connection.query('SELECT 1 FROM Links LIMIT 1;', function(err, rows, fields) {
 			'link VARCHAR(1000) NOT NULL,' +
 			'challenge VARCHAR(20) NOT NULL,' +
 			'description VARCHAR(150) NOT NULL,' +
-			'filter VARCHAR(20) NOT NULL)', function(err, rows, fields) { 
+			'filter VARCHAR(20) NOT NULL,' +
+			'PRIMARY KEY (id))', function(err, rows, fields) { 
 		  	if (err) throw err;
 		});
 	}
@@ -91,10 +92,11 @@ connection.query('SELECT 1 FROM Links LIMIT 1;', function(err, rows, fields) {
 connection.query('SELECT 1 FROM Votes LIMIT 1;', function(err, rows, fields) { 
 	if(err){
 		connection.query('CREATE TABLE Votes (' +
-			'id int PRIMARY KEY NOT NULL AUTO_INCREMENT,' +
+			'id int NOT NULL AUTO_INCREMENT,' +
 			'linkid int,' +
 			'timeVoted int,' +
-			'voteNumber int)', function(err, rows, fields) { 
+			'voteNumber int,' +
+			'PRIMARY KEY (id))', function(err, rows, fields) { 
 		  	if (err) throw err;
 		});
 	}
