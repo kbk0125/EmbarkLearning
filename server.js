@@ -105,6 +105,14 @@ connection.query('SELECT 1 FROM Votes LIMIT 1;', function(err, rows, fields) {
 	}
 });
 
+//I hope this fucking works
+connection.query('ALTER TABLE Links AUTO_INCREMENT=1', function(err, rows, fields) { 
+	if (err) throw err;
+});
+connection.query('ALTER TABLE Votes AUTO_INCREMENT=1', function(err, rows, fields) { 
+	if (err) throw err;
+});
+
 // viewed at http://localhost:8080
 basicRouter.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
