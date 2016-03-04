@@ -5,6 +5,18 @@ var basicRouter = express.Router();
 var bodyParser = require('body-parser')
 var parseUrlencoded= bodyParser.urlencoded({extended:false});
 
+
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(require('serve-favicon')(__dirname+'/public/img/favicon.ico'));
+
+// taken from https://www.youtube.com/watch?v=cUWcZ4FzgmI
+app.use(function (req, res, next) { 
+	res.header('Access-Control-Allow-Origin-', "*"); 
+	res.header('Access-Control-Allow-Methods­','GET,PUT,POST,DELETE'); 
+	res.header('Access-Control-Allow-Headers­', 'Content-Type'); 
+	next();
+})
+
 // MySql Init
 //https://www.npmjs.com/package/mysql
 //http://code.tutsplus.com/tutorials/nodejs-for-beginners--net-26314
@@ -27,17 +39,6 @@ else{
 	  database : 'embark'
 	});
 }
-
-app.use(bodyParser.urlencoded({extended:false}));
-app.use(require('serve-favicon')(__dirname+'/public/img/favicon.ico'));
-
-// taken from https://www.youtube.com/watch?v=cUWcZ4FzgmI
-app.use(function (req, res, next) { 
-	res.header('Access-Control-Allow-Origin-', "*"); 
-	res.header('Access-Control-Allow-Methods­','GET,PUT,POST,DELETE'); 
-	res.header('Access-Control-Allow-Headers­', 'Content-Type'); 
-	next();
-})
  
 connection.connect();
 //connection.query('DROP TABLE Links');
@@ -144,7 +145,10 @@ app.post('/addVote', function(req, res){
 
 app.use('/', basicRouter)
 
-//connection.end();
+connection.end(function(err) {
+  if (err) throw err;
+});
+
 app.listen(process.env.PORT || 8080, function(){
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
