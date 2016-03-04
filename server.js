@@ -167,6 +167,20 @@ app.post('/addVote', function(req, res){
 	return res.sendStatus(200);
 })
 
+app.get('/testlinks', function(req, res){
+	connection.query('SELECT * FROM Links', function(err, result, fields) {
+		if (err) throw err;
+		res.send(result);
+	});
+});
+
+app.get('/testvotes', function(req, res){
+	connection.query('SELECT * FROM Votes', function(err, result, fields) {
+		if (err) throw err;
+		res.send(result);
+	});
+});
+
 app.use('/', basicRouter)
 
 app.listen(process.env.PORT || 8080, function(){
