@@ -81,7 +81,10 @@ connection.query('SELECT 1 FROM Links LIMIT 1;', function(err, rows, fields) {
 			'description VARCHAR(150) NOT NULL,' +
 			'filter VARCHAR(20) NOT NULL,' +
 			'PRIMARY KEY (id))', function(err, rows, fields) { 
-		  	if (err) throw err;
+		  		if (err) throw err;
+		  		connection.query('ALTER TABLE Links AUTO_INCREMENT=1', function(err, rows, fields) { 
+					if (err) throw err;
+				});
 		});
 	}
 	else{
@@ -97,20 +100,15 @@ connection.query('SELECT 1 FROM Votes LIMIT 1;', function(err, rows, fields) {
 			'timeVoted int,' +
 			'voteNumber int,' +
 			'PRIMARY KEY (id))', function(err, rows, fields) { 
-		  	if (err) throw err;
+		  		if (err) throw err;
+		  		connection.query('ALTER TABLE Votes AUTO_INCREMENT=1', function(err, rows, fields) { 
+					if (err) throw err;
+				});
 		});
 	}
 	else{
 		console.log("Votes table exists")
 	}
-});
-
-//I hope this fucking works
-connection.query('ALTER TABLE Links AUTO_INCREMENT=1', function(err, rows, fields) { 
-	if (err) throw err;
-});
-connection.query('ALTER TABLE Votes AUTO_INCREMENT=1', function(err, rows, fields) { 
-	if (err) throw err;
 });
 
 // viewed at http://localhost:8080
