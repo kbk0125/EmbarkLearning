@@ -23,24 +23,48 @@ app.use(function (req, res, next) {
 var mysql = require('mysql');
 if (process.env.NODE_ENV === 'production') {
 	console.log('PRODUCTION YO');
-	var connection = mysql.createConnection({
+	var db_config = {
 	  host     : 'us-cdbr-iron-east-03.cleardb.net',
 	  user     : 'bbfca2878fc249',
 	  password : 'bbe76fea',
 	  database : 'heroku_12e17f2b1c1f730'
-	});
+	};
 }
 else{
 	console.log('local');
-	var connection = mysql.createConnection({
+	var db_config = {
 	  host     : 'localhost',
 	  user     : 'root',
 	  password : 'sql',
 	  database : 'embark'
-	});
+	};
 }
- 
-connection.connect();
+
+var connection;
+//https://github.com/mescalito/MySql-NodeJS-Heroku/blob/master/web.js 
+function handleDisconnect() {
+    console.log('1. connecting to db:');
+    connection = mysql.createConnection(db_config); // Recreate the connection, since
+													// the old one cannot be reused.
+
+    connection.connect(function(err) {              	// The server is either down
+        if (err) {                                     // or restarting (takes a while sometimes).
+            console.log('2. error when connecting to db:', err);
+            setTimeout(handleDisconnect, 1000); // We introduce a delay before attempting to reconnect,
+        }                                     	// to avoid a hot loop, and to allow our node script to
+    });                                     	// process asynchronous requests in the meantime.
+    											// If you're also serving http, display a 503 error.
+    connection.on('error', function(err) {
+        console.log('3. db error', err);
+        if (err.code === 'PROTOCOL_CONNECTION_LOST') { 	// Connection to the MySQL server is usually
+            handleDisconnect();                      	// lost due to either server restart, or a
+        } else {                                      	// connnection idle timeout (the wait_timeout
+            throw err;                                  // server variable configures this)
+        }
+    });
+}
+
+handleDisconnect();
 //connection.query('DROP TABLE Links');
 //connection.query('DROP TABLE Votes');
 
@@ -145,9 +169,9 @@ app.post('/addVote', function(req, res){
 
 app.use('/', basicRouter)
 
-connection.end(function(err) {
+/*connection.end(function(err) {
   if (err) throw err;
-});
+});*/
 
 app.listen(process.env.PORT || 8080, function(){
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
