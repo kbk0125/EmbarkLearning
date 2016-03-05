@@ -4,7 +4,7 @@ var path = require('path');
 var basicRouter = express.Router();
 var bodyParser = require('body-parser')
 var parseUrlencoded= bodyParser.urlencoded({extended:false});
-
+var linkCount=0;
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(require('serve-favicon')(__dirname+'/public/img/favicon.ico'));
@@ -71,7 +71,7 @@ handleDisconnect();
 connection.query('SELECT 1 FROM Links LIMIT 1;', function(err, rows, fields) { 
 	if(err){
 		connection.query('CREATE TABLE Links (' +
-			'id int NOT NULL AUTO_INCREMENT,' +
+			'id int NOT NULL,' +
 			'datecreated int,' +
 			'category VARCHAR(20) NOT NULL,' +
 			'subcategory VARCHAR(20),' +
@@ -116,6 +116,9 @@ app.use(express.static(__dirname + '/public'));
 
 app.get('/voteTotal', function (req, res){
 	connection.query('SELECT COUNT(distinct l.title) as linkTot, COUNT(v.linkid) AS votes, l.category FROM Links l INNER JOIN Votes v ON l.id = v.linkid GROUP BY l.category;', function (err, result, fields) {
+		for(var i=0; i<result.length; i++){
+			linkCount+=result[i].linkTot;
+		}
 		if (err) throw err;
 		res.send(result)
 	})
@@ -143,11 +146,12 @@ app.post('/addLink', function(req, res){
 	var newPlan = req.body;
 	var curTime = Math.floor(Date.now() / 1000)
 
-	var link = {datecreated: curTime, category: req.body.category, subcategory: req.body.subcat, title: req.body.title, link: req.body.link, challenge: req.body.radio1, description: req.body.desc, filter: req.body.radio2};
+	var link = {id: linkCount+1, datecreated: curTime, category: req.body.category, subcategory: req.body.subcat, title: req.body.title, link: req.body.link, challenge: req.body.radio1, description: req.body.desc, filter: req.body.radio2};
 	connection.query('INSERT INTO Links SET ?', link,  function(err, result, fields) {
 		var key= result.insertId
 		if (err) throw err;
 		var vote = {linkid: key, timeVoted: curTime, voteNumber: 1}
+		linkCount++;
 		connection.query('INSERT INTO Votes SET ?', vote,  function(err, result, fields) {
 			if (err) throw err;
 		});
@@ -164,6 +168,7 @@ app.post('/addVote', function(req, res){
 	//Need to make this an array with 2 elements to feed it in
 	var vote = {linkid: uniqueid, timeVoted: curTime, voteNumber: count}
 	connection.query('INSERT INTO Votes SET ?', vote,  function(err, result, fields) {
+		console.log(result)
 		if (err) throw err;
 	});
 	return res.sendStatus(200);
