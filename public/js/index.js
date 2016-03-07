@@ -37,7 +37,7 @@ $(".catHead").click(function(){
 	$('.learningCat').show();
 	$('#topBar .search').addClass('searchShown');
 	$( ".radioSet" ).buttonset();
-	$('.learningCat').children('#mainPane').children('.topOptions').find('.head').children('.curCat').val(datum).trigger('change');
+	$('.curCat').val(datum).trigger('change');
 	$('.userPath').remove();
 	//AJAX to get list of user entered forms for the whole category
 	$.ajax({
@@ -134,8 +134,8 @@ $('.listSelect').click(function(){
 $('.curCat').change(function(){
 	var selectVal= $('.curCat option:selected').val();
 	var dataEl= $('.curCat option:selected').data('filter');
-	$('.learningCat').children('#mainPane').children('.topOptions').find('input[name="category"]').val(selectVal);
-	$('.learningCat').children('#mainPane').children('.topOptions').find('input[name="subcat"]').val(dataEl);
+	$('input[name="category"]').val(selectVal);
+	$('input[name="subcat"]').val(dataEl);
 });
 
 //Filling out your key resources
@@ -166,7 +166,8 @@ $('.formBtn').click(function(ev){
 			$(form).children('.chunk').find('input:radio').prop('checked', false);
 			$('.descLimit').prev().text('Brief Description (0/140):');
 			$('.radioSet').buttonset('refresh');
-
+			if ($(this).parents('.lightBox'))
+				$('.lightBox').hide();
 		});
 	}
 	else{
