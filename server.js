@@ -127,7 +127,7 @@ app.get('/voteTotal', function (req, res){
 //COMMENT APPROPRIATELY THROUGHOUT
 app.get('/linkList', function(req, res){
 	var listKey= req.query.listKey;
-	connection.query('SELECT l.id, l.datecreated, l.category, l.subcategory, l.title, l.link, l.challenge, l.description, l.filter, COUNT(v.linkid) AS votes FROM Links l INNER JOIN Votes v ON l.id = v.linkid WHERE l.category=? GROUP BY l.id ORDER BY votes ASC;', [listKey] ,function(err, result, fields) {
+	connection.query('SELECT l.id, l.datecreated, l.category, l.subcategory, l.title, l.link, l.challenge, l.description, l.filter, COUNT(v.linkid) AS votes FROM Links l INNER JOIN Votes v ON l.id = v.linkid WHERE l.category=? GROUP BY l.id ORDER BY votes ASC;', [listKey] ,function (err, result, fields) {
 		if (err) throw err;
 		res.send(result)
 	})
@@ -136,7 +136,7 @@ app.get('/linkList', function(req, res){
 app.get('/subLinkList', function(req, res){
 	var listKey= req.query.listKey;
 	var subKey= req.query.subKey;
-	connection.query('SELECT l.id, l.datecreated, l.category, l.subcategory, l.title, l.link, l.challenge, l.description, l.filter, COUNT(v.linkid) AS votes FROM Links l INNER JOIN Votes v ON l.id = v.linkid WHERE l.category=? AND l.subcategory=? GROUP BY l.id ORDER BY votes ASC;', [listKey,subKey] ,function(err, result, fields) {
+	connection.query('SELECT l.id, l.datecreated, l.category, l.subcategory, l.title, l.link, l.challenge, l.description, l.filter, COUNT(v.linkid) AS votes FROM Links l INNER JOIN Votes v ON l.id = v.linkid WHERE l.category=? AND l.subcategory=? GROUP BY l.id ORDER BY votes ASC;', [listKey,subKey] ,function (err, result, fields) {
 		if (err) throw err;
 		res.send(result)
 	})
@@ -147,12 +147,13 @@ app.post('/addLink', function(req, res){
 	var curTime = Math.floor(Date.now() / 1000)
 
 	var link = {id: linkCount+1, datecreated: curTime, category: req.body.category, subcategory: req.body.subcat, title: req.body.title, link: req.body.link, challenge: req.body.radio1, description: req.body.desc, filter: req.body.radio2};
-	connection.query('INSERT INTO Links SET ?', link,  function(err, result, fields) {
+	console.log(link)
+	connection.query('INSERT INTO Links SET ?', link,  function (err, result, fields) {
 		var key= result.insertId
 		if (err) throw err;
 		var vote = {linkid: key, timeVoted: curTime, voteNumber: 1}
 		linkCount++;
-		connection.query('INSERT INTO Votes SET ?', vote,  function(err, result, fields) {
+		connection.query('INSERT INTO Votes SET ?', vote,  function (err, result, fields) {
 			if (err) throw err;
 		});
 	});
@@ -167,7 +168,7 @@ app.post('/addVote', function(req, res){
 	var curTime = Math.floor(Date.now() / 1000)
 	//Need to make this an array with 2 elements to feed it in
 	var vote = {linkid: uniqueid, timeVoted: curTime, voteNumber: count}
-	connection.query('INSERT INTO Votes SET ?', vote,  function(err, result, fields) {
+	connection.query('INSERT INTO Votes SET ?', vote,  function (err, result, fields) {
 		console.log(result)
 		if (err) throw err;
 	});
@@ -175,14 +176,14 @@ app.post('/addVote', function(req, res){
 })
 
 app.get('/testlinks', function(req, res){
-	connection.query('SELECT * FROM Links', function(err, result, fields) {
+	connection.query('SELECT * FROM Links', function (err, result, fields) {
 		if (err) throw err;
 		res.send(result);
 	});
 });
 
 app.get('/testvotes', function(req, res){
-	connection.query('SELECT * FROM Votes', function(err, result, fields) {
+	connection.query('SELECT * FROM Votes', function (err, result, fields) {
 		if (err) throw err;
 		res.send(result);
 	});

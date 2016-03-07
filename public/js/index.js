@@ -83,10 +83,13 @@ $('.wordLimit').keypress(function(e){
 });
 
 //Validate URLs for user input
+//Issue with https links?
 function validateURL(textval) {
-  var urlregex = new RegExp(
-        "^(http|https|ftp)\://([a-zA-Z0-9\.\-]+(\:[a-zA-Z0-9\.&amp;%\$\-]+)*@)*((25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])|([a-zA-Z0-9\-]+\.)*[a-zA-Z0-9\-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(\:[0-9]+)*(/($|[a-zA-Z0-9\.\,\?\'\\\+&amp;%\$#\=~_\-]+))*$");
-  return urlregex.test(textval);
+	// Prevent catastrophic backtracking From http://stackoverflow.com/questions/10218594/how-can-i-make-this-regular-expression-not-result-in-catastrophic-backtracking
+	var urlregex = /\b((?:https?:\/\/|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))/i;
+	//var urlregex = new RegExp(
+    //    "^(http|https|ftp)\://([a-zA-Z0-9\.\-]+(\:[a-zA-Z0-9\.&amp;%\$\-]+)*@)*((25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])|([a-zA-Z0-9\-]+\.)*[a-zA-Z0-9\-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(\:[0-9]+)*(/($|[a-zA-Z0-9\.\,\?\'\\\+&amp;%\$#\=~_\-]+))*$");
+	return urlregex.test(textval);
 }
 
 
@@ -152,12 +155,17 @@ $('.formBtn').click(function(ev){
 		//form.find(':input').filter(function() { return !this.value; }).attr('disabled', 'disabled');
 		var newPlan = form.serialize();
 		$.post('/addLink', newPlan, function(linkData){
-			if (linkData.category == activeDataCategory)
+			console.log('here');
+			if (linkData.category == activeDataCategory){
 				addLink(linkData);
+				console.log('here2');
+			}
+				
 
 			//reset form
 			$(form).children('.chunk').find('input:text, textarea').val("");
 			$(form).children('.chunk').find('input:radio').prop('checked', false);
+			$('.descLimit').prev().text('Brief Description (0/140):');
 			$('.radioSet').buttonset('refresh');
 
 		});
@@ -170,14 +178,31 @@ $('.formBtn').click(function(ev){
 // Add the link once the user posts or overall GET
 function addLink(linkData){
 	var mainBody;
+	var nowTime = Math.floor(Date.now() / 1000);
+	var hourSec = 3600;
+	var origTime = linkData.datecreated;
+	var timeEl = nowTime - origTime;
+	//Number of days elapsed since the link was posted
+	var hoursEl= Math.floor(timeEl/hourSec);
+	//https://medium.com/hacking-and-gonzo/how-hacker-news-ranking-algorithm-works-1d9b0cf2c08d#.8pinx8221
+	var score = (linkData.votes)/ (Math.pow((hoursEl +2), 1.8));
 	var shortDiff= linkData.challenge.slice(0, 1);
+	
+
 	var upvoteSeg='<div class="upVoteBox"><p class="approval">Helped!</p><h2 class="upTotal">'+linkData.votes+'</h2><i class="fa fa-thumbs-o-up upvoteBtn" data-uniqueid="'+linkData.id+'"></i></div>';
 	if(linkData.subcategory.length > 1)
 		mainBody = '<div class="linkSum"><div class="topLine"><a href="'+linkData.link+'" target="_blank"><h3>'+capLetter(linkData.title)+'</h3></a><p class="subcat">'+linkData.subcategory+'</p><p class="filter">'+linkData.filter+'</p><p class="diff">'+shortDiff+'</p></div><p class="linkLab">'+linkData.link+'</p><p class="description">'+linkData.description+'</p></div>';
 	else
 		mainBody = '<div class="linkSum"><div class="topLine"><a href="'+linkData.link+'" target="_blank"><h3>'+capLetter(linkData.title)+'</h3></a><p class="filter">'+linkData.filter+'</p><p class="diff">'+shortDiff+'</p></div><p class="linkLab">'+linkData.link+'</p><p class="description">'+linkData.description+'</p></div>';
-	var linkEntry='<tr class="userPath" data-diff="'+linkData.challenge+'" data-type="'+linkData.filter+'"><td class="thumbUp">'+upvoteSeg+'</td><td class="mostTxt">'+mainBody+'</td></div>';
-	$('.addPathsBody').children('table').children('tbody').prepend(linkEntry);
+	var linkEntry = '<tr class="userPath" data-diff="'+linkData.challenge+'" data-type="'+linkData.filter+'" data-score="'+score+'"><td class="thumbUp">'+upvoteSeg+'</td><td class="mostTxt">'+mainBody+'</td></div>';
+
+	//http://stackoverflow.com/questions/14160498/sort-element-by-numerical-value-of-data-attribute
+	var wrapper = $('.addPathsBody').children('table').children('tbody');
+	$(wrapper).prepend(linkEntry);
+	wrapper.find('.userPath').sort(function(a, b) {
+	    return +b.dataset.score - +a.dataset.score;
+	})
+	.prependTo(wrapper)
 }
 
 $('.legendBox').change(function(){

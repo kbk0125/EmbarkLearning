@@ -1013,7 +1013,7 @@ a:hover {
 
 /* line 477 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\main.styl */
 .window .learningCat .addPathsBody {
-  margin: 4px 12px 8px 12px;
+  margin: 4px 12px 8px 8px;
   display: inline-block;
 }
 
