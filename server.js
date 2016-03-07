@@ -119,6 +119,7 @@ app.get('/voteTotal', function (req, res){
 		for(var i=0; i<result.length; i++){
 			linkCount+=result[i].linkTot;
 		}
+		console.log('Linkcount: '+linkCount);
 		if (err) throw err;
 		res.send(result)
 	})
