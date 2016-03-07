@@ -155,10 +155,8 @@ $('.formBtn').click(function(ev){
 		//form.find(':input').filter(function() { return !this.value; }).attr('disabled', 'disabled');
 		var newPlan = form.serialize();
 		$.post('/addLink', newPlan, function(linkData){
-			console.log('here');
 			if (linkData.category == activeDataCategory){
 				addLink(linkData);
-				console.log('here2');
 			}
 				
 
