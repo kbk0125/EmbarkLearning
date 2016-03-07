@@ -9,7 +9,8 @@ function capLetter(string) {
 }
 
 $.get('/voteTotal', function (votes){
-	for (var i= 0; i <votes.length; i++){
+	//since using WITH ROLLUP, do not count summary
+	for (var i= 0; i <votes.length-1; i++){
 		var container = $('#opening').find("[data-category='"+votes[i].category+"']");
 		$(container).children('.votes').text(votes[i].votes+' Votes');
 		$(container).children('.links').text(votes[i].linkTot+' Tutorials');

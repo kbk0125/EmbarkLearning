@@ -4,7 +4,6 @@ var path = require('path');
 var basicRouter = express.Router();
 var bodyParser = require('body-parser')
 var parseUrlencoded= bodyParser.urlencoded({extended:false});
-var linkCount=0;
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(require('serve-favicon')(__dirname+'/public/img/favicon.ico'));
@@ -115,11 +114,7 @@ basicRouter.get('/', function(req, res) {
 app.use(express.static(__dirname + '/public'));
 
 app.get('/voteTotal', function (req, res){
-	connection.query('SELECT COUNT(distinct l.title) as linkTot, COUNT(v.linkid) AS votes, l.category FROM Links l INNER JOIN Votes v ON l.id = v.linkid GROUP BY l.category;', function (err, result, fields) {
-		for(var i=0; i<result.length; i++){
-			linkCount+=result[i].linkTot;
-		}
-		console.log('Linkcount: '+linkCount);
+	connection.query('SELECT COUNT(distinct l.title) as linkTot, COUNT(v.linkid) AS votes, l.category FROM Links l INNER JOIN Votes v ON l.id = v.linkid GROUP BY l.category WITH ROLLUP;', function (err, result, fields) {
 		if (err) throw err;
 		res.send(result)
 	})
@@ -146,20 +141,21 @@ app.get('/subLinkList', function(req, res){
 app.post('/addLink', function(req, res){
 	var newPlan = req.body;
 	var curTime = Math.floor(Date.now() / 1000)
-
-	var link = {id: linkCount+1, datecreated: curTime, category: req.body.category, subcategory: req.body.subcat, title: req.body.title, link: req.body.link, challenge: req.body.radio1, description: req.body.desc, filter: req.body.radio2};
-	console.log(link)
-	connection.query('INSERT INTO Links SET ?', link,  function (err, result, fields) {
-		var key= result.insertId
+	connection.query('SELECT COUNT(*) AS idx FROM Links;', function (err, result, fields) {
 		if (err) throw err;
-		var vote = {linkid: key, timeVoted: curTime, voteNumber: 1}
-		linkCount++;
-		connection.query('INSERT INTO Votes SET ?', vote,  function (err, result, fields) {
+		var linkCount = result[0].idx;
+		var link = {id: linkCount+1, datecreated: curTime, category: req.body.category, subcategory: req.body.subcat, title: req.body.title, link: req.body.link, challenge: req.body.radio1, description: req.body.desc, filter: req.body.radio2};
+		connection.query('INSERT INTO Links SET ?', link,  function (err, result, fields) {
 			if (err) throw err;
+			linkCount++;
+			var vote = {linkid: linkCount, timeVoted: curTime, voteNumber: 1}
+			connection.query('INSERT INTO Votes SET ?', vote,  function (err, result, fields) {
+				if (err) throw err;
+				link['votes'] = 1;
+				res.send(link);
+			});
 		});
-	});
-	link['votes'] = 1;
-	res.send(link);	
+	})	
 })
 
 //update vote count in userplans
@@ -170,8 +166,8 @@ app.post('/addVote', function(req, res){
 	//Need to make this an array with 2 elements to feed it in
 	var vote = {linkid: uniqueid, timeVoted: curTime, voteNumber: count}
 	connection.query('INSERT INTO Votes SET ?', vote,  function (err, result, fields) {
-		console.log(result)
 		if (err) throw err;
+		console.log(result);
 	});
 	return res.sendStatus(200);
 })
