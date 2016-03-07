@@ -132,8 +132,8 @@ $('.listSelect').click(function(){
 });
 
 $('.curCat').change(function(){
-	var selectVal= $('.curCat option:selected').val();
-	var dataEl= $('.curCat option:selected').data('filter');
+	var selectVal= $($('.curCat option:selected')[1]).val();
+	var dataEl= $($('.curCat option:selected')[1]).data('filter');
 	$('input[name="category"]').val(selectVal);
 	$('input[name="subcat"]').val(dataEl);
 });
