@@ -2,6 +2,9 @@ var activeCategory ="";
 var activeDataCategory ="";
 var activeSubCategory ="";
 var goodURL= false;
+var dupe =["", ""];
+
+$( ".radioSet" ).buttonset();
 
 //Capitalize first letter of a string
 function capLetter(string) {
@@ -15,39 +18,70 @@ $.get('/voteTotal', function (votes){
 		$(container).children('.votes').text(votes[i].votes+' Votes');
 		$(container).children('.links').text(votes[i].linkTot+' Tutorials');
 	}
+	//This opens a category based on URL parameter
+	if(window.location.pathname !== '/'){
+		var str = window.location.pathname.replace(/\//g, '');
+		var category = $('#sidebar').find("[data-category='"+str+"']");
+		if(category.length > 0)
+			$(category).trigger('click');
+		else
+			window.location.pathname = '/';
+	}
 });
 
 $('.menuToggle').click(function(){
 	$('#sidebar').toggle('slide', {direction: 'right'});
 });
 
+$('.logoContain').click(function (){
+	$('.learningCat').hide();
+	$('#opening').show();
+	var sBar = $('#sidebar').find("[data-category='"+activeDataCategory+"']");
+	shrinkSideBar();
+	removeHighlight($(sBar).children('p'));
+	window.history.pushState(null, null, '/');
+})
+
+function resetSideBar(dataCat){
+	$(dataCat).children('i').toggleClass('fa-chevron right fa-chevron-down');
+	$(dataCat).siblings('ul').toggle('blind');
+}
+
+function shrinkSideBar(){
+	$('.catHead').children('i').removeClass('fa-chevron right fa-chevron-down');
+	$('.catHead').siblings('ul').hide('blind');
+}
+
+function removeHighlight(){
+	$(".catHead").children('p').removeClass('listHighlight');
+	$('.listSelect').removeClass('listHighlight');
+}
+
 // show/hide lists on sidebar
 $(".catHead").click(function(){
-	$(this).children('i').toggleClass('fa-chevron right fa-chevron-down');
-	$(this).siblings('ul').toggle('blind');
 	var txt= $(this).children('p').text();
 	var datum= $(this).data('category');
+
+	resetSideBar($(this));
+	$('#opening').hide();
+
+	removeHighlight();
+	$(this).children('p').addClass('listHighlight');
+
+	if(datum !== dupe[0])
+		window.history.pushState(null, null, "/"+datum);
+
 	activeCategory=txt;
 	activeDataCategory =datum;
 	activeSubCategory = "";
-	$('#opening').hide();
-	$(".catHead").children('p').removeClass('listHighlight');
-	$(this).children('p').addClass('listHighlight');
-	$('.listSelect').removeClass('listHighlight');
+
 	$('.learningCat').show();
-	$('#topBar .search').addClass('searchShown');
-	$( ".radioSet" ).buttonset();
 	$('.curCat').val(datum).trigger('change');
 	$('.userPath').remove();
+	$('.learnSum').hide();
+	$('.topOptions').find("[data-head='"+datum+"']").first().show();
 	//AJAX to get list of user entered forms for the whole category
-	$.ajax({
-		type:'GET',
-		url: '/linkList',
-		headers: { 'Access-Control-Allow-Origin': '*' },
-		crossDomain: true,
-		data: {listKey: datum}
-	})
-	.done(function(linkList){
+	$.get('/linkList', {listKey: datum}, function (linkList){
 		//Add user submitted plans to the list based on what users have added in past
 		if(linkList.length){
 			for(var i=0; i<linkList.length; i++){
@@ -64,15 +98,7 @@ $('.specClick').click(function(){
 });
 
 //Counter as user types, must have all thre for all types of user input
-$('.descLimit').keypress(function(){
-	$(this).prev().text('Brief Description ('+$(this).val().length+'/140):');
-});
-
-$('.descLimit').keyup(function(){
-	$(this).prev().text('Brief Description ('+$(this).val().length+'/140):');
-});
-
-$('.descLimit').keydown(function(){
+$('.descLimit').on('keypress keyup keydown', function(){
 	$(this).prev().text('Brief Description ('+$(this).val().length+'/140):');
 });
 
@@ -84,7 +110,6 @@ $('.wordLimit').keypress(function(e){
 });
 
 //Validate URLs for user input
-//Issue with https links?
 function validateURL(textval) {
 	// Prevent catastrophic backtracking From http://stackoverflow.com/questions/10218594/how-can-i-make-this-regular-expression-not-result-in-catastrophic-backtracking
 	var urlregex = /\b((?:https?:\/\/|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))/i;
@@ -110,16 +135,21 @@ $('.validUrl').blur(function(){
 //Show diff subcategories in main window
 $('.listSelect').click(function(){
 	var keyData = $(this).data('filter');
-	activeSubCategory =keyData;
 	var keyCat= $(this).parent().siblings('.catHead').data('category');
-	activeDataCategory = keyCat;
 	var txt= $(this).text();
-	$('.listSelect').removeClass('listHighlight');
-	$(".catHead").children('p').removeClass('listHighlight');
+	
+	removeHighlight();
 	$(this).addClass('listHighlight');
+	
+	activeSubCategory =keyData;
+	activeDataCategory = keyCat;
+	
+	if(keyCat !== dupe[0] && keyData !== dupe[1])
+		window.history.pushState(null, null, '/'+keyCat+'/'+keyData);
 	$('.userPath').remove();
 	$('.curCat option[value="'+keyCat+'"][data-filter="'+keyData+'"]').prop('selected', true).trigger('change');
-
+	$('.learnSum').hide();
+	$('.learnSum[data-head="'+keyCat+'"][data-sub="'+keyData+'"]').show();
 	//AJAX to get list of user entered forms based on both category and subcategory
 	$.get('/subLinkList', {listKey: keyCat, subKey:keyData}, function (linkList){
 		//Add user submitted plans to the list based on what users have added in past
@@ -186,7 +216,7 @@ function addLink(linkData){
 	var hoursEl= Math.floor(timeEl/hourSec);
 	//https://medium.com/hacking-and-gonzo/how-hacker-news-ranking-algorithm-works-1d9b0cf2c08d#.8pinx8221
 	var score = (linkData.votes)/ (Math.pow((hoursEl +2), 1.8));
-	var shortDiff= linkData.challenge.slice(0, 1);
+	var shortDiff= linkData.challenge.slice(0, 3);
 	
 
 	var upvoteSeg='<div class="upVoteBox"><p class="approval">Helped!</p><h2 class="upTotal">'+linkData.votes+'</h2><i class="fa fa-thumbs-o-up upvoteBtn" data-uniqueid="'+linkData.id+'"></i></div>';
@@ -320,3 +350,31 @@ $(window).resize(function() {
 		$('#sidebar').show();
 	}
 });
+
+window.onpopstate = function(){
+	var prev =location.pathname;
+	var str = prev.split("/");
+	str.shift();
+	if(str[0].length >1 && str.length ==1){
+		var category = $('#sidebar').find("[data-category='"+str[0]+"']");
+		dupe[0] = str[0];
+		dupe[1] = "";
+		$(category).trigger('click');
+	}
+	else if(str[0].length >1 && str.length ==2){
+		var category = $('#sidebar').find("[data-category='"+str[0]+"']");
+		var listEl = (category).siblings('ul').find("[data-filter='"+str[1]+"']");
+		dupe[0] = str[0];
+		dupe[1] = str[1];
+		$(listEl).trigger('click');
+	}
+	else{
+		$('.learningCat').hide();
+		$('#opening').show();
+		var sBar = $('#sidebar').find("[data-category='"+activeDataCategory+"']");
+		shrinkSideBar();
+		removeHighlight($(sBar).children('p'));
+		dupe[0] = "";
+		dupe[1] = "";
+	}
+}

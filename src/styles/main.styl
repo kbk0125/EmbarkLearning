@@ -40,7 +40,6 @@ a
 	float right
 	margin-top 3px
 	background-color #ccc	
-	margin-right 5px
 	border-radius 0 2px 2px 0
 	input
 		padding 6px 4px
@@ -62,12 +61,9 @@ a
 		font-size 1.5em
 		top 3px
 		right 3px
-		display none
-		@media (max-width: 850px)
-			display block
 	.formWrap
 		form
-			margin 4px 0 12px 8px
+			margin 8px 8px 16px 12px
 			.invis
 				display none
 			.chunk
@@ -84,8 +80,9 @@ a
 					font-weight 400
 					font-size 14px
 					width 150px
-					@media (max-width: 560px)
-						margin 8px 0 8px 3%
+					@media (max-width: 600px)
+						display block
+						margin 8px 0
 					.genCat
 						color #404040
 					.specCat
@@ -110,13 +107,11 @@ a
 					vertical-align top
 					@media (max-width: 850px)
 						display block
-						margin-left 3%
+						margin-left 0%
 						width 96%
 					input[type="text"], textarea
-						width 80%
+						width 95%
 						padding 2px
-						@media (max-width: 1240px)
-							width 95%
 					textarea
 						height 76px
 				.formBtn
@@ -152,7 +147,10 @@ a
 					margin-left 4px
 					@media (max-width: 1240px)
 						margin-top 4px
-						width 400px	
+						width 400px
+					@media (max-width: 560px)
+						width 300px	
+						margin-left 0
 .lightBox
 	display none
 	z-index 100
@@ -164,7 +162,9 @@ a
 	background-color rgba(0,0,0,0.3)
 	.newPath
 		margin 30px auto 0 auto
-		width 80%
+		width 800px
+		@media (max-width: 850px)
+			width 80%
 		@media (max-width: 560px)
 			width 96%
 #topBar
@@ -173,6 +173,9 @@ a
 	padding 6px 0
 	position fixed
 	z-index 10
+	.logoContain
+		display inline-block
+		cursor pointer
 	img
 		display inline-block
 		height 33px
@@ -187,15 +190,7 @@ a
 		vertical-align top
 		font-size 14px
 		margin 10px 0 0 4px
-		@media (max-width: 850px)
-			display none
-	.search
-		display none
-		@media (max-width: 850px)
-			display none
-	.searchShown
-		display block
-		@media (max-width: 850px)
+		@media (max-width: 600px)
 			display none
 	.menuToggle
 		float right
@@ -442,12 +437,47 @@ a
 			@media (max-width: 850px)
 				width 99%
 		.topOptions
-			margin 4px 8px 0 8px
+			margin 8px 8px 0 12px
+			.learnSum
+				border-bottom 1px solid #ccc
+				padding-bottom 8px
+				margin-bottom 12px
+				display none
+				h2
+					color #7979c7
+					font-size 1.2em
+				.suggest
+					width 49%
+					display inline-block
+					padding-top 12px
+					vertical-align top
+					> div
+						margin-bottom 2px
+					i, p
+						display inline-block
+					p, span
+						font-size 14px
+					p.title
+						display block
+						color #404040
+						font-weight 700
+						margin-bottom 4px
+					i
+						padding-bottom 2px
+						padding-right 4px
+					span
+						font-weight 700
+				.suggest.prev
+					i
+						color green
+				.suggest.next
+					i
+						color red
+				@media (max-width: 600px)
+					display none !important
 			.secondSearch
 				overflow hidden
-				display none
 				@media (max-width: 850px)
-					display block
 					input
 						width 200px
 				.add
@@ -471,9 +501,6 @@ a
 						width 231px
 						margin 16px auto 4px auto
 						border 1px solid #ccc
-			.newPath
-				@media (max-width: 850px)
-					display none
 		.addPathsBody
 			margin 4px 12px 8px 8px
 			display inline-block

@@ -5,6 +5,7 @@
     <title>Manual- Top Coding Tutorials On The Web</title>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700,900' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <meta name="viewport", content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link rel="stylesheet" type="text/css" href="/css/theme.css">
     <link rel="shortcut icon" type="image/ico" href='/img/favicon.ico'>
@@ -70,14 +71,12 @@
             </div>
         </div>
         <div id="topBar">
-            <img src='/img/mainlogo.png'>
-            <h3>Manual</h3>
+            <div class='logoContain'>
+                <img src='/img/mainlogo.png'>
+                <h3>Manual</h3>
+            </div>
             <p> User-generated guide to top coding resources </p>
             <i class="fa fa-bars menuToggle"></i>
-            <div class='search'>
-                <input type='text' placeholder='Search' class='searchBox'>
-                <i class="fa fa-search"></i>
-            </div>
         </div>
         <div id="sidebar">
             <div class='sideHead'>
@@ -177,6 +176,192 @@
                 </div>
                 <div id='mainPane'>
                     <div class='topOptions'>
+                        <div class='learnSum' data-head='html'>
+                            <h2> HTML/CSS- All </h2>
+                            <p> The building blocks of a website </p>
+                            <div class='suggest prev'>
+                                <p class='title'> First, you GOTTA know: </p>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> Just be an internet user! </p></div>
+                            </div>
+                            <div class='suggest next'>
+                                <p class='title'> Next, you can learn: </p>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Interactive Websites: </span><p class='listEl'> Javascript </p></div>
+                            </div>
+                        </div>
+                        <div class='learnSum' data-head='html' data-sub='fundamentals'>
+                            <h2> HTML/CSS- Fundamentals </h2>
+                            <p> Take the first steps towards learning web development </p>
+                            <div class='suggest prev'>
+                                <p class='title'> First, you GOTTA know: </p>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> Just be an internet user! </p></div>
+                            </div>
+                            <div class='suggest next'>
+                                <p class='title'> Next, you can learn: </p>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Your First Project: </span><p class='listEl'> Build A Full Site </p></div>
+                            </div>
+                        </div>
+                        <div class='learnSum' data-head='html' data-sub='fullsite'>
+                            <h2> HTML/CSS- Build First Site </h2>
+                            <p> Build a basic website and start your portfolio </p>
+                            <div class='suggest prev'>
+                                <p class='title'> First, you GOTTA know: </p>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> HTML/CSS Fundamentals </p></div>
+                            </div>
+                            <div class='suggest next'>
+                                <p class='title'> Next, you can learn: </p>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Fit All Screen Sizes: </span><p class='listEl'> Responsive Web Design </p></div>
+                            </div>
+                        </div>
+                        <div class='learnSum' data-head='html' data-sub='responsive'>
+                            <h2> HTML/CSS- Responsive Design </h2>
+                            <p> Make your website beautiful on all screen sizes </p>
+                            <div class='suggest prev'>
+                                <p class='title'> First, you GOTTA know: </p>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> Build A Full Site </p></div>
+                            </div>
+                            <div class='suggest next'>
+                                <p class='title'> Next, you can learn: </p>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Interactive Websites: </span><p class='listEl'> Javascript </p></div>
+                            </div>
+                        </div>
+                        <div class='learnSum' data-head='javascript'>
+                            <h2> Javascript- All </h2>
+                            <p> Add interactive elements and build real-time web apps </p>
+                            <div class='suggest prev'>
+                                <p class='title'> First, you GOTTA know: </p>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> HTML/CSS Fundamentals </p></div>
+                            </div>
+                            <div class='suggest next'>
+                                <p class='title'> Next, you can learn: </p>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Store Data For Your Site: </span><p class='listEl'> Databases </p></div>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Fit All Screen Sizes: </span><p class='listEl'> Responsive Web Design </p></div>
+                            </div>
+                        </div>
+                        <div class='learnSum' data-head='javascript' data-sub='fundamentals'>
+                            <h2> Javascript- Fundamentals </h2>
+                            <p> Learn programming basics and then make your site more fun </p>
+                            <div class='suggest prev'>
+                                <p class='title'> First, you GOTTA know: </p>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> HTML/CSS Fundamentals </p></div>
+                            </div>
+                            <div class='suggest next'>
+                                <p class='title'> Next, you can learn: </p>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Interactive Site Elements: </span><p class='listEl'> JQuery </p></div>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Javascript For Back End: </span><p class='listEl'> Node.js </p></div>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Data Visualization: </span><p class='listEl'> D3.js </p></div>
+                            </div>
+                        </div>
+                        <div class='learnSum' data-head='javascript' data-sub='jquery'>
+                            <h2> Javascript- JQuery </h2>
+                            <p> Easily add interactive elements to your site </p>
+                            <div class='suggest prev'>
+                                <p class='title'> First, you GOTTA know: </p>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> HTML/CSS Fundamentals </p></div>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> Javascript Fundamentals </p></div>
+                            </div>
+                            <div class='suggest next'>
+                                <p class='title'> Next, you can learn: </p>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Javascript For Back End: </span><p class='listEl'> Node.js </p></div>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Data Visualization: </span><p class='listEl'> D3.js </p></div>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Easily Connect Back And Front End: </span><p class='listEl'> React </p></div>
+                            </div>
+                        </div>
+                        <div class='learnSum' data-head='javascript' data-sub='node'>
+                            <h2> Javascript- Node.js </h2>
+                            <p> Javascript throughout your stack for modern web apps </p>
+                            <div class='suggest prev'>
+                                <p class='title'> First, you GOTTA know: </p>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> HTML/CSS Fundamentals </p></div>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> Javascript Fundamentals </p></div>
+                            </div>
+                            <div class='suggest next'>
+                                <p class='title'> Next, you can learn: </p>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Interactive Site Elements: </span><p class='listEl'> JQuery </p></div>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Data Visualization: </span><p class='listEl'> D3.js </p></div>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Easily Connect Back And Front End: </span><p class='listEl'> React </p></div>
+                            </div>
+                        </div>
+                        <div class='learnSum' data-head='javascript' data-sub='d3'>
+                            <h2> Javascript- D3.js </h2>
+                            <p> The best data visualization library on the web</p>
+                            <div class='suggest prev'>
+                                <p class='title'> First, you GOTTA know: </p>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> HTML/CSS Fundamentals </p></div>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> Javascript Fundamentals </p></div>
+                            </div>
+                            <div class='suggest next'>
+                                <p class='title'> Next, you can learn: </p>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Interactive Site Elements: </span><p class='listEl'> JQuery </p></div>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Javascript For Back End: </span><p class='listEl'> Node.js </p></div>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Easily Connect Back And Front End: </span><p class='listEl'> React </p></div>
+                            </div>
+                        </div>
+                        <div class='learnSum' data-head='javascript' data-sub='react'>
+                            <h2> Javascript- React.js </h2>
+                            <p> Untangle your front-end with a MVC framework</p>
+                            <div class='suggest prev'>
+                                <p class='title'> First, you GOTTA know: </p>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> HTML/CSS Fundamentals </p></div>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> Javascript Fundamentals </p></div>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> Node.js </p></div>
+                            </div>
+                            <div class='suggest next'>
+                                <p class='title'> Next, you can learn: </p>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Interactive Site Elements: </span><p class='listEl'> JQuery </p></div>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Data Visualization: </span><p class='listEl'> D3.js </p></div>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Store Data For Your Site: </span><p class='listEl'> Databases </p></div>
+                            </div>
+                        </div>
+                        <div class='learnSum' data-head='databases'>
+                            <h2> Databases- All </h2>
+                            <p> Store and manage data on your site </p>
+                            <div class='suggest prev'>
+                                <p class='title'> First, you GOTTA know: </p>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> Just be an internet user! </p></div>
+                            </div>
+                            <div class='suggest next'>
+                                <p class='title'> Next, you can learn: </p>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Build Your Own Website: </span><p class='listEl'> HTML/CSS </p></div>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Interactive Websites: </span><p class='listEl'> Javascript </p></div>
+                            </div>
+                        </div>
+                        <div class='learnSum' data-head='databases' data-sub='fundamentals'>
+                            <h2> Databases- Fundamentals </h2>
+                            <p> Learn the basics of multiple popular relational databases </p>
+                            <div class='suggest prev'>
+                                <p class='title'> First, you GOTTA know: </p>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> Just be an internet user! </p></div>
+                            </div>
+                            <div class='suggest next'>
+                                <p class='title'> Next, you can learn: </p>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Business/Marketing Insights: </span><p class='listEl'> Intro to Analytics </p></div>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Design A Scalable Database: </span><p class='listEl'> Database Management </p></div>
+                            </div>
+                        </div>
+                        <div class='learnSum' data-head='databases' data-sub='analytics'>
+                            <h2> Databases- Intro to Analytics </h2>
+                            <p> Create insights for business/marketing decisions </p>
+                            <div class='suggest prev'>
+                                <p class='title'> First, you GOTTA know: </p>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> Database Fundamentals </p></div>
+                            </div>
+                            <div class='suggest next'>
+                                <p class='title'> Next, you can learn: </p>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Design A Scalable Database: </span><p class='listEl'> Database Management </p></div>
+                            </div>
+                        </div>
+                        <div class='learnSum' data-head='databases' data-sub='dbmgmt'>
+                            <h2> Databases- Management </h2>
+                            <p> Make sure you store all the appropriate info in a scalable way </p>
+                            <div class='suggest prev'>
+                                <p class='title'> First, you GOTTA know: </p>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> Database Fundamentals </p></div>
+                            </div>
+                            <div class='suggest next'>
+                                <p class='title'> Next, you can learn: </p>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Business/Marketing Insights: </span><p class='listEl'> Intro to Analytics </p></div>
+                            </div>
+                        </div>
                         <div class='secondSearch'>
                             <div class='add actionBtn'>
                                 <i class='fa fa-plus'></i>
@@ -185,61 +370,6 @@
                             <div class='search'>
                                 <input type='text' placeholder='Search' class='searchBox'>
                                 <i class="fa fa-search"></i>
-                            </div>
-                        </div>
-                        <div class='newPath'>
-                            <div class='formWrap'>
-                                <form>
-                                    <input type='text' class='invis' name='category'>
-                                    <input type='text' class='invis' name='subcat'>
-                                    <div class='chunk'>
-                                        <div class='head'>
-                                            <h3> Have A Resource That Helped You? </h3>
-                                            <select class='curCat'>
-                                                <option class='genCat' value='html'> HTML/CSS, All </option>
-                                                <option class='specCat' value='html' data-filter='fundamentals'>&nbsp;&nbsp; Fundamentals </option>
-                                                <option class='specCat' value='html' data-filter='fullsite'>&nbsp;&nbsp; Build First Website </option>
-                                                <option class='specCat' value='html' data-filter='responsive'>&nbsp;&nbsp; Responsive Web Design </option>
-                                                <option class='genCat' value='javascript'> Javascript, All </option>
-                                                <option class='specCat' value='javascript' data-filter='fundamentals'>&nbsp;&nbsp; Fundamentals </option>
-                                                <option class='specCat' value='javascript' data-filter='jquery'>&nbsp;&nbsp; jQuery </option>
-                                                <option class='specCat' value='javascript' data-filter='node'>&nbsp;&nbsp; Node.js </option>
-                                                <option class='specCat' value='javascript' data-filter='d3'>&nbsp;&nbsp; D3.js </option>
-                                                <option class='specCat' value='javascript' data-filter='react'>&nbsp;&nbsp; React </option>
-                                                <option class='genCat' value='databases'> Databases, All </option>
-                                                <option class='specCat' value='databases' data-filter='fundamentals'>&nbsp;&nbsp; Fundamentals </option>
-                                                <option class='specCat' value='databases' data-filter='analytics'>&nbsp;&nbsp; Intro To Analytics </option>
-                                                <option class='specCat' value='databases' data-filter='dbmgmt'>&nbsp;&nbsp; Database Management </option>
-                                            </select>
-                                        </div>
-                                        <div class='col1'>
-                                            <p> Link: </p> 
-                                            <input type="text" class= "validUrl" name="link">
-                                            <p> Title (8 Words Max): </p> 
-                                            <input type="text" class='wordLimit' name="title">
-                                            <p> Challenge Level </p>
-                                            <div class="radioSet">
-                                                <input type="radio" id="lgchoice1" name="radio1" value='beginner'><label for="lgchoice1">Beginner</label>
-                                                <input type="radio" id="lgchoice2" name="radio1" value='intermediate'><label for="lgchoice2">Intermediate</label>
-                                                <input type="radio" id="lgchoice3" name="radio1" value='advanced'><label for="lgchoice3">Advanced</label>
-                                            </div>
-                                            <p class='formError large'></p>
-                                        </div>
-                                        <div class='col2'>
-                                            <p> Brief Description (0/140): </p> 
-                                            <textarea class='descLimit' name="desc" maxlength="140"></textarea>
-                                            <p> Type of Content </p>
-                                            <div class="radioSet">
-                                                <input type="radio" id="lgchoice2.1" name="radio2" value='article'><label for="lgchoice2.1">Article/Blog</label>
-                                                <input type="radio" id="lgchoice2.2" name="radio2" value='practical'><label for="lgchoice2.2">Hands On</label>
-                                                <input type="radio" id="lgchoice2.3" name="radio2" value='video'><label for="lgchoice2.3">Video</label>
-                                                <input type="radio" id="lgchoice2.4" name="radio2" value='book'><label for="lgchoice2.4">Book</label>
-                                                <input type="radio" id="lgchoice2.5" name="radio2" value='course'><label for="lgchoice2.5">Course</label>
-                                            </div>
-                                            <input type='submit' value='Done' class='actionBtn formBtn'>
-                                        </div>
-                                    </div>
-                                </form>
                             </div>
                         </div>
                     </div>
