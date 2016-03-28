@@ -60,7 +60,7 @@ a
 		cursor pointer
 		font-size 1.5em
 		top 3px
-		right 3px
+		right 7px
 	.formWrap
 		form
 			margin 8px 8px 16px 12px
@@ -336,25 +336,35 @@ a
 			font-size 18px
 			width 500px
 			line-height 140%
-			margin 0 auto
+			margin 0 auto 80px auto
+			@media (max-width: 1240px)
+				margin-bottom 100px
+			@media (max-width: 800px)
+				margin-bottom 80px
 			@media (max-width: 600px)
 				font-size 14px
 				width auto
 				padding 0 1em
+				margin-bottom 0px
+		.featureRow
+			padding-top 80px
+		.featureRow.second
 			@media (max-width: 400px)
-				margin-bottom 24px
+				padding-top 0
+		.phantomBox
+			@media (max-width: 400px)
+				display none
 		.mainPgCat
 			display inline-block
-			width 160px
-			margin 160px 16px 0 16px
-			@media (max-width: 1240px)
-				margin-top 180px
+			width 165px
+			margin 0px 16px
 			@media (max-width: 600px)
 				width 120px
-				margin 80px 4px 0 4px
+				margin-left 4px
+				margin-right 4px
 			@media (max-width: 400px)
-				margin 64px 4px 0 16px
-				float left
+				display block
+				margin 0 auto 32px auto
 			> p
 				color #999
 				font-weight 300
@@ -379,7 +389,11 @@ a
 					color white
 					vertical-align top
 					margin-top 4px
-					margin-left 6px
+					margin-left 8px
+				p.smallTxt
+					font-size 14px
+					@media (max-width: 600px)
+						font-size 11px
 	.learningCat
 		display none
 		.legend

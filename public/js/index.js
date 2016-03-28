@@ -74,7 +74,7 @@ $(".catHead").click(function(){
 	activeCategory=txt;
 	activeDataCategory =datum;
 	activeSubCategory = "";
-
+	$('.legendBox').removeAttr('checked');
 	$('.learningCat').show();
 	$('.curCat').val(datum).trigger('change');
 	$('.userPath').remove();
@@ -150,6 +150,7 @@ $('.listSelect').click(function(){
 	$('.curCat option[value="'+keyCat+'"][data-filter="'+keyData+'"]').prop('selected', true).trigger('change');
 	$('.learnSum').hide();
 	$('.learnSum[data-head="'+keyCat+'"][data-sub="'+keyData+'"]').show();
+	$('.legendBox').removeAttr('checked');
 	//AJAX to get list of user entered forms based on both category and subcategory
 	$.get('/subLinkList', {listKey: keyCat, subKey:keyData}, function (linkList){
 		//Add user submitted plans to the list based on what users have added in past

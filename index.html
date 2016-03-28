@@ -37,6 +37,10 @@
                                     <option class='specCat' value='databases' data-filter='fundamentals'>&nbsp;&nbsp; Fundamentals </option>
                                     <option class='specCat' value='databases' data-filter='analytics'>&nbsp;&nbsp; Intro To Analytics </option>
                                     <option class='specCat' value='databases' data-filter='dbmgmt'>&nbsp;&nbsp; Database Management </option>
+                                    <option class='genCat' value='userexperience'> User Experience, All </option>
+                                    <option class='specCat' value='userexperience' data-filter='fundamentals'>&nbsp;&nbsp; Fundamentals </option>
+                                    <option class='specCat' value='userexperience' data-filter='landingpage'>&nbsp;&nbsp; Landing Page </option>
+                                    <option class='specCat' value='userexperience' data-filter='onboarding'>&nbsp;&nbsp; Onboarding </option>
                                 </select>
                             </div>
                             <div class='col1'>
@@ -117,6 +121,17 @@
                     <li class='listSelect' data-filter='dbmgmt' data-count='0'> Database Management </li>
                 </ul>
             </div>
+            <div class='category'>
+                <div class='catHead' data-category='userexperience'>
+                    <i class="fa fa-chevron-right"></i>
+                    <p> User Experience</p>
+                </div>
+                <ul>
+                    <li class='listSelect' data-filter='fundamentals' data-count='0'> Fundamentals </li>
+                    <li class='listSelect' data-filter='landingpage' data-count='0'> Landing Page </li>
+                    <li class='listSelect' data-filter='onboarding' data-count='0'> Onboarding </li>
+                </ul>
+            </div>
             <a href="http://goo.gl/forms/wnzrCwAHU3" target="_blank"><div class='actionBtnMin suggest'> Suggest A New Category </div></a>
         </div>
         <div class="window">
@@ -127,20 +142,31 @@
                 </div>
                 <h1> Learn from the most helpful coding tutorials on the planet</h1>
                 <p> Upvote the ones you like or add new ones that helped you. </br> For the developers, by the developers.</p>
-                <div class='mainPgCat' data-category='html'>
-                    <div class='actionBtn initChoice specClick' data-category='html'><span class='symbol'>< /></span><p> HTML/CSS</p></div>
-                    <p class='links'> 0 Tutorials </p>
-                    <p class='votes'> 0 Votes </p>
+                <div class="featureRow">
+                    <div class='mainPgCat' data-category='html'>
+                        <div class='actionBtn initChoice specClick' data-category='html'><span class='symbol'>< /></span><p> HTML/CSS</p></div>
+                        <p class='links'> 0 Tutorials </p>
+                        <p class='votes'> 0 Votes </p>
+                    </div>
+                    <div class='mainPgCat' data-category='javascript'>
+                        <div class='actionBtn initChoice specClick' data-category='javascript'><span class='symbol'>{..}</span><p> Javascript</p></div>
+                        <p class='links'> 0 Tutorials </p>
+                        <p class='votes'> 0 Votes </p>
+                    </div>
+                    <div class='mainPgCat' data-category='databases'>
+                        <div class='actionBtn initChoice specClick' data-category='databases'><i class="fa fa-database"></i><p> Databases </p></div>
+                        <p class='links'> 0 Tutorials </p>
+                        <p class='votes'> 0 Votes </p>
+                    </div>
                 </div>
-                <div class='mainPgCat' data-category='javascript'>
-                    <div class='actionBtn initChoice specClick' data-category='javascript'><span class='symbol'>{..}</span><p> Javascript</p></div>
-                    <p class='links'> 0 Tutorials </p>
-                    <p class='votes'> 0 Votes </p>
-                </div>
-                <div class='mainPgCat' data-category='databases'>
-                    <div class='actionBtn initChoice specClick' data-category='databases'><i class="fa fa-database"></i><p> Databases </p></div>
-                    <p class='links'> 0 Tutorials </p>
-                    <p class='votes'> 0 Votes </p>
+                <div class="featureRow second">
+                    <div class='mainPgCat' data-category='userexperience'>
+                        <div class='actionBtn initChoice specClick' data-category='userexperience'><i class="fa fa-users"></i><p class="smallTxt"> User Experience </p></div>
+                        <p class='links'> 0 Tutorials </p>
+                        <p class='votes'> 0 Votes </p>
+                    </div>
+                    <div class='mainPgCat phantomBox'></div>
+                    <div class='mainPgCat phantomBox'></div>
                 </div>
             </div>
             <!-- This level means we have entered the guide portion top level, including user entry field, selectors on right and list -->
@@ -360,6 +386,59 @@
                             <div class='suggest next'>
                                 <p class='title'> Next, you can learn: </p>
                                 <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Business/Marketing Insights: </span><p class='listEl'> Intro to Analytics </p></div>
+                            </div>
+                        </div>
+                        <div class='learnSum' data-head='userexperience'>
+                            <h2> User Experience- All </h2>
+                            <p> Make the lives of your users as easy as possible </p>
+                            <div class='suggest prev'>
+                                <p class='title'> First, you GOTTA know: </p>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> HTML/CSS Fundamentals </p></div>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> Javascript Fundamentals </p></div>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> jQuery </p></div>
+                            </div>
+                            <div class='suggest next'>
+                                <p class='title'> Next, you can learn: </p>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Store Data For Your Site: </span><p class='listEl'> Databases </p></div>
+                            </div>
+                        </div>
+                        <div class='learnSum' data-head='userexperience' data-sub='fundamentals'>
+                            <h2> User Experience- Fundamentals </h2>
+                            <p> Learn the basics of designing a logical user experience </p>
+                            <div class='suggest prev'>
+                                <p class='title'> First, you GOTTA know: </p>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> HTML/CSS Fundamentals </p></div>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> Javascript Fundamentals </p></div>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> jQuery </p></div>
+                            </div>
+                            <div class='suggest next'>
+                                <p class='title'> Next, you can learn: </p>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Show Your Site's Value: </span><p class='listEl'> Landing Page </p></div>
+                            </div>
+                        </div>
+                        <div class='learnSum' data-head='userexperience' data-sub='landingpage'>
+                            <h2> User Experience- Landing Page </h2>
+                            <p> Make sure that users understand the value on the first page </p>
+                            <div class='suggest prev'>
+                                <p class='title'> First, you GOTTA know: </p>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> User Experience Fundamentals </p></div>
+                            </div>
+                            <div class='suggest next'>
+                                <p class='title'> Next, you can learn: </p>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Get Users Hooked: </span><p class='listEl'> Onboarding </p></div>
+                            </div>
+                        </div>
+                        <div class='learnSum' data-head='userexperience' data-sub='onboarding'>
+                            <h2> User Experience- Onboarding </h2>
+                            <p> Keep your visitors interested while they learn more </p>
+                            <div class='suggest prev'>
+                                <p class='title'> First, you GOTTA know: </p>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> User Experience Fundamentals </p></div>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> Landing Page </p></div>
+                            </div>
+                            <div class='suggest next'>
+                                <p class='title'> Next, you can learn: </p>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Coming Soon! </span></div>
                             </div>
                         </div>
                         <div class='secondSearch'>
