@@ -145,7 +145,7 @@ app.get('/subLinkList', function(req, res){
 app.post('/addLink', function(req, res){
 	var newPlan = req.body;
 	var curTime = Math.floor(Date.now() / 1000)
-	connection.query('SELECT COUNT(*) AS idx FROM Links;', function (err, result, fields) {
+	connection.query('SELECT MAX(id) AS idx FROM Links;', function (err, result, fields) {
 		if (err) throw err;
 		var linkCount = result[0].idx;
 		var link = {id: linkCount+1, datecreated: curTime, category: req.body.category, subcategory: req.body.subcat, title: req.body.title, link: req.body.link, challenge: req.body.radio1, description: req.body.desc, filter: req.body.radio2};
@@ -171,7 +171,6 @@ app.post('/addVote', function(req, res){
 	var vote = {linkid: uniqueid, timeVoted: curTime, voteNumber: count}
 	connection.query('INSERT INTO Votes SET ?', vote,  function (err, result, fields) {
 		if (err) throw err;
-		console.log(result);
 	});
 	return res.sendStatus(200);
 })
