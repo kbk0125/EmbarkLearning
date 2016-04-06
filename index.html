@@ -1,15 +1,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name='description', content='Manual aggregates the most popular tutorials on the web for learning how to code. Users can vote on each link to decide which ones get the most exposure.'>
-    <title>Manual- Top Coding Tutorials On The Web</title>
+    <meta name='description', content='A list of the most popular web development tutorials including HTML, CSS, Javascript and SQL. Users can vote to decide which tutorials are most helpful.'>
+    <title>Manual | Most Popular HTML, CSS, Javascript Tutorials On The Planet</title>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700,900' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <meta name="viewport", content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="Manual- Top Coding Tutorials On The Web">
+    <meta property="og:title" content="Manual | Most Popular HTML, CSS, Javascript Tutorials On The Planet">
     <meta property="og:type" content="website" >       
     <meta property="og:url" content="https://www.rtfmanual.io">
-    <meta property="og:description" content="Manual aggregates the most popular tutorials on the web for learning how to code. Users can vote on each link to decide which ones get the most exposure.">
+    <meta property="og:description" content="A list of the most popular web development tutorials including HTML, CSS, Javascript and SQL. Users can vote to decide which tutorials are most helpful.">
     <meta property="og:image" content="https://www.rtfmanual.io/img/squarelogo2.png">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link rel="stylesheet" type="text/css" href="/css/theme.css">
@@ -49,6 +49,12 @@
                                     <option class='specCat' value='userexperience' data-filter='onboarding'>&nbsp;&nbsp; Onboarding </option>
                                     <option class='specCat' value='userexperience' data-filter='microcopy'>&nbsp;&nbsp; Microcopy </option>
                                     <option class='specCat' value='userexperience' data-filter='conversion'>&nbsp;&nbsp; Conversion Optimization </option>
+                                    <option class='genCat' value='webdesign'> Web Design, All </option>
+                                    <option class='specCat' value='webdesign' data-filter='color'>&nbsp;&nbsp; Color </option>
+                                    <option class='specCat' value='webdesign' data-filter='typography'>&nbsp;&nbsp; Typography </option>
+                                    <option class='specCat' value='webdesign' data-filter='space'>&nbsp;&nbsp; Space </option>
+                                    <option class='specCat' value='webdesign' data-filter='information'>&nbsp;&nbsp; Information Hierarchy </option>
+                                    <option class='specCat' value='webdesign' data-filter='wireframing'>&nbsp;&nbsp; Wireframing </option>
                                 </select>
                             </div>
                             <div class='col1'>
@@ -143,6 +149,19 @@
                     <li class='listSelect' data-filter='conversion' data-count='0'> Conversion Optimization </li>
                 </ul>
             </div>
+             <div class='category'>
+                <div class='catHead' data-category='webdesign'>
+                    <i class="fa fa-chevron-right"></i>
+                    <p> Web Design</p>
+                </div>
+                <ul>
+                    <li class='listSelect' data-filter='color' data-count='0'> Color </li>
+                    <li class='listSelect' data-filter='typography' data-count='0'> Typography </li>
+                    <li class='listSelect' data-filter='space' data-count='0'> Space </li>
+                    <li class='listSelect' data-filter='information' data-count='0'> Information Hierarchy </li>
+                    <li class='listSelect' data-filter='wireframing' data-count='0'> Wireframing </li>
+                </ul>
+            </div>
             <a href="http://goo.gl/forms/wnzrCwAHU3" target="_blank"><div class='actionBtnMin suggest'> Suggest A New Category </div></a>
         </div>
         <div class="window">
@@ -176,7 +195,11 @@
                         <p class='links'> 0 Tutorials </p>
                         <p class='votes'> 0 Votes </p>
                     </div>
-                    <div class='mainPgCat phantomBox'></div>
+                    <div class='mainPgCat' data-category='webdesign'>
+                        <div class='actionBtn initChoice specClick' data-category='webdesign'><i class="fa fa-area-chart"></i><p> Web Design </p></div>
+                        <p class='links'> 0 Tutorials </p>
+                        <p class='votes'> 0 Votes </p>
+                    </div>
                     <div class='mainPgCat phantomBox'></div>
                 </div>
             </div>
@@ -487,6 +510,88 @@
                             <div class='suggest next'>
                                 <p class='title'> Next, you can learn: </p>
                                 <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Coming Soon! </span></div>
+                            </div>
+                        </div>
+                        <div class='learnSum' data-head='webdesign'>
+                            <h2> Web Design- All </h2>
+                            <p> Stumped on how to design a beautiful site? This is for you. </p>
+                            <div class='suggest prev'>
+                                <p class='title'> First, you GOTTA know: </p>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> HTML/CSS Fundamentals </p></div>
+                            </div>
+                            <div class='suggest next'>
+                                <p class='title'> Next, you can learn: </p>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Interactive Websites: </span><p class='listEl'> Javascript </p></div>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Make It Easy To Use: </span><p class='listEl'> User Experience </p></div>
+                            </div>
+                        </div>
+                        <div class='learnSum' data-head='webdesign' data-sub='color'>
+                            <h2> Web Design- Color </h2>
+                            <p> Make sure all the elements compliment each other </p>
+                            <div class='suggest prev'>
+                                <p class='title'> First, you GOTTA know: </p>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> HTML/CSS Fundamentals </p></div>
+                            </div>
+                            <div class='suggest next'>
+                                <p class='title'> Next, you can learn: </p>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Readable Text: </span><p class='listEl'> Typography </p></div>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Relationship Between Elements: </span><p class='listEl'> Space </p></div>
+                            </div>
+                        </div>
+                        <div class='learnSum' data-head='webdesign' data-sub='typography'>
+                            <h2> Web Design- Typography </h2>
+                            <p> Choose a font that is easily readable </p>
+                            <div class='suggest prev'>
+                                <p class='title'> First, you GOTTA know: </p>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> HTML/CSS Fundamentals </p></div>
+                            </div>
+                            <div class='suggest next'>
+                                <p class='title'> Next, you can learn: </p>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Distinguish Elements: </span><p class='listEl'> Color </p></div>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Relationship Between Elements: </span><p class='listEl'> Space </p></div>
+                            </div>
+                        </div>
+                        <div class='learnSum' data-head='webdesign' data-sub='space'>
+                            <h2> Web Design- Space </h2>
+                            <p> Indicate which elements are related to each other </p>
+                            <div class='suggest prev'>
+                                <p class='title'> First, you GOTTA know: </p>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> HTML/CSS Fundamentals </p></div>
+                            </div>
+                            <div class='suggest next'>
+                                <p class='title'> Next, you can learn: </p>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Distinguish Elements: </span><p class='listEl'> Color </p></div>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Readable Text: </span><p class='listEl'> Typography </p></div>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Arrange Page's Content: </span><p class='listEl'> Information Hierarchy </p></div>
+                            </div>
+                        </div>
+                        <div class='learnSum' data-head='webdesign' data-sub='information'>
+                            <h2> Web Design- Information Hierarchy </h2>
+                            <p> Arrange content for maximum readability </p>
+                            <div class='suggest prev'>
+                                <p class='title'> First, you GOTTA know: </p>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> Color </p></div>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> Typography </p></div>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> Space </p></div>
+                            </div>
+                            <div class='suggest next'>
+                                <p class='title'> Next, you can learn: </p>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Build A Mockup: </span><p class='listEl'> Wireframing </p></div>
+                            </div>
+                        </div>
+                        <div class='learnSum' data-head='webdesign' data-sub='wireframing'>
+                            <h2> Web Design- Wireframing </h2>
+                            <p> Build a mockup for testing or team members </p>
+                            <div class='suggest prev'>
+                                <p class='title'> First, you GOTTA know: </p>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> Color </p></div>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> Typography </p></div>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> Space </p></div>
+                                <div><i class="fa fa-check"></i> <p class='listEl'> Information Hierarchy </p></div>
+                            </div>
+                            <div class='suggest next'>
+                                <p class='title'> Next, you can learn: </p>
+                                <div><i class="fa fa-dot-circle-o"></i> <span class='leadIn'>Make It Easy To Use: </span><p class='listEl'> User Experience </p></div>
                             </div>
                         </div>
                         <div class='secondSearch'>
