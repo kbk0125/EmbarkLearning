@@ -78,14 +78,14 @@ $(".catHead").click(function(){
 	$('.learningCat').show();
 	$('.curCat').val(datum).trigger('change');
 	$('.userPath').remove();
-	$('.learnSum').hide();
-	$('.topOptions').find("[data-head='"+datum+"']").first().show();
+	$('.learnSum').remove();
 	//AJAX to get list of user entered forms for the whole category
 	$.get('/linkList', {listKey: datum}, function (linkList){
 		//Add user submitted plans to the list based on what users have added in past
-		if(linkList.length){
-			for(var i=0; i<linkList.length; i++){
-				addLink(linkList[i]);
+		addHeader(linkList[0]);
+		if(linkList[1].length){
+			for(var i=0; i<linkList[1].length; i++){
+				addLink(linkList[1][i]);
 			}
 		}
 	});
@@ -147,16 +147,16 @@ $('.listSelect').click(function(){
 	if(keyCat !== dupe[0] && keyData !== dupe[1])
 		window.history.pushState(null, null, '/'+keyCat+'/'+keyData);
 	$('.userPath').remove();
+	$('.learnSum').remove();
 	$('.curCat option[value="'+keyCat+'"][data-filter="'+keyData+'"]').prop('selected', true).trigger('change');
-	$('.learnSum').hide();
-	$('.learnSum[data-head="'+keyCat+'"][data-sub="'+keyData+'"]').show();
 	$('.legendBox').removeAttr('checked');
 	//AJAX to get list of user entered forms based on both category and subcategory
 	$.get('/subLinkList', {listKey: keyCat, subKey:keyData}, function (linkList){
 		//Add user submitted plans to the list based on what users have added in past
-		if(linkList.length){
-			for(var i=0; i<linkList.length; i++){
-				addLink(linkList[i]);
+		addHeader(linkList[0]);
+		if(linkList[1].length){
+			for(var i=0; i<linkList[1].length; i++){
+				addLink(linkList[1][i]);
 			}
 		}
 	});
@@ -234,6 +234,23 @@ function addLink(linkData){
 	    return +b.dataset.score - +a.dataset.score;
 	})
 	.prependTo(wrapper)
+}
+
+function addHeader(data){
+	var title = "<h2>"+data.title+"</h2>";
+	var sub = "<p>"+data.summary +"</p>"
+	var reqs="";
+	for(var i =0; i<data.reqs.length; i++){
+		reqs += "<div><i class='fa fa-check'></i> <p class='listEl'>"+data.reqs[i]+"</p></div>";
+	}
+	var leftDiv= "<div class='suggest prev'><p class='title'> First, you GOTTA know: </p>"+reqs+"</div>"
+	var next=""
+	for(var i =0; i<data.next.length; i++){
+		next +="<div><i class='fa fa-dot-circle-o'></i> <span class='leadIn'>"+data.next[i][0]+"</span><p class='listEl'>"+data.next[i][1]+"</p></div>";
+	}
+	var rightDiv= "<div class='suggest next'><p class='title'> Next, you can learn: </p>"+next+"</div>"
+	var whole ="<div class='learnSum'>"+title+sub+leftDiv+rightDiv+"</div>"
+	$('.topOptions').prepend(whole);
 }
 
 $('.legendBox').change(function(){

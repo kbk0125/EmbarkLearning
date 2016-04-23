@@ -457,7 +457,6 @@ a
 				border-bottom 1px solid #ccc
 				padding-bottom 8px
 				margin-bottom 12px
-				display none
 				h2
 					color #7979c7
 					font-size 1.2em
@@ -519,6 +518,8 @@ a
 		.addPathsBody
 			margin 4px 12px 8px 8px
 			display inline-block
+			@media (max-width: 500px)
+				margin-right 8px
 			.userPath
 				position relative
 				font-size 14px
@@ -550,6 +551,8 @@ a
 				.linkSum
 					display inline-block
 					margin-left 12px
+					@media (max-width: 500px)
+						margin-left 6px
 					.subcat, .filter, .diff
 						text-transform capitalize
 					.subcat, .filter, .diff

@@ -1,20 +1,22 @@
 var express = require('express');
 var app = express();
 var path = require('path');
+var request = require('request');
 var basicRouter = express.Router();
 var bodyParser = require('body-parser')
 var parseUrlencoded= bodyParser.urlencoded({extended:false});
+var categories = require( "./categories.js" )
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(require('serve-favicon')(__dirname+'/public/img/favicon.ico'));
 
 // taken from https://www.youtube.com/watch?v=cUWcZ4FzgmI
-app.use(function (req, res, next) { 
+/*app.use(function (req, res, next) { 
 	res.header('Access-Control-Allow-Origin-', "*"); 
 	res.header('Access-Control-Allow-Methods­','GET,PUT,POST,DELETE'); 
 	res.header('Access-Control-Allow-Headers­', 'Content-Type'); 
 	next();
-})
+})*/
 
 // MySql Init
 //https://www.npmjs.com/package/mysql
@@ -127,18 +129,24 @@ app.get('/voteTotal', function (req, res){
 //COMMENT APPROPRIATELY THROUGHOUT
 app.get('/linkList', function(req, res){
 	var listKey= req.query.listKey;
+	var data=[];
+	data.push(categories[listKey]['default'])
 	connection.query('SELECT l.id, l.datecreated, l.category, l.subcategory, l.title, l.link, l.challenge, l.description, l.filter, COUNT(v.linkid) AS votes FROM Links l INNER JOIN Votes v ON l.id = v.linkid WHERE l.category=? GROUP BY l.id ORDER BY votes ASC;', [listKey] ,function (err, result, fields) {
 		if (err) throw err;
-		res.send(result)
+		data.push(result)
+		res.send(data)
 	})
 });
 
 app.get('/subLinkList', function(req, res){
 	var listKey= req.query.listKey;
 	var subKey= req.query.subKey;
+	var data=[];
+	data.push(categories[listKey][subKey])
 	connection.query('SELECT l.id, l.datecreated, l.category, l.subcategory, l.title, l.link, l.challenge, l.description, l.filter, COUNT(v.linkid) AS votes FROM Links l INNER JOIN Votes v ON l.id = v.linkid WHERE l.category=? AND l.subcategory=? GROUP BY l.id ORDER BY votes ASC;', [listKey,subKey] ,function (err, result, fields) {
 		if (err) throw err;
-		res.send(result)
+		data.push(result)
+		res.send(data)
 	})
 });
 
