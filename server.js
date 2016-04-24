@@ -6,6 +6,7 @@ var basicRouter = express.Router();
 var bodyParser = require('body-parser')
 var parseUrlencoded= bodyParser.urlencoded({extended:false});
 var categories = require( "./categories.js" )
+var picker = require( "./devguide/data.js" )
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(require('serve-favicon')(__dirname+'/public/img/favicon.ico'));
@@ -111,6 +112,10 @@ basicRouter.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
 
+basicRouter.get('/devguide', function(req, res) {
+    res.sendFile(path.join(__dirname + '/devguide/index.html'));
+});
+
 basicRouter.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
@@ -142,7 +147,7 @@ app.get('/subLinkList', function(req, res){
 	var listKey= req.query.listKey;
 	var subKey= req.query.subKey;
 	var data=[];
-	data.push(categories[listKey][subKey])
+	data.push(categories[listKey]['subcat'][subKey])
 	connection.query('SELECT l.id, l.datecreated, l.category, l.subcategory, l.title, l.link, l.challenge, l.description, l.filter, COUNT(v.linkid) AS votes FROM Links l INNER JOIN Votes v ON l.id = v.linkid WHERE l.category=? AND l.subcategory=? GROUP BY l.id ORDER BY votes ASC;', [listKey,subKey] ,function (err, result, fields) {
 		if (err) throw err;
 		data.push(result)
@@ -196,6 +201,12 @@ app.get('/testvotes', function(req, res){
 		res.send(result);
 	});
 });
+
+/***** DEVGUIDE STUFF */
+
+app.get('/objSend', function(req,res){
+	res.send(categories)
+})
 
 app.use('/', basicRouter)
 

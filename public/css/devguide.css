@@ -1,0 +1,94 @@
+
+/* line 51 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+
+/* line 1 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\node_modules\grunt-contrib-stylus\node_modules\stylus\lib\functions\index.styl */
+
+/* line 1 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+body {
+  margin: 0;
+  background-color: #f1f1f1;
+  transition: 250ms;
+}
+
+/* line 5 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+@font-face {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* line 7 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+h1,
+h2,
+h3 {
+  color: #404040;
+  font-family: 'Roboto';
+  font-weight: 700;
+  margin: 0;
+}
+
+/* line 12 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+p,
+li,
+form,
+input,
+textarea,
+div,
+text,
+svg {
+  color: #999;
+  font-family: 'Roboto';
+  font-weight: 400;
+  margin: 0;
+}
+
+/* line 17 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+input,
+textarea {
+  font-family: inherit;
+}
+
+/* line 19 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+a {
+  text-decoration: none;
+}
+
+/* line 21 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+a:hover {
+  text-decoration: underline;
+}
+
+/* line 24 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+#mainBubble {
+  background: #fff;
+  border: solid 2px #ddd;
+  box-shadow: 0 0 4px rgba(0,0,0,0);
+  height: 800px;
+  position: relative;
+  width: 80%;
+}
+
+/* line 32 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+#mainBubble svg {
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+/* line 37 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+#mainBubble circle.topBubble {
+  fill: #aaa;
+  stroke: #666;
+  stroke-width: 1.5px;
+}
+
+/* line 42 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+#mainBubble div.tooltip {
+  position: absolute;
+  text-align: center;
+  padding: 2px;
+  font-size: 12px;
+  z-index: 30;
+  background: #b0c4de;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+}
