@@ -1,6 +1,6 @@
 body
 	margin 0
-	background-color #f1f1f1
+	background-color #fafafa
 	transition 250ms
 @font-face
 	font-family 'Roboto', sans-serif
@@ -21,13 +21,41 @@ a
 	&:hover
 		text-decoration underline
 
+.actionBtn
+	border-radius 2px
+	background-color #63ACD9
+	color white
+	padding 0.5em 1em
+	cursor pointer
+
+#topBar
+	width 100%
+	background-color #ededed
+	width 100%
+	padding 4px 0 2px 0
+	img
+		height 35px
+		display inline-block
+		margin-left 8px
+	h3
+		display inline-block
+		margin-left 4px
+		vertical-align top
+		margin-top 6px
+		color #63acd9
+	.actionBtn
+		float right
+		font-size 14px
+		margin-right 8px
+		margin-top 2px
+
+.orders
+	text-align center
+	margin-top 6px
+	color red
+
 #mainBubble
-	background #fff
-	border solid 2px #ddd
-	box-shadow 0 0 4px rgba(0,0,0,0)
-	height 800px
-	position: relative
-	width 80%
+	position relative
 		   
 #mainBubble svg
 	left 0
@@ -39,13 +67,97 @@ a
 	stroke #666
 	stroke-width 1.5px
 
-#mainBubble div.tooltip
+#mainBubble div#tooltip
 	position absolute
-	text-align: center
-	padding 2px
-	font-size 12px
+	text-align center
+	padding 4px
 	z-index 30
-	background lightsteelblue
+	background #404040
 	border 0px
-	border-radius 8px
-	pointer-events none
+	border-radius 4px
+	div.cat
+		display inline-block
+		padding 0 8px
+		cursor pointer
+	i
+		font-size 18px
+	p
+		font-size 14px
+		color white
+		margin-top 2px
+	p.tipTitle
+		font-size 16px
+		margin-bottom 8px
+		margin-top 0
+	.triangle
+		width 0
+		position absolute
+		top -8px
+		left 142px 
+		height 0
+		border-left 8px solid transparent
+		border-right 8px solid transparent
+		border-bottom 8px solid #404040
+
+.labels
+	width 100%
+	p 
+		width 31.5%
+		font-size 14px
+		padding-left 0.5%
+		margin-left 0.5%
+		display inline-block
+		color #999
+	.front, .back
+		border-left 2px solid #999
+
+.topTuts
+	background-color #f3f3f3
+	padding 4px 8px
+	display none
+	h3.topP
+		font-size 14px
+		*
+			float right
+			display inline-block
+		img
+			height 20px
+		p
+			color #3394d4
+			font-size 14px
+			margin 2px 4px 0 8px
+			&:hover
+				text-decoration underline
+	.topLinks
+		.linkSum
+			p
+				font-size 14px
+			.subcat, .filter, .diff, .votes
+				display inline-block
+				text-transform capitalize
+				border-radius 2px
+				padding 2px 4px
+				background-color #f1f1f1
+				margin 0 8px 0 0
+			.topLine
+				padding-top 8px
+			.linkLab
+				color #ccc
+				white-space nowrap
+				overflow hidden
+				text-overflow ellipsis
+				width 725px
+			h3
+				display inline-block
+				color #3394d4
+				font-size 16px
+				transition 250ms
+				margin-right 16px
+				margin-bottom 4px
+				.fa
+					margin-right 4px
+				&:hover
+					text-decoration underline
+			.description
+				color #404040
+				font-size 12px

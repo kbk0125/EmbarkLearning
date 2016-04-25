@@ -155,6 +155,15 @@ app.get('/subLinkList', function(req, res){
 	})
 });
 
+app.get('/subDevList', function(req, res){
+	var listKey= req.query.listKey;
+	var subKey= req.query.subKey;
+	connection.query('SELECT l.id, l.datecreated, l.category, l.subcategory, l.title, l.link, l.challenge, l.description, l.filter, COUNT(v.linkid) AS votes FROM Links l INNER JOIN Votes v ON l.id = v.linkid WHERE l.category=? AND l.subcategory=? GROUP BY l.id ORDER BY votes DESC LIMIT 3;', [listKey,subKey] ,function (err, result, fields) {
+		if (err) throw err;
+		res.send(result)
+	})
+});
+
 app.post('/addLink', function(req, res){
 	var newPlan = req.body;
 	var curTime = Math.floor(Date.now() / 1000)

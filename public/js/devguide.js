@@ -3,14 +3,53 @@ $.get('/objSend', function(data){
 	main(data);
 })
 
+//Capitalize first letter of a string
+function capLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 //Tooltip for what to include in tooltip
-var tipString= "<p> Test Title"+
-	"</br>"+
-	"<i class='fa fa-taxi' aria-hidden='true'></i>"+
-	"<h2> category example </h2>";
+var tipString= "<p class='tipTitle'> Pick a Tutorial Type </p>" +
+	"<div class='triangle'></div>"+
+	"<div class='cat'><i class='fa fa-list-alt' aria-hidden='true'></i><p> Article </p></div>"+
+	"<div class='cat'><i class='fa fa-video-camera' aria-hidden='true'></i><p> Video </p></div>"+
+	"<div class='cat'><i class='fa fa-pencil' aria-hidden='true'></i><p> Practical </p></div>"+
+	"<div class='cat'><i class='fa fa-book' aria-hidden='true'></i><p> Article </p></div>"+
+	"<div class='cat'><i class='fa fa-graduation-cap' aria-hidden='true'></i><p> Course </p></div>";
+
+function getCategoryTop(){
+	console.log('triggered')
+}
+
+function getCategorySub(category, subcat){
+	$.get('/subDevList', {listKey: category, subKey:subcat}, function (linkList){
+		if(linkList.length){
+			$('.labels').hide();
+			$('.linkSum').remove()
+			$('.topTuts').show(function(){
+				for(var i=0; i<linkList.length; i++){
+					addLink(linkList[i]);
+				}
+			})
+		}
+	})
+}
+
+function addLink(linkData){
+	
+	var	mainBody = '<div class="linkSum"><div class="topLine"><a href="'+linkData.link+'" target="_blank"><h3><i class="fa fa-link" aria-hidden="true"></i>'+capLetter(linkData.title)+'</h3></a>'+
+	'<p class="filter">'+linkData.filter+'</p>'+
+	'<p class="votes">Votes: '+linkData.votes+'</p>'+
+	'<p class="diff">'+linkData.challenge+'</p></div>'+
+	'<p class="description">'+linkData.description+'</p></div>';
+
+	//http://stackoverflow.com/questions/14160498/sort-element-by-numerical-value-of-data-attribute
+	var wrapper = $('.topTuts').children('.topLinks')
+	$(wrapper).append(mainBody);
+}
 
 function main(allData){
-	var w = window.innerWidth*0.95;
+	var w = window.innerWidth*0.99;
 	// nTop = number of top level categories in categories.js
 	var keys = Object.keys(allData)
 	var nTop = keys.length;
@@ -20,7 +59,7 @@ function main(allData){
 	//small radius
 	var smoR= oR/2.5;
 
-	var h = window.innerHeight*0.65
+	var h = window.innerHeight*0.62
 
 	if(window.innerWidth > 1500){
 		var bigFont= 20;
@@ -35,7 +74,7 @@ function main(allData){
 		return oR*(3.75*(0.6+i)-1);
 	}
 
-	var yPos= (h+oR)/2.7;
+	var yPos= (h+oR)/2.5;
 
 	function xPosChild(iB, i){
 		return (xPos(iB) + oR*1.75*Math.cos((i-2)*30/180*3.1415926));
@@ -50,27 +89,15 @@ function main(allData){
 
 	//Tooltip guide http://bl.ocks.org/d3noob/a22c42db65eb00d4e369
 	var div = d3.select("#mainBubble").append("div")	
-	    .attr("class", "tooltip")				
-	    .style("opacity", 0);
+	    .attr("id", "tooltip")				
+	    .style("display", 'none');
   
 	//Create svg and make sure correct functon runs when leaving
 	var svg = d3.select("#mainBubble").append("svg")
 		.attr("class", "mainBubbleSVG")
 		.attr("width", w)
 		.attr("height",h)
-		.on("mouseleave", function() {return resetBubbles();});
-	
-	//append note at bottom	 
-	var mainNote = svg.append("text")
-		.attr("id", "bubbleItemNote")
-		.attr("x", 10)
-		.attr("y", w/2-15)
-		.attr("font-size", 12)
-		.attr("dominant-baseline", "middle")
-		.attr("alignment-baseline", "middle")
-		.style("fill", "#888888")
-		.text(function(d) {return "D3.js bubble menu developed by Shipeng Sun (sunsp.gis@gmail.com), Institute of Environment, University of Minnesota, and University of Springfield, Illinois.";});   
-
+		.on("mouseleave", function() {return resetBubbles();});	  
 
 	// REVIEW
 	var bubbleObj = svg.selectAll(".topBubble")
@@ -81,34 +108,39 @@ function main(allData){
 
 	//auto create color category of 10 things
 	//https://github.com/mbostock/d3/wiki/Ordinal-Scales
-	var colVals = d3.scale.category10();
+	var colVals = ['#a5c75e', "#59aee0", "#fab349", "#d22027", "#d22080"]
 	
 	//creates top level bubbles, main categories
 	//positioning dependent on OR 
 	bubbleObj.append("circle")
 		.attr("class", "topBubble")
 		.attr("id", function(d,i) {return "topBubble" + i;})
+		.attr("title", function(d, i) { return ".childBubble"+i})
 		.attr("r", function(d) { return oR; })
 		.attr("cx", function(d, i) {return xPos(i)})
 		.attr("cy", yPos)
-		.style("fill", function(d,i) { return colVals(i); }) // #1f77b4
+		.attr("cursor","pointer")
+		.style("fill", function(d,i) { return colVals[i]; }) // #1f77b4
 		.style("opacity",0.3)
-		.on("mouseover", function(d,i) {return activateBubble(d,i);});
+		.on("mouseover", function(d,i) {return activateBubble(d,i);})
+		.on("click", function(d,i) {
+			getCategoryTop()
+		});
 	 
 	//add appropriate name to top level bubble	 
 	bubbleObj.append("text")
 		.attr("class", "topBubbleText")
 		.attr("x", function(d, i) {return xPos(i);})
 		.attr("y", yPos)
-		.style("fill", function(d,i) { return colVals(i); }) // #1f77b4
+		.style("fill", function(d,i) { return colVals[i]; }) // #1f77b4
 		.attr("font-size", bigFont)
 		.attr("text-anchor", "middle")
 		.attr("dominant-baseline", "middle")
 		.attr("alignment-baseline", "middle")
+		.style('pointer-events', 'none')
 		.text(function(d,i) {
 			return allData[keys[i]]['default']['short']
 		})      
-		.on("mouseover", function(d,i) {return activateBubble(d,i);});
 		 
 		 
 		for(var iB = 0; iB < nTop; iB++){
@@ -118,10 +150,13 @@ function main(allData){
 				.data(Object.keys(allData[keys[iB]]['subcat']))
 				.enter().append("g");
 				 
-			//add child bubbles at certain ratio around main bubble 
+			//add child bubbles at certain ratio around main bubble
+			//id is the subcat with a number on the end
+			//title is the whole category 
 			childBubbles.append("circle")
 				.attr("class", "childBubble" + iB)
-				.attr("id", function(d,i) {return "childBubble_" + iB + "sub_" + i;})
+				.attr("id", function(d,i) {return d + iB;})
+				.attr("title", keys[iB])
 				.attr("r",  function(d) {return smoR;})
 				.attr("cx", function(d,i) {return xPosChild(iB,i);})
 				.attr("cy", function(d,i) {return yPosChild(i);})
@@ -129,13 +164,18 @@ function main(allData){
 				.style("opacity",0.5)
 				.style("fill", "#eee")
 				.on("click", function(d,i) {
+					var cat= d3.select(this).attr("title")
+					var fullID=d3.select(this).attr("id")
+					var id = fullID.slice(0, -1);
+					getCategorySub(cat, id)
 					// open the specific link on click
-					var currentx = Number(d3.select(this).attr("cx")) - Number(d3.select(this).attr("r"))/2.25
+					div.html(tipString)
+						.style("display", 'block');
+					var width = document.getElementById('tooltip').offsetWidth;
+					var currentx = Number(d3.select(this).attr("cx")) - width/2
 					var currenty = Number(d3.select(this).attr("cy")) + Number(d3.select(this).attr("r")) +5
 					div.transition()		
-		                .duration(200)		
-		                .style("opacity", 1);		
-		            div.html(tipString)	
+		                .duration(500)			
 		                .style("left", currentx + "px")		
 		                .style("top", currenty + "px");                
 				})
@@ -148,9 +188,7 @@ function main(allData){
 					else {
 						noteText = d.note;
 					}
-					d3.select("#bubbleItemNote").text(noteText);
 				})
-				.append("svg:title")
 
 			//Add title to the respective circle
 			childBubbles.append("text")
@@ -159,17 +197,14 @@ function main(allData){
 				.attr("y", function(d,i) {return yPosChild(i);})
 				.style("opacity",0.5)
 				.attr("text-anchor", "middle")
-				.style("fill", function(d,i) { return colVals(iB); }) // #1f77b4
+				.style("fill", function(d,i) { return colVals[iB]; }) // #1f77b4
 				.attr("font-size", smFont)
-				.attr("cursor","pointer")
+				.style('pointer-events', 'none')
 				.attr("dominant-baseline", "middle")
 				.attr("alignment-baseline", "middle")
 				.text(function(d,i) {
 					return allData[keys[iB]]['subcat'][d]['short']
 				})      
-				.on("click", function(d,i) {
-					window.open(d.address);
-				}); 
 
 		}
 
@@ -179,19 +214,24 @@ function main(allData){
 		// These correspond to original ways that the variables were created... but needs to be there so it can be called continuously
 		w = window.innerWidth*0.95;
 		oR = w/(1+3.5*nTop);
+		smoR= oR/2.5;
 
-		h = window.innerHeight*0.65
-
+		h = window.innerHeight*0.62
+		yPos= (h+oR)/2.5;
 
 		svgContainer.style("height",h+"px");
-
-		//this is the bottom note text
-		mainNote.attr("y",h-15);
 		   
 		svg.attr("width", w);
-		svg.attr("height",h);       
+		svg.attr("height",h);
 
-		d3.select("#bubbleItemNote").text("D3.js bubble menu developed by Shipeng Sun (sunsp.gis@gmail.com), Institute of Environment, University of Minnesota, and University of Springfield, Illinois.");
+		if(window.innerWidth > 1500){
+			var bigFont= 20;
+			var smFont=11;
+		}
+		else{
+			var bigFont= 16;
+			var smFont=10;
+		}       
 
 
 		var t = svg.transition()
@@ -320,6 +360,9 @@ function main(allData){
 				})
 				.style("opacity", function(){
 					return (k==i)?1:0;                  
+				})
+				.style("pointer-events",function(){
+					return (k==i)?'auto':'none';
 				}); 
 		}                   
 	}
@@ -327,3 +370,7 @@ function main(allData){
 	window.onresize = resetBubbles;
 	
 }
+
+$('body').on('click', '.tooltip h2', function(){
+	console.log('clicked2')
+})
