@@ -4,6 +4,8 @@ body
 	transition 250ms
 @font-face
 	font-family 'Roboto', sans-serif
+@font-face
+	font-family 'FontAwesome'
 h1, h2, h3
 	color #404040
 	font-family 'Roboto'
@@ -23,14 +25,14 @@ a
 
 .actionBtn
 	border-radius 2px
-	background-color #63ACD9
-	color white
+	background-color white
+	color #63ACD9
 	padding 0.5em 1em
 	cursor pointer
 
 #topBar
 	width 100%
-	background-color #ededed
+	background-color #63ACD9
 	width 100%
 	padding 4px 0 2px 0
 	img
@@ -42,7 +44,8 @@ a
 		margin-left 4px
 		vertical-align top
 		margin-top 6px
-		color #63acd9
+		color white
+		font-weight 300
 	.actionBtn
 		float right
 		font-size 14px
@@ -51,56 +54,86 @@ a
 
 .orders
 	text-align center
-	margin-top 6px
+	padding-top 6px
 	color red
+
+#mainBack
+	background-color #f2f2f2
 
 #mainBubble
 	position relative
-		   
-#mainBubble svg
-	left 0
-	position absolute
-	top 0
-					   
-#mainBubble circle.topBubble
-	fill #aaa
-	stroke #666
-	stroke-width 1.5px
-
-#mainBubble div#tooltip
-	position absolute
-	text-align center
-	padding 4px
-	z-index 30
-	background #404040
-	border 0px
-	border-radius 4px
-	div.cat
-		display inline-block
-		padding 0 8px
-		cursor pointer
-	i
-		font-size 18px
-	p
-		font-size 14px
-		color white
-		margin-top 2px
-	p.tipTitle
-		font-size 16px
-		margin-bottom 8px
-		margin-top 0
-	.triangle
-		width 0
+	svg
+		left 0
 		position absolute
-		top -8px
-		left 142px 
-		height 0
-		border-left 8px solid transparent
-		border-right 8px solid transparent
-		border-bottom 8px solid #404040
+		top 0
+	circle.topBubble
+		stroke rgba(0,0,0,0.3)
+		stroke-width 2px
+	.topBubbleText
+		fill white
+		pointer-events none
+	.topBubbleChar
+		font-family FontAwesome
+		fill white
+		pointer-events none
+	circle.smBubble
+		cursor pointer
+		opacity 0.5
+		fill #404040
+		stroke-width 2px
+		&:hover
+			fill #999 !important
+	text.smBubbleTxt
+		opacity 0.5
+		pointer-events none
+		fill white
+		font-weight 300
+	div#tooltip
+		position absolute
+		text-align center
+		padding 4px
+		z-index 30
+		background #404040
+		border 0px
+		border-radius 4px
+		div.cat
+			display inline-block
+			padding 0 8px
+			cursor pointer
+		i
+			font-size 18px
+		p
+			font-size 14px
+			color white
+			margin-top 2px
+		p.tipTitle
+			font-size 16px
+			margin-bottom 8px
+			margin-top 0
+		.triangle
+			width 0
+			position absolute
+			top -8px
+			left 137px 
+			height 0
+			border-left 8px solid transparent
+			border-right 8px solid transparent
+			border-bottom 8px solid #404040
 
 .labels
 	width 100%
+	.border
+		height 3px
+		width 100%
+		background #999 /* For browsers that do not support gradients */
+		/* For Safari 5.1 to 6.0 */
+		background: -webkit-linear-gradient(left,#2D95BF, #4EBA6F, #F0C419, #F15A5A, #955BA5);
+		/* For Opera 11.1 to 12.0 */
+		background: -o-linear-gradient(left,#2D95BF, #4EBA6F, #F0C419, #F15A5A, #955BA5);
+		/* For Fx 3.6 to 15 */
+		background: -moz-linear-gradient(left,#2D95BF, #4EBA6F, #F0C419, #F15A5A, #955BA5);
+		/* Standard syntax */
+		background: linear-gradient(to right, #2D95BF, #4EBA6F, #F0C419, #F15A5A, #955BA5); 
 	p 
 		width 31.5%
 		font-size 14px
@@ -109,17 +142,20 @@ a
 		display inline-block
 		color #999
 	.front, .back
-		border-left 2px solid #999
+		border-left 1px solid #999
 
 .topTuts
-	background-color #f3f3f3
+	border 2px solid #ccc
 	padding 4px 8px
+	margin 0 12px
 	display none
-	h3.topP
-		font-size 14px
+	.tLine
+		h3.topP
+			font-size 14px
 		*
-			float right
 			display inline-block
+		img, a,p
+			float right
 		img
 			height 20px
 		p
@@ -130,6 +166,7 @@ a
 				text-decoration underline
 	.topLinks
 		.linkSum
+			display none
 			p
 				font-size 14px
 			.subcat, .filter, .diff, .votes
@@ -140,7 +177,9 @@ a
 				background-color #f1f1f1
 				margin 0 8px 0 0
 			.topLine
-				padding-top 8px
+				padding-top 16px
+				@media (max-width: 1400px)
+					padding-top 8px
 			.linkLab
 				color #ccc
 				white-space nowrap

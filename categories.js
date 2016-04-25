@@ -152,7 +152,7 @@ module.exports = {
             },
             "fullsite":{
                 "title": "HTML/CSS- Build First Site",
-                "short": "First Site",
+                "short": "Build A Site",
                 "summary": "Build a basic website and start your portfolio",
                 "reqs": ["HTML/CSS Fundamentals"],
                 "next":[
@@ -280,5 +280,5 @@ module.exports = {
                 ]
             }
         }
-    },
+    }
 }

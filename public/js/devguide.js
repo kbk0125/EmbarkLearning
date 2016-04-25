@@ -1,3 +1,6 @@
+var activeCategory ="";
+var activeSubCategory ="";
+
 //initial get to load up the data
 $.get('/objSend', function(data){
 	main(data);
@@ -9,28 +12,30 @@ function capLetter(string) {
 }
 
 //Tooltip for what to include in tooltip
-var tipString= "<p class='tipTitle'> Pick a Tutorial Type </p>" +
+var tipString= "<p class='tipTitle'> Pick a Tutorial Type (optional) </p>" +
 	"<div class='triangle'></div>"+
 	"<div class='cat'><i class='fa fa-list-alt' aria-hidden='true'></i><p> Article </p></div>"+
 	"<div class='cat'><i class='fa fa-video-camera' aria-hidden='true'></i><p> Video </p></div>"+
 	"<div class='cat'><i class='fa fa-pencil' aria-hidden='true'></i><p> Practical </p></div>"+
-	"<div class='cat'><i class='fa fa-book' aria-hidden='true'></i><p> Article </p></div>"+
+	"<div class='cat'><i class='fa fa-book' aria-hidden='true'></i><p> Book </p></div>"+
 	"<div class='cat'><i class='fa fa-graduation-cap' aria-hidden='true'></i><p> Course </p></div>";
 
-function getCategoryTop(){
-	console.log('triggered')
-}
 
 function getCategorySub(category, subcat){
 	$.get('/subDevList', {listKey: category, subKey:subcat}, function (linkList){
 		if(linkList.length){
-			$('.labels').hide();
-			$('.linkSum').remove()
-			$('.topTuts').show(function(){
-				for(var i=0; i<linkList.length; i++){
-					addLink(linkList[i]);
-				}
-			})
+			$('.labels').hide('slide', function(){
+				$('.topP').text('3 Most Popular Tutorials')
+				$('.linkSum').hide('slow', function(){
+					$(this).remove()
+				});
+				$('.topTuts').show(function(){
+					for(var i=0; i<linkList.length; i++){
+						addLink(linkList[i]);
+					}
+				})
+			});
+			
 		}
 	})
 }
@@ -45,7 +50,7 @@ function addLink(linkData){
 
 	//http://stackoverflow.com/questions/14160498/sort-element-by-numerical-value-of-data-attribute
 	var wrapper = $('.topTuts').children('.topLinks')
-	$(wrapper).append(mainBody);
+	$(mainBody).appendTo(wrapper).show('slow');
 }
 
 function main(allData){
@@ -53,6 +58,8 @@ function main(allData){
 	// nTop = number of top level categories in categories.js
 	var keys = Object.keys(allData)
 	var nTop = keys.length;
+	var prevID= "";
+	var prevTitle = "";
 
 	//calculate radius
 	var oR = w/(1+3.5*nTop);
@@ -85,19 +92,23 @@ function main(allData){
 	}
 
 	var svgContainer = d3.select("#mainBubble")
-		.style("height", h+"px");
-
-	//Tooltip guide http://bl.ocks.org/d3noob/a22c42db65eb00d4e369
-	var div = d3.select("#mainBubble").append("div")	
-	    .attr("id", "tooltip")				
-	    .style("display", 'none');
+		.style("height", h+"px")
+		.on("mouseleave", function() {
+			hideTooltip();
+			return resetBubbles();
+		});
   
 	//Create svg and make sure correct functon runs when leaving
 	var svg = d3.select("#mainBubble").append("svg")
 		.attr("class", "mainBubbleSVG")
 		.attr("width", w)
-		.attr("height",h)
-		.on("mouseleave", function() {return resetBubbles();});	  
+		.attr("height",h);
+		
+
+	//Tooltip guide http://bl.ocks.org/d3noob/a22c42db65eb00d4e369
+	var div = d3.select("#mainBubble").append("div")	
+	    .attr("id", "tooltip")				
+	    .style("display", 'none');	  
 
 	// REVIEW
 	var bubbleObj = svg.selectAll(".topBubble")
@@ -108,7 +119,10 @@ function main(allData){
 
 	//auto create color category of 10 things
 	//https://github.com/mbostock/d3/wiki/Ordinal-Scales
-	var colVals = ['#a5c75e', "#59aee0", "#fab349", "#d22027", "#d22080"]
+	//https://color.adobe.com/Flat-rainbow-color-theme-3012612/?showPublished=true
+	var colVals = ["#2D95BF", "#4EBA6F", '#F0C419', "#F15A5A", "#955BA5"]
+
+	var faHash = ["\uf1fe", "\uf0c0", "\uf13b", "\uf121","\uf1c0" ]
 	
 	//creates top level bubbles, main categories
 	//positioning dependent on OR 
@@ -119,95 +133,125 @@ function main(allData){
 		.attr("r", function(d) { return oR; })
 		.attr("cx", function(d, i) {return xPos(i)})
 		.attr("cy", yPos)
-		.attr("cursor","pointer")
-		.style("fill", function(d,i) { return colVals[i]; }) // #1f77b4
-		.style("opacity",0.3)
-		.on("mouseover", function(d,i) {return activateBubble(d,i);})
+		.style("fill", function(d,i) { return colVals[i]; })
+		.on("mouseover", function(d,i) {
+			var title= d3.select(this).attr("title")
+			if(title !== prevTitle){
+				hideTooltip()
+			}
+			return activateBubble(d,i);
+		})
 		.on("click", function(d,i) {
-			getCategoryTop()
+			//finds all children elements related to the one big one
+			var title= d3.select(this).attr("title")
+			var children = d3.selectAll(title);
+			var color = d3.select(this).style("fill")
+
+			children.transition()		
+                .duration(500)
+                .style('fill', '#999')
+                .style('stroke', '#aaa')
+            setTimeout(function(){
+            	children.transition()		
+                	.duration(500)
+                	.style('fill', '#404040')
+                	.style("stroke", color)
+            },500)
 		});
 	 
 	//add appropriate name to top level bubble	 
 	bubbleObj.append("text")
 		.attr("class", "topBubbleText")
 		.attr("x", function(d, i) {return xPos(i);})
-		.attr("y", yPos)
-		.style("fill", function(d,i) { return colVals[i]; }) // #1f77b4
+		.attr("y", yPos +bigFont/2)
 		.attr("font-size", bigFont)
 		.attr("text-anchor", "middle")
 		.attr("dominant-baseline", "middle")
 		.attr("alignment-baseline", "middle")
-		.style('pointer-events', 'none')
 		.text(function(d,i) {
 			return allData[keys[i]]['default']['short']
+		})
+
+	//add appropriate name to top level bubble	 
+	bubbleObj.append("text")
+		.attr("class", "topBubbleChar")
+		.attr("x", function(d, i) {return xPos(i);})
+		.attr("y", yPos-bigFont)
+		.attr("font-size", bigFont*1.5)
+		.attr("text-anchor", "middle")
+		.attr("dominant-baseline", "middle")
+		.attr("alignment-baseline", "middle")
+		.text(function(d,i) {
+			return faHash[i];
 		})      
 		 
 		 
-		for(var iB = 0; iB < nTop; iB++){
-			// This creates the child bubbles at a level below the top ones
+	for(var iB = 0; iB < nTop; iB++){
+		// This creates the child bubbles at a level below the top ones
 
-			var childBubbles = svg.selectAll(".childBubble" + iB)
-				.data(Object.keys(allData[keys[iB]]['subcat']))
-				.enter().append("g");
-				 
-			//add child bubbles at certain ratio around main bubble
-			//id is the subcat with a number on the end
-			//title is the whole category 
-			childBubbles.append("circle")
-				.attr("class", "childBubble" + iB)
-				.attr("id", function(d,i) {return d + iB;})
-				.attr("title", keys[iB])
-				.attr("r",  function(d) {return smoR;})
-				.attr("cx", function(d,i) {return xPosChild(iB,i);})
-				.attr("cy", function(d,i) {return yPosChild(i);})
-				.attr("cursor","pointer")
-				.style("opacity",0.5)
-				.style("fill", "#eee")
-				.on("click", function(d,i) {
-					var cat= d3.select(this).attr("title")
-					var fullID=d3.select(this).attr("id")
-					var id = fullID.slice(0, -1);
-					getCategorySub(cat, id)
-					// open the specific link on click
-					div.html(tipString)
-						.style("display", 'block');
-					var width = document.getElementById('tooltip').offsetWidth;
-					var currentx = Number(d3.select(this).attr("cx")) - width/2
-					var currenty = Number(d3.select(this).attr("cy")) + Number(d3.select(this).attr("r")) +5
-					div.transition()		
-		                .duration(500)			
-		                .style("left", currentx + "px")		
-		                .style("top", currenty + "px");                
-				})
-				.on("mouseover", function(d,i) {
-					//update the note in bottom left
-					var noteText = "";
-					if (d.note == null || d.note == "") {
-						noteText = d.address;
-					} 
-					else {
-						noteText = d.note;
-					}
-				})
+		var childBubbles = svg.selectAll(".childBubble" + iB)
+			.data(Object.keys(allData[keys[iB]]['subcat']))
+			.enter().append("g");
+			 
+		//add child bubbles at certain ratio around main bubble
+		//id is the subcat with a number on the end
+		//title is the whole category 
+		childBubbles.append("circle")
+			.attr("class", "smBubble childBubble" + iB)
+			.attr("id", function(d,i) {return d + iB;})
+			.attr("title", keys[iB])
+			.attr("r",  function(d) {return smoR;})
+			.attr("cx", function(d,i) {return xPosChild(iB,i);})
+			.attr("cy", function(d,i) {return yPosChild(i);})
+			.style("stroke", function(d,i) { return colVals[iB]; })
+			.on("click", function(d,i) {
+				var cat= d3.select(this).attr("title")
+				var fullID=d3.select(this).attr("id")
+				var id = fullID.slice(0, -1);
+				activeCategory = cat;
+				activeSubCategory= id;
+				getCategorySub(cat, id)
+				// open the specific link on click
+				div.html(tipString)
+					.style("display", 'block');
+				var width = document.getElementById('tooltip').offsetWidth;
+				var currentx = Number(d3.select(this).attr("cx")) - width/2
+				var currenty = Number(d3.select(this).attr("cy")) + Number(d3.select(this).attr("r")) +8
+				div.transition()		
+	                .duration(500)	
+	                .style("left", currentx + "px")		
+	                .style("top", currenty + "px");                
+			})
+			.on("mouseover", function(d,i) {
+				var curID= d3.select(this).attr("id")
+				if(curID !== prevID){
+					hideTooltip();
+				}
+				prevID= curID;
+				var keyClass = d3.select(this).attr("class")
+				var splitClass= keyClass.split(" ")
+				prevTitle = "."+splitClass[1]
+			});
 
-			//Add title to the respective circle
-			childBubbles.append("text")
-				.attr("class", "childBubbleText" + iB)
-				.attr("x", function(d,i) {return xPosChild(iB,i);})
-				.attr("y", function(d,i) {return yPosChild(i);})
-				.style("opacity",0.5)
-				.attr("text-anchor", "middle")
-				.style("fill", function(d,i) { return colVals[iB]; }) // #1f77b4
-				.attr("font-size", smFont)
-				.style('pointer-events', 'none')
-				.attr("dominant-baseline", "middle")
-				.attr("alignment-baseline", "middle")
-				.text(function(d,i) {
-					return allData[keys[iB]]['subcat'][d]['short']
-				})      
+		//Add title to the respective circle
+		childBubbles.append("text")
+			.attr("class", "smBubbleTxt childBubbleText" + iB)
+			.attr("x", function(d,i) {return xPosChild(iB,i);})
+			.attr("y", function(d,i) {return yPosChild(i);})
+			.attr("text-anchor", "middle")
+			.attr("font-size", smFont)
+			.attr("dominant-baseline", "middle")
+			.attr("alignment-baseline", "middle")
+			.text(function(d,i) {
+				return allData[keys[iB]]['subcat'][d]['short']
+			})      
 
-		}
+	}
 
+	hideTooltip = function(){
+		div.transition()		
+            .style('display', 'none')
+	}
 
 	resetBubbles = function () {
 		
@@ -246,7 +290,12 @@ function main(allData){
 		t.selectAll(".topBubbleText")
 			.attr("font-size", bigFont)
 			.attr("x", function(d, i) {return xPos(i);})
-			.attr("y", yPos);
+			.attr("y", yPos+bigFont/2);
+
+		t.selectAll(".topBubbleChar")
+			.attr("font-size", bigFont*1.5)
+			.attr("x", function(d, i) {return xPos(i);})
+			.attr("y", yPos-bigFont);
 
 		for(var k = 0; k < nTop; k++) {
 			t.selectAll(".childBubbleText" + k)
@@ -267,17 +316,34 @@ function main(allData){
 	 
 	function activateBubble(d,i) {
 
+		if(window.innerWidth > 1500){
+			var bigFont= 20;
+			var smFont=11;
+		}
+		else{
+			var bigFont= 16;
+			var smFont=10;
+		}    
+
 		// increase this bubble and decrease others
 		var t = svg.transition()
 			.duration(d3.event.altKey ? 7500 : 350);
 
 		//NEED TO FIX TO ALIGN WITH Ones up top
 		function pushleft(a){
-			return oR*(3*(1+a)-1);
+			return oR*(3.4*(0.9+a)-1);
 		}
 
 		function adjustX(a){
 			return 0.6*oR*(a-1)
+		}
+
+		function pushRight(a){
+			//2.9*ntop affects how far right they go
+			//0.6 is spacing between circles
+			//last number is the back anchor- how far right is furthest right?
+			//this one is more or less acceptable
+			return oR*(nTop*2.9+2) - oR*0.8*(3*(nTop-a)-2.5)
 		}
 
 		function calcXMove(i){
@@ -301,7 +367,7 @@ function main(allData){
 						return 0.6*pushleft(ii);
 					} else {
 						// right side
-						return oR*(nTop*3+1) - oR*0.6*(3*(nTop-ii)-1);
+						return pushRight(ii);
 					}
 				}               
 			})
@@ -325,7 +391,7 @@ function main(allData){
 						return 0.6*pushleft(ii);
 					} else {
 						// right side
-						return oR*(nTop*3+1) - oR*0.6*(3*(nTop-ii)-1);
+						return pushRight(ii);
 					}
 				}               
 			})          
@@ -334,6 +400,42 @@ function main(allData){
 					return bigFont*1.5;
 				else
 					return bigFont*0.6;              
+			})
+			.attr("y", function(d,ii){
+				if(i == ii)
+					return yPos +(bigFont*0.75);
+				else
+					return yPos +(bigFont*0.5);              
+			});
+
+		t.selectAll(".topBubbleChar")
+			.attr("x", function(d,ii){
+				if(i == ii) {
+					// Nothing to change
+					return pushleft(ii) - adjustX(ii);
+				} 
+				else {
+					// Push away a little bit
+					if(ii < i){
+						// left side
+						return 0.6*pushleft(ii);
+					} else {
+						// right side
+						return pushRight(ii);
+					}
+				}               
+			})          
+			.attr("font-size", function(d,ii){
+				if(i == ii)
+					return bigFont*2.2;
+				else
+					return bigFont*0.9;              
+			})
+			.attr("y", function(d,ii){
+				if(i == ii)
+					return yPos -(bigFont*1.25);
+				else
+					return yPos -(bigFont*0.5);              
 			});
 
 		var signSide = -1;
@@ -371,6 +473,19 @@ function main(allData){
 	
 }
 
-$('body').on('click', '.tooltip h2', function(){
-	console.log('clicked2')
+$('body').on('click', '#tooltip .cat', function(){
+	var conType= $(this).children('p').text()
+	var conTrimmed= conType.toLowerCase().trim()
+	$.get('/subDevListType', {listKey: activeCategory, subKey:activeSubCategory, conType:conTrimmed}, function (linkList){
+		$('.linkSum').hide('slow', function(){
+			$(this).remove()
+		});
+		if(linkList.length){
+			$('.topP').text('3 Most Popular Tutorials-'+conType)
+			for(var i=0; i<linkList.length; i++){
+				addLink(linkList[i]);
+			}
+		}
+	})
+
 })
