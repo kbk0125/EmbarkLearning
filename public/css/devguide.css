@@ -1,5 +1,5 @@
 
-/* line 202 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+/* line 203 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
 
 /* line 1 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\node_modules\grunt-contrib-stylus\node_modules\stylus\lib\functions\index.styl */
 
@@ -64,8 +64,8 @@ a:hover {
 /* line 26 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
 .actionBtn {
   border-radius: 2px;
-  background-color: #fff;
-  color: #63acd9;
+  background-color: #f15a5a;
+  color: #fff;
   padding: 0.5em 1em;
   cursor: pointer;
 }
@@ -107,30 +107,35 @@ a:hover {
 .orders {
   text-align: center;
   padding-top: 6px;
-  color: #f00;
 }
 
-/* line 60 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
-#mainBack {
-  background-color: #f2f2f2;
+/* line 58 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+.orders h3 {
+  color: #2d95bf;
 }
 
-/* line 63 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+/* line 61 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
 #mainBubble {
   position: relative;
 }
 
-/* line 65 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+/* line 63 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
 #mainBubble svg {
   left: 0;
   position: absolute;
   top: 0;
 }
 
-/* line 69 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+/* line 67 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+#mainBubble .lineObj,
+#mainBubble .vertLine {
+  stroke-width: 0.5px;
+  stroke: #e6e6e6;
+}
+
+/* line 70 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
 #mainBubble circle.topBubble {
-  stroke: rgba(0,0,0,0.3);
-  stroke-width: 2px;
+  stroke-width: 3px;
 }
 
 /* line 72 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
@@ -150,24 +155,22 @@ a:hover {
 #mainBubble circle.smBubble {
   cursor: pointer;
   opacity: 0.5;
-  fill: #404040;
-  stroke-width: 2px;
+  stroke-width: 3px;
 }
 
-/* line 84 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+/* line 83 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
 #mainBubble circle.smBubble:hover {
-  fill: #999 !important;
+  fill: #404040 !important;
 }
 
-/* line 86 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+/* line 85 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
 #mainBubble text.smBubbleTxt {
   opacity: 0.5;
   pointer-events: none;
   fill: #fff;
-  font-weight: 300;
 }
 
-/* line 91 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+/* line 89 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
 #mainBubble div#tooltip {
   position: absolute;
   text-align: center;
@@ -178,33 +181,33 @@ a:hover {
   border-radius: 4px;
 }
 
-/* line 99 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+/* line 97 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
 #mainBubble div#tooltip div.cat {
   display: inline-block;
   padding: 0 8px;
   cursor: pointer;
 }
 
-/* line 103 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+/* line 101 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
 #mainBubble div#tooltip i {
   font-size: 18px;
 }
 
-/* line 105 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+/* line 103 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
 #mainBubble div#tooltip p {
   font-size: 14px;
   color: #fff;
   margin-top: 2px;
 }
 
-/* line 109 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+/* line 107 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
 #mainBubble div#tooltip p.tipTitle {
   font-size: 16px;
   margin-bottom: 8px;
   margin-top: 0;
 }
 
-/* line 113 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+/* line 111 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
 #mainBubble div#tooltip .triangle {
   width: 0;
   position: absolute;
@@ -216,12 +219,12 @@ a:hover {
   border-bottom: 8px solid #404040;
 }
 
-/* line 123 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+/* line 121 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
 .labels {
   width: 100%;
 }
 
-/* line 125 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+/* line 123 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
 .labels .border {
   height: 3px;
   width: 100%;
@@ -236,7 +239,7 @@ a:hover {
   background: linear-gradient(to right, #2d95bf, #4eba6f, #f0c419, #f15a5a, #955ba5);
 }
 
-/* line 137 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+/* line 135 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
 .labels p {
   width: 31.5%;
   font-size: 14px;
@@ -246,69 +249,72 @@ a:hover {
   color: #999;
 }
 
-/* line 144 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+/* line 142 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
 .labels .front,
 .labels .back {
   border-left: 1px solid #999;
 }
 
-/* line 147 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+/* line 145 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
 .topTuts {
-  border: 2px solid #ccc;
+  background-color: #e9eaed;
   padding: 4px 8px;
-  margin: 0 12px;
+  margin: 0 24px;
   display: none;
+  border-radius: 4px;
 }
+
+/* line 151 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
 
 /* line 152 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
-
-/* line 153 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
 .topTuts .tLine h3.topP {
   font-size: 14px;
+  font-weight: 300;
+  color: #2d95bf;
 }
 
-/* line 155 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+/* line 156 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
 .topTuts .tLine * {
   display: inline-block;
 }
 
-/* line 157 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+/* line 158 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
 .topTuts .tLine img,
 .topTuts .tLine a,
 .topTuts .tLine p {
   float: right;
 }
 
-/* line 159 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+/* line 160 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
 .topTuts .tLine img {
   height: 20px;
 }
 
-/* line 161 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+/* line 162 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
 .topTuts .tLine p {
   color: #3394d4;
   font-size: 14px;
   margin: 2px 4px 0 8px;
 }
 
-/* line 165 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+/* line 166 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
 .topTuts .tLine p:hover {
   text-decoration: underline;
 }
 
-/* line 167 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
-
 /* line 168 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+
+/* line 169 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
 .topTuts .topLinks .linkSum {
   display: none;
 }
 
-/* line 170 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+/* line 171 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
 .topTuts .topLinks .linkSum p {
   font-size: 14px;
 }
 
-/* line 172 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+/* line 173 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
 .topTuts .topLinks .linkSum .subcat,
 .topTuts .topLinks .linkSum .filter,
 .topTuts .topLinks .linkSum .diff,
@@ -317,23 +323,23 @@ a:hover {
   text-transform: capitalize;
   border-radius: 2px;
   padding: 2px 4px;
-  background-color: #f1f1f1;
+  background-color: #f3f3f3;
   margin: 0 8px 0 0;
 }
 
-/* line 179 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+/* line 180 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
 .topTuts .topLinks .linkSum .topLine {
   padding-top: 16px;
 }
 @media (max-width: 1400px) {
 
-/* line 181 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+/* line 182 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
   .topTuts .topLinks .linkSum .topLine {
     padding-top: 8px;
   }
 }
 
-/* line 183 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+/* line 184 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
 .topTuts .topLinks .linkSum .linkLab {
   color: #ccc;
   white-space: nowrap;
@@ -342,7 +348,7 @@ a:hover {
   width: 725px;
 }
 
-/* line 189 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+/* line 190 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
 .topTuts .topLinks .linkSum h3 {
   display: inline-block;
   color: #3394d4;
@@ -352,17 +358,17 @@ a:hover {
   margin-bottom: 4px;
 }
 
-/* line 196 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+/* line 197 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
 .topTuts .topLinks .linkSum h3 .fa {
   margin-right: 4px;
 }
 
-/* line 198 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+/* line 199 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
 .topTuts .topLinks .linkSum h3:hover {
   text-decoration: underline;
 }
 
-/* line 200 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
+/* line 201 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\devguide.styl */
 .topTuts .topLinks .linkSum .description {
   color: #404040;
   font-size: 12px;

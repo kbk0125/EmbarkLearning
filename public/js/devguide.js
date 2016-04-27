@@ -103,14 +103,23 @@ function main(allData){
 		.attr("class", "mainBubbleSVG")
 		.attr("width", w)
 		.attr("height",h);
+
+	var vertLine = svg.selectAll(".vertLine")
+		.data(keys+keys)
+		.enter().append("g")
+		.attr("id", function(d,i) {return "vertLine_" + i});
+
+    var lineObj = svg.selectAll(".lineObj")
+		.data(keys)
+		.enter().append("g")
+		.attr("id", function(d,i) {return "topLine_" + i});	 
 		
 
 	//Tooltip guide http://bl.ocks.org/d3noob/a22c42db65eb00d4e369
 	var div = d3.select("#mainBubble").append("div")	
 	    .attr("id", "tooltip")				
-	    .style("display", 'none');	  
+	    .style("display", 'none'); 
 
-	// REVIEW
 	var bubbleObj = svg.selectAll(".topBubble")
 		.data(keys)
 		.enter().append("g")
@@ -123,6 +132,20 @@ function main(allData){
 	var colVals = ["#2D95BF", "#4EBA6F", '#F0C419', "#F15A5A", "#955BA5"]
 
 	var faHash = ["\uf1fe", "\uf0c0", "\uf13b", "\uf121","\uf1c0" ]
+
+	lineObj.append('line')
+		.attr("class", "lineObj")
+	    .attr("x1", 0)     // x position of the first end of the line
+	    .attr("y1", function(d,i) {return (i+1)*(h/6);})      // y position of the first end of the line
+	    .attr("x2", window.innerWidth)     // x position of the second end of the line
+	    .attr("y2", function(d,i) {return (i+1)*(h/6);})      // y position of the first end of the line
+
+    vertLine.append('line')
+		.attr("class", "vertLine")
+	    .attr("y1", h/20)     // x position of the first end of the line
+	    .attr("x1", function(d,i) {return (i+1)*(w/11);})      // y position of the first end of the line
+	    .attr("y2", h*0.95)     // x position of the second end of the line
+	    .attr("x2", function(d,i) {return (i+1)*(w/11);})      // y position of the first end of the line
 	
 	//creates top level bubbles, main categories
 	//positioning dependent on OR 
@@ -149,13 +172,11 @@ function main(allData){
 
 			children.transition()		
                 .duration(500)
-                .style('fill', '#999')
-                .style('stroke', '#aaa')
+                .style('fill', '#404040')
             setTimeout(function(){
             	children.transition()		
                 	.duration(500)
-                	.style('fill', '#404040')
-                	.style("stroke", color)
+                	.style("fill", color)
             },500)
 		});
 	 
@@ -203,6 +224,7 @@ function main(allData){
 			.attr("r",  function(d) {return smoR;})
 			.attr("cx", function(d,i) {return xPosChild(iB,i);})
 			.attr("cy", function(d,i) {return yPosChild(i);})
+			.style("fill", function(d,i) { return colVals[iB]; })
 			.style("stroke", function(d,i) { return colVals[iB]; })
 			.on("click", function(d,i) {
 				var cat= d3.select(this).attr("title")
@@ -280,6 +302,18 @@ function main(allData){
 
 		var t = svg.transition()
 			.duration(650);
+
+	t.selectAll(".lineObj")
+	    .attr("x1", 0)     // x position of the first end of the line
+	    .attr("y1", function(d,i) {return (i+1)*(h/6);})      // y position of the first end of the line
+	    .attr("x2", window.innerWidth)     // x position of the second end of the line
+	    .attr("y2", function(d,i) {return (i+1)*(h/6);})      // y position of the first end of the line
+
+    t.selectAll(".vertLine")
+	    .attr("y1", h/20)     // x position of the first end of the line
+	    .attr("x1", function(d,i) {return (i+1)*(w/11);})      // y position of the first end of the line
+	    .attr("y2", h*0.95)     // x position of the second end of the line
+	    .attr("x2", function(d,i) {return (i+1)*(w/11);})      // y position of the first end of the line
 		
 		// this is basically all a duplicate of thing above, just with transition 
 		t.selectAll(".topBubble")
