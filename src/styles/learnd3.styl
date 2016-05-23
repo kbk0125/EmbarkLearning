@@ -1,0 +1,180 @@
+body
+	margin 0
+	background-color #f1f1f1
+	transition 250ms
+	overflow-x hidden
+@font-face
+	font-family 'Roboto', sans-serif
+h1, h2, h3
+	color #404040
+	font-family 'Roboto'
+	font-weight 700
+	margin 0
+p, li, form, input, textarea, div
+	color #999
+	font-family 'Roboto'
+	font-weight 400
+	margin 0
+input, textarea
+	font-family inherit
+a
+	text-decoration none
+.actionBtn
+	border-radius 2px
+	background-color #63ACD9
+	color white
+	padding 0.5em 1em
+	cursor pointer
+
+#topBar
+	width 100%
+	background-color #e6e6e6
+	width 100%
+	padding 4px 0 2px 0
+	img
+		height 35px
+		display inline-block
+		margin-left 8px
+	h3
+		display inline-block
+		margin-left 4px
+		vertical-align top
+		margin-top 6px
+		font-weight 300
+	.actionBtn
+		float right
+		font-size 14px
+		margin-right 8px
+		margin-top 2px
+.container
+	position relative
+
+.pencil
+	width 280px
+	position absolute
+	right -50px
+	z-index 6
+	transform rotate(60deg)
+	top 30px
+
+.coffee
+	width 15%
+	position absolute
+	left 15px
+	bottom 0
+	
+.phone
+	width 150px
+	position absolute
+	right 35px
+	bottom 0
+	transform rotate(-5deg)
+.main
+	width 800px
+	margin 32px auto 16px auto
+	height 850px
+	position relative
+	background-color #404040
+	border-radius 8px
+	.paper
+		background-color white
+		position absolute
+		left 24px
+		right 24px
+		top 16px
+		bottom 12px
+		border-radius 2px
+		.page2
+			display none
+		.page
+			margin-top 32px
+			h2, .subHead
+				text-align center
+			.content
+				padding 0px 8px 24px 16px
+				.titleDiv
+					margin-top 48px
+					position relative
+					.title
+						color #7979c7
+						background-color white
+						position relative
+						display inline-block
+						padding-right 16px
+					.line
+						width 100%
+						height 1px
+						position absolute
+						top 11px
+						z-index 0
+						background-color #7979c7
+				.oneTut
+					margin-top 8px
+					padding 8px
+					width 33%
+					display inline-block
+					margin-right 9%
+					border-radius 2px
+					box-sizing border-box
+					border 1px solid transparent
+					&:hover
+						border 1px solid #999
+						transition 250ms
+						> p
+							transition 250ms
+							text-decoration underline
+					img
+						width 100%
+						height 180px
+					> p
+						margin-top 8px
+						color #3394d4
+					.deets
+						margin-top 4px
+						i,p
+							display inline-block
+						i
+							color #CFB53B
+						p 
+							margin-left 4px
+							font-size 14px
+							vertical-align top
+							margin-top 1px
+						p.smText
+							margin-left 0
+							font-size 12px
+							margin-top 3px
+			.corner
+				position absolute
+				bottom 0
+				right 0
+				cursor pointer
+				.cornerTri
+					width 0
+					height 0
+					border-style solid
+					border-width 0 0 100px 100px
+					border-color transparent transparent #3394d4 transparent
+				p
+					position absolute
+					text-align center
+					font-size 14px
+					color white
+					top 56px
+					left 53px
+	.clip
+		position absolute
+		top -20px
+		left 25%
+		right 25%
+		z-index 9
+		border-radius 2px 2px 8px 8px
+		overflow hidden
+		height 60px
+		background-color #ccc
+		.clipBtm
+			position absolute
+			width 100%
+			bottom 0
+			height 20px
+			background-color rgba(0,0,0,0.3)

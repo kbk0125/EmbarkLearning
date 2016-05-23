@@ -6,7 +6,6 @@ var basicRouter = express.Router();
 var bodyParser = require('body-parser')
 var parseUrlencoded= bodyParser.urlencoded({extended:false});
 var categories = require( "./categories.js" )
-var picker = require( "./devguide/data.js" )
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(require('serve-favicon')(__dirname+'/public/img/favicon.ico'));
@@ -114,6 +113,10 @@ basicRouter.get('/', function(req, res) {
 
 basicRouter.get('/devguide', function(req, res) {
     res.sendFile(path.join(__dirname + '/devguide/index.html'));
+});
+
+basicRouter.get('/learnd3', function(req, res) {
+    res.sendFile(path.join(__dirname + '/learnd3/index.html'));
 });
 
 basicRouter.get('/*', function(req, res) {

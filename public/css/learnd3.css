@@ -1,0 +1,307 @@
+
+/* line 286 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+
+/* line 1 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\node_modules\grunt-contrib-stylus\node_modules\stylus\lib\functions\index.styl */
+
+/* line 1 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+body {
+  margin: 0;
+  background-color: #f1f1f1;
+  transition: 250ms;
+  overflow-x: hidden;
+}
+
+/* line 6 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+@font-face {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* line 8 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+h1,
+h2,
+h3 {
+  color: #404040;
+  font-family: 'Roboto';
+  font-weight: 700;
+  margin: 0;
+}
+
+/* line 13 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+p,
+li,
+form,
+input,
+textarea,
+div {
+  color: #999;
+  font-family: 'Roboto';
+  font-weight: 400;
+  margin: 0;
+}
+
+/* line 18 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+input,
+textarea {
+  font-family: inherit;
+}
+
+/* line 20 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+a {
+  text-decoration: none;
+}
+
+/* line 22 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+.actionBtn {
+  border-radius: 2px;
+  background-color: #63acd9;
+  color: #fff;
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+
+/* line 29 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+#topBar {
+  width: 100%;
+  background-color: #e6e6e6;
+  width: 100%;
+  padding: 4px 0 2px 0;
+}
+
+/* line 34 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+#topBar img {
+  height: 35px;
+  display: inline-block;
+  margin-left: 8px;
+}
+
+/* line 38 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+#topBar h3 {
+  display: inline-block;
+  margin-left: 4px;
+  vertical-align: top;
+  margin-top: 6px;
+  font-weight: 300;
+}
+
+/* line 44 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+#topBar .actionBtn {
+  float: right;
+  font-size: 14px;
+  margin-right: 8px;
+  margin-top: 2px;
+}
+
+/* line 49 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+.container {
+  position: relative;
+}
+
+/* line 52 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+.pencil {
+  width: 280px;
+  position: absolute;
+  right: -50px;
+  z-index: 6;
+  transform: rotate(60deg);
+  top: 30px;
+}
+
+/* line 60 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+.coffee {
+  width: 15%;
+  position: absolute;
+  left: 15px;
+  bottom: 0;
+}
+
+/* line 66 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+.phone {
+  width: 150px;
+  position: absolute;
+  right: 35px;
+  bottom: 0;
+  transform: rotate(-5deg);
+}
+
+/* line 72 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+.main {
+  width: 800px;
+  margin: 32px auto 16px auto;
+  height: 850px;
+  position: relative;
+  background-color: #404040;
+  border-radius: 8px;
+}
+
+/* line 79 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+.main .paper {
+  background-color: #fff;
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  top: 16px;
+  bottom: 12px;
+  border-radius: 2px;
+}
+
+/* line 87 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+.main .paper .page2 {
+  display: none;
+}
+
+/* line 89 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+.main .paper .page {
+  margin-top: 32px;
+}
+
+/* line 91 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+.main .paper .page h2,
+.main .paper .page .subHead {
+  text-align: center;
+}
+
+/* line 93 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+.main .paper .page .content {
+  padding: 0px 8px 24px 16px;
+}
+
+/* line 95 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+.main .paper .page .content .titleDiv {
+  margin-top: 48px;
+  position: relative;
+}
+
+/* line 98 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+.main .paper .page .content .titleDiv .title {
+  color: #7979c7;
+  background-color: #fff;
+  position: relative;
+  display: inline-block;
+  padding-right: 16px;
+}
+
+/* line 104 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+.main .paper .page .content .titleDiv .line {
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  top: 11px;
+  z-index: 0;
+  background-color: #7979c7;
+}
+
+/* line 111 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+.main .paper .page .content .oneTut {
+  margin-top: 8px;
+  padding: 8px;
+  width: 33%;
+  display: inline-block;
+  margin-right: 9%;
+  border-radius: 2px;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+}
+
+/* line 120 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+.main .paper .page .content .oneTut:hover {
+  border: 1px solid #999;
+  transition: 250ms;
+}
+
+/* line 123 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+.main .paper .page .content .oneTut:hover > p {
+  transition: 250ms;
+  text-decoration: underline;
+}
+
+/* line 126 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+.main .paper .page .content .oneTut img {
+  width: 100%;
+  height: 180px;
+}
+
+/* line 129 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+.main .paper .page .content .oneTut > p {
+  margin-top: 8px;
+  color: #3394d4;
+}
+
+/* line 132 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+.main .paper .page .content .oneTut .deets {
+  margin-top: 4px;
+}
+
+/* line 134 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+.main .paper .page .content .oneTut .deets i,
+.main .paper .page .content .oneTut .deets p {
+  display: inline-block;
+}
+
+/* line 136 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+.main .paper .page .content .oneTut .deets i {
+  color: #cfb53b;
+}
+
+/* line 138 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+.main .paper .page .content .oneTut .deets p {
+  margin-left: 4px;
+  font-size: 14px;
+  vertical-align: top;
+  margin-top: 1px;
+}
+
+/* line 143 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+.main .paper .page .content .oneTut .deets p.smText {
+  margin-left: 0;
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+/* line 147 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+.main .paper .page .corner {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+/* line 152 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+.main .paper .page .corner .cornerTri {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 100px 100px;
+  border-color: transparent transparent #3394d4 transparent;
+}
+
+/* line 158 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+.main .paper .page .corner p {
+  position: absolute;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+  top: 56px;
+  left: 53px;
+}
+
+/* line 165 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+.main .clip {
+  position: absolute;
+  top: -20px;
+  left: 25%;
+  right: 25%;
+  z-index: 9;
+  border-radius: 2px 2px 8px 8px;
+  overflow: hidden;
+  height: 60px;
+  background-color: #ccc;
+}
+
+/* line 175 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\learnd3.styl */
+.main .clip .clipBtm {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  height: 20px;
+  background-color: rgba(0,0,0,0.3);
+}
