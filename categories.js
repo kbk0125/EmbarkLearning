@@ -272,7 +272,7 @@ module.exports = {
                 "title": "Javascript- JQuery",
                 "short": "jQuery",
                 "summary": "Easily add interactive elements to your site",
-                "img": "/img/catImg/jquerylogo.png",
+                "img": "/img/catImg/jQuerylogo.png",
                 "challenge1": {
                     "short": "Build an entire simple site",
                     "full": "Check out <a href='https://medium.com/@kevink/8-crazy-ideas-for-building-a-web-site-a25b3f69c517#.iwdbbsomq' target='_blank'>this blog post </a> and build one of the projects listed. Use jQuery to do some basic animation, click events and show/hide different content sections."
