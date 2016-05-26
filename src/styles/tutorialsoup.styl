@@ -1,0 +1,406 @@
+body
+	margin 0
+	background-color #fff6e6
+	transition 250ms
+#container
+	width 100%
+	height 100%
+	position relative
+@font-face
+	font-family 'Lato', sans-serif
+@font-face
+	font-family 'FontAwesome'
+h1, h2, h3
+	color #404040
+	font-family 'Lato'
+	font-weight 700
+	margin 0
+p, li, form, input, textarea, div, text, svg
+	color #999
+	font-family 'Lato'
+	font-weight 400
+	margin 0
+input, textarea
+	font-family inherit
+a
+	text-decoration none
+	&:hover
+		text-decoration underline
+
+.actionBtn
+	border-radius 2px
+	background-color #F15A5A
+	color white
+	padding 0.5em 1em
+	cursor pointer
+
+.actionBtn2
+	border-radius 2px
+	background-color #63ACD9
+	color white
+	padding 0.5em 1em
+	cursor pointer
+	&:hover
+		background-color #3394d4
+
+.actionBtn3
+	border-radius 2px
+	background-color #7979c7
+	color white
+	padding 0.5em 1em
+	cursor pointer
+
+
+.ctrBlock
+	flex-direction column
+	justify-content center
+	text-align center
+	align-items center
+	position absolute
+	top 46px
+	bottom 0
+	width 100%
+	display none
+	h2
+		span
+			font-weight 300
+			color #999
+
+.intro
+	display flex
+
+#topBar
+	width 100%
+	background-color #fafafa
+	border-bottom 1px solid #e6e6e6
+	width 100%
+	padding 4px 0 2px 0
+	img
+		height 30px
+		padding 3px 0
+		display inline-block
+		margin-left 8px
+	h3
+		display inline-block
+		margin-left 8px
+		vertical-align top
+		margin-top 6px
+		font-weight 400
+	.actionBtn
+		float right
+		font-size 14px
+		margin-right 8px
+		margin-top 2px
+.intro
+	h1
+		font-size 2.7em
+		position relative
+		margin-bottom 0.25em
+		img
+			position absolute
+			top 0
+			left 0
+	.subtitle
+		font-size 18px
+		width 500px
+		line-height 140%
+		margin 0 auto
+	.rowHead
+		color #404040
+		margin 5em 0 1em 0
+		font-weight 700
+	.power
+		font-weight 300
+		font-size 14px
+		margin-top 1.5em
+	.mainPgCat
+		display inline-block
+		width 165px
+		margin 0px 16px
+		@media (max-width: 600px)
+			width 120px
+			margin-left 4px
+			margin-right 4px
+		@media (max-width: 400px)
+			display block
+			margin 0 auto 32px auto
+		> p
+			color #999
+			font-weight 300
+		.links
+			margin 4px 0
+		.actionBtn2
+			@media (max-width: 600px)
+				padding 0.25em 0.5em
+				height 20px
+				p
+					font-size 12px
+			.fa, span
+				font-size 22px
+				@media (max-width: 600px)
+					font-size 16px
+			span
+				font-weight 700
+			.fa
+				padding 2px 0 3px 0
+			p
+				display inline-block
+				color white
+				vertical-align top
+				margin-top 3px
+				margin-left 8px
+			p.smallTxt
+				font-size 14px
+				margin-top 4px
+				@media (max-width: 600px)
+					font-size 11px
+.bottomRow
+	position fixed
+	left 8px
+	display flex
+	bottom 8px
+	div
+		display inline-block
+	.line
+		width 30px
+		height 3px
+		margin 18px 8px 0 8px
+		border-radius 4px
+		background-color #ccc
+	.imgHold
+		text-align center
+		img
+			height 40px
+		p
+			font-weight 300
+			font-size 14px
+		p.highlight
+			font-weight 400
+			color #404040
+.bottomRow.vert
+	@media (max-width: 1450px)
+		display block
+		div 
+			display block
+		.line
+			height 20px
+			width 3px
+			margin 4px auto
+		.imgHold
+			img
+				height 30px
+
+.restart
+	position fixed
+	bottom 8px
+	right 8px
+
+.subCatList
+	margin-top 24px
+	.listing
+		text-align left
+		margin-top 12px
+		height 60px
+		.actionBtn2
+			margin-top 4px
+		div
+			display inline-block
+			vertical-align top
+		.imgContain
+			width 60px
+			height 40px
+			margin-left 8px
+			img
+				height 100%
+				display block
+				margin 0 auto
+		.content
+			text-align left
+			margin-left 4px
+			p
+				width 300px
+	
+.ctrBlock3
+	h2
+		margin-left 65px
+		margin-bottom 12px
+	.actionBtn2
+		margin-top 24px
+	.errMsg
+		color red
+		margin-top 4px
+		display none 
+.contChoice
+	margin-top 12px
+	width 300px
+	text-align left
+	margin-left 150px
+	.logo
+		width 55px
+		margin-left 8px
+	h3, .squaredThree, .logo
+		display inline-block
+		vertical-align top
+	i
+		font-size 2.5em
+		display table
+		margin 0 auto
+	h3
+		margin-left 4px
+		margin-top 6px
+	.squaredThree 
+		width 20px
+		position relative
+		margin 8px auto
+		label 
+			width 20px
+			height 20px
+			cursor pointer
+			position absolute
+			top 0
+			left 0
+			background-color #3394d4
+			border-radius 4px
+			box-shadow inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4)
+			&:after 
+				content ''
+				width 9px
+				height 5px
+				position absolute
+				top 4px
+				left 4px
+				border 3px solid #fcfff4
+				border-top none
+				border-right none
+				background transparent
+				opacity 0
+				transform rotate(-45deg)
+			&:hover::after 
+				opacity 0.3
+		input[type=checkbox] 
+			visibility hidden
+			&:checked + label:after 
+				opacity 1
+
+.ctrBlock.ctrBlock4
+	top 60px
+	justify-content initial
+.ctrBlock4
+	.finRecipe
+		width 800px
+		.headCont
+			img
+				height 30px 
+				padding-right 8px
+				display inline-block
+			h2
+				text-transform uppercase
+				display inline-block
+				vertical-align top
+				margin-top 1px
+			p.sub
+				font-weight 300
+				margin-top 4px
+			.box
+				border 2px solid #ccc
+				width 100%
+				border-radius 4px
+				margin-top 24px
+				> p
+					padding 4px 0
+					font-size 14px
+					color #404040
+				.req
+					text-align center
+					display inline-block
+					padding 8px 16px
+					img
+						height 40px
+					p
+						font-size 12px
+						margin-top 2px
+	.planSection
+		margin-bottom 48px
+		.level
+			margin-top 16px
+		.level
+			.imgSection
+				text-align center
+				width 30%
+				display inline-block
+				img
+					width 100px
+				h3
+					margin-bottom 12px
+			.contSection
+				width 69.5%
+				display inline-block
+				vertical-align top
+				.entry
+					padding 0px 0px 16px 32px
+					text-align left
+					position relative
+					border-left 2px solid #ccc
+					a
+						color #3394d4
+						.title
+							font-size 16px
+							color #3394d4
+							display inline-block
+					.desc
+						font-size 14px
+						width 420px
+					.corner
+						position absolute
+						top 0
+						left -17px
+						width 25px
+						background-color #3394d4
+						padding 4px
+						border-radius 4px
+						i
+							font-size 16px
+							color white
+							margin auto
+							display table
+					.high
+						font-size 14px
+						color #33d473
+						position absolute
+						top 3px
+						right 0
+						font-weight 300
+				.entry:last-child
+					border-left none
+		.challenge
+			padding 8px 0
+			border 1px solid #f15a5a
+			border-radius 4px
+			margin-top 16px
+			table
+				width 100%
+			.imgSection
+				text-align center
+				width 30%
+				display inline-block
+				img, h3
+					display inline-block
+				img
+					height 50px
+				h3
+					vertical-align top
+					margin-top 16px
+					margin-left 4px
+			.contSection
+				width 69%
+				display inline-block
+				.chal, .chalDesc
+					padding-left 32px
+					text-align left
+				.chal
+					font-size 16px
+					color #404040
+					margin-bottom 6px
+				.chalDesc
+					font-size 14px
+					width 420px

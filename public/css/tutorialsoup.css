@@ -1,0 +1,757 @@
+
+/* line 286 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+
+/* line 1 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\node_modules\grunt-contrib-stylus\node_modules\stylus\lib\functions\index.styl */
+
+/* line 1 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+body {
+  margin: 0;
+  background-color: #fff6e6;
+  transition: 250ms;
+}
+
+/* line 5 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+#container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* line 9 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+@font-face {
+  font-family: 'Lato', sans-serif;
+}
+
+/* line 11 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+@font-face {
+  font-family: 'FontAwesome';
+}
+
+/* line 13 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+h1,
+h2,
+h3 {
+  color: #404040;
+  font-family: 'Lato';
+  font-weight: 700;
+  margin: 0;
+}
+
+/* line 18 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+p,
+li,
+form,
+input,
+textarea,
+div,
+text,
+svg {
+  color: #999;
+  font-family: 'Lato';
+  font-weight: 400;
+  margin: 0;
+}
+
+/* line 23 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+input,
+textarea {
+  font-family: inherit;
+}
+
+/* line 25 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+a {
+  text-decoration: none;
+}
+
+/* line 27 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+a:hover {
+  text-decoration: underline;
+}
+
+/* line 30 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.actionBtn {
+  border-radius: 2px;
+  background-color: #f15a5a;
+  color: #fff;
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+
+/* line 37 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.actionBtn2 {
+  border-radius: 2px;
+  background-color: #63acd9;
+  color: #fff;
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+
+/* line 43 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.actionBtn2:hover {
+  background-color: #3394d4;
+}
+
+/* line 46 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.actionBtn3 {
+  border-radius: 2px;
+  background-color: #7979c7;
+  color: #fff;
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+
+/* line 54 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock {
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  position: absolute;
+  top: 46px;
+  bottom: 0;
+  width: 100%;
+  display: none;
+}
+
+/* line 64 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+
+/* line 65 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock h2 span {
+  font-weight: 300;
+  color: #999;
+}
+
+/* line 69 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.intro {
+  display: flex;
+}
+
+/* line 72 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+#topBar {
+  width: 100%;
+  background-color: #fafafa;
+  border-bottom: 1px solid #e6e6e6;
+  width: 100%;
+  padding: 4px 0 2px 0;
+}
+
+/* line 78 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+#topBar img {
+  height: 30px;
+  padding: 3px 0;
+  display: inline-block;
+  margin-left: 8px;
+}
+
+/* line 83 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+#topBar h3 {
+  display: inline-block;
+  margin-left: 8px;
+  vertical-align: top;
+  margin-top: 6px;
+  font-weight: 400;
+}
+
+/* line 89 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+#topBar .actionBtn {
+  float: right;
+  font-size: 14px;
+  margin-right: 8px;
+  margin-top: 2px;
+}
+
+/* line 94 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+
+/* line 95 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.intro h1 {
+  font-size: 2.7em;
+  position: relative;
+  margin-bottom: 0.25em;
+}
+
+/* line 99 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.intro h1 img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* line 103 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.intro .subtitle {
+  font-size: 18px;
+  width: 500px;
+  line-height: 140%;
+  margin: 0 auto;
+}
+
+/* line 108 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.intro .rowHead {
+  color: #404040;
+  margin: 5em 0 1em 0;
+  font-weight: 700;
+}
+
+/* line 112 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.intro .power {
+  font-weight: 300;
+  font-size: 14px;
+  margin-top: 1.5em;
+}
+
+/* line 116 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.intro .mainPgCat {
+  display: inline-block;
+  width: 165px;
+  margin: 0px 16px;
+}
+@media (max-width: 600px) {
+
+/* line 120 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+  .intro .mainPgCat {
+    width: 120px;
+    margin-left: 4px;
+    margin-right: 4px;
+  }
+}
+@media (max-width: 400px) {
+
+/* line 124 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+  .intro .mainPgCat {
+    display: block;
+    margin: 0 auto 32px auto;
+  }
+}
+
+/* line 127 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.intro .mainPgCat > p {
+  color: #999;
+  font-weight: 300;
+}
+
+/* line 130 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.intro .mainPgCat .links {
+  margin: 4px 0;
+}
+
+/* line 132 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+@media (max-width: 600px) {
+
+/* line 133 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+  .intro .mainPgCat .actionBtn2 {
+    padding: 0.25em 0.5em;
+    height: 20px;
+  }
+
+/* line 136 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+  .intro .mainPgCat .actionBtn2 p {
+    font-size: 12px;
+  }
+}
+
+/* line 138 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.intro .mainPgCat .actionBtn2 .fa,
+.intro .mainPgCat .actionBtn2 span {
+  font-size: 22px;
+}
+@media (max-width: 600px) {
+
+/* line 140 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+  .intro .mainPgCat .actionBtn2 .fa,
+  .intro .mainPgCat .actionBtn2 span {
+    font-size: 16px;
+  }
+}
+
+/* line 142 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.intro .mainPgCat .actionBtn2 span {
+  font-weight: 700;
+}
+
+/* line 144 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.intro .mainPgCat .actionBtn2 .fa {
+  padding: 2px 0 3px 0;
+}
+
+/* line 146 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.intro .mainPgCat .actionBtn2 p {
+  display: inline-block;
+  color: #fff;
+  vertical-align: top;
+  margin-top: 3px;
+  margin-left: 8px;
+}
+
+/* line 152 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.intro .mainPgCat .actionBtn2 p.smallTxt {
+  font-size: 14px;
+  margin-top: 4px;
+}
+@media (max-width: 600px) {
+
+/* line 155 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+  .intro .mainPgCat .actionBtn2 p.smallTxt {
+    font-size: 11px;
+  }
+}
+
+/* line 157 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.bottomRow {
+  position: fixed;
+  left: 8px;
+  display: flex;
+  bottom: 8px;
+}
+
+/* line 162 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.bottomRow div {
+  display: inline-block;
+}
+
+/* line 164 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.bottomRow .line {
+  width: 30px;
+  height: 3px;
+  margin: 18px 8px 0 8px;
+  border-radius: 4px;
+  background-color: #ccc;
+}
+
+/* line 170 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.bottomRow .imgHold {
+  text-align: center;
+}
+
+/* line 172 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.bottomRow .imgHold img {
+  height: 40px;
+}
+
+/* line 174 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.bottomRow .imgHold p {
+  font-weight: 300;
+  font-size: 14px;
+}
+
+/* line 177 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.bottomRow .imgHold p.highlight {
+  font-weight: 400;
+  color: #404040;
+}
+
+/* line 180 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+@media (max-width: 1450px) {
+
+/* line 181 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+  .bottomRow.vert {
+    display: block;
+  }
+
+/* line 183 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+  .bottomRow.vert div {
+    display: block;
+  }
+
+/* line 185 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+  .bottomRow.vert .line {
+    height: 20px;
+    width: 3px;
+    margin: 4px auto;
+  }
+
+/* line 189 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+
+/* line 190 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+  .bottomRow.vert .imgHold img {
+    height: 30px;
+  }
+}
+
+/* line 193 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.restart {
+  position: fixed;
+  bottom: 8px;
+  right: 8px;
+}
+
+/* line 198 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.subCatList {
+  margin-top: 24px;
+}
+
+/* line 200 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.subCatList .listing {
+  text-align: left;
+  margin-top: 12px;
+  height: 60px;
+}
+
+/* line 204 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.subCatList .listing .actionBtn2 {
+  margin-top: 4px;
+}
+
+/* line 206 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.subCatList .listing div {
+  display: inline-block;
+  vertical-align: top;
+}
+
+/* line 209 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.subCatList .listing .imgContain {
+  width: 60px;
+  height: 40px;
+  margin-left: 8px;
+}
+
+/* line 213 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.subCatList .listing .imgContain img {
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+/* line 217 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.subCatList .listing .content {
+  text-align: left;
+  margin-left: 4px;
+}
+
+/* line 220 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.subCatList .listing .content p {
+  width: 300px;
+}
+
+/* line 223 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+
+/* line 224 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock3 h2 {
+  margin-left: 65px;
+  margin-bottom: 12px;
+}
+
+/* line 227 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock3 .actionBtn2 {
+  margin-top: 24px;
+}
+
+/* line 229 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock3 .errMsg {
+  color: #f00;
+  margin-top: 4px;
+  display: none;
+}
+
+/* line 233 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.contChoice {
+  margin-top: 12px;
+  width: 300px;
+  text-align: left;
+  margin-left: 150px;
+}
+
+/* line 238 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.contChoice .logo {
+  width: 55px;
+  margin-left: 8px;
+}
+
+/* line 241 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.contChoice h3,
+.contChoice .squaredThree,
+.contChoice .logo {
+  display: inline-block;
+  vertical-align: top;
+}
+
+/* line 244 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.contChoice i {
+  font-size: 2.5em;
+  display: table;
+  margin: 0 auto;
+}
+
+/* line 248 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.contChoice h3 {
+  margin-left: 4px;
+  margin-top: 6px;
+}
+
+/* line 251 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.contChoice .squaredThree {
+  width: 20px;
+  position: relative;
+  margin: 8px auto;
+}
+
+/* line 255 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.contChoice .squaredThree label {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #3394d4;
+  border-radius: 4px;
+  box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.4);
+}
+
+/* line 265 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.contChoice .squaredThree label:after {
+  content: '';
+  width: 9px;
+  height: 5px;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  border: 3px solid #fcfff4;
+  border-top: none;
+  border-right: none;
+  background: transparent;
+  opacity: 0;
+  transform: rotate(-45deg);
+}
+
+/* line 278 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.contChoice .squaredThree label:hover::after {
+  opacity: 0.3;
+}
+
+/* line 280 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.contChoice .squaredThree input[type=checkbox] {
+  visibility: hidden;
+}
+
+/* line 282 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.contChoice .squaredThree input[type=checkbox]:checked + label:after {
+  opacity: 1;
+}
+
+/* line 285 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock.ctrBlock4 {
+  top: 60px;
+  justify-content: initial;
+}
+
+/* line 288 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+
+/* line 289 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock4 .finRecipe {
+  width: 800px;
+}
+
+/* line 291 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+
+/* line 292 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock4 .finRecipe .headCont img {
+  height: 30px;
+  padding-right: 8px;
+  display: inline-block;
+}
+
+/* line 296 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock4 .finRecipe .headCont h2 {
+  text-transform: uppercase;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 1px;
+}
+
+/* line 301 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock4 .finRecipe .headCont p.sub {
+  font-weight: 300;
+  margin-top: 4px;
+}
+
+/* line 304 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock4 .finRecipe .headCont .box {
+  border: 2px solid #ccc;
+  width: 100%;
+  border-radius: 4px;
+  margin-top: 24px;
+}
+
+/* line 309 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock4 .finRecipe .headCont .box > p {
+  padding: 4px 0;
+  font-size: 14px;
+  color: #404040;
+}
+
+/* line 313 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock4 .finRecipe .headCont .box .req {
+  text-align: center;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+/* line 317 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock4 .finRecipe .headCont .box .req img {
+  height: 40px;
+}
+
+/* line 319 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock4 .finRecipe .headCont .box .req p {
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+/* line 322 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock4 .planSection {
+  margin-bottom: 48px;
+}
+
+/* line 324 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock4 .planSection .level {
+  margin-top: 16px;
+}
+
+/* line 326 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+
+/* line 327 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock4 .planSection .level .imgSection {
+  text-align: center;
+  width: 30%;
+  display: inline-block;
+}
+
+/* line 331 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock4 .planSection .level .imgSection img {
+  width: 100px;
+}
+
+/* line 333 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock4 .planSection .level .imgSection h3 {
+  margin-bottom: 12px;
+}
+
+/* line 335 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock4 .planSection .level .contSection {
+  width: 69.5%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+/* line 339 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock4 .planSection .level .contSection .entry {
+  padding: 0px 0px 16px 32px;
+  text-align: left;
+  position: relative;
+  border-left: 2px solid #ccc;
+}
+
+/* line 344 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock4 .planSection .level .contSection .entry a {
+  color: #3394d4;
+}
+
+/* line 346 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock4 .planSection .level .contSection .entry a .title {
+  font-size: 16px;
+  color: #3394d4;
+  display: inline-block;
+}
+
+/* line 350 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock4 .planSection .level .contSection .entry .desc {
+  font-size: 14px;
+  width: 420px;
+}
+
+/* line 353 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock4 .planSection .level .contSection .entry .corner {
+  position: absolute;
+  top: 0;
+  left: -17px;
+  width: 25px;
+  background-color: #3394d4;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+/* line 361 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock4 .planSection .level .contSection .entry .corner i {
+  font-size: 16px;
+  color: #fff;
+  margin: auto;
+  display: table;
+}
+
+/* line 366 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock4 .planSection .level .contSection .entry .high {
+  font-size: 14px;
+  color: #33d473;
+  position: absolute;
+  top: 3px;
+  right: 0;
+  font-weight: 300;
+}
+
+/* line 373 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock4 .planSection .level .contSection .entry:last-child {
+  border-left: none;
+}
+
+/* line 375 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock4 .planSection .challenge {
+  padding: 8px 0;
+  border: 1px solid #f15a5a;
+  border-radius: 4px;
+  margin-top: 16px;
+}
+
+/* line 380 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock4 .planSection .challenge table {
+  width: 100%;
+}
+
+/* line 382 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock4 .planSection .challenge .imgSection {
+  text-align: center;
+  width: 30%;
+  display: inline-block;
+}
+
+/* line 386 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock4 .planSection .challenge .imgSection img,
+.ctrBlock4 .planSection .challenge .imgSection h3 {
+  display: inline-block;
+}
+
+/* line 388 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock4 .planSection .challenge .imgSection img {
+  height: 50px;
+}
+
+/* line 390 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock4 .planSection .challenge .imgSection h3 {
+  vertical-align: top;
+  margin-top: 16px;
+  margin-left: 4px;
+}
+
+/* line 394 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock4 .planSection .challenge .contSection {
+  width: 69%;
+  display: inline-block;
+}
+
+/* line 397 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock4 .planSection .challenge .contSection .chal,
+.ctrBlock4 .planSection .challenge .contSection .chalDesc {
+  padding-left: 32px;
+  text-align: left;
+}
+
+/* line 400 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock4 .planSection .challenge .contSection .chal {
+  font-size: 16px;
+  color: #404040;
+  margin-bottom: 6px;
+}
+
+/* line 404 : C:\Users\Kevin\Documents\CodingStuff\EmbarkLearning\src\styles\tutorialsoup.styl */
+.ctrBlock4 .planSection .challenge .contSection .chalDesc {
+  font-size: 14px;
+  width: 420px;
+}

@@ -119,6 +119,10 @@ basicRouter.get('/learnd3', function(req, res) {
     res.sendFile(path.join(__dirname + '/learnd3/index.html'));
 });
 
+basicRouter.get('/tutorialsoup', function(req, res) {
+    res.sendFile(path.join(__dirname + '/tutorialsoup/index.html'));
+});
+
 basicRouter.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
@@ -223,6 +227,28 @@ app.get('/testvotes', function(req, res){
 		res.send(result);
 	});
 });
+
+// Tutorial Soup
+
+app.get('/catOptions', function(req,res){
+	var category=req.query.category
+	res.send(categories[category]['subcat'])
+})
+
+app.get('/customTut', function(req,res){
+	var category=req.query.category
+	var subcat = req.query.subcat
+	var choices = req.query.choices
+	var allRes=[];
+	connection.query('SELECT l.id, l.datecreated, l.category, l.subcategory, l.title, l.link, l.challenge, l.description, l.filter, COUNT(v.linkid) AS votes FROM Links l INNER JOIN Votes v ON l.id = v.linkid WHERE l.category=? AND l.subcategory=? AND l.filter IN (?) AND l.challenge="beginner" GROUP BY l.id ORDER BY votes DESC LIMIT 3;', [category,subcat,choices] ,function (err, result1, fields) {
+		if (err) throw err;
+		allRes.push(result1)
+		connection.query('SELECT l.id, l.datecreated, l.category, l.subcategory, l.title, l.link, l.challenge, l.description, l.filter, COUNT(v.linkid) AS votes FROM Links l INNER JOIN Votes v ON l.id = v.linkid WHERE l.category=? AND l.subcategory=? AND l.filter IN (?) AND l.challenge="intermediate" GROUP BY l.id ORDER BY votes DESC LIMIT 2;', [category,subcat,choices] ,function (err, result2, fields) {
+			allRes.push(result2)
+			res.send(allRes)
+		})
+	})
+})
 
 /***** DEVGUIDE STUFF */
 
