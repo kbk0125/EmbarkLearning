@@ -1,2 +1,6 @@
-node_modules/
-build/*.js
+node_modules
+.DS_Store
+dist
+*.log
+coverage
+.idea

@@ -7,7 +7,7 @@ var Header = React.createClass({
 		return (
 			<div id="topBar">
 				<div className='logoContain'>
-					<img src={'/public/img/mainlogo2.png'} />
+					<img src={'/img/mainlogo2.png'} />
 					<h3>Manual</h3>
 				</div>
 				<p> User-generated guide to top coding resources </p>

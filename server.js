@@ -1,11 +1,23 @@
 var express = require('express');
+var connect = require('connect');
 var app = express();
+var app2 = connect();
+var morgan = require('morgan')
 var path = require('path');
 var request = require('request');
 var basicRouter = express.Router();
 var bodyParser = require('body-parser')
 var parseUrlencoded= bodyParser.urlencoded({extended:false});
 var categories = require( "./categories.js" )
+var webpack = require('webpack');
+var webpackMiddleware = require('webpack-dev-middleware');
+var webpackHotMiddleware = require('webpack-hot-middleware');
+var config = require('./webpack.config.js');
+var stylus= require('stylus');
+var nib= require('nib');
+
+var isDeveloping = process.env.NODE_ENV !== 'production';
+var port = isDeveloping ? 8080 : process.env.PORT;
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(require('serve-favicon')(__dirname+'/public/img/favicon.ico'));
@@ -106,8 +118,40 @@ connection.query('SELECT 1 FROM Votes LIMIT 1;', function(err, rows, fields) {
 	}
 });
 
+if (isDeveloping) {
+  var compiler = webpack(config);
+  var middleware = webpackMiddleware(compiler, {
+    publicPath: config.output.publicPath,
+    contentBase: 'src',
+    stats: {
+      colors: true,
+      hash: false,
+      timings: true,
+      chunks: false,
+      chunkModules: false,
+      modules: false
+    }
+  });
+
+  //NEED TO FIGURE OUT: Public directory/ static file shit, both css and html
+
+
+  app.use(middleware);
+  app.use(webpackHotMiddleware(compiler));
+  app.get('/', function response(req, res) {
+    res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'dist/index.html')));
+    res.end();
+  });
+} else {
+
+  app.get('/', function response(req, res) {
+    res.sendFile(path.join(__dirname, 'dist/index.html'));
+  });
+}
+
+
 // viewed at http://localhost:8080
-basicRouter.get('/', function(req, res) {
+/*basicRouter.get('/', function(req, res) {
 	console.log('in1')
     res.sendFile(path.join(__dirname + '/app/index.html'));
 });
@@ -127,7 +171,7 @@ basicRouter.get('/tutorialsoup', function(req, res) {
 basicRouter.get('/*', function(req, res) {
 	console.log('in2')
     res.sendFile(path.join(__dirname + '/index.html'));
-});
+});*/
 
 
 
@@ -260,6 +304,9 @@ app.get('/objSend', function(req,res){
 
 app.use('/', basicRouter)
 
-app.listen(process.env.PORT || 8080, function(){
-  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+app.listen(port, '0.0.0.0', function onStart(err) {
+  if (err) {
+    console.log(err);
+  }
+  console.info('==> 🌎 Listening on port %s. Open up http://0.0.0.0:%s/ in your browser.', port, port);
 });
