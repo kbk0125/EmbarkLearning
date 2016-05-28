@@ -108,15 +108,16 @@ connection.query('SELECT 1 FROM Votes LIMIT 1;', function(err, rows, fields) {
 
 // viewed at http://localhost:8080
 basicRouter.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + '/index.html'));
+	console.log('in1')
+    res.sendFile(path.join(__dirname + '/app/index.html'));
 });
 
 basicRouter.get('/devguide', function(req, res) {
-    res.sendFile(path.join(__dirname + '/devguide/index.html'));
+    res.sendFile(path.join(__dirname + '/public/devguide/index.html'));
 });
 
 basicRouter.get('/learnd3', function(req, res) {
-    res.sendFile(path.join(__dirname + '/learnd3/index.html'));
+    res.sendFile(path.join(__dirname + '/public/learnd3/index.html'));
 });
 
 basicRouter.get('/tutorialsoup', function(req, res) {
@@ -124,6 +125,7 @@ basicRouter.get('/tutorialsoup', function(req, res) {
 });
 
 basicRouter.get('/*', function(req, res) {
+	console.log('in2')
     res.sendFile(path.join(__dirname + '/index.html'));
 });
 
