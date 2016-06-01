@@ -560,15 +560,19 @@ a
 				.upVoteBox
 					display inline-block
 					vertical-align top
+					position relative
+					width 41px
 					text-align center
 					h2.upTotal
-						margin-top 2px
+						margin-top 16px
 						font-size 1.3em
 						color #404040
 					.approval
 						opacity 0
 						transition 250ms
 						font-size 12px
+						top 0
+						position absolute
 					i
 						color #999
 						transition 250ms
@@ -577,6 +581,9 @@ a
 						&:hover
 							color #3498db
 							cursor pointer
+							~ p
+								opacity 1
+								transition 250ms
 					i.upvoted
 						pointer-events none
 						color #3498db

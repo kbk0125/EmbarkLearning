@@ -207,8 +207,9 @@ app.post('/addLink', function(req, res){
 
 //update vote count in userplans
 app.post('/addVote', function(req, res){
-	var uniqueid= req.body.myid;
-	var count = req.body.votecount
+	var vals = JSON.parse(req.body.vals);
+	var uniqueid= vals.id;
+	var count = vals.votes
 	var curTime = Math.floor(Date.now() / 1000)
 	//Need to make this an array with 2 elements to feed it in
 	var vote = {linkid: uniqueid, timeVoted: curTime, voteNumber: count}

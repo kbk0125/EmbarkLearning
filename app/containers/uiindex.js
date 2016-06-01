@@ -13,7 +13,8 @@ var Mainui = React.createClass({
 		return {
 			curRes: [],
 			isLoading: true,
-			filter: ''
+			filter: '',
+			checkbox: ['article', 'practical', 'video', 'book', 'course', 'beginner', 'intermediate', 'advanced']
 		};
 	},
 	componentDidMount: function(){
@@ -46,7 +47,6 @@ var Mainui = React.createClass({
 					}
 				})
 				.then(function(resources){
-					console.log(resources.data)
 					this.setState({
 						curRes: resources.data,
 						isLoading: false
@@ -95,11 +95,18 @@ var Mainui = React.createClass({
 			filter: ''
 		})
 	},
+	updateChecked: function(arr){
+		this.setState({
+			checkbox: arr
+		})
+	},
 	render: function (){
 		return (
 			<div className='window'>
 				<div className='learningCat'>
-					<Legendcontain />
+					<Legendcontain 
+						updateChecked={this.updateChecked} />
+
 					<div id='mainPane'>
 						<HeadSectcontain 
 							headDets={this.state.curRes[0]} 
@@ -112,7 +119,8 @@ var Mainui = React.createClass({
 						<ResListcontain 
 							bodyDets={this.state.curRes[1]} 
 							isLoading={this.state.isLoading} 
-							filter= {this.state.filter} />
+							filter= {this.state.filter} 
+							check= {this.state.checkbox}/>
 					</div>
 				</div>
 			</div>

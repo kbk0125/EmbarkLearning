@@ -3,34 +3,46 @@ var ReactRouter= require('react-router');
 var Link = ReactRouter.Link
 
 var Legend = React.createClass({
-	render: function (){
+    handleClick: function(e){
+        e.target.checked ==false
+        this.props.getCheckedBoxes(
+            'contentFilter',
+            'diffFilter'
+        )
+    },
+    getInitialState: function(){
+        return {
+            check: true
+        }
+    },
+    render: function (){
 		return (
 			<div className='legend'>
                 <p> Type of Content </p>
                 <div>
-                    <input type="checkbox" className='legendBox content' name="contentFilter" id="contentFilter1" value="article" /><label for="contentFilter1"> Article/Blog</label> 
+                    <label for="contentFilter1"><input type="checkbox" className='legendBox content' name="contentFilter" id="contentFilter1" value="article" defaultChecked onChange={this.handleClick}/> Article/Blog</label> 
                 </div>
                 <div>
-                    <input type="checkbox" className='legendBox content' name="contentFilter" id="contentFilter2" value="practical" /><label for="contentFilter2"> Hands On </label>
+                    <label for="contentFilter2"><input type="checkbox" className='legendBox content' name="contentFilter" id="contentFilter2" value="practical" defaultChecked onChange={this.handleClick}/> Hands On </label>
                 </div>
                 <div>
-                    <input type="checkbox" className='legendBox content' name="contentFilter" id="contentFilter3" value="video" /><label for="contentFilter3"> Video </label>
+                    <label for="contentFilter3"><input type="checkbox" className='legendBox content' name="contentFilter" id="contentFilter3" value="video" defaultChecked onChange={this.handleClick}/> Video </label>
                 </div>
                 <div>
-                    <input type="checkbox" className='legendBox content' name="contentFilter" id="contentFilter4" value="book" /><label for="contentFilter4"> Book </label>
+                    <label for="contentFilter4"><input type="checkbox" className='legendBox content' name="contentFilter" id="contentFilter4" value="book" defaultChecked onChange={this.handleClick}/> Book </label>
                 </div>
                 <div>
-                    <input type="checkbox" className='legendBox content' name="contentFilter" id="contentFilter5" value="course" /><label for="contentFilter5"> Course </label>
+                    <label for="contentFilter5"><input type="checkbox" className='legendBox content' name="contentFilter" id="contentFilter5" value="course" defaultChecked onChange={this.handleClick}/> Course </label>
                 </div>
                 <p className='second'> Difficulty </p>
                 <div>
-                    <input type="checkbox" className='legendBox diff' name="diffFilter" id="diffFilter1" value="beginner" /><label for="diffFilter1"> Beginner </label> 
+                    <label for="diffFilter1"><input type="checkbox" className='legendBox diff' name="diffFilter" id="diffFilter1" value="beginner" defaultChecked onChange={this.handleClick}/> Beginner </label> 
                 </div>
                 <div>
-                    <input type="checkbox" className='legendBox diff' name="diffFilter" id="diffFilter2" value="intermediate" /><label for="diffFilter2"> Intermediate </label>
+                    <label for="diffFilter2"><input type="checkbox" className='legendBox diff' name="diffFilter" id="diffFilter2" value="intermediate" defaultChecked onChange={this.handleClick}/> Intermediate </label>
                 </div>
                 <div>
-                    <input type="checkbox" className='legendBox diff' name="diffFilter" id="diffFilter3" value="advanced" /><label for="diffFilter3"> Advanced </label>
+                    <label for="diffFilter3"><input type="checkbox" className='legendBox diff' name="diffFilter" id="diffFilter3" value="advanced" defaultChecked onChange={this.handleClick}/> Advanced </label>
                 </div>
             </div>
 		)
