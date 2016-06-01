@@ -22,13 +22,7 @@ var port = isDeveloping ? 8080 : process.env.PORT;
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(require('serve-favicon')(__dirname+'/public/img/favicon.ico'));
 
-// taken from https://www.youtube.com/watch?v=cUWcZ4FzgmI
-/*app.use(function (req, res, next) { 
-	res.header('Access-Control-Allow-Origin-', "*"); 
-	res.header('Access-Control-Allow-Methods­','GET,PUT,POST,DELETE'); 
-	res.header('Access-Control-Allow-Headers­', 'Content-Type'); 
-	next();
-})*/
+
 
 // MySql Init
 //https://www.npmjs.com/package/mysql
@@ -56,30 +50,32 @@ else{
 var connection;
 //https://github.com/mescalito/MySql-NodeJS-Heroku/blob/master/web.js 
 function handleDisconnect() {
-    console.log('1. connecting to db:');
-    connection = mysql.createPool(db_config); // Recreate the connection, since
+	console.log('1. connecting to db:');
+	connection = mysql.createPool(db_config); // Recreate the connection, since
 													// the old one cannot be reused.
 
-    connection.getConnection(function(err) {              	// The server is either down
-        if (err) {                                     // or restarting (takes a while sometimes).
-            console.log('2. error when connecting to db:', err);
-            setTimeout(handleDisconnect, 1000); // We introduce a delay before attempting to reconnect,
-        }                                     	// to avoid a hot loop, and to allow our node script to
-    });                                     	// process asynchronous requests in the meantime.
-    											// If you're also serving http, display a 503 error.
-    connection.on('error', function(err) {
-        console.log('3. db error', err);
-        if (err.code === 'PROTOCOL_CONNECTION_LOST') { 	// Connection to the MySQL server is usually
-            handleDisconnect();                      	// lost due to either server restart, or a
-        } else {                                      	// connnection idle timeout (the wait_timeout
-            throw err;                                  // server variable configures this)
-        }
-    });
+	connection.getConnection(function(err) {              	// The server is either down
+		if (err) {                                     // or restarting (takes a while sometimes).
+			console.log('2. error when connecting to db:', err);
+			setTimeout(handleDisconnect, 1000); // We introduce a delay before attempting to reconnect,
+		}                                     	// to avoid a hot loop, and to allow our node script to
+	});                                     	// process asynchronous requests in the meantime.
+												// If you're also serving http, display a 503 error.
+	connection.on('error', function(err) {
+		console.log('3. db error', err);
+		if (err.code === 'PROTOCOL_CONNECTION_LOST') { 	// Connection to the MySQL server is usually
+			handleDisconnect();                      	// lost due to either server restart, or a
+		} else {                                      	// connnection idle timeout (the wait_timeout
+			throw err;                                  // server variable configures this)
+		}
+	});
 }
 
 handleDisconnect();
 //connection.query('DROP TABLE Links');
 //connection.query('DROP TABLE Votes');
+
+//CREATE TABLES
 
 connection.query('SELECT 1 FROM Links LIMIT 1;', function(err, rows, fields) { 
 	if(err){
@@ -94,7 +90,7 @@ connection.query('SELECT 1 FROM Links LIMIT 1;', function(err, rows, fields) {
 			'description VARCHAR(150) NOT NULL,' +
 			'filter VARCHAR(20) NOT NULL,' +
 			'PRIMARY KEY (id))', function(err, rows, fields) { 
-		  	if (err) throw err;
+			if (err) throw err;
 		});
 	}
 	else{
@@ -110,7 +106,7 @@ connection.query('SELECT 1 FROM Votes LIMIT 1;', function(err, rows, fields) {
 			'timeVoted int,' +
 			'voteNumber int,' +
 			'PRIMARY KEY (id))', function(err, rows, fields) { 
-		  	if (err) throw err;
+			if (err) throw err;
 		});
 	}
 	else{
@@ -118,64 +114,23 @@ connection.query('SELECT 1 FROM Votes LIMIT 1;', function(err, rows, fields) {
 	}
 });
 
-if (isDeveloping) {
-  var compiler = webpack(config);
-  var middleware = webpackMiddleware(compiler, {
-    publicPath: config.output.publicPath,
-    contentBase: 'src',
-    stats: {
-      colors: true,
-      hash: false,
-      timings: true,
-      chunks: false,
-      chunkModules: false,
-      modules: false
-    }
-  });
-
-  //NEED TO FIGURE OUT: Public directory/ static file shit, both css and html
-
-
-  app.use(middleware);
-  app.use(webpackHotMiddleware(compiler));
-  app.get('/', function response(req, res) {
-    res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'dist/index.html')));
-    res.end();
-  });
-} else {
-
-  app.get('/', function response(req, res) {
-    res.sendFile(path.join(__dirname, 'dist/index.html'));
-  });
-}
-
-
-// viewed at http://localhost:8080
-/*basicRouter.get('/', function(req, res) {
-	console.log('in1')
-    res.sendFile(path.join(__dirname + '/app/index.html'));
-});
-
-basicRouter.get('/devguide', function(req, res) {
-    res.sendFile(path.join(__dirname + '/public/devguide/index.html'));
-});
-
-basicRouter.get('/learnd3', function(req, res) {
-    res.sendFile(path.join(__dirname + '/public/learnd3/index.html'));
-});
-
-basicRouter.get('/tutorialsoup', function(req, res) {
-    res.sendFile(path.join(__dirname + '/tutorialsoup/index.html'));
-});
-
-basicRouter.get('/*', function(req, res) {
-	console.log('in2')
-    res.sendFile(path.join(__dirname + '/index.html'));
-});*/
-
-
+//ROUTING
 
 app.use(express.static(__dirname + '/public'));
+
+app.get('/devguide', function(req, res) {
+	res.sendFile(path.join(__dirname + '/public/devguide/index.html'));
+});
+
+app.get('/learnd3', function(req, res) {
+	res.sendFile(path.join(__dirname + '/public/learnd3/index.html'));
+});
+
+app.get('/tutorialsoup', function(req, res) {
+	res.sendFile(path.join(__dirname + '/tutorialsoup/index.html'));
+});
+
+
 
 app.get('/voteTotal', function (req, res){
 	connection.query('SELECT COUNT(distinct l.title) as linkTot, COUNT(v.linkid) AS votes, l.category FROM Links l INNER JOIN Votes v ON l.id = v.linkid GROUP BY l.category WITH ROLLUP;', function (err, result, fields) {
@@ -186,10 +141,11 @@ app.get('/voteTotal', function (req, res){
 
 //COMMENT APPROPRIATELY THROUGHOUT
 app.get('/linkList', function(req, res){
+	console.log(req.params)
 	var listKey= req.query.listKey;
 	var data=[];
 	data.push(categories[listKey]['default'])
-	connection.query('SELECT l.id, l.datecreated, l.category, l.subcategory, l.title, l.link, l.challenge, l.description, l.filter, COUNT(v.linkid) AS votes FROM Links l INNER JOIN Votes v ON l.id = v.linkid WHERE l.category=? GROUP BY l.id ORDER BY votes ASC;', [listKey] ,function (err, result, fields) {
+	connection.query('SELECT l.id, l.datecreated, l.category, l.subcategory, l.title, l.link, l.challenge, l.description, l.filter, COUNT(v.linkid) AS votes FROM Links l INNER JOIN Votes v ON l.id = v.linkid WHERE l.category=? GROUP BY l.id ORDER BY votes DESC;', [listKey] ,function (err, result, fields) {
 		if (err) throw err;
 		data.push(result)
 		res.send(data)
@@ -201,7 +157,7 @@ app.get('/subLinkList', function(req, res){
 	var subKey= req.query.subKey;
 	var data=[];
 	data.push(categories[listKey]['subcat'][subKey])
-	connection.query('SELECT l.id, l.datecreated, l.category, l.subcategory, l.title, l.link, l.challenge, l.description, l.filter, COUNT(v.linkid) AS votes FROM Links l INNER JOIN Votes v ON l.id = v.linkid WHERE l.category=? AND l.subcategory=? GROUP BY l.id ORDER BY votes ASC;', [listKey,subKey] ,function (err, result, fields) {
+	connection.query('SELECT l.id, l.datecreated, l.category, l.subcategory, l.title, l.link, l.challenge, l.description, l.filter, COUNT(v.linkid) AS votes FROM Links l INNER JOIN Votes v ON l.id = v.linkid WHERE l.category=? AND l.subcategory=? GROUP BY l.id ORDER BY votes DESC;', [listKey,subKey] ,function (err, result, fields) {
 		if (err) throw err;
 		data.push(result)
 		res.send(data)
@@ -228,12 +184,14 @@ app.get('/subDevListType', function(req, res){
 });
 
 app.post('/addLink', function(req, res){
-	var newPlan = req.body;
+	//UPDATED SINCE AXIOS, used to be just req.body
+	var plan = JSON.parse(req.body.finForm);
 	var curTime = Math.floor(Date.now() / 1000)
+
 	connection.query('SELECT MAX(id) AS idx FROM Links;', function (err, result, fields) {
 		if (err) throw err;
 		var linkCount = result[0].idx;
-		var link = {id: linkCount+1, datecreated: curTime, category: req.body.category, subcategory: req.body.subcat, title: req.body.title, link: req.body.link, challenge: req.body.radio1, description: req.body.desc, filter: req.body.radio2};
+		var link = {id: linkCount+1, datecreated: curTime, category: plan.category, subcategory: plan.subcat, title: plan.title, link: plan.link, challenge: plan.radio1, description: plan.desc, filter: plan.radio2};
 		connection.query('INSERT INTO Links SET ?', link,  function (err, result, fields) {
 			if (err) throw err;
 			linkCount++;
@@ -244,7 +202,7 @@ app.post('/addLink', function(req, res){
 				res.send(link);
 			});
 		});
-	})	
+	})
 })
 
 //update vote count in userplans
@@ -302,11 +260,67 @@ app.get('/objSend', function(req,res){
 	res.send(categories)
 })
 
+
+
+if (isDeveloping) {
+	var compiler = webpack(config);
+	var middleware = webpackMiddleware(compiler, {
+	publicPath: config.output.publicPath,
+	contentBase: 'src',
+	stats: {
+		colors: true,
+		hash: false,
+		timings: true,
+		chunks: false,
+		chunkModules: false,
+		modules: false
+	}
+	});
+
+	//NEED TO FIGURE OUT: Wildcard router messes up images
+
+
+	app.use(middleware);
+	app.use(webpackHotMiddleware(compiler));
+	app.get('/*', function response(req, res) {
+		res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'dist/index.html')));
+		res.end();
+	});
+} else {
+	app.get('/*', function response(req, res) {
+		res.sendFile(path.join(__dirname, 'dist/index.html'));
+	});
+}
+
+
+// viewed at http://localhost:8080
+/*basicRouter.get('/', function(req, res) {
+	console.log('in1')
+	res.sendFile(path.join(__dirname + '/app/index.html'));
+});
+
+basicRouter.get('/devguide', function(req, res) {
+	res.sendFile(path.join(__dirname + '/public/devguide/index.html'));
+});
+
+basicRouter.get('/learnd3', function(req, res) {
+	res.sendFile(path.join(__dirname + '/public/learnd3/index.html'));
+});
+
+basicRouter.get('/tutorialsoup', function(req, res) {
+	res.sendFile(path.join(__dirname + '/tutorialsoup/index.html'));
+});
+
+basicRouter.get('/*', function(req, res) {
+	console.log('in2')
+	res.sendFile(path.join(__dirname + '/index.html'));
+});*/
+
 app.use('/', basicRouter)
 
 app.listen(port, '0.0.0.0', function onStart(err) {
   if (err) {
-    console.log(err);
+	console.log(err);
   }
   console.info('==> 🌎 Listening on port %s. Open up http://0.0.0.0:%s/ in your browser.', port, port);
 });

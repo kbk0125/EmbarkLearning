@@ -3,15 +3,17 @@ var ReactRouter = require('react-router')
 var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 var IndexRoute = ReactRouter.IndexRoute;
-var hashHistory = ReactRouter.hashHistory;
+var browserHistory = ReactRouter.browserHistory;
 var Main = require('../containers/main')
-//var Home = require('../components/home')
-//var Forecastcontain = require('../containers/forecastcontainer')
-//var Daycontain = require('../containers/daycontainer')
+var Intropg = require('../containers/introcontainer')
+var Mainui = require('../containers/uiindex')
 
 var routes = (
-	<Router history={hashHistory}>
+	<Router history={browserHistory}>
 		<Route path='/' component={Main}>
+			<IndexRoute component={Intropg} />
+			<Route path='/:mainCat' component={Mainui} />
+			<Route path='/:mainCat/:subCat' component={Mainui} />
 		</Route>
 	</Router>
 )

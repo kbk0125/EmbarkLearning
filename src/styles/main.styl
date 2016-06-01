@@ -20,6 +20,7 @@ a
 	text-decoration none
 	&:hover
 		text-decoration underline
+
 .actionBtn
 	border-radius 2px
 	background-color #63ACD9
@@ -34,20 +35,37 @@ a
 	cursor pointer
 
 .container
-	position relative
+	/*position relative*/
 	height 100%
+	.comments
+		bottom 8px
+		right 8px
+		position fixed
+		font-size 14px
+		z-index 11
+		@media (max-width: 850px)
+			display none
 .search
 	float right
 	margin-top 3px
 	background-color #ccc	
 	border-radius 0 2px 2px 0
+	position relative
 	input
 		padding 6px 4px
 		width 250px
 		font-size 14px
 		border none
-	i
-		padding 0 8px 0 4px
+	i.fa-times
+		position absolute
+		top 5px
+		font-size 18px
+		right 37px
+		cursor pointer
+	i.fa-times.gone
+		display none
+	i.fa-search
+		padding 0 8px 0 8px
 		cursor pointer
 		color #404040
 .newPath
@@ -113,7 +131,25 @@ a
 						width 95%
 						padding 2px
 					textarea
-						height 76px
+						height 68px
+					.radioSet
+						margin 12px 0 12px 0
+						label
+							input
+								display none
+								&:checked + span
+									background-color #aaa
+									color white
+							span
+								color #404040
+								background-color #e6e6e6
+								padding 4px 8px
+								border 1px solid #999
+								border-radius 2px
+								cursor pointer
+								&:hover
+									background-color #aaa
+									color white
 				.formBtn
 					border none
 					position absolute
@@ -152,7 +188,6 @@ a
 						width 300px	
 						margin-left 0
 .lightBox
-	display none
 	z-index 100
 	position absolute
 	top 0
@@ -189,7 +224,7 @@ a
 		display inline-block
 		vertical-align top
 		font-size 14px
-		margin 10px 0 0 4px
+		margin 10px 0 0 8px
 		@media (max-width: 600px)
 			display none
 	.menuToggle
@@ -228,17 +263,28 @@ a
 		color #999
 	a:hover
 		text-decoration none
-	.category
-		padding-top 16px
-		p.listHighlight, li.listHighlight
-			color #e74c3c
+	div
 		.catHead
 			cursor pointer
-			margin-bottom 4px
-			display inline-block
+			margin-bottom 6px
+			display block
+			overflow hidden
+			padding-top 16px
+			*
+				pointer-events none
+			p
+				color #f3f3f3
+				float left
+				padding-left 8px
+				margin-top -4px
+				@media (max-width: 850px)
+					padding-left 0 
+					padding-right 8px
+			p.listHighlight
+				color #e74c3c
 			&:hover
 				*
-					color #999
+					color #999 !important
 					transition 500ms
 		i 
 			color #f3f3f3
@@ -249,30 +295,18 @@ a
 			@media (max-width: 850px)
 				padding-left 0 
 				padding-right 8px
-		p
-			color #f3f3f3
-			float left
-			padding-left 8px
-			margin-top -4px
+		p.listSelect
+			color #ccc
+			padding 2px 0
+			margin 2px 0
+			padding-left 29px
+			cursor pointer
 			@media (max-width: 850px)
-				padding-left 0 
+				padding-left 0
 				padding-right 8px
-		ul
-			clear both
-			list-style-type none
-			padding 0
-			margin 0
-			display none
-			li
-				color #ccc
-				padding 2px 0
-				margin 2px 0
-				padding-left 29px
-				cursor pointer
-				@media (max-width: 850px)
-					padding-left 0
-					padding-right 8px
-					padding-bottom 6px
+				padding-bottom 6px
+		p.listHighlight
+			color #e74c3c
 	.suggest
 		margin-top 8px
 		width 160px
@@ -291,14 +325,6 @@ a
 		left 220px
 	@media (max-width: 850px)
 		left 0
-	.comments
-		bottom 8px
-		right 8px
-		position fixed
-		font-size 14px
-		z-index 11
-		@media (max-width: 850px)
-			display none
 	#opening
 		text-align center
 		.backImg
@@ -358,6 +384,9 @@ a
 			display inline-block
 			width 165px
 			margin 0px 16px
+			a
+				&:hover
+					text-decoration none
 			@media (max-width: 600px)
 				width 120px
 				margin-left 4px
@@ -365,12 +394,14 @@ a
 			@media (max-width: 400px)
 				display block
 				margin 0 auto 32px auto
-			> p
-				color #999
-				font-weight 300
+			.linkCount
+				p
+					font-weight 300
 			.links
 				margin 8px 0 4px 0
 			.initChoice
+				*
+					pointer-events none
 				@media (max-width: 600px)
 					padding 0.25em 0.5em
 					height 20px
@@ -396,7 +427,6 @@ a
 					@media (max-width: 600px)
 						font-size 11px
 	.learningCat
-		display none
 		.legend
 			position fixed
 			top 57px
@@ -497,6 +527,8 @@ a
 				.add
 					color white
 					display inline-block
+					*
+						pointer-events none
 					@media (max-width: 500px)
 						width 140px
 						display block
@@ -512,7 +544,7 @@ a
 					@media (max-width: 500px)
 						float none
 						display block
-						width 231px
+						width 240px
 						margin 16px auto 4px auto
 						border 1px solid #ccc
 		.addPathsBody
@@ -584,4 +616,22 @@ a
 					.description
 						color #404040
 						margin-top 6px
-						line-height 140%		
+						line-height 140%
+
+/* ANIMATIONS */
+/*http://stackoverflow.com/questions/3331353/transitions-on-the-display-property */
+
+.hide
+	height 0
+	width 0
+	opacity 0
+	visibility hidden !important
+	padding 0 !important
+	margin 0 !important
+	transition visibility 0s, opacity 0.5s swing, height 0.5s swing
+.show
+	transition visibility 0s, opacity 0.5s linear, height 0.5s linear
+	visibility visible !important
+	height auto
+	width auto
+	opacity 1 !important

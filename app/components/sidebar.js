@@ -1,75 +1,68 @@
 var React= require('react');
 var ReactRouter= require('react-router');
 
-var sidebar = React.createClass({
+var SideCats= React.createClass({
+	// WILL NEED TO REFERENCE http://stackoverflow.com/questions/36394539/react-router-link-how-to-trigger-a-click-event-on-a-link-from-another-component
+	//https://facebook.github.io/react/docs/thinking-in-react.html
+	newState : function(e){
+		var id= e.target.id.length ? e.target.id :''
+		this.props.updateState(
+			e.target.value,
+			id
+		)
+	},
+
 	render: function (){
+		var allChoices= [];
+		Object.keys(this.props.choices).map(function(el, i){
+			var genTrue= this.props.mainCat == this.props.choices[el].gen
+			var specTrue= this.props.subCat == this.props.choices[el].spec
+
+			var arrow= genTrue ? "fa fa-chevron-down": "fa fa-chevron-right";
+			var highlight= genTrue ? "listHighlight": "";
+			if(genTrue && specTrue)
+				var shown= 'listSelect show listHighlight'
+			else if (genTrue && !specTrue)
+				var shown= 'listSelect show'
+			else
+				var shown= 'listSelect hide'
+
+			if (el.indexOf('head') > -1){
+				var str=<div className="catHead" key={i} value={this.props.choices[el].gen} onClick={this.newState}>
+				<i className={arrow}></i>
+				<p className={highlight}>{this.props.choices[el].name}</p>
+				</div>
+			}
+			else{
+				var str= <p className={shown} key={i} id={this.props.choices[el].spec} value={this.props.choices[el].gen} onClick={this.newState}> {this.props.choices[el].name} </p>
+			}
+
+			allChoices.push(str)
+		}.bind(this))
+
+		return (
+			<div>
+				{allChoices}
+			</div>
+		)
+	}
+});
+
+var sidebar = React.createClass({
+	// WILL NEED TO REFERENCE http://stackoverflow.com/questions/36394539/react-router-link-how-to-trigger-a-click-event-on-a-link-from-another-component
+	//https://facebook.github.io/react/docs/thinking-in-react.html
+	render: function (){
+			
 		return(
 			<div id="sideBar">
 				<div className='sideHead'>
 					<h3> Skill Categories </h3>
 				</div>
-				<div className='category'>
-					<div className='catHead' data-category='html'>
-						<i className="fa fa-chevron-right"></i>
-						<p> HTML/CSS</p>
-					</div>
-					<ul>
-						<li className='listSelect' data-filter='fundamentals' data-count='0'> Fundamentals </li>
-						<li className='listSelect' data-filter='fullsite' data-count='0'> Build A Full Site </li>
-						<li className='listSelect' data-filter='responsive' data-count='0'> Responsive Web Design </li>
-					</ul>
-				</div>
-				<div className='category'>
-					<div className='catHead' data-category='javascript'>
-						<i className="fa fa-chevron-right"></i>
-						<p> Javascript</p>
-					</div>
-					<ul>
-						<li className='listSelect' data-filter='fundamentals' data-count='0'> Fundamentals </li>
-						<li className='listSelect' data-filter='jquery' data-count='0'> JQuery </li>
-						<li className='listSelect' data-filter='node' data-count='0'> Node.js </li>
-						<li className='listSelect' data-filter='d3' data-count='0'> D3.js </li>
-						<li className='listSelect' data-filter='react' data-count='0'> React </li>
-					</ul>
-				</div>
-				<div className='category'>
-					<div className='catHead' data-category='databases'>
-						<i className="fa fa-chevron-right"></i>
-						<p> Databases</p>
-					</div>
-					<ul>
-						<li className='listSelect' data-filter='fundamentals' data-count='0'> Fundamentals </li>
-						<li className='listSelect' data-filter='analytics' data-count='0'> Intro to Analytics </li>
-						<li className='listSelect' data-filter='dbmgmt' data-count='0'> Database Management </li>
-					</ul>
-				</div>
-				<div className='category'>
-					<div className='catHead' data-category='userexperience'>
-						<i className="fa fa-chevron-right"></i>
-						<p> User Experience</p>
-					</div>
-					<ul>
-						<li className='listSelect' data-filter='fundamentals' data-count='0'> Fundamentals </li>
-						<li className='listSelect' data-filter='research' data-count='0'> User Research </li>
-						<li className='listSelect' data-filter='landingpage' data-count='0'> Landing Page </li>
-						<li className='listSelect' data-filter='onboarding' data-count='0'> Onboarding </li>
-						<li className='listSelect' data-filter='microcopy' data-count='0'> Microcopy </li>
-						<li className='listSelect' data-filter='conversion' data-count='0'> Conversion Optimization </li>
-					</ul>
-				</div>
-				 <div className='category'>
-					<div className='catHead' data-category='webdesign'>
-						<i className="fa fa-chevron-right"></i>
-						<p> Web Design</p>
-					</div>
-					<ul>
-						<li className='listSelect' data-filter='color' data-count='0'> Color </li>
-						<li className='listSelect' data-filter='typography' data-count='0'> Typography </li>
-						<li className='listSelect' data-filter='space' data-count='0'> Space </li>
-						<li className='listSelect' data-filter='information' data-count='0'> Information Hierarchy </li>
-						<li className='listSelect' data-filter='wireframing' data-count='0'> Wireframing </li>
-					</ul>
-				</div>
+				<SideCats
+					mainCat={this.props.mainCat} 
+					subCat= {this.props.subCat}
+					updateState= {this.props.updateState}
+					choices={this.props.allCats} />
 				<a href="http://goo.gl/forms/wnzrCwAHU3" target="_blank"><div className='actionBtnMin suggest'> Suggest A New Category </div></a>
 			</div>
 		)

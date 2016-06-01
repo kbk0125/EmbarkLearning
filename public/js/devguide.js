@@ -3,6 +3,7 @@ var activeSubCategory ="";
 
 //initial get to load up the data
 $.get('/objSend', function(data){
+	console.log(data)
 	main(data);
 })
 
