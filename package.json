@@ -36,9 +36,6 @@
     "request": "^2.72.0",
     "serve-favicon": "^2.3.0",
     "stylus": "^0.54.5",
-    "webpack": "^1.13.1"
-  },
-  "devDependencies": {
     "autoprefixer": "^6.3.6",
     "babel-core": "^6.9.0",
     "babel-eslint": "^6.0.4",
@@ -53,20 +50,11 @@
     "eslint": "^2.11.0",
     "eslint-plugin-react": "^5.1.1",
     "extract-text-webpack-plugin": "^1.0.1",
-    "grunt": "^1.0.1",
-    "grunt-cli": "^1.2.0",
-    "grunt-concurrent": "^2.3.0",
-    "grunt-contrib-jshint": "^1.0.0",
-    "grunt-contrib-stylus": "^1.2.0",
-    "grunt-contrib-uglify": "^1.0.1",
-    "grunt-contrib-watch": "^1.0.0",
-    "grunt-nodemon": "^0.4.2",
     "html-webpack-plugin": "^2.17.0",
     "jscs": "^3.0.3",
     "jsdom": "^9.2.0",
     "jshint-stylish": "^2.1.0",
     "json-loader": "^0.5.4",
-    "nodemon": "^1.9.2",
     "react-addons-test-utils": "^15.1.0",
     "rimraf": "^2.5.2",
     "stats-webpack-plugin": "^0.3.1",
@@ -76,5 +64,16 @@
     "webpack": "^1.13.1",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.10.0"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
+    "grunt-concurrent": "^2.3.0",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-stylus": "^1.2.0",
+    "grunt-contrib-uglify": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-nodemon": "^0.4.2",
+    "nodemon": "^1.9.2"
   }
 }
