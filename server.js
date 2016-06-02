@@ -317,9 +317,10 @@ basicRouter.get('/*', function(req, res) {
 	res.sendFile(path.join(__dirname + '/index.html'));
 });*/
 
-app.use('/', basicRouter)
-
+//app.use('/', basicRouter)
+console.log(port)
 app.listen(port, '0.0.0.0', function onStart(err) {
+	console.log(port)
   if (err) {
 	console.log(err);
   }
