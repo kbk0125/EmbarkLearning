@@ -318,9 +318,9 @@ basicRouter.get('/*', function(req, res) {
 });*/
 
 //app.use('/', basicRouter)
-console.log(port)
+console.log('PORT:' +port)
 app.listen(port, '0.0.0.0', function onStart(err) {
-	console.log(port)
+	console.log('PORT:' +port)
   if (err) {
 	console.log(err);
   }
