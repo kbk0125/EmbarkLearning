@@ -8,11 +8,17 @@ var sidebarcontain= React.createClass({
 	},
 	render: function () {
 		return (
-			<Sidebar
-				mainCat={this.props.mainCat} 
-				subCat= {this.props.subCat}
-				allCats= {this.props.allCats}
-				updateState= {this.props.updateState}/>
+			<div>
+				{this.props.sideBarshown ? 
+					<Sidebar
+						mainCat={this.props.mainCat} 
+						subCat= {this.props.subCat}
+						allCats= {this.props.allCats}
+						updateState= {this.props.updateState}/> 
+					: null
+				}
+				
+			</div>
 		)
 	}
 });

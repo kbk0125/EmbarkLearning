@@ -43,8 +43,44 @@ var Main = React.createClass({
 		return {
 			mainCat: '',
 			subCat: '',
-			add: false
+			add: false,
+			sideBar: true,
+			winWidth: 0,
+			hideSwitch: true
 		}
+	},
+	componentWillMount: function() {
+		this.updateDimensions();
+	},
+	updateDimensions: function() {
+		this.setState({
+			width: window.innerWidth
+		});
+		if(window.innerWidth > 851){
+			this.setState({
+				sideBar: true,
+				hideSwitch: true
+			})
+		}
+		if(window.innerWidth < 851 && this.state.hideSwitch){
+			this.setState({
+				sideBar: false,
+				hideSwitch: false
+			})
+		}
+	},
+	componentDidMount: function() {
+		window.addEventListener("resize", this.updateDimensions);
+		if(window.innerWidth < 851) {
+			this.setState({
+				sideBar: false
+			})
+		}
+	},
+	updateSidebar: function (){
+		this.setState({
+			sideBar: !this.state.sideBar
+		})
 	},
 	newCatState: function(mainPath, subPath){
 		this.setState({
@@ -70,12 +106,14 @@ var Main = React.createClass({
 			<div className='container'>
 				<a href="http://goo.gl/forms/4NfzYQTSpp" target="_blank"><div className='actionBtnMin comments'> Question or Comment?</div></a>
 				<Header 
-					updateState= {this.newCatState} />
+					updateState= {this.newCatState} 
+					updateSidebar= {this.updateSidebar}/>
 				<Sidebar
 					mainCat={this.state.mainCat} 
 					subCat= {this.state.subCat}
 					updateState= {this.newCatState}
-					allCats= {allCats} />
+					allCats= {allCats} 
+					sideBarshown= {this.state.sideBar}/>
 					
 				<Lightbox
 					mainCat={this.state.mainCat} 

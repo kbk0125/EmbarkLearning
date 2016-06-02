@@ -246,13 +246,11 @@ a
 	z-index 10
 	@media (max-width: 1240px)
 		width 220px
-	@media (max-width: 851px)
-		display block
 	@media (max-width: 850px)
-		display none
 		left auto
 		right 0
-		text-align right
+		*
+			text-align right
 	.sideHead
 		padding 8px
 		background-color rgba(0,0,0,0.3)
@@ -274,7 +272,7 @@ a
 				pointer-events none
 			p
 				color #f3f3f3
-				float left
+				display inline-block
 				padding-left 8px
 				margin-top -4px
 				@media (max-width: 850px)
@@ -288,7 +286,7 @@ a
 					transition 500ms
 		i 
 			color #f3f3f3
-			float left
+			display inline-block
 			padding-left 8px
 			font-size 0.8em
 			transition 500ms

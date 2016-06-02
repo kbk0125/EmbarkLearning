@@ -17,7 +17,7 @@ var Header = React.createClass({
 					<h3>Manual</h3>
 				</div>
 				<p> User-generated guide to top coding resources </p>
-				<i className="fa fa-bars menuToggle"></i>
+				<i className="fa fa-bars menuToggle" onClick={this.props.updateSidebar}></i>
 			</div>
 		)
 	}
