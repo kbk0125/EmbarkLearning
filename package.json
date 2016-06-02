@@ -9,6 +9,7 @@
     "start": "node server",
     "side": "grunt",
     "build": "rimraf dist && cross-env NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile --colors",
+    "postinstall": "node deploy",
     "eslint": "eslint .",
     "jscs": "jscs ."
   },
@@ -37,6 +38,7 @@
     "stylus": "^0.54.5"
   },
   "devDependencies": {
+    "autoprefixer": "^6.3.6",
     "babel-core": "^6.9.0",
     "babel-eslint": "^6.0.4",
     "babel-jscs": "^3.0.0-beta1",
@@ -66,12 +68,12 @@
     "nodemon": "^1.9.2",
     "react-addons-test-utils": "^15.1.0",
     "rimraf": "^2.5.2",
+    "stats-webpack-plugin": "^0.3.1",
     "style-loader": "^0.13.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^2.1.0",
     "webpack": "^1.13.1",
     "webpack-dev-middleware": "^1.6.1",
-    "webpack-dev-server": "^1.14.1",
     "webpack-hot-middleware": "^2.10.0"
   }
 }
