@@ -13,12 +13,13 @@ var HtmlWebpackPluginConfig= new HtmlWebpackPlugin({
 })
 
 module.exports = {
+  devtool: 'source-map',
   entry: [
     path.join(__dirname, 'app/index.js')
   ],
   output: {
     path: path.join(__dirname, '/dist/'),
-    filename: '[name].js',
+    filename: '[name]-[hash].min.js',
     publicPath: '/'
   },
   plugins: [
