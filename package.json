@@ -35,7 +35,8 @@
     "react-router": "^2.4.1",
     "request": "^2.72.0",
     "serve-favicon": "^2.3.0",
-    "stylus": "^0.54.5"
+    "stylus": "^0.54.5",
+    "webpack": "^1.13.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
