@@ -1,8 +1,5 @@
 var express = require('express');
-var connect = require('connect');
 var app = express();
-var app2 = connect();
-var morgan = require('morgan')
 var path = require('path');
 var request = require('request');
 var basicRouter = express.Router();
@@ -13,8 +10,6 @@ var webpack = require('webpack');
 var webpackMiddleware = require('webpack-dev-middleware');
 var webpackHotMiddleware = require('webpack-hot-middleware');
 var config = require('./webpack.config.js');
-var stylus= require('stylus');
-var nib= require('nib');
 
 var isDeveloping = process.env.NODE_ENV !== 'production';
 var port = isDeveloping ? 8080 : process.env.PORT;
@@ -120,6 +115,10 @@ app.use(express.static(__dirname + '/public'));
 
 app.get('/devguide', function(req, res) {
 	res.sendFile(path.join(__dirname + '/public/devguide/index.html'));
+});
+
+app.get('/d3garden', function(req, res) {
+	res.sendFile(path.join(__dirname + '/public/d3garden/index.html'));
 });
 
 app.get('/learnd3', function(req, res) {

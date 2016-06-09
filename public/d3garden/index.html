@@ -1,0 +1,362 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name='description', content='A D3 tutorial for beginners that will get you coding immediately and teach all the basics.'>
+    <title>D3 Garden | Interactive D3 Tutorial</title>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <meta name="viewport", content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="D3 Garden | Interactive D3 Tutorial">
+    <meta property="og:type" content="website" >       
+    <meta property="og:url" content="https://www.rtfmanual.io">
+    <meta property="og:description" content="A D3 tutorial for beginners that will get you coding immediately and teach all the basics.">
+    <meta property="og:image" content="https://www.rtfmanual.io/img/squarelogo2.png">
+    
+    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="/css/d3garden.css">
+    <link rel="shortcut icon" type="image/ico" href='/img/favicon.ico'>
+</head>
+<body>
+    <div id='container'>
+        <div class='intro'>
+            <div class='ctr'>
+                <h1> Learn D3.js Basics By Planting A Vegetable Garden </h1>
+                <p> Master the fundamentals of D3 with this interactive tutorial </p>
+                <div class='actionBtn startbtn'> Get Started </div>
+            </div>
+        </div>
+        <div id="topBar">
+            <img src='/img/d3garden/mainlogo.png'>
+            <h3> D3 Garden </h3>
+            <a href='https://www.rtfmanual.io' target="_blank"><div class='actionBtn'> Discover More Popular Tutorials </div></a>
+        </div>
+        <div id='main'>
+            <div class='resize ui-widget-content'>
+                <h3> Set the bounds for your garden! </h3>
+                <p> Resize this box to begin to your preferred bounds to begin </p>
+                <div class='resizeChild holes'></div>
+                <div class='resizeChild seeds'></div>
+                <div class='resizeChild struct'></div>
+                <div class='resizeChild plant'></div>
+            </div>
+            <div class='gardenDiv'>
+            </div>
+        </div>
+        <div id='side'>
+            <div class='sideSect first'>
+                <div class='header'>
+                    <h2> Welcome to the D3 Garden </h2>
+                    <p> This tutorial will help you learn the major principles of D3 so you can easy build custom graphs. </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Why do I need this? </h3>
+                    <p> Picking up D3 can be very challenging. It relies on a novel challenge for developers- converting an array or object into a dynamic data visualization with specific properties.
+                    <h3> What is the focus? </h3>
+                    <p> This tutorial aims to make D3 so simple that you can explain it to a friend. We will build a basic bar graph using a gardening analogy so you can see the principles play out in front of you. </p>
+                </div>
+                <div class='actionBtn2 begin'> Go to Step 1 </div>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Step 1/13: The SVG Canvas </h2>
+                    <p> D3 uses <a href='https://developer.mozilla.org/en-US/docs/Web/SVG' target='__blank'>SVG (Scalable Vector Graphics)</a> to draw its elements. </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Stake out your garden </h3>
+                    <p> We need to declare an area to create our visualization. Drag the resizable box to create your bounded area. You will want a big garden! </p>
+                    <h3 id='dimensions'> Garden Dimensions: </h3>
+                </div>
+                <div class='actionBtn2 svgTrig'> Go to Step 2 </div>
+                <p class='warn'> Please make your box at least 400 x 400 </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Step 2/13: Declare your SVG </h2>
+                    <p> Learn how to create the SVG in D3 </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> How to define the canvas </h3>
+                    <p class='code code2'> var svg = d3.select('.myDiv').append('svg').attr('width', 'Xpx').attr('height', 'Ypx'); </p>
+                    <p class='code'> <span class='def'>d3.select('.myDiv')</span> = Equivalent of jQuery $(), select the container </p>
+                    <p class='code'> <span class='def'>.append('svg')</span> = Append an SVG element to the DOM </p>
+                    <p class='code'> <span class='def'>.attr('width', 'Xpx')</span> = Declare an attribute for your SVG, then set value </p>
+                    <h3> Your turn! </h3>
+                    <p class='code'> var svg = </p>
+                    <input type='text' name='svgInput' id='svg1'>
+                    <p> Your container div has class 'gardenDiv' </p>
+                    <input type='text' name='svgInput' id='svg2'>
+                    <p> Append the svg </p>
+                    <input type='text' name='svgInput' id='svg3'>
+                    <p id='boxWidth'> Declare a width of 0px</p>
+                    <input type='text' name='svgInput' id='svg4'>
+                    <p id='boxHeight'> Declare a height of 0px</p>
+                    <a href='http://alignedleft.com/tutorials/d3/drawing-svgs' target='__blank'><p>Docs</p></a>
+                </div>
+                <div class='actionBtn2 valid'> Go to Step 3 </div>
+                <p class='warn'> Please enter all fields </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Step 3/13: selectAll() Statement </h2>
+                    <p> selectAll() declares a more specific group where you will be adding elements </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> What It Does </h3>
+                    <p> selectAll() creates an empty set that will later be filled with elements. It is technically infinite, but we will portray it as finite for the sake of visualizing it. </p>
+                    <h3> In The Garden </h3>
+                    <p> selectAll() creates holes that you will be filling with seeds of a specific type. You cannot dig holes where other elements have already been created, so this must be a new set of elements</p>
+                    <a href='https://bost.ocks.org/mike/selection/' target='__blank'><p>Docs</p></a>
+                </div>
+                <div class='actionBtn2 norm'> Go to Step 4 </div>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Step 4/13: selectAll() in action </h2>
+                    <p> Dig those holes! </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> How to use selectAll() </h3>
+                    <p class='code'> svg.selectAll('rect.bar') </p>
+                    <p> This statement looks for all <a href= 'https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes' target='__blank'>rect elements</a> (from SVG specification) with class 'bar'. If there are none, it creates an empty set.
+                    <h3> Your turn! </h3>
+                    <p class='code'> svg. </p>
+                    <input type='text' name='selectInput' id='select1'>
+                    <p> Create an empty set of rect elements with class 'colorBar' </p>
+                    <a href='https://bost.ocks.org/mike/selection/' target='__blank'><p>Docs</p></a>
+                </div>
+                <div class='actionBtn2 valid2'> Dig The Holes </div>
+                <p class='warn'> Please use selectAll() with rect elements of class 'colorbar' </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Step 5/13: data() Statement </h2>
+                    <p> data() declares the object or array you will use for the visualization </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> What It Does </h3>
+                    <p> data() determines the data that you will then iterate through in order to create a series of elements</p>
+                    <h3> In The Garden </h3>
+                    <p> data() is the type of seeds you will be using- each seed type has unique properties that will determine its features when it grows into a plant</p>
+                    <a href='http://alignedleft.com/tutorials/d3/binding-data' target='__blank'><p>Docs</p></a>
+                </div>
+                <h3> Select your seeds </h3>
+                <div class='seedType'> 
+                    <img src='/img/d3garden/tomato.png' />
+                    <p> Tomatoes </p>
+                    <div class='actionBtn3 small seedTrig norm' data-name="tomato"> Select </div>
+                </div>
+                <div class='seedType'> 
+                    <img src='/img/d3garden/cucumber.png' />
+                    <p> Cucumbers </p>
+                    <div class='actionBtn3 small seedTrig norm' data-name="cucumber"> Select </div>
+                </div>
+                <div class='seedType'> 
+                    <img src='/img/d3garden/pepper.png' />
+                    <p> Peppers </p>
+                    <div class='actionBtn3 small seedTrig norm' data-name="pepper"> Select </div>
+                </div>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Step 6/13: Add data()</h2>
+                    <p> Check out the properties </p>
+                </div>
+                <div class='uniqData'></div>
+                <div class='txtbod'>
+                    <h3> How to use data() </h3>
+                    <p class='code'> svg.selectAll('rect.bar').data(data) </p>
+                    <p> Data() declares the object or array you will be iterating through. Pretty straightforward.
+                    <h3> Your turn! </h3>
+                    <p class='code'> svg.selectAll('rect.bar'). </p>
+                    <input type='text' name='dataInput' id='data1'>
+                    <p id='seedId'> Add the data contained in the variable tomatoes </p>
+                    <a href='http://alignedleft.com/tutorials/d3/binding-data' target='__blank'><p>Docs</p></a>
+                </div>
+                <div class='actionBtn2 valid3'> Go To Step 7 </div>
+                <p class='warn'> Please make sure the variable matches the object above </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Step 7/13: enter() the data </h2>
+                    <p> Enter() performs the data join </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> What It Does </h3>
+                    <p> enter() combines your data with the empty set from selectAll() and creates a set of elements that can then be accessed one by one in D3 </p>
+                    <h3> In The Garden </h3>
+                    <p> This adds the seeds you selected in the past step to the garden, and matches the number of holes with number of plants. There are now 20 seeds in holes ready to be structured.</p>
+                    <p class='code'> svg.selectAll('rect.bar').data(data).enter() </p>
+                    <h3> Your turn! </h3>
+                    <p class='code'> svg.selectAll('rect.bar').data(data). </p>
+                    <input type='text' name='enterInput' id='enter1'>
+                    <p> Add your enter statement, that is it! </p>
+                    <a href='http://alignedleft.com/tutorials/d3/binding-data' target='__blank'><p>Docs</p></a>
+                </div>
+                <div class='actionBtn2 valid4'> Plant the Seeds </div>
+                <p class='warn'> Please make sure you used the enter statement </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Step 8/13: append() the element </h2>
+                    <p> Append() determines the type of visualization </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> What It Does </h3>
+                    <p> Append() allows you to choose from the <a href= 'https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes' target='__blank'>7 basic SVG elements</a> or a 'g' element. In this case, we want a 'rect' element to build a bar graph.</p>
+                    <h3> In The Garden </h3>
+                    <p> You want the seeds you planted to grow in a defined way. We will add complementary structures like trellises to the garden to help our plants grow vertically.</p>
+                    <p class='code code2'> svg.selectAll('rect.bar').data(data).enter().append('rect') </p>
+                    <h3> Your turn! </h3>
+                    <p class='code'> svg.selectAll('rect.bar').data(data).enter(). </p>
+                    <input type='text' name='appendInput' id='append1'>
+                    <p> Append a rect element for each item in your data </p>
+                    <a href='http://alignedleft.com/tutorials/d3/binding-data' target='__blank'><p>Docs</p></a>
+                </div>
+                <div class='actionBtn2 valid5'> Add The Structure </div>
+                <p class='warn'> Please make sure you appended a 'rect' element</p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Step 9/13: Quick Review </h2>
+                    <p> We are close to building a bar graph! </p>
+                </div>
+                <div class='uniqData'></div>
+                <div class='txtbod'>
+                    <h3> How to define each bar </h3>
+                    <p class='code code2'> svg.selectAll('rect.bar').data(data).enter().append('rect') </p>
+                    <p class='code'> <span class='def'>svg.selectAll('rect.bar')</span> = Creates an empty set of rect elements with class 'bar' </p>
+                    <p class='code'> <span class='def'>.data(data)</span> = Adds object or array of data to be turned into elements in the DOM </p>
+                    <p class='code'> <span class='def'>.enter()</span> = Join your data with the empty set defined in selectAll, can iterate through this set </p>
+                    <p class='code'> <span class='def'>.append('rect')</span> = Append a 'rect' element for every item in data </p>
+                </div>
+                <div class='actionBtn2 norm'> Let's Grow The Plants </div>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Step 10/13: Define Bar Width </h2>
+                    <p> Attr() statements define the properties of each bar </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> What It Does </h3>
+                    <p> Attr() statements define what you want your bars to look like. Most importantly, they can use properties from each item in data.</p>
+                    <h3> In The Garden </h3>
+                    <p> We will do the width first, so this will define the width of each plant.</p>
+                    <p class='code'> .attr('width', function(d,i){return d.width}) </p>
+                    <h3> Your turn! </h3>
+                    <input type='text' name='widthInput' id='width1'>
+                    <p> Write out the statement above, which defines the width based on the 'width' property of each item in the data object </p>
+                    <a href='https://github.com/d3/d3/wiki/Selections' target='__blank'><p>Docs</p></a>
+                </div>
+                <div class='actionBtn2 valid6'> Define The Height </div>
+                <p class='warn'> Please make sure you copied the statement above</p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Step 11/13: Define Bar Height </h2>
+                    <p> Define each element's attributes </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> What It Does </h3>
+                    <p> In the statement 'function(d,i)', d stands for each item in data while i is the index, beginning at 0 for the first element</p>
+                    <h3> In The Garden </h3>
+                    <p> Now each plant will have a different height based on the object's properties</p>
+                    <p class='code'> .attr('height', function(d,i){return d.height}) </p>
+                    <h3> Your turn! </h3>
+                    <input type='text' name='heightInput' id='height1'>
+                    <p> Write out the statement above, which defines the height based on the 'height' property of each item in the data object </p>
+                    <a href='https://github.com/d3/d3/wiki/Selections' target='__blank'><p>Docs</p></a>
+                </div>
+                <div class='actionBtn2 valid7'> How To Position The Plants </div>
+                <p class='warn'> Please make sure you copied the statement above</p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Step 12/13: Put Bars In A Row </h2>
+                    <p> Separate bars from each other </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> What It Does </h3>
+                    <p> In last statement we ended up with... one plant. That was disappointing. We also need to define x values for each bar so that they do not stack on top of each other, like they did in the last step. </p>
+                    <p> Using the index of each bar, we can move them right to spread them out. We can multiply this index by the width of each bar to spread them out. </p>
+                    <h3> In The Garden </h3>
+                    <p> Now each plant will align with the appropriate structure as opposed to being stacked on top of each other in the first position.</p>
+                    <p class='code'> .attr('x', function(d,i){return i * d.width}) </p>
+                    <h3> Your turn! </h3>
+                    <input type='text' name='xInput' id='x1'>
+                    <p> Write out the statement above, which defines the x-position based on the index and separates based on bar width </p>
+                    <a href='http://alignedleft.com/tutorials/d3/making-a-bar-chart' target='__blank'><p>Docs</p></a>
+                </div>
+                <div class='actionBtn2 valid8'> How To Position The Plants </div>
+                <p class='warn'> Please make sure you copied the statement above</p>
+            </div>
+            <div class='sideSect sideFin'>
+                <div class='header'>
+                    <h2> Step 13/13: Bar Orientation </h2>
+                    <p> The origin is the top left corner... which means your bars may be pointing the wrong direction! </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> What It Does </h3>
+                    <p> The origin i.e. start point for D3 is the top left corner of the div. This means that when you set the height of a bar... it is growing downwards from the top left! Not good. So, we need to reverse this. </p>
+                    <p> We need to set a new start point for the bar to grow from. We subtract the bar height from the overall height of the div. We start from the bottom of the containing div, and draw the bar starting from there!</p>
+                    <p class='code'> .attr('y', function(d,i){return divHeight - d.height}) </p>
+                    <h3> Your turn! </h3>
+                    <input type='text' name='yInput' id='y1'>
+                    <p> Write out the statement above, which defines the y-position based on the height of the svg. </p>
+                </div>
+                <div class='actionBtn2 valid9'> Show Me The Final Graph </div>
+                <p class='warn'> Please make sure you copied the statement above</p>
+            </div>
+            <div class='sideSect codeSnip'>
+                <h3> Done! Final Code </h3>
+                <pre>
+                    <code>
+var w= 530;
+var h= 250;
+var svg= d3.select('.gardenDiv')
+    .append('svg')
+    .attr('width', w)
+    .attr('height', h);
+
+svg.selectAll('rect.colorBar')
+    .data(data)
+    .enter()
+    .append('rect')
+    .attr('width', function(d,i){
+        return d.width
+    })
+    .attr('height', function(d,i){
+        return d.height*2
+    })
+    .attr('x', function(d,i){
+        return i * (d.width+2)
+    })
+    .attr('y', function(d,i){
+        return h - d.height*2
+    })
+    .attr('fill', 'white')
+                    </code>
+                </pre>
+                <a class='lastLink' href='https://www.rtfmanual.io' target="_blank"><div class='actionBtn'> Discover More Popular Tutorials </div></a>
+            </div>
+        </div>
+
+        <div class='footer'>
+            <p> <a href='https://www.sitepoint.com/a-beginners-guide-to-data-binding-in-d3-js/' target='__blank'>Read the full article</a> on sitepoint
+            </p>
+        </div>
+    </div>
+<script src='/jquery-1.11.1.min.js'> </script>
+<script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" charset="utf-8"></script> 
+<script type="text/javascript" src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script> 
+<script src='/js/d3garden.js'> </script>   
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-74762625-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>
