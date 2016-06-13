@@ -92,8 +92,8 @@ $('.resize').resizable({
     helper: "ui-resizable-helper",
     resize: function( event, ui ) {
         $('#dimensions').text('Garden Dimensions: '+ ui.size.width+'px x '+ui.size.height+'px')
-        boxWidth=ui.size.width
-        boxHeight=ui.size.height -10
+        boxWidth= Math.round(ui.size.width)
+        boxHeight= Math.round(ui.size.height -10)
     }
 })
 
