@@ -79,10 +79,20 @@ var boxArea;
 var newHeight;
 var newWidth;
 
+$('.backBtn').click(function(){
+    prevSide(this)
+})
+
 function nextSide(prev){
     var par= $(prev).parents('.sideSect')
     $(par).hide();
     $(par).next().show()
+}
+
+function prevSide(prev){
+    var par= $(prev).parents('.sideSect')
+    $(par).hide();
+    $(par).prev().show()
 }
 
 $('.resize').resizable({
@@ -111,11 +121,13 @@ $('.norm').click(function(){
 
 $('.begin').click(function(){
     nextSide(this)
+    $('.resize').css('opacity', '1')
     $('.resize').resizable('enable')
 })
 
 $('.svgTrig').click(function(){
-    if(boxWidth > 400 && boxHeight > 400){
+    // 390 accounts for padding dimensions rather than 400
+    if(boxWidth > 390 && boxHeight > 290){
         nextSide(this)
         $('.resize').resizable('disable')
         $('.resize').children('h3').remove()
@@ -137,6 +149,7 @@ $('.valid').click(function(){
 
     if(selectState && appendState && widthState && heightState){
         nextSide(this)
+        $('.graph').css('border', '1px solid #404040')
     }
     else{
         $(this).siblings('.warn').show();
@@ -150,10 +163,10 @@ $('.valid2').click(function(){
         nextSide(this)
         //determine nuber that can fit in across row
         widthLim= Math.floor(boxWidth/80) -1
-        console.log(widthLim)
+
         //determine number of rows, 69 is height + padding
         heightLim= Math.floor(boxHeight/69)
-        console.log(heightLim)
+
         holeTotal= widthLim*heightLim
         for(var i=0; i<holeTotal; i++){
             $('.resize').children('.holes').append('<div><img class="hole" src="/img/d3garden/hole.png"></div>')
@@ -177,7 +190,7 @@ $('.seedTrig').click(function(){
     var classN= eval(keyTxt)
     activeData = keyTxt.replace(/\s+/g, '')
     activePlant = $(this).data('name')
-    console.log(classN)
+
     $('.uniqData').append('<p> var '+keyTxt+' = [</p>')
     for(var i=0; i<classN.length; i++){
         $('.uniqData').append('<p>'+JSON.stringify(classN[i])+',</p>')
@@ -253,6 +266,8 @@ $('.valid7').click(function(){
 
     if(heightState){
         nextSide(this)
+        $('.graph').css('border', 'none')
+        d3step1()
         for(var i=0; i<1; i++){
             $('.resize').children('.plant').append('<div><img class="eachplant" src="/img/d3garden/'+activePlant+'plant.png"></div>')
         }
@@ -268,7 +283,8 @@ $('.valid8').click(function(){
 
     if(xState){
         nextSide(this)
-
+        $('.graph').html('')
+        d3step2()
         $('.resize').children('.plant').children('div').remove()
         for(var i=0; i<20; i++){
             $('.resize').children('.plant').append('<div><img class="eachplant" src="/img/d3garden/'+activePlant+'plant.png"></div>')
@@ -285,7 +301,7 @@ $('.valid9').click(function(){
 
     if(yState){
         nextSide(this)
-
+        $('.graphProg').hide()
         runD3(eval(activeData))
         $('.resize').hide()
         $('.gardenDiv').show()
@@ -311,4 +327,35 @@ function runD3(data){
         .attr('x', function(d,i){return i * (d.width+2)})
         .attr('y', function(d,i){return h - d.height*2})
         .attr('fill', 'white')
+}
+
+function d3step1(){
+    var w= 292
+    var h= 74
+    var svg= d3.select('.graph').append('svg')
+        .attr('width', w)
+        .attr('height', h);
+
+    svg.selectAll('rect.colorBar')
+        .data(tomatoes)
+        .enter()
+        .append('rect')
+        .attr('width', function(d,i){return d.width/1.5})
+        .attr('height', function(d,i){return d.height/1.5})
+}
+
+function d3step2(){
+    var w= 292
+    var h= 74
+    var svg= d3.select('.graph').append('svg')
+        .attr('width', w)
+        .attr('height', h);
+
+    svg.selectAll('rect.colorBar')
+        .data(tomatoes)
+        .enter()
+        .append('rect')
+        .attr('width', function(d,i){return d.width/1.5})
+        .attr('height', function(d,i){return d.height/1.5})
+        .attr('x', function(d,i){return i * (d.width+2)})
 }
