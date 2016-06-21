@@ -74,7 +74,7 @@
                 </div>
                 <div class='actionBtn3 backBtn'> Back </div>
                 <div class='actionBtn2 svgTrig'> Go to Step 2 </div>
-                <p class='warn'> Please make your box at least 400 x 400 </p>
+                <p class='warn'> Please make your box at least 410 x 410 </p>
             </div>
             <div class='sideSect'>
                 <div class='header'>
@@ -83,10 +83,10 @@
                 </div>
                 <div class='txtbod'>
                     <h3> How to define the canvas </h3>
-                    <p class='code code2'> var svg = d3.select('div.foo').append('svg').attr('width', 'Xpx').attr('height', 'Ypx'); </p>
-                    <p class='code'> <span class='def'>d3.select('div.foo')</span> = Equivalent of jQuery $(), select the container with class foo </p>
-                    <p class='code'> <span class='def'>.append('svg')</span> = Append an SVG element to the DOM </p>
-                    <p class='code'> <span class='def'>.attr('width', 'Xpx')</span> = Declare an attribute for your SVG, then set value </p>
+                    <pre class="prettyprint"><p class='code'> var svg = d3.select('div.foo').append('svg')<br>.attr('width', 'Xpx').attr('height', 'Ypx'); </p></pre>
+                    <div class='code'> <pre class="prettyprint inline">d3.select('div.foo')</pre> = Equivalent of jQuery $(), select the container with class foo </div>
+                    <div class='code'> <pre class="prettyprint inline">.append('svg')</pre> = Append an SVG element to the DOM </div>
+                    <div class='code'> <pre class="prettyprint inline">.attr('width', 'Xpx')</pre> = Declare an attribute for your SVG, then set value </div>
                     <h3> Your turn! </h3>
                     <p class='code'> var svg = </p>
                     <p> Your container div has class 'gardenDiv' </p>
@@ -125,7 +125,7 @@
                 </div>
                 <div class='txtbod'>
                     <h3> How to use selectAll() </h3>
-                    <p class='code'> svg.selectAll('rect.bar') </p>
+                    <pre class="prettyprint"><p class='code'> svg.selectAll('rect.bar') </p></pre>
                     <p> This statement looks for all <a href= 'https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes' target='__blank'>rect elements</a> (from SVG specification) with class 'bar'. If there are none, it creates an empty set.
                     <h3> Your turn! </h3>
                     <p class='code'> svg. </p>
@@ -174,7 +174,7 @@
                 <div class='uniqData'></div>
                 <div class='txtbod'>
                     <h3> How to use data() </h3>
-                    <p class='code'> svg.selectAll('rect.bar').data(data) </p>
+                    <pre class="prettyprint"><p class='code'> svg.selectAll('rect.bar').data(data) </p></pre>
                     <p> Data() declares the object or array you will be iterating through. Pretty straightforward.
                     <h3> Your turn! </h3>
                     <p class='code'> svg.selectAll('rect.bar'). </p>
@@ -192,11 +192,11 @@
                     <p> Enter() performs the data join </p>
                 </div>
                 <div class='txtbod'>
+                    <pre class="prettyprint"><p class='code'> svg.selectAll('rect.bar').data(data).enter() </p></pre>
                     <h3> What It Does </h3>
                     <p> enter() combines your data with the empty set from selectAll() and creates a set of elements that can then be accessed one by one in D3 </p>
                     <h3> In The Garden </h3>
                     <p> This adds the seeds you selected in the past step to the garden, and matches the number of holes with number of plants. There are now 20 seeds in holes ready to be structured.</p>
-                    <p class='code'> svg.selectAll('rect.bar').data(data).enter() </p>
                     <h3> Your turn! </h3>
                     <p class='code'> svg.selectAll('rect.bar').data(data). </p>
                     <p> Add your enter statement, that is it! </p>
@@ -217,7 +217,7 @@
                     <p> Append() allows you to choose from the <a href= 'https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes' target='__blank'>7 basic SVG elements</a> or a 'g' element. In this case, we want a 'rect' element to build a bar graph.</p>
                     <h3> In The Garden </h3>
                     <p> You want the seeds you planted to grow in a defined way. We will add complementary structures like trellises to the garden to help our plants grow vertically.</p>
-                    <p class='code code2'> svg.selectAll('rect.bar').data(data).enter().append('rect') </p>
+                    <pre class="prettyprint"><p class='code'> svg.selectAll('rect.bar').data(data)<br>.enter().append('rect') </p></pre>
                     <h3> Your turn! </h3>
                     <p class='code'> svg.selectAll('rect.bar').data(data).enter(). </p>
                     <p> Append a rect element for each item in your data </p>
@@ -236,11 +236,11 @@
                 <div class='uniqData'></div>
                 <div class='txtbod'>
                     <h3> How to define each bar </h3>
-                    <p class='code code2'> svg.selectAll('rect.bar').data(data).enter().append('rect') </p>
-                    <p class='code'> <span class='def'>svg.selectAll('rect.bar')</span> = Creates an empty set of rect elements with class 'bar' </p>
-                    <p class='code'> <span class='def'>.data(data)</span> = Adds object or array of data to be turned into elements in the DOM </p>
-                    <p class='code'> <span class='def'>.enter()</span> = Join your data with the empty set defined in selectAll, can iterate through this set </p>
-                    <p class='code'> <span class='def'>.append('rect')</span> = Append a 'rect' element for every item in data </p>
+                    <pre class="prettyprint"><p class='code'> svg.selectAll('rect.bar').data(data)<br>.enter().append('rect') </p></pre>
+                    <div class='code'> <pre class="prettyprint inline">svg.selectAll('rect.bar')</pre> = Creates an empty set of rect elements with class 'bar' </div>
+                    <div class='code'> <pre class="prettyprint inline">.data(data)</pre> = Adds object or array of data to be turned into elements in the DOM </div>
+                    <div class='code'> <pre class="prettyprint inline">.enter()</pre> = Join your data with the empty set defined in selectAll, can iterate through this set </div>
+                    <div class='code'> <pre class="prettyprint inline">.append('rect')</pre> = Append a 'rect' element for every item in data </div>
                 </div>
                 <div class='actionBtn3 backBtn'> Back </div>
                 <div class='actionBtn2 norm'> Let's Grow The Plants </div>
@@ -252,10 +252,10 @@
                 </div>
                 <div class='txtbod'>
                     <h3> What It Does </h3>
+                    <pre class="prettyprint"><p class='code'> .attr('width', function(d,i){return d.width}) </p></pre>
                     <p> Attr() statements define what you want your bars to look like. Most importantly, they can use properties from each item in data.</p>
                     <h3> In The Garden </h3>
                     <p> We will do the width first, so this will define the width of each plant.</p>
-                    <p class='code'> .attr('width', function(d,i){return d.width}) </p>
                     <h3> Your turn! </h3>
                     <p> Write out the statement above, which defines the width based on the 'width' property of each item in the data object </p>
                     <input type='text' name='widthInput' id='width1'>
@@ -272,10 +272,10 @@
                 </div>
                 <div class='txtbod'>
                     <h3> What It Does </h3>
+                    <pre class="prettyprint"><p class='code'> .attr('height', function(d,i){return d.height}) </p></pre>
                     <p> In the statement 'function(d,i)', d stands for each item in data while i is the index, beginning at 0 for the first element</p>
                     <h3> In The Garden </h3>
                     <p> Now each plant will have a different height based on the object's properties</p>
-                    <p class='code'> .attr('height', function(d,i){return d.height}) </p>
                     <h3> Your turn! </h3>
                     <p> Write out the statement above, which defines the height based on the 'height' property of each item in the data object </p>
                     <input type='text' name='heightInput' id='height1'>
@@ -292,11 +292,11 @@
                 </div>
                 <div class='txtbod'>
                     <h3> What It Does </h3>
+                    <pre class="prettyprint"><p class='code'> .attr('x', function(d,i){return i * d.width}) </p></pre>
                     <p> In last statement we ended up with... one plant. That was disappointing. We also need to define x values for each bar so that they do not stack on top of each other, like they did in the last step. </p>
                     <p> Using the index of each bar, we can move them right to spread them out. We can multiply this index by the width of each bar to spread them out. </p>
                     <h3> In The Garden </h3>
                     <p> Now each plant will align with the appropriate structure as opposed to being stacked on top of each other in the first position.</p>
-                    <p class='code'> .attr('x', function(d,i){return i * d.width}) </p>
                     <h3> Your turn! </h3>
                     <p> Write out the statement above, which defines the x-position based on the index and separates based on bar width </p>
                     <input type='text' name='xInput' id='x1'>
@@ -313,9 +313,9 @@
                 </div>
                 <div class='txtbod'>
                     <h3> What It Does </h3>
+                    <pre class="prettyprint"><p class='code'> .attr('y', function(d,i){return divHeight - d.height}) </p></pre>
                     <p> The origin i.e. start point for D3 is the top left corner of the div. This means that when you set the height of a bar... it is growing downwards from the top left! Not good. So, we need to reverse this. </p>
                     <p> We need to set a new start point for the bar to grow from. We subtract the bar height from the overall height of the div. We start from the bottom of the containing div, and draw the bar starting from there!</p>
-                    <p class='code'> .attr('y', function(d,i){return divHeight - d.height}) </p>
                     <h3> Your turn! </h3>
                     <p> Write out the statement above, which defines the y-position based on the height of the svg. </p>
                     <input type='text' name='yInput' id='y1'>
