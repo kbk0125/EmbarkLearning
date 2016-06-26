@@ -362,7 +362,7 @@ module.exports = {
                 "img": "/img/catImg/javascriptlogo.png",
                 "challenge0": {
                     "short": "Create a soup recommender",
-                    "full": "Create an object with 5 soups and their characteristics. Then, based on a user input of what their favorite flavors are, return every soup that matches."
+                    "full": "Create an object with 5 soups and their characteristics. Then, based on a user input of favorite soup flavors, return every soup that matches."
                 },
                 "skills": [
                     "Know what JSON and key/value pairs are",
@@ -387,7 +387,7 @@ module.exports = {
                 "img": "/img/catImg/jQuerylogo.png",
                 "challenge0": {
                     "short": "Create a soup recommender",
-                    "full": "Create an object with 5 soups and their characteristics. Then, based on a user input of what their favorite flavors are, return every soup that matches."
+                    "full": "Create an object with 5 soups and their characteristics. Then, based on a user input of favorite soup flavors, return every soup that matches."
                 },
                 "skills": [
                     "Use click and hover events",
@@ -462,7 +462,7 @@ module.exports = {
                 "img": "/img/catImg/reactlogo.png",
                  "challenge0": {
                     "short": "Create a soup recommender",
-                    "full": "Create an object with 5 soups and their characteristics. Then, based on a user input of what their favorite flavors are, return every soup that matches."
+                    "full": "Create an object with 5 soups and their characteristics. Then, based on a user input of favorite soup flavors, return every soup that matches."
                 },
                 "skills": [
                     "The concepts of state and props and why you need them",

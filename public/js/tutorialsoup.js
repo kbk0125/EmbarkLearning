@@ -83,12 +83,31 @@ function addSections(begin, inter){
 		else
 			var rating= '<p class="high"></p>'
 		var entry= '<div class="entry">'+link+head+'</a>'+exp+imgDiv+rating+'</div>';
-		beginContent+=entry;
+		beginContent+=entry
+
+
+		if(i == 1 && topLvData[activeSub].challenge0){
+			console.log('in')
+			var head2= '<p class="title">'+topLvData[activeSub].challenge0.short+' (Quick Test)</p>';
+			var exp2= '<p class="desc">'+topLvData[activeSub].challenge0.full+'</p>';
+			var imgDiv2= '<div class="corner cornerCol"><i class="fa fa-check-circle" aria-hidden="true"></i></div>';
+			var entry2= '<div class="entry">'+head2+exp2+imgDiv2+'</div>';
+			beginContent+=entry2
+		}
 	}
 
 	$('.begin').children('.contSection').append(beginContent);
 
-	var challenge='<p class="chal">'+topLvData[activeSub].challenge1.short+'</p><p class="chalDesc">'+topLvData[activeSub].challenge1.full+'</p>'
+	if(topLvData[activeSub].skills){
+		var skills= '<p class="chal"> Can you do the following? </p><ul>'
+		for(var i =0; i <topLvData[activeSub].skills.length; i++){
+			skills+= '<li class="detail">'+topLvData[activeSub].skills[i]+'</li>'
+		}
+		var challenge=skills+'</ul><p class="chal">'+topLvData[activeSub].challenge1.short+'</p><p class="chalDesc">'+topLvData[activeSub].challenge1.full+'</p>'
+	}
+	else{
+		var challenge='<p class="chal">'+topLvData[activeSub].challenge1.short+'</p><p class="chalDesc">'+topLvData[activeSub].challenge1.full+'</p>'
+	}
 
 	$('.challenge').find('.contSection').append(challenge);
 
@@ -149,4 +168,17 @@ $('.getRes').click(function(){
 
 $('.restart').click(function(){
 	window.location.reload()
+})
+
+$('.back1').click(function(){
+	var parent= $(this).parents('.ctrBlock')
+	$(parent).hide('slide');
+	$('.subCatList').html('')
+	$('.intro').show('slide').css('display', 'flex')
+})
+
+$('.back2').click(function(){
+	var parent= $(this).parents('.ctrBlock')
+	$(parent).hide('slide');
+	$('.ctrBlock2').show('slide').css('display', 'flex')
 })

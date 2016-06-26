@@ -1,70 +1,70 @@
 var tomatoes = [
-    {"width": 24, "height": 75, "color": "red"},
-    {"width": 24, "height": 70, "color": "red"},
-    {"width": 24, "height": 55, "color": "red"},
-    {"width": 24, "height": 45, "color": "red"},
-    {"width": 24, "height": 85, "color": "red"},
-    {"width": 24, "height": 63, "color": "red"},
-    {"width": 24, "height": 34, "color": "red"},
-    {"width": 24, "height": 45, "color": "red"},
-    {"width": 24, "height": 61, "color": "red"},
-    {"width": 24, "height": 95, "color": "red"},
-    {"width": 24, "height": 105, "color": "red"},
-    {"width": 24, "height": 45, "color": "red"},
-    {"width": 24, "height": 43, "color": "red"},
-    {"width": 24, "height": 45, "color": "red"},
-    {"width": 24, "height": 63, "color": "red"},
-    {"width": 24, "height": 48, "color": "red"},
-    {"width": 24, "height": 56, "color": "red"},
-    {"width": 24, "height": 78, "color": "red"},
-    {"width": 24, "height": 85, "color": "red"},
-    {"width": 24, "height": 74, "color": "red"}
+    {"width": 25, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "red"},
+    {"width": 25, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "red"},
+    {"width": 25, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "red"},
+    {"width": 25, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "red"},
+    {"width": 25, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "red"},
+    {"width": 25, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "red"},
+    {"width": 25, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "red"},
+    {"width": 25, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "red"},
+    {"width": 25, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "red"},
+    {"width": 25, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "red"},
+    {"width": 25, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "red"},
+    {"width": 25, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "red"},
+    {"width": 25, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "red"},
+    {"width": 25, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "red"},
+    {"width": 25, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "red"},
+    {"width": 25, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "red"},
+    {"width": 25, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "red"},
+    {"width": 25, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "red"},
+    {"width": 25, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "red"},
+    {"width": 25, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "red"}
 ]
 
 var peppers =[
-    {"width": 20, "height": 75, "color": "yellow"},
-    {"width": 20, "height": 70, "color": "yellow"},
-    {"width": 20, "height": 55, "color": "yellow"},
-    {"width": 20, "height": 45, "color": "yellow"},
-    {"width": 20, "height": 85, "color": "yellow"},
-    {"width": 20, "height": 63, "color": "yellow"},
-    {"width": 20, "height": 34, "color": "yellow"},
-    {"width": 20, "height": 45, "color": "yellow"},
-    {"width": 20, "height": 61, "color": "yellow"},
-    {"width": 20, "height": 95, "color": "yellow"},
-    {"width": 20, "height": 105, "color": "yellow"},
-    {"width": 20, "height": 45, "color": "yellow"},
-    {"width": 20, "height": 43, "color": "yellow"},
-    {"width": 20, "height": 45, "color": "yellow"},
-    {"width": 20, "height": 63, "color": "yellow"},
-    {"width": 20, "height": 48, "color": "yellow"},
-    {"width": 20, "height": 56, "color": "yellow"},
-    {"width": 20, "height": 78, "color": "yellow"},
-    {"width": 20, "height": 85, "color": "yellow"},
-    {"width": 20, "height": 74, "color": "yellow"}
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "yellow"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "yellow"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "yellow"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "yellow"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "yellow"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "yellow"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "yellow"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "yellow"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "yellow"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "yellow"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "yellow"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "yellow"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "yellow"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "yellow"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "yellow"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "yellow"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "yellow"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "yellow"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "yellow"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "yellow"}
 ]
 
 var cucumbers =[
-    {"width": 20, "height": 75, "color": "green"},
-    {"width": 20, "height": 70, "color": "green"},
-    {"width": 20, "height": 55, "color": "green"},
-    {"width": 20, "height": 45, "color": "green"},
-    {"width": 20, "height": 85, "color": "green"},
-    {"width": 20, "height": 63, "color": "green"},
-    {"width": 20, "height": 34, "color": "green"},
-    {"width": 20, "height": 45, "color": "green"},
-    {"width": 20, "height": 61, "color": "green"},
-    {"width": 20, "height": 95, "color": "green"},
-    {"width": 20, "height": 105, "color": "green"},
-    {"width": 20, "height": 45, "color": "green"},
-    {"width": 20, "height": 43, "color": "green"},
-    {"width": 20, "height": 45, "color": "green"},
-    {"width": 20, "height": 63, "color": "green"},
-    {"width": 20, "height": 48, "color": "green"},
-    {"width": 20, "height": 56, "color": "green"},
-    {"width": 20, "height": 78, "color": "green"},
-    {"width": 20, "height": 85, "color": "green"},
-    {"width": 20, "height": 74, "color": "green"}
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "green"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "green"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "green"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "green"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "green"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "green"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "green"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "green"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "green"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "green"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "green"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "green"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "green"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "green"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "green"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "green"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "green"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "green"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "green"},
+    {"width": 20, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "green"}
 ]
 
 var boxWidth;
@@ -87,6 +87,7 @@ function nextSide(prev){
     var par= $(prev).parents('.sideSect')
     $(par).hide();
     $(par).next().show()
+    $('#main').children('.uniqData').hide()
 }
 
 function prevSide(prev){
@@ -127,7 +128,7 @@ $('.begin').click(function(){
 
 $('.svgTrig').click(function(){
     // 390 accounts for padding dimensions rather than 400
-    if(boxWidth > 390 && boxHeight > 290){
+    if(boxWidth > 390 && boxHeight > 390){
         nextSide(this)
         $('.resize').resizable('disable')
         $('.resize').children('h3').remove()
@@ -193,7 +194,7 @@ $('.seedTrig').click(function(){
 
     $('.uniqData').append('<p> var '+keyTxt+' = [</p>')
     for(var i=0; i<classN.length; i++){
-        $('.uniqData').append('<p>'+JSON.stringify(classN[i])+',</p>')
+        $('.uniqData').append('<p class="indent">'+JSON.stringify(classN[i])+',</p>')
     }
     $('.uniqData').append('<p>]</p>')
     $('#seedId').text('Add the data contained in the variable '+activeData)
@@ -223,7 +224,7 @@ $('.valid4').click(function(){
             $('.resize').children('.holes').children().eq(i).remove()
         }
         $('.resize').children('.holes').children('div').addClass('absoluted').width(newWidth).height(newHeight)
-        $('.resize').children('.seeds').children('div').width(newWidth).height(newHeight)
+        $('.resize').children('.seeds').children('div').width(newWidth).height(newHeight);
     }
     else{
         $(this).siblings('.warn').show();
@@ -243,7 +244,6 @@ $('.valid5').click(function(){
             $('.resize').children('.struct').append('<div><img class="structure" src="/img/d3garden/woodstand.png"></div>')
         }
         $('.resize').children('.struct').children('div').width(newWidth).height(newHeight)
-        
     }
     else{
         $(this).siblings('.warn').show();
@@ -311,8 +311,12 @@ $('.valid9').click(function(){
     }
 })
 
+$('.displayObj').click(function(){
+    $('#main').children('.uniqData').show()
+})
+
 function runD3(data){
-    var w= 530
+    var w= 535
     var h= 250
     var svg= d3.select('.gardenDiv').append('svg')
         .attr('width', w)
@@ -327,6 +331,39 @@ function runD3(data){
         .attr('x', function(d,i){return i * (d.width+2)})
         .attr('y', function(d,i){return h - d.height*2})
         .attr('fill', 'white')
+}
+
+function runD3pt2(data){
+    var w= 535
+    var h= 250
+    var svg= d3.select('.gardenDiv').append('svg')
+        .attr('width', w)
+        .attr('height', h);
+
+    svg.selectAll('rect.colorBar')
+        .data(data)
+        .enter()
+        .append('rect')
+        .attr('width', function(d,i){return d.width})
+        .attr('height', function(d,i){return d.height*2})
+        .attr('x', function(d,i){return i * (d.width+2)})
+        .attr('y', function(d,i){return h - d.height*2})
+        .attr('fill', 'white')
+
+    var xScale = d3.scale.linear()
+        .domain( [0, data.length] )
+        .range( [0, w] );
+
+    var yScale = d3.scale.linear()
+        .domain( [0, d3.max(data, function(d) { return d.height; })] )
+        .range( [0, h] );
+
+    var xAxis = d3.svg.axis().scale(xScale).ticks(0)
+    var yAxis = d3.svg.axis().scale(yScale).orient("left").ticks(0)
+
+    svg.append("g").attr("transform", "translate(5,0)").call(yAxis);
+
+    svg.append("g").attr("transform", "translate(0," + (h-5) + ")").call(xAxis);
 }
 
 function d3step1(){
@@ -359,3 +396,121 @@ function d3step2(){
         .attr('height', function(d,i){return d.height/1.5})
         .attr('x', function(d,i){return i * (d.width+2)})
 }
+
+function d3step3(){
+    var w= 292
+    var h= 74
+    var svg= d3.select('.graph').append('svg')
+        .attr('width', w)
+        .attr('height', h);
+
+    svg.selectAll('rect.colorBar')
+        .data(tomatoes)
+        .enter()
+        .append('rect')
+        .attr('width', function(d,i){return d.width/1.5})
+        .attr('height', function(d,i){return d.height/1.5})
+        .attr('x', function(d,i){return i * (d.width+2)})
+        .attr('y', function(d,i){return h - (d.height/1.5)})
+}
+
+$('.axesStart').click(function(){
+    $('.graphProg').show()
+    $('.resize').show()
+    $('.gardenDiv').hide()
+    nextSide(this)
+    $('.graph').html('')
+    d3step3()
+})
+
+$('.valid10').click(function(){
+    var xState1= $("#xscale1").val().indexOf('d3.scale.linear()') > -1
+    var xState2= $("#xscale2").val().indexOf('data.length') > -1
+    var xState3= $("#xscale3").val().indexOf('.range') > -1
+
+    if(xState1 && xState2 && xState3){
+        nextSide(this)
+    }
+    else{
+        $(this).siblings('.warn').show();
+    }
+})
+
+$('.valid11').click(function(){
+    var yState1= $("#yscale1").val().indexOf('d3.scale.linear()') > -1
+    var yState2= $("#yscale2").val().indexOf('d3.max') > -1
+    var yState3= $("#yscale3").val().indexOf('.range') > -1
+
+    if(yState1 && yState2 && yState3){
+        nextSide(this)
+    }
+    else{
+        $(this).siblings('.warn').show();
+    }
+})
+
+$('.valid12').click(function(){
+    var xaxis1= $("#xaxis1").val().indexOf('d3.svg.axis()') > -1
+    var xaxis2= $("#xaxis2").val().indexOf('.scale(xScale)') > -1
+
+    if(xaxis1 && xaxis2){
+        nextSide(this)
+    }
+    else{
+        $(this).siblings('.warn').show();
+    }
+})
+
+$('.valid13').click(function(){
+    var xaxis3= $("#xaxis3").val().indexOf('.append') > -1
+    var xaxis4= $("#xaxis4").val().indexOf('xAxis') > -1
+
+    if(xaxis3 && xaxis4){
+        nextSide(this)
+        $('.resize').append("<img class='topLine' src='/img/fencehoriz.png'/>")
+    }
+    else{
+        $(this).siblings('.warn').show();
+    }
+})
+
+$('.valid14').click(function(){
+    var yaxis1= $("#yaxis1").val().indexOf('d3.svg.axis()') > -1
+    var yaxis2= $("#yaxis2").val().indexOf('.scale(yScale)') > -1
+
+    if(yaxis1 && yaxis2){
+        nextSide(this)
+    }
+    else{
+        $(this).siblings('.warn').show();
+    }
+})
+
+$('.valid15').click(function(){
+    var yaxis3= $("#yaxis3").val().indexOf('.append') > -1
+    var yaxis4= $("#yaxis4").val().indexOf('yAxis') > -1
+
+    if(yaxis3 && yaxis4){
+        nextSide(this)
+        $('.resize').append("<img class='leftLine' src='/img/fencevert.png'/>")
+    }
+    else{
+        $(this).siblings('.warn').show();
+    }
+})
+
+$('.valid16').click(function(){
+    var xaxis5= $("#xaxis5").val().indexOf('translate') > -1
+
+    if(xaxis5){
+        nextSide(this)
+        $('.graphProg').hide()
+        $('.gardenDiv').html('')
+        runD3pt2(eval(activeData))
+        $('.resize').hide()
+        $('.gardenDiv').show()
+    }
+    else{
+        $(this).siblings('.warn').show();
+    }
+})

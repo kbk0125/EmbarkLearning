@@ -65,6 +65,12 @@ a
 		span
 			font-weight 300
 			color #999
+	.buttons
+		margin-top 24px
+		> div
+			margin-left 16px
+			margin-right 16px
+			display inline-block
 
 .intro
 	display flex
@@ -224,8 +230,6 @@ a
 	h2
 		margin-left 65px
 		margin-bottom 12px
-	.actionBtn2
-		margin-top 24px
 	.errMsg
 		color red
 		margin-top 4px
@@ -341,6 +345,8 @@ a
 					text-align left
 					position relative
 					border-left 2px solid #ccc
+					> .title
+						color #404040
 					a
 						color #3394d4
 						.title
@@ -350,6 +356,8 @@ a
 					.desc
 						font-size 14px
 						width 420px
+					.corner.cornerCol
+						background-color #33d473
 					.corner
 						position absolute
 						top 0
@@ -394,13 +402,18 @@ a
 			.contSection
 				width 69%
 				display inline-block
+				ul
+					margin 0
+					padding-left 54px
 				.chal, .chalDesc
 					padding-left 32px
 					text-align left
 				.chal
 					font-size 16px
 					color #404040
-					margin-bottom 6px
-				.chalDesc
+					margin 6px 0
+				.chalDesc, .detail
 					font-size 14px
 					width 420px
+
+

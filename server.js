@@ -244,10 +244,10 @@ app.get('/customTut', function(req,res){
 	var subcat = req.query.subcat
 	var choices = req.query.choices
 	var allRes=[];
-	connection.query('SELECT l.id, l.datecreated, l.category, l.subcategory, l.title, l.link, l.challenge, l.description, l.filter, COUNT(v.linkid) AS votes FROM Links l INNER JOIN Votes v ON l.id = v.linkid WHERE l.category=? AND l.subcategory=? AND l.filter IN (?) AND l.challenge="beginner" GROUP BY l.id ORDER BY votes DESC LIMIT 3;', [category,subcat,choices] ,function (err, result1, fields) {
+	connection.query('SELECT l.id, l.datecreated, l.category, l.subcategory, l.title, l.link, l.challenge, l.description, l.filter, COUNT(v.linkid) AS votes FROM Links l INNER JOIN Votes v ON l.id = v.linkid WHERE l.category=? AND l.subcategory=? AND l.filter IN (?) AND l.challenge="beginner" GROUP BY l.id ORDER BY votes DESC LIMIT 5;', [category,subcat,choices] ,function (err, result1, fields) {
 		if (err) throw err;
 		allRes.push(result1)
-		connection.query('SELECT l.id, l.datecreated, l.category, l.subcategory, l.title, l.link, l.challenge, l.description, l.filter, COUNT(v.linkid) AS votes FROM Links l INNER JOIN Votes v ON l.id = v.linkid WHERE l.category=? AND l.subcategory=? AND l.filter IN (?) AND l.challenge="intermediate" GROUP BY l.id ORDER BY votes DESC LIMIT 2;', [category,subcat,choices] ,function (err, result2, fields) {
+		connection.query('SELECT l.id, l.datecreated, l.category, l.subcategory, l.title, l.link, l.challenge, l.description, l.filter, COUNT(v.linkid) AS votes FROM Links l INNER JOIN Votes v ON l.id = v.linkid WHERE l.category=? AND l.subcategory=? AND l.filter IN (?) AND l.challenge="intermediate" GROUP BY l.id ORDER BY votes DESC LIMIT 3;', [category,subcat,choices] ,function (err, result2, fields) {
 			allRes.push(result2)
 			res.send(allRes)
 		})

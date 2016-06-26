@@ -166,7 +166,7 @@ span.def{
 }
 
 .gardenDiv{
-  width:530px;
+  width:535px;
   height: 250px;
   position: relative;
   position: absolute;
@@ -225,6 +225,21 @@ span.def{
   text-align:center;
 }
 
+.graphProg p {
+  color: #404040
+}
+
+#main .uniqData{
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 4px 8px;
+  background-color: rgba(255,255,255,0.85);
+  display: none;
+  border-radius: 4px;
+}
+
 .graphProg .graph{
   width: 100%;
   height:74px;
@@ -251,13 +266,27 @@ span.def{
 
 .resize img.seed{
   width:50px;
-  padding: 10px 15px;
+  padding: 0px 15px 20px 15px;
 }
 
 .resize img.eachplant{
   width:40px;
   padding: 5px 21px;
   display: block;
+}
+
+.resize img.topLine{
+  position: absolute;
+  left: 0;
+  top: -38px;
+  width: 100%;
+}
+
+.resize img.leftLine{
+  position: absolute;
+  left: -14px;
+  top: 0;
+  height: 100%;
 }
 
 .ui-resizable-helper {
@@ -279,9 +308,11 @@ span.def{
   display: none;
 }
 
-.sideSect a p{
+.sideSect a p, .sideSect .displayObj{
   color:#3394d4;
   margin-top: 4px;
+  display: table;
+  cursor: pointer;
 }
 
 .sideSect.codeSnip{
@@ -290,6 +321,15 @@ span.def{
 
 .lastLink{
   text-align: center;
+}
+
+.lastLink:hover{
+  text-decoration: none;
+}
+
+.lastLink div, .codeSnip div.actionBtn2{
+  display: table;
+  margin: auto;
 }
 
 .codeSnip code{
@@ -302,6 +342,10 @@ span.def{
 
 .sideSect .header, .sideSect .txtbod, .sideSect .uniqData{
   text-align: left;
+}
+
+.uniqData .indent{
+  padding-left: 8px;
 }
 
 .sideSect p{
