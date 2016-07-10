@@ -1,0 +1,576 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name='description' content='Learn all the basics of for loops in Javascript as well as higher order functions.'>
+    <title>For Loop Factory | Interactive For Loop Tutorial</title>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <meta name="viewport", content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="For Loop Factory | Interactive For Loop Tutorial">
+    <meta property="og:type" content="website" >       
+    <meta property="og:url" content="https://www.rtfmanual.io/forloopfactory/">
+    <meta property="og:description" content="Learn all the basics of for loops in Javascript as well as higher order functions.">
+    <meta property="og:image" content="https://www.rtfmanual.io/img/forloop/squarelogo2.png">
+    
+    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="/css/forloopfactory.css">
+    <link rel="shortcut icon" type="image/ico" href='/img/favicon.ico'>
+</head>
+<body>
+    <div id='container'>
+        <div class='intro'>
+            <div class='ctr'>
+                <h1> For Loop Factory </h1>
+                <p> Learn the basics of 'for' loops as well as higher order functions like .map() in Javascript </p>
+                <div class='actionBtn startbtn'> Get Started </div>
+            </div>
+        </div>
+        <div id="topBar">
+            <img src='/img/forloop/mainlogo.png'>
+            <h3> For Loop Factory </h3>
+            <a href='https://www.rtfmanual.io' target="_blank"><div class='actionBtn'> Discover More Popular Tutorials </div></a>
+        </div>
+        <div id='main'>
+            <div class='scene'>
+                <img class='lamp lamp1' src='/img/forloop/lamp.png' />
+                <img class='lamp lamp2' src='/img/forloop/lamp.png' />
+                <div class='action'>
+                    <div class='belt topBelt'>
+                        <img class='cog leftCog rotating pause' src='/img/forloop/cog.png'>
+                        <img class='cog rightCog rotating pause' src='/img/forloop/cog.png'>
+                    </div>
+                    <img class='smoke' src='/img/forloop/smoke.png' />
+                    <img class='mach' src='/img/forloop/machine.png' />
+                    <div class='belt bottomBelt'>
+                        <img class='cog leftCog rotating pause' src='/img/forloop/cog.png'>
+                        <img class='cog rightCog rotating pause' src='/img/forloop/cog.png'>
+                    </div>
+                </div>
+                <div class='robotDiv'>
+                    <div class='onePart'>
+                        <p> Legs </p>
+                        <img src='/img/forloop/robotlegs.png' />
+                    </div>
+                    <div class='onePart'>
+                        <p> Body </p>
+                        <img src='/img/forloop/robotbody.png' />
+                    </div>
+                    <div class='onePart'>
+                        <p> Arms </p>
+                        <img src='/img/forloop/robotarms.png' />
+                    </div>
+                    <div class='onePart'>
+                        <p> Head </p>
+                        <img src='/img/forloop/robothead.png' />
+                    </div>
+                    <div class='oneBot'>
+                        <p> 9 </p>
+                        <img src='/img/forloop/robotblue.png' />
+                    </div>
+                    <div class='oneBot greenBot'>
+                        <p> 8 </p>
+                        <img src='/img/forloop/robotgreen.png' />
+                    </div>
+                    <div class='oneBot'>
+                        <p> 7 </p>
+                        <img src='/img/forloop/robotred.png' />
+                    </div>
+                    <div class='oneBot'>
+                        <p> 6 </p>
+                        <img src='/img/forloop/robotpurple.png' />
+                    </div>
+                    <div class='oneBot'>
+                        <p> 5 </p>
+                        <img src='/img/forloop/robotblueback.png' />
+                    </div>
+                    <div class='oneBot'>
+                        <p> 4 </p>
+                        <img src='/img/forloop/robotblue.png' />
+                    </div>
+                    <div class='oneBot greenBot'>
+                        <p> 3 </p>
+                        <img src='/img/forloop/robotgreen.png' />
+                    </div>
+                    <div class='oneBot'>
+                        <p> 2 </p>
+                        <img src='/img/forloop/robotred.png' />
+                    </div>
+                    <div class='oneBot'>
+                        <p> 1 </p>
+                        <img src='/img/forloop/robotpurple.png' />
+                    </div>
+                    <div class='oneBot'>
+                        <p> 0 </p>
+                        <img src='/img/forloop/robotblueback.png' />
+                    </div>
+                </div>
+                <div class='resultDiv'>
+                    <div class='oneBot first'>
+                        <p> - </p>
+                        <img src='/img/forloop/robotpurple.png' />
+                    </div>
+                    <div class='newRobots'></div>
+                </div>
+            </div>
+        </div>
+        <div id='side'>
+            <div class='sideSect first'>
+                <div class='header'>
+                    <h2> Choose Your Adventure </h2>
+                </div>
+                <div class='txtbod'>
+                    <h3> Beginner </h3>
+                    <p> The basics of iterating through arrays and objects </p>
+                    <div class='actionBtn3 small track1Start'> Select </div>
+                    <p class='inlineP'> For Loop Basics, 11 steps </p>
+                    <h3> Intermediate </h3>
+                    <p> Higher order functions and more advanced techniques </p>
+                    <div class='actionBtn3 small track2Start'> Select </div>
+                    <p class='inlineP'> .map() Functions, 10 steps </p>
+                </div>
+            </div>
+            <div class='sideSect track1'>
+                <div class='header'>
+                    <h2> For Loop Basics 1/11 </h2>
+                    <p> Learn the basics of 'for' loops and how to use them with arrays and objects  </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Where do I need a 'for' loop? </h3>
+                    <pre class="prettyprint"><p class='code'> var robots = ['blueRobotBackwards', 'purpleRobot', 'redRobot', 'greenRobot', 'blueRobot', 'blueRobotBackwards', 'purpleRobot', 'redRobot', 'greenRobot', 'blueRobot']  </p></pre>
+                    <p> Check out the <span class='bold'> array </span> above. There are 10 items, which are shown in the window on the left. 'For' loops allow you to <span class='bold'> iterate </span> through this array. You can take an action with each item in the array in a programatic way, as opposed to selecting them one by one.</p>
+                    <h3> How often will I use these things? </h3>
+                    <p> All the time. </p>
+                    <a href='http://www.w3schools.com/js/js_arrays.asp' target='__blank'><p>Docs</p></a>
+                </div>
+                <div class='actionBtn2 normAdv'> Learn Array Basics </div>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Array Basics, 2/11 </h2>
+                    <p> How to choose specific items in arrays </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> How do I label each item in the array? </h3>
+                    <pre class="prettyprint"><p class='code'> var robots = [ 'blueRobotBackwards', 'purpleRobot', 'redRobot', 'greenRobot', 'blueRobot', 'blueRobotBackwards', 'purpleRobot', 'redRobot', 'greenRobot', 'blueRobot' ]  </p></pre>
+                    <div class='code'> <pre class="prettyprint inline">robots[1]</pre> = 'purpleRobot' </div>
+                    <div class='code'> <pre class="prettyprint inline">robots[9]</pre> = 'blueRobot' </div>
+                    <div class='code'> <pre class="prettyprint inline">robots[4]</pre> = 'blueRobot' </div>
+                    <p> Arrays are <span class='bold'>0-indexed.</span> This means that the first item in the array is in the 0 position. Check out the display on the left! </p>
+                    <h3> Your turn! </h3>
+                    <p> Select the seventh item in the robots array </p>
+                    <input type='text' name='arrayInput' id='arr1'>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 valid1'> Learn For Loop Basics </div>
+                <p class='warn'> Recall that the first item in the array is labeled 0! </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Write A For Loop, 3/11 </h2>
+                    <p> How JavaScript does for loops, a fundamental programming construct </p>
+                </div>
+                <div class='txtbod'>
+                    <pre class="prettyprint"><p class='code'> var robots = [ 'blueRobotBackwards', 'purpleRobot', 'redRobot', 'greenRobot', 'blueRobot', 'blueRobotBackwards', 'purpleRobot', 'redRobot', 'greenRobot', 'blueRobot' ]  </p></pre>
+                    <div class='code'> <pre class="prettyprint inline">for(var i=0; i < robots.length; i++){}</pre> </div>
+                    <div class='code'> <pre class="prettyprint inline">var i=0;</pre> = Create a variable called 'i' that starts at 0 </div>
+                    <div class='code'> <pre class="prettyprint inline">i < robots.length;</pre> = i must always be less than 10, the length of the array </div>
+                    <div class='code'> <pre class="prettyprint inline">i++</pre> = Increase i by 1 every time the loop finishes, and restart it</div>
+                    <h3> Your turn! </h3>
+                    <p> Set 0 as the start point with a variable called i </p>
+                    <input type='text' name='forInput' id='for1'>
+                    <p> Make sure i is limited by the length of robots array </p>
+                    <input type='text' name='forInput' id='for2'>
+                    <p> Increase i by 1 after every iteration </p>
+                    <input type='text' name='forInput' id='for3'>
+                    <a href='http://www.w3schools.com/js/js_loop_for.asp' target='__blank'><p>Docs</p></a>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                 <div class='actionBtn2 valid2'> See This In Action </div>
+                <p class='warn'> Do your answers match those in the example? </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Act on Each Result, 4/11 </h2>
+                    <p> Once we are in the 'for' loop, we can do anything to each item! </p>
+                </div>
+                <div class='txtbod'>
+                    <p> Alright, running the loop in the previous step was a little misleading. We need to do something to each item in the array! In this case, we will create a new array for the second conveyor belt, and add items to that. </p>
+                    <div class='code'> <pre class="prettyprint inline"> var belt2 = []; <br> for(var i = 0; i < robots.length; i++){ belt2.push(robots[i]) <br>}</pre> </div>
+                    <div class='code'> <pre class="prettyprint inline">var belt2 = [];</pre> = Create a variable called 'belt2' that is an empty array. </div>
+                    <div class='code'> <pre class="prettyprint inline">.push()</pre> = Add each item to the end of the belt2 array. </div>
+                    <div class='code'> <pre class="prettyprint inline">robots[i]</pre> = Choose the item based on i, the variable that you increment in the for loop statement</div>
+                    <h3> Your turn! </h3>
+                    <p> Create an empty array called 'conveyor2' </p>
+                    <input type='text' name='forInput' id='for4'>
+                    <p> Add each item from the robots array using the .push() method </p>
+                    <input type='text' name='forInput' id='for5'>
+                    <a href='http://www.w3schools.com/jsref/jsref_push.asp' target='__blank'><p>Docs</p></a>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 valid3'> Run It Again </div>
+                <p class='warn'> Are you picking each item in the array correctly? </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Experiment with i, 5/11 </h2>
+                    <p> Let's dig deeper into each part of the for loop</p>
+                </div>
+                <div class='txtbod'>
+                    <p> i is normally initialized to 0, but what happens if we start in the middle of the array? </p>
+                    <div class='code'> <pre class="prettyprint inline"> var belt2 = []; <br> for(var i = 5; i < robots.length; i++){ belt2.push(robots[i]) <br>}</pre> </div>
+                    <div class='code'> <pre class="prettyprint inline">var i = 5;</pre> = Start from the item with an index of 5, the 6th item in the array. </div>
+                    <div class='actionBtn3 small runTest1'> Test </div>
+                    <p> See how the first 5 items never get touched? That is because you started at index 5, and only go up from there. </p>
+                    <h3> Your turn! </h3>
+                    <p> Make i start with the 3rd item in the array </p>
+                    <input type='text' name='incInput' id='inc1'>
+                    <a href='http://www.w3schools.com/js/js_loop_for.asp' target='__blank'><p>Docs</p></a>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 valid4'> Run It Again </div>
+                <p class='warn'> Remember, the count starts at 0, so the 3rd item has index 2! </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Experiment with upper bound, 6/11 </h2>
+                    <p> Let's dig deeper into each part of the 'for' loop</p>
+                </div>
+                <div class='txtbod'>
+                    <p> If you want to run through every item in the array, you usually set the upper bound to the full length of the array. But what if you do not want to use every item? </p>
+                    <div class='code'> <pre class="prettyprint inline"> var belt2 = []; <br> for(var i = 0; i < 4; i++){ belt2.push(robots[i]) <br>}</pre> </div>
+                    <div class='code'> <pre class="prettyprint inline">i < 4</pre> = Stop the for loop after iterating through the first 4 items </div>
+                    <div class='actionBtn3 small runTest2'> Test </div>
+                    <p> See how the last 6 items never get touched? That is because you end before index 4 </p>
+                    <h3> Your turn! </h3>
+                    <p> Only iterate through the first two items of the array </p>
+                    <input type='text' name='incInput' id='inc2'>
+                    <a href='http://www.w3schools.com/js/js_loop_for.asp' target='__blank'><p>Docs</p></a>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 valid5'> Run It Again </div>
+                <p class='warn'> You only want to iterate through the elements in positions 0 and 1 </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Experiment with increments, 7/11 </h2>
+                    <p> Let's dig deeper into each part of the 'for' loop</p>
+                </div>
+                <div class='txtbod'>
+                    <p> The previous examples assume that you want to iterate through each item. But what if you only want to iterate through items with an odd or even index? </p>
+                    <div class='code'> <pre class="prettyprint inline"> var belt2 = []; <br> for(var i=0; i < robots.length; i+=2){ belt2.push(robots[i]) <br>}</pre> </div>
+                    <div class='code'> <pre class="prettyprint inline">i+=2</pre> = Iterate through every other item, beginning with the 0 index. i +=2 is the same as i = i+2. </div>
+                    <div class='actionBtn3 small runTest3'> Test </div>
+                    <p> See how the odd-indexed items never get touched? i is never odd (in this case) </p>
+                    <h3> Your turn! </h3>
+                    <p> Only iterate through every third item </p>
+                    <input type='text' name='incInput' id='inc3'>
+                    <a href='http://www.w3schools.com/js/js_loop_for.asp' target='__blank'><p>Docs</p></a>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 valid6'> Run It Again </div>
+                <p class='warn'> You need to add 3 to i with every iteration of the loop </p>
+            </div>
+            <div class='sideSect objLoops'>
+                <div class='header'>
+                    <h2> For loops with objects, 8/11 </h2>
+                    <p> Let's learn more about the object data structure</p>
+                </div>
+                <div class='txtbod'>
+                    <pre class="prettyprint"><p class='code'> var robots = [ {color:'blue' , orient:'back'}, { color:'purple' , orient:'front'}, { color:'red' , orient:'front'}, {color:'green' , orient:'front'}, { color:'blue' , orient:'front'}, {color:'blue' , orient:'back'}, { color:'purple' , orient:'front'}, { color:'red' , orient:'front'}, {color:'green' , orient:'front'}, { color:'blue' , orient:'front'} ]  </p></pre>
+                    <div class='code'> <pre class="prettyprint inline"> var belt2 = []; <br> for(var i=0; i < robots.length; i++){ if(robots[i]['color'] == 'blue'){ <br> belt2.push(robots[i]) } <br> }</pre> </div>
+                    <div class='code'> <pre class="prettyprint inline">robots[i]['color']</pre> = Gets the color property of each object in the robots array </div>
+                    <div class='code'> <pre class="prettyprint inline">== 'blue'</pre> = If the string from the object is exactly 'blue' </div>
+                    <h3> Your turn! </h3>
+                    <p> Write condition that stipulates that you will only push items if their color is 'purple' </p>
+                    <input type='text' name='incInput' id='obj1'>
+                    <a href='http://www.w3schools.com/js/js_loop_for.asp' target='__blank'><p>Docs</p></a>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 valid7'> Get Only Purple Robots </div>
+                <p class='warn'> Check out the example above to see how to choose based on a color </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> For loops with objects, 9/11 </h2>
+                    <p> Let's learn more about the object data structure</p>
+                </div>
+                <div class='txtbod'>
+                    <pre class="prettyprint"><p class='code'> var robots = [ {color:'blue' , orient:'back'}, { color:'purple' , orient:'front'}, { color:'red' , orient:'front'}, {color:'green' , orient:'front'}, { color:'blue' , orient:'front'}, {color:'blue' , orient:'back'}, { color:'purple' , orient:'front'}, { color:'red' , orient:'front'}, {color:'green' , orient:'front'}, { color:'blue' , orient:'front'} ]  </p></pre>
+                    <div class='code'> <pre class="prettyprint inline"> var belt2 = []; <br> for(var i=0; i < robots.length; i++){ if(robots[i]['color'] == 'blue'{ <br> belt2.push(robots[i]) } <br> }</pre> </div>
+                    <h3> Your turn! </h3>
+                    <p> Write condition that stipulates that you will only push items if their orient is 'back' </p>
+                    <input type='text' name='incInput' id='obj2'>
+                    <a href='http://www.w3schools.com/js/js_loop_for.asp' target='__blank'><p>Docs</p></a>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 valid8'> Get Only Backwards Robots </div>
+                <p class='warn'> Check out the example above to see how to choose based on a color </p>
+            </div>
+            <div class='sideSect forEachLoops'>
+                <div class='header'>
+                    <h2> The forEach() method, 10/11 </h2>
+                    <p> The forEach() method executes a provided function once per array element.</p>
+                </div>
+                <div class='txtbod'>
+                    <pre class="prettyprint"><p class='code'> var robots = [ {color:'blue' , orient:'back'}, { color:'purple' , orient:'front'}, { color:'red' , orient:'front'}, {color:'green' , orient:'front'}, { color:'blue' , orient:'front'}, {color:'blue' , orient:'back'}, { color:'purple' , orient:'front'}, { color:'red' , orient:'front'}, {color:'green' , orient:'front'}, { color:'blue' , orient:'front'} ]  </p></pre>
+                    <div class='code'> <pre class="prettyprint inline"> var belt2 = []; <br> robots.forEach(function(element, index) { <br> belt2.push(element) <br> })</pre> </div>
+                    <p> forEach offers another way to handle for loops. Notice that you do not need to explicitly use an index with the variable i to outline each element. The element argument covers that functionality. </p>
+                    <div class='code'> <pre class="prettyprint inline">.forEach()</pre> = Iterates through each item in the array. No need to create a variable i! But less flexibility. </div>
+                    <div class='code'> <pre class="prettyprint inline">function(element, index)</pre> = Each element in the array can be called explicitly. The index argument allows you to choose elements based on their index. </div>
+                    <h3> Your turn! </h3>
+                    <p> Push the entire robots array to belt2</p>
+                    <input type='text' name='incInput' id='each1'>
+                    <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach' target='__blank'><p>Docs</p></a>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 valid9'> Run Through Whole Array </div>
+                <p class='warn'> Make sure that you used function with both arguments! </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> The forEach() method, 11/11 </h2>
+                    <p> The forEach() method executes a provided function once per array element.</p>
+                </div>
+                <div class='txtbod'>
+                    <div class='code'> <pre class="prettyprint inline"> var belt2 = []; <br> robots.forEach(function(element, index) { <br> if(element.color == 'green'){ belt2.push(element) <br> } <br> })</pre> </div>
+                    <div class='code'> <pre class="prettyprint inline">element.color</pre> = Another way to access the property of each object in the array. Same as element['color'] </div>
+                    <h3> Your turn! </h3>
+                    <p> Only return red robots</p>
+                    <input type='text' name='incInput' id='each2'>
+                    <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach' target='__blank'><p>Docs</p></a>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 valid10'> Find Red Elements </div>
+                <p class='warn'> Make sure that you call the property correctly! </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header lastHead'>
+                    <h2> Congrats! </h2>
+                    <p> Now go build your own project!</p>
+                </div>
+                <a class='lastLink' href='https://www.rtfmanual.io' target="_blank"><div class='actionBtn'> Discover More Popular Tutorials </div></a>
+                <div class='actionBtn2 normAdv'> Move On To Intermediate </div>
+            </div>
+            <div class='sideSect track2'>
+                <div class='header'>
+                    <h2> .map() Method 1/10 </h2>
+                    <p> Learn to write cleaner code with higher order functions  </p>
+                </div>
+                <div class='txtbod'>
+                    <pre class="prettyprint"><p class='code'> var robots = [ 'blueRobotBackwards', 'purpleRobot', 'redRobot', 'greenRobot', 'blueRobot', 'blueRobotBackwards', 'purpleRobot', 'redRobot', 'greenRobot', 'blueRobot' ]  </p></pre>
+                    <div class='code'> <pre class="prettyprint inline"> var belt2 = []; <br> for(var i = 0; i < robots.length; i++){ belt2.push(robots[i]) <br>}</pre> </div>
+                    <div class='code'> <pre class="prettyprint inline"> var belt2 = robots.map(function(element,index){<br> return element <br>})</pre> </div> 
+                    <p> Check out the two ways to iterate above. The .map() method is a <span class='bold'> higher-order function</span>. The .map() method is also an <span class='bold'> abstraction </span>. It covers the same functionality as a normal 'for' loop, but in a much more succinct way. In fact, .map() is an example of <span class='bold'> declarative programming</span>.</p>
+                    <a href='http://eloquentjavascript.net/05_higher_order.html'><p>Docs</p></a>
+                </div>
+                <div class='actionBtn2 normAdv mapStart'> Show It In Action </div>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> .map() Advantages 2/10 </h2>
+                    <p> The ways it beats a 'for' loop  </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> The Advantages </h3>
+                    <p> 1. Less lines of code = less bug opportunities </p>
+                    <p> 2. Easier to read </p>
+                    <p> 3. Can chain multiple calls together </p>
+                    <p> 4. Works on data that is available asynchronously i.e. not all at once </p>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 normAdv'> Next </div>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> .map() Fundamentals 3/10 </h2>
+                    <p> Learn to write cleaner code with higher order functions  </p>
+                </div>
+                <div class='txtbod'>
+                    <pre class="prettyprint"><p class='code'> var robots = [ 'blueRobotBackwards', 'purpleRobot', 'redRobot', 'greenRobot', 'blueRobot', 'blueRobotBackwards', 'purpleRobot', 'redRobot', 'greenRobot', 'blueRobot' ]  </p></pre>
+                    <div class='code'> <pre class="prettyprint inline"> var belt2 = robots.map(function(element,index){<br> return element <br>})</pre> </div> 
+                    <div class='code'> <pre class="prettyprint inline">function(element,index)</pre> = A callback with two arguments: element, or each element in the array, and index, or the index of that particular element </div>
+                    <div class='code'> <pre class="prettyprint inline">return element</pre> = For each element in the array, we return the element itself. In other words, the belt2 array will be the same elements as robots. </div>
+                    <h3> Your turn! </h3>
+                    <p> Start your map() statement by creating a variable 'conveyor2' </p>
+                    <input type='text' name='mapInput' id='map1'>
+                    <p> Map the array 'robots' to an element and index for each element in the array </p>
+                    <input type='text' name='mapInput' id='map2'>
+                    <p> Return each element </p>
+                    <input type='text' name='mapInput' id='map3'>
+                    <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map'><p>Docs</p></a>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 mapValid1'> Run It </div>
+                <p class='warn'> Does your statement follow the same structure as the example? </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> .map() Fundamentals 4/10 </h2>
+                    <p> Learn to write cleaner code with higher order functions  </p>
+                </div>
+                <div class='txtbod'>
+                    <pre class="prettyprint"><p class='code'> var robots = [ {color:'blue' , orient:'back'}, { color:'purple' , orient:'front'}, { color:'red' , orient:'front'}, {color:'green' , orient:'front'}, { color:'blue' , orient:'front'}, {color:'blue' , orient:'back'}, { color:'purple' , orient:'front'}, { color:'red' , orient:'front'}, {color:'green' , orient:'front'}, { color:'blue' , orient:'front'} ]  </p></pre>
+                    <p> Now we are using an array of objects. We can use .map() to return robots with a specific property. </p>
+                    <div class='code'> <pre class="prettyprint inline"> var belt2 = robots.map(function(element,index){<br> if(element.color == 'blue')<br> return element <br>})</pre> </div> 
+                    <div class='code'> <pre class="prettyprint inline">if(element.color == 'blue')</pre> = As we iterate through each element, check if its color property matches 'blue'. If it does, add that element to belt2. </div>
+                    <h3> Your turn! </h3>
+                    <p> Start your map() statement by creating a variable 'array2' </p>
+                    <input type='text' name='mapInput' id='map4'>
+                    <p> Map the array 'robots' to an element and index for each element in the array </p>
+                    <input type='text' name='mapInput' id='map5'>
+                    <p> Return each element that has a color 'green' </p>
+                    <input type='text' name='mapInput' id='map6'>
+                    <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map'><p>Docs</p></a>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 mapValid2'> Run It </div>
+                <p class='warn'> Does your statement only return elements with the color 'green'? </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> .map() Intermediate Use 5/10 </h2>
+                    <p> Turn an array into a useful object </p>
+                </div>
+                <div class='txtbod'>
+                    <pre class="prettyprint"><p class='code'> var robotParts= [ ['head.png', 'head'], ['arms.png', 'arms'], ['body.png', 'body'], ['legs.png', 'legs'] ]  </p></pre>
+                    <p> Check out the array above. It contains a series of arrays- the first item in each array is the image path, the second item is the location on the body that the part should be mapped to. How might we better organize this? </p>
+                    <pre class="prettyprint"><p class='code'> var robotBody= [{head: 'head.png'},<br> {arms: 'arms.png'},<br>{body: 'body.png'},<br>{legs: 'legs.png'},<br> }]  </p></pre>
+                    <p> We basically need to turn the array inside out. It is currently unorganized, and we need to organize by body section in an object. </p>
+                    <h3> How might we do this with .map()? </h3>
+                    <p> Remember that we must <span class='bold'> return </span> something on every iteration from the original array. In this case we will return an object. </p>
+                    <pre class="prettyprint"><p class='code'> var onePart = {}  </p></pre>
+                    <p> Each part has a <span class='bold'> key-value pair</span>. The key is the second item in the array. The value is the first item.  </p>
+                    <pre class="prettyprint"><p class='code'> onePart[key] = value;  </p></pre>
+                    <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map'><p>Docs</p></a>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 normAdv partsLine'> Next </div>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> .map() Intermediate Use 6/10 </h2>
+                    <p> Turn an array into a useful object </p>
+                </div>
+                <div class='txtbod'>
+                    <pre class="prettyprint"><p class='code'> var robotParts= [ ['head.png', 'head'], ['arms.png', 'arms'], ['body.png', 'body'], ['legs.png', 'legs'] ]  </p></pre>
+                    <p> Needs to become... </p>
+                    <pre class="prettyprint"><p class='code'> var robotBody= [{head: 'head.png'},<br> {arms: 'arms.png'},<br>{body: 'body.png'},<br>{legs: 'legs.png'},<br> }]  </p></pre>
+                    <h3> Your turn! </h3>
+                    <p> Start your map() statement by creating a variable 'robotBody' </p>
+                    <input type='text' name='mapInput' id='map7'>
+                    <p> Map the array 'robotParts' to an element and index for each element in the array </p>
+                    <input type='text' name='mapInput' id='map8'>
+                    <p> Create an empty object called 'onePart' in each iteration </p>
+                    <input type='text' name='mapInput' id='map9'>
+                    <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map'><p>Docs</p></a>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 mapValid3'> Next </div>
+                <p class='warn'> Does your statement create an empty object called 'onePart' in each case? </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> .map() Intermediate Use 7/10 </h2>
+                    <p> Turn an array into a useful object </p>
+                </div>
+                <div class='txtbod'>
+                    <pre class="prettyprint"><p class='code'> var robotParts= [ ['head.png', 'head'], ['arms.png', 'arms'], ['body.png', 'body'], ['legs.png', 'legs'] ]  </p></pre>
+                    <p> Needs to become... </p>
+                    <pre class="prettyprint"><p class='code'> var robotBody= [{head: 'head.png'},<br> {arms: 'arms.png'},<br>{body: 'body.png'},<br>{legs: 'legs.png'},<br> }]  </p></pre>
+                    <div class='code'> <pre class="prettyprint inline"> var robotBody = robotParts.map(function(element,index){<br> var onePart={}<br>})</pre> </div> 
+                    <h3> Your turn! </h3>
+                    <p> Each onePart object should have a key with the second item from each array, and a value with the first item of each array </p>
+                    <input type='text' name='mapInput' id='map10'>
+                    <p> Return the onePart object on each iteration </p>
+                    <input type='text' name='mapInput' id='map11'>
+                    <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map'><p>Docs</p></a>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 mapValid4'> Create The Robot! </div>
+                <p class='warn'> Did you map the items from each array to a key and value? </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> .map() Chaining Methods 8/10 </h2>
+                    <p> Higher order functions allow for more advanced functionality in fewer lines. </p>
+                </div>
+                <div class='txtbod'>
+                    <pre class="prettyprint"><p class='code'> var robots = [ {color:'blue' , orient:'back'}, { color:'purple' , orient:'front'}, { color:'red' , orient:'front'}, {color:'green' , orient:'front'}, { color:'blue' , orient:'front'}, {color:'blue' , orient:'back'}, { color:'purple' , orient:'front'}, { color:'red' , orient:'front'}, {color:'green' , orient:'front'}, { color:'blue' , orient:'front'} ]  </p></pre>
+                    <p> Check out the array above. What if you want to only return the green robots? Sure, you could use an 'if' statement within a map function. That would not be the <span class='bold'> functional programming </span> approach. Functional programming focuses on making code more readable for any viewer. Although this example will be small, it becomes a much bigger deal with a massive code base that many people use. </p>
+                    <pre class="prettyprint"><p class='code'> var greenBots= [...]  </p></pre>
+                    <p> This is what we want to end with. </p>
+                    <h3> How might we do this with higher order functions? </h3>
+                    <p> We need to use a <span class='bold'> .filter() function </span> to first sort out the green robots. Then we will add the results to the greenRobots array. </p>
+                    <pre class="prettyprint"><p class='code'> var greenBots = robots.filter().map();  </p></pre>
+                    <p> We can <span class='bold'> chain </span> a map method to our filter method.  </p>
+                    <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter'><p>Docs</p></a>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 normAdv'> Next </div>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> .map() Chaining Methods 9/10 </h2>
+                    <p> The .filter() method  </p>
+                </div>
+                <div class='txtbod'>
+                    <pre class="prettyprint"><p class='code'> var robots = [ {color:'blue' , orient:'back'}, { color:'purple' , orient:'front'}, { color:'red' , orient:'front'}, {color:'green' , orient:'front'}, { color:'blue' , orient:'front'}, {color:'blue' , orient:'back'}, { color:'purple' , orient:'front'}, { color:'red' , orient:'front'}, {color:'green' , orient:'front'}, { color:'blue' , orient:'front'} ]  </p></pre>
+                    <p> We can use .filter() to return robots with a specific property. </p>
+                    <div class='code'> <pre class="prettyprint inline"> var greenBots = robots.filter(function(element,index){<br> return element.color =='red' <br>})</pre> </div> 
+                    <p> This could be an 'if' statement within a .map(). But, when you have many instances of this within your code base, it becomes harder for others to read your code. It is easier to separate this statement. </p>
+                    <h3> Your turn! </h3>
+                    <p> Start your filter() statement by creating a variable 'greenBots' </p>
+                    <input type='text' name='mapInput' id='map12'>
+                    <p> Filter the array 'robots' so you only return green robots </p>
+                    <input type='text' name='mapInput' id='map13'>
+                    <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter'><p>Docs</p></a>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 mapValid5'> Next </div>
+                <p class='warn'> Does your statement only return elements with the color 'green'? </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> .map() Chaining Methods 10/10 </h2>
+                    <p> Putting it all together </p>
+                </div>
+                <div class='txtbod'>
+                    <pre class="prettyprint"><p class='code'> var robots = [ {color:'blue' , orient:'back'}, { color:'purple' , orient:'front'}, { color:'red' , orient:'front'}, {color:'green' , orient:'front'}, { color:'blue' , orient:'front'}, {color:'blue' , orient:'back'}, { color:'purple' , orient:'front'}, { color:'red' , orient:'front'}, {color:'green' , orient:'front'}, { color:'blue' , orient:'front'} ]  </p></pre>
+                    <p> We can use .filter() to return robots with a specific property. </p>
+                    <div class='code'> <pre class="prettyprint inline"> var greenBots = robots.filter(function(element,index){<br> return element.color =='green' <br>}).map(function(element, index){<br>})</pre> </div> 
+                    <p> The .filter() method results in 2 green robots. Now we need to move those robots to the second belt. </p>
+                    <h3> Your turn! </h3>
+                    <p> Write the return statement within the .map() function. You want to return every element's color since you already filtered the list down to just green elements. </p>
+                    <input type='text' name='mapInput' id='map14'>
+                    <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map'><p>Docs</p></a>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 mapValid6'> Next </div>
+                <p class='warn'> Does your statement only return all element colors? </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header lastHead'>
+                    <h2> Congrats! </h2>
+                    <p> Now go build your own project!</p>
+                </div>
+                <a class='lastLink' href='https://www.rtfmanual.io' target="_blank"><div class='actionBtn'> Discover More Popular Tutorials </div></a>
+            </div>
+        </div>
+    </div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" charset="utf-8"></script> 
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?autoload=true&amp;skin=sunburst"></script>
+<script src='/js/forloopfactory.js'> </script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-74762625-1', 'auto');
+  ga('send', 'pageview');
+</script>   
+</body>
+</html>

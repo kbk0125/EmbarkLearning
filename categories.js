@@ -4,6 +4,7 @@ module.exports = {
             "title": "Web Design- All",
             "short": "Web Design",
             "summary": "Stumped on how to design a beautiful site? This is for you.",
+            "img": "/img/catImg/colorwheel.png",
             "reqs": [" HTML/CSS Fundamentals "],
             "next":[
                 ["Interactive Websites: "," Javascript "],
@@ -142,6 +143,7 @@ module.exports = {
             "title": "User Experience- All",
             "short": "User Experience",
             "summary": "Make the lives of your users as easy as possible",
+            "img": "/img/catImg/uxlogo.png",
             "reqs": [" HTML/CSS Fundamentals ", " Javascript Fundamentals ", " jQuery "],
             "next":[
                 ["Store Data For Your Site: "," Databases "]
@@ -270,6 +272,7 @@ module.exports = {
             "title": "HTML/CSS - All",
             "short": "HTML/CSS",
             "summary": "The building blocks of a website",
+            "img": "/img/catImg/html.png",
             "reqs": ["Just be an internet user!"],
             "next":[
                 ["Interactive Websites: ", "JavaScript"]
@@ -348,6 +351,7 @@ module.exports = {
             "title": "Javascript- All",
             "short": "JavaScript",
             "summary": "Add interactive elements and build real-time web apps",
+            "img": "/img/catImg/javascriptlogo.png",
             "reqs": ["HTML/CSS Fundamentals"],
             "next":[
                 ["Store Data For Your Site: ", "Databases"],
@@ -487,6 +491,7 @@ module.exports = {
             "title": "Databases- All",
             "short": "Databases",
             "summary": "Store and manage data on your site",
+            "img": "/img/catImg/databases.png",
             "reqs": [" Just be an internet user! "],
             "next":[
                 ["Build Your Own Website: "," HTML/CSS "],

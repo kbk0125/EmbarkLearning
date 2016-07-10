@@ -3,6 +3,8 @@ var ReactRouter= require('react-router');
 var Link = ReactRouter.Link
 var axios = require('axios')
 var querystring = require('querystring');
+//this is a random package from the internet, interim solution, used in one place
+var ImageLoader = require('react-imageloader')
 
 var ResList = React.createClass({
 	capLetter: function(string){
@@ -44,6 +46,19 @@ var ResList = React.createClass({
 	    		var shortDiff= el.challenge.slice(0, 3);
 	    		var shortTitle= el.title.toLowerCase()
 	    		var shortFilter= that.props.filter.toLowerCase()
+	    		//this creates a Base URL for use in grabbing logos with Clearbit API
+	    		var baseURL= el.link.split('/')[2]
+	    		//NEED TO FIX- include Clearbit logo
+	    		var fullImgLink="//logo.clearbit.com/"+baseURL;
+	    		var backupImg= that.props.headDets.img;
+
+	    		var test= axios.get(fullImgLink)
+	    			.then(function(res){
+	    				console.log('yes')
+	    			})
+	    			.catch(function(err){
+	    				console.log('no')
+	    			})
 
 	    		//Ternary operator to see if click should still be valid based on whether it has been clicked before
 	    		var clickTern = that.props.hasClicked.indexOf(el.id) == -1 ? that.addVote :null
@@ -58,6 +73,11 @@ var ResList = React.createClass({
 		    					<p className="approval">Helped!</p>
 	    					</div>
 	    					</td>
+    					<td className='logoClear'>
+    						<ImageLoader src={fullImgLink}>
+    							<img src={backupImg}/>
+    						</ImageLoader>
+    					</td>
 		    			<td className="mostTxt">
 		    				<div className="linkSum">
 		    					<div className="topLine">

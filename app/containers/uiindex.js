@@ -116,7 +116,8 @@ var Mainui = React.createClass({
 							elimFilter= {this.elimFilter} 
 							updateFilter= {this.updateFilter}/>
 						
-						<ResListcontain 
+						<ResListcontain
+							headDets={this.state.curRes[0]} 
 							bodyDets={this.state.curRes[1]} 
 							isLoading={this.state.isLoading} 
 							filter= {this.state.filter} 

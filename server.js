@@ -117,6 +117,10 @@ app.get('/devguide', function(req, res) {
 	res.sendFile(path.join(__dirname + '/public/devguide/index.html'));
 });
 
+app.get('/forloopfactory', function(req, res) {
+	res.sendFile(path.join(__dirname + '/public/forloopfactory/index.html'));
+});
+
 app.get('/d3garden', function(req, res) {
 	res.sendFile(path.join(__dirname + '/public/d3garden/index.html'));
 });

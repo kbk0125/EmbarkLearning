@@ -17,6 +17,7 @@ var reslistcontain= React.createClass({
 			<ResList
 				updateClicked= {this.updateClicked}
 				hasClicked= {this.state.hasClicked}
+				headDets={this.props.headDets} 
 				bodyDets={this.props.bodyDets}
 				filter= {this.props.filter} 
 				isLoading={this.props.isLoading}
