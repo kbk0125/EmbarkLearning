@@ -267,8 +267,3 @@ $('.mapvalid6').click(function(){
 	var correct= [ ['#map14','color'] ]
 	checkInputs(correct, this, 0, 2, 1, moveRobots)
 })
-
-$('.mach').click(function(){
-	prepTopBelt
-	moveParts(0,10,1)
-})
