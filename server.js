@@ -10,6 +10,8 @@ var webpack = require('webpack');
 var webpackMiddleware = require('webpack-dev-middleware');
 var webpackHotMiddleware = require('webpack-hot-middleware');
 var config = require('./webpack.config.js');
+var Xray = require('x-ray');
+var x = Xray();
 
 var isDeveloping = process.env.NODE_ENV !== 'production';
 var port = isDeveloping ? 8080 : process.env.PORT;
@@ -117,6 +119,10 @@ app.get('/devguide', function(req, res) {
 	res.sendFile(path.join(__dirname + '/public/devguide/index.html'));
 });
 
+app.get('/awesome', function(req, res) {
+	res.sendFile(path.join(__dirname + '/public/awesome/index.html'));
+});
+
 app.get('/forloopfactory', function(req, res) {
 	res.sendFile(path.join(__dirname + '/public/forloopfactory/index.html'));
 });
@@ -133,6 +139,120 @@ app.get('/tutorialsoup', function(req, res) {
 	res.sendFile(path.join(__dirname + '/tutorialsoup/index.html'));
 });
 
+
+app.get('/testPath', function (req,res){
+	var options = {
+		url: 'https://api.github.com/repos/sindresorhus/awesome/contents/readme.md',
+		headers: {
+			'User-Agent': 'kbk0125',
+			'Accept': 'application/vnd.github.v3.raw+json'
+		}
+	};
+	request(options, function (err,response,body){
+		console.log(body)
+		//var b64string = body;
+		//var buf = Buffer.from(b64string, 'base64'); // Ta-da
+		//console.log(buf)
+		res.send(body)
+	})
+})
+
+app.get('/testPath2', function (req,res){
+	//Grabs all Li elements and links, li for structure, a@href for linking to the actual sites
+	x('https://github.com/sindresorhus/awesome/blob/master/readme.md', '.entry-content', [{
+		items: x('ul', [['li']]),
+		links: x('ul', [['a@href']])
+	}])(function(err, obj) {
+
+		//all encompassed in finjson, which organizes these
+		var finjson= {
+			'name': 'AllAwesome',
+			'children':[]
+		}
+		var origEntries=[];
+		//First list of items from page, should be 18 outer categories
+		var totalNum= obj[0].items[1].length
+		//need to add 2 since the first 2 in object are not link lists
+		for(var i=2; i< totalNum+2; i++){
+			var name = obj[0].items[1][i-2]
+			origEntries.push({'label':name, 'value':name.replace(/[\. ,:-]+/g, "")})
+			//an array to organize each category
+			var nextArr={
+				'name': name,
+				'uniq':name.replace(/[\. ,:-]+/g, ""),
+				'children': []
+			}
+
+			var len=obj[0].items[i].length
+
+			//now we iterate through the items in each segment
+			for(var j=0; j< len; j++){
+				//console.log(j)
+				//console.log(obj[0].items[i][j])
+				var entry={}
+				// if the line has a new line character in it, in other words, it has subcategories. This is why this is so complex.
+				if(obj[0].items[i][j].indexOf('\n') > -1){
+
+					//console.log(obj[0].items[i][j])
+					var newVar=obj[0].items[i][j].split('\n')
+					//console.log(newVar)
+					entry.name=newVar[0]
+					entry.uniq=newVar[0].replace(/[\. ,:-]+/g, "");
+
+					origEntries.push({'label':newVar[0], 'value':newVar[0].replace(/[\. ,:-]+/g, "")})
+					entry.link=obj[0].links[i][j]
+					entry.children = [{
+						'name': 'General '+newVar[0],
+						'link':obj[0].links[i][j]
+					}]
+					//start at 1 so we do not repeat the same main entry
+					var negCount=0;
+					// split turns all the new lines into an array, need to sort through this
+					for(var k=1; k < newVar.length; k++){
+						var smEntry={}
+						// do not count the entries that are blank
+						if(newVar[k].length > 0){
+							var newK= k-negCount
+
+							//console.log(newK)
+							var newLink=obj[0].links[i+1][newK-1]
+
+							smEntry.name=newVar[k]
+							smEntry.uniq=newVar[k].replace(/[\. ,:-]+/g, "");
+
+							origEntries.push({'label':newVar[k], 'value':newVar[k].replace(/[\. ,:-]+/g, "")})
+							smEntry.link= newLink
+							// great, now we have a sub entry
+							entry.children.push(smEntry)
+							//remove the duplicates from the remainder of the array
+							obj[0].items[i].splice(j+1,1)
+							obj[0].links[i].splice(j+1,1)
+							len--
+							//console.log(obj[0].items[i][j+1])
+						}
+						else
+							negCount++
+					}
+					// remove more duplicates from the array.
+					obj[0].items.splice(i+1,1)
+					obj[0].links.splice(i+1,1)
+				}
+				else {
+					entry.name=obj[0].items[i][j]
+					entry.uniq=obj[0].items[i][j].replace(/[\. ,:-]+/g, "");
+
+					origEntries.push({'label':entry.name=obj[0].items[i][j], 'value':entry.name=obj[0].items[i][j].replace(/[\. ,:-]+/g, "")})
+					entry.link=obj[0].links[i][j]
+				}
+				nextArr['children'].push(entry)
+			}
+			finjson['children'].push(nextArr)
+		}
+		//console.log(obj[0].links) // Google
+		//console.log(obj[0].items)
+		res.send([origEntries,finjson])
+	})
+})
 
 
 app.get('/voteTotal', function (req, res){

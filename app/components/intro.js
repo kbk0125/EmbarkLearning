@@ -30,7 +30,7 @@ var intro = React.createClass({
 	                    <div className='screen'></div>
 	                </div>
 	                <h1> Learn from the most helpful coding tutorials on the planet </h1>
-	                <p> Upvote the ones you like or add nev ones that helped you. <br/> For the developers, by the developers.</p>
+	                <p> Upvote the ones you like or add new ones that helped you. <br/> For the developers, by the developers.</p>
 	                <div className="featureRow">
 	                    <div className='mainPgCat'>
 	                        <div className='actionBtn initChoice specClick' value='html' onClick={this.newState}><span className='symbol'>{'< />'}</span><p> HTML/CSS</p></div>

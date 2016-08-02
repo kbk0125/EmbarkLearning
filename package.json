@@ -31,7 +31,6 @@
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-0": "^6.5.0",
     "body-parser": "^1.14.1",
-    "connect": "^3.4.1",
     "cross-env": "^1.0.8",
     "css-loader": "^0.23.1",
     "eslint": "^2.11.0",
@@ -45,9 +44,7 @@
     "json-loader": "^0.5.4",
     "matchdep": "^1.0.1",
     "moment": "^2.13.0",
-    "morgan": "^1.7.0",
     "mysql": "^2.9.0",
-    "nib": "^1.1.0",
     "react": "^15.0.2",
     "react-addons-css-transition-group": "^15.0.2",
     "react-addons-test-utils": "^15.1.0",
@@ -64,7 +61,8 @@
     "webpack": "^1.13.1",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-dev-server": "^1.14.1",
-    "webpack-hot-middleware": "^2.10.0"
+    "webpack-hot-middleware": "^2.10.0",
+    "x-ray": "^2.3.0"
   },
   "devDependencies": {
     "grunt": "^1.0.1",
