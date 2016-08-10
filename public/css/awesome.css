@@ -98,13 +98,13 @@ a:hover {
 #topBar img, #topBar object {
   height: 35px;
   display: inline-block;
-  margin-left: 8px;
+  margin-left: 4px;
   cursor: pointer;
 }
 
 #topBar h3 {
   display: inline-block;
-  margin-left: 8px;
+  margin-left: 2px;
   vertical-align: top;
   margin-top: 7px;
   font-weight: 400;
@@ -167,11 +167,11 @@ a:hover {
 
 /** D3 STYLES **/
 
-.node {
+.node{
   cursor: pointer;
 }
 
-.node:hover {
+.node:hover{
   stroke: #000;
   stroke-opacity: 0.4;
   stroke-width: 1.5px;
@@ -187,10 +187,83 @@ a:hover {
   font-weight: 700;
   text-anchor: middle;
   text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+  alignment-baseline: central;
 }
 
 .label,
 .node--root,
-.node--leaf {
+.node--leaf,
+.nodeMid {
   pointer-events: none;
+}
+
+/** Tree Viz */
+.smNode {
+  cursor: pointer;
+}
+
+.smNode circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.smNode rect{
+  fill: #fafafa;
+  pointer-events:none;
+}
+
+.smNode text {
+  font-size: 12px;
+}
+
+.smNode text.headTxt{
+  font-weight: 700;
+  fill: #3394d4;
+}
+
+.smNode text.descTxt{
+  fill: #999;
+}
+
+.smLink {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+
+/** CSS Animation */
+
+.spinnerBox {
+  width: 50px;
+  height: 50px;
+  top:0;
+  right: 0;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: #3394d4;
+
+  margin: auto;
+  -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+  animation: sk-rotateplane 1.2s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-rotateplane {
+  0% { -webkit-transform: perspective(120px) }
+  50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+  100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+}
+
+@keyframes sk-rotateplane {
+  0% { 
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg) 
+  } 50% { 
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) 
+  } 100% { 
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
 }
