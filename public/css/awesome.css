@@ -138,6 +138,10 @@ a:hover {
   text-align: left;
 }
 
+.midBox{
+  text-align: center;
+}
+
 .rightBox{
   text-align: right;
 }

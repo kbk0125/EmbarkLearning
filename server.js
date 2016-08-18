@@ -20,6 +20,12 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(require('serve-favicon')(__dirname+'/public/img/favicon.ico'));
 
 
+//http://stackoverflow.com/questions/4878756/javascript-how-to-capitalize-first-letter-of-each-word-like-a-2-word-city
+function toTitleCase(str){
+    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
+
+
 
 // MySql Init
 //https://www.npmjs.com/package/mysql
@@ -239,11 +245,22 @@ app.get('/testPath2', function (req,res){
 
 app.get('/specRepo', function (req,res){
 	//Grabs all Li elements and links, li for structure, a@href for linking to the actual sites
-	x('https://github.com/enaqx/awesome-react/blob/master/README.md', '.entry-content', [{
+	
+	//x('https://github.com/enaqx/awesome-react/blob/master/README.md', '.entry-content', [{
+	//x('https://github.com/vinta/awesome-python/blob/master/README.md', '.entry-content', [{
+	x('https://github.com/sorrycc/awesome-javascript/blob/master/README.md', '.entry-content', [{
 		items: x('ul', [['li']]),
-		links: x('ul', [['a@href']])
+		links: x('ul', [['a@href']]),
+		//h2list: ['h2'],
+		//h3list: ['h3'],
+		//h4list: ['h4'],
+		//h5list: ['h5'],
+		anchors: ['a.anchor@href']
 	}])(function(err, obj) {
 		if (err) throw err;
+
+		
+		//ALL UNIVERSAL EMPTY THINGS HERE
 		//all encompassed in finjson, which organizes these
 		var finjson= {
 			'name': 'OneRepo',
@@ -251,39 +268,50 @@ app.get('/specRepo', function (req,res){
 		}
 		var origEntries=[];
 		var totalNum= obj[0].items[0].length
-		// This is position in obj array where the entries actually start, gets incremented when we advance one
-		var cliff= 13;
-		var subArrtrigger = false;
+		var cliff=6
+		//End Empty Things
+
+
 		for(var i=0; i<totalNum; i++){
-			var entry = {}
+
+			//Create Empty things at next level
+			var entry = {
+				children : [],
+				origChild: false
+			}
+			//End create empty things at next level
+
 			// if the line has a new line character in it, in other words, it has subcategories. This is why this is so complex.
 			if(obj[0].items[0][i].indexOf('\n') > -1){
 				//cut off the trailing /n character
 				var newVar=obj[0].items[0][i].split('\n').slice(0, -1)
-				//console.log(newVar)
 
+
+				//Create Entry and other default things
 				entry.name=newVar[0]
 				entry.uniq=newVar[0].replace(/[\. ,:-]+/g, "");
-				
-
-				origEntries.push({'label':newVar[0], 'value':newVar[0].replace(/[\. ,:-]+/g, "")})
-
 				entry.children = [];
-				// This is so we can nest correctly
-				var countLevel =0;
-				var negCount = 0;
+				origEntries.push({'label':newVar[0], 'value':newVar[0].replace(/[\. ,:-]+/g, "")})
+				//End create entry and other defaults
 
-				// A TAX ON ALL YE HEATHENS
-				// I can't explain why this is needed, but it fixes an off by 1 error so great
-				cliff--
-				
+				//Start create empty items
+				var countLevel =0;
+				var negCount=0;
+				var splitLength = 0;
+				//End create empty items
+
 				//Make sure we do not get the first, top level category since we already did that in lines above
 				for(var j=1; j< newVar.length; j++){
+					
+					//Start Empty things
 					var smEntry ={
 						children: []
 					}
 					//know where to put the entries in which buckets
 					var keyLength= entry.children.length
+					//End Empty things
+
+					
 
 					if(newVar[j].length > 0){
 
@@ -294,60 +322,38 @@ app.get('/specRepo', function (req,res){
 						// If the next item in array has a line break, we know this is time to create a new category
 						if(obj[0].items[0][i+1].indexOf('\n') > -1){
 
+							//This is how many children the entry has so we can cut off
+							//-3 for /n spaces
+							smEntry.origChild= true;
+							splitLength=obj[0].items[0][i+1].split('\n').slice(0, -1).length-3;
 							entry.children.push(smEntry)
 							countLevel++
 							obj[0].items[0].splice(i+1, 1)
 							obj[0].items.splice(i+1, 1)
 							obj[0].links[0].splice(i+1, 1)
 							obj[0].links.splice(i+1, 1)
-							//console.log(newVar[j])
+
 							//in case the number of li elements does not match the number of sections, this provides a failsafe
 							cliff= Number(12 +(j-negCount) - (countLevel))
 							//console.log(cliff)
 							//console.log(obj[0].items[12 +(j-negCount) - (countLevel)])
 						}
 						else {
-							//every individual entry
-							//console.log(newVar[j])
-							//console.log(obj[0].items[cliff])
-							var keyArray=obj[0].items[cliff]
-							
-							for(var k=0; k< keyArray.length; k++){
-								var lilArray={
-									children: []
-								}
-								// Fix, TO DO: Some bullets go one level deeper. Be able to handle this.
-								if(keyArray[k].indexOf('\n') > -1){
-									console.log('this should not be here')
-									//Issue is right here
-									console.log(obj[0].items[cliff])
-									console.log(obj[0].items[cliff+1])
-									var subBul= keyArray[k].split('\n').slice(0, -1)
-									for(var m=1; m< subBul.length; m++){
-										if(subBul[m].length){
-											var smallestArray={}
-											var moreSplit=subBul[m].split(' - ')
-											smallestArray.name=moreSplit[0]
-											smallestArray.desc=moreSplit[1]
-											smallestArray.uniq=subBul[m].replace(/[\. ,:-]+/g, "")
-											lilArray.children.push(smallestArray)
-										}
-									}
-									trigger=true
-								}
-
-								
-								var nameSplit=keyArray[k].split(' - ')
-								lilArray.name=nameSplit[0]
-								lilArray.desc=nameSplit[1]
-								lilArray.uniq=keyArray[k].replace(/[\. ,:-]+/g, "")
-								smEntry.children.push(lilArray)
-							}
-							
-							if(countLevel==0)
+							if(countLevel ==0){
+								//if it is base level, just stick it in
 								entry.children.push(smEntry)
-							else
-								entry.children[keyLength-1].children.push(smEntry)
+							}
+							else{
+								//this measures how many have already been put in there, so that they do not all go there
+								var childrenLength=entry.children[keyLength-1].children.length
+								if(childrenLength<splitLength)
+									entry.children[keyLength-1].children.push(smEntry)
+								else{
+									//reset level count
+									splitLength=0
+									entry.children.push(smEntry)
+								}
+							}
 							obj[0].items[0].splice(i+1, 1)
 							obj[0].links[0].splice(i+1, 1)
 
@@ -357,23 +363,153 @@ app.get('/specRepo', function (req,res){
 					else
 						negCount++
 				}
-				//console.log(entry)
+				
+
+				//AT END
 				//When we have a sublist, need to knock out next in array
 				obj[0].items.splice(1, 1)
-				//console.log('CLIFF NUM FIN ' + cliff)
+				obj[0].links.splice(1, 1)
 			}
 			else{
+
+				//Create entry at top level
 				entry.name=obj[0].items[0][i]
 				entry.uniq=obj[0].items[0][i].replace(/[\. ,:-]+/g, "");
 				origEntries.push({'label':obj[0].items[0][i], 'value':obj[0].items[0][i].replace(/[\. ,:-]+/g, "")})
+				//End create at top level
+
 			}
 			finjson['children'].push(entry)
-			
 		}
-		//console.log(finjson)
+
+
+		//Variables to prep for adding individual entries
+		var topLvCount=0;
+		var botLvCount=0;
+		var latestMatch='';
+		var testInc= 1;
+		var childCount=0;
+		var subLength=0;
+		var errCount=0;
+
+		var shortCodes=[];
+
+		for(var a=0; a<obj[0].anchors.length; a++){
+			var shortCode = obj[0].anchors[a].split('#')[1];
+			var shortUniq= shortCode.replace('-', '')
+			var finShort= shortUniq.substring(0,3).toLowerCase()
+			shortCodes.push(finShort)
+		}
+
+		//THIS HAS BECOME A MESS OF IF STATEMENTS. NEEDS RETHINK. LAUNCH OTHER THING.
+
+		//for(var k=1; k<obj[0].items.length; k++){
+		for(var k=1; k<23; k++){
+			//console.log(k)
+			//default numbers
+			var cliffT = finjson.children[topLvCount].children[botLvCount]
+			var cliffT2 = finjson.children[topLvCount].children[botLvCount+1]
+			var curItem = obj[0].items[k]
+			var curLink= obj[0].links[k]
+			var anchorT= obj[0].anchors[k].split('#')[1]
+			var anchorT2= obj[0].anchors[k+testInc].split('#')[1]
+			var anchorUniq= anchorT.replace('-', '')
+			var anchorUniq2= anchorT2.replace('-', '')
+			var anchorName= toTitleCase(anchorT.replace('-', ' '))
+			var shortCliff= cliffT['uniq'].substring(0,3).toLowerCase()
+			var shortCliff2= cliffT2['uniq'].substring(0,3).toLowerCase()
+			var shortAnchor= anchorUniq.substring(0,3).toLowerCase()
+			var shortAnchor2= anchorUniq2.substring(0,3).toLowerCase()
+
+
+			//console.log(cliffT['uniq'])
+			//console.log(anchorUniq)
+			//console.log(shortItem)
+			//console.log(shortAnchor)
+			
+			//console.log(cliffT['name'])
+
+			for(var m=0; m<curItem.length; m++){
+				var lilArray= {
+					children: []
+				}
+
+				//Only grab first bullet, I am not going to be nesting another level for sake of sanity
+				if(curItem[m].indexOf('\n') > -1){
+					var subBul= curItem[m].split('\n')[0]
+					lilArray.name= subBul.split(' - ')[0]
+					lilArray.desc= subBul.split(' - ')[1]
+					obj[0].items.splice(k+1,1)
+					obj[0].links.splice(k+1,1)
+				}
+				else{
+					lilArray.name= curItem[m].split(' - ')[0]
+					lilArray.desc= curItem[m].split(' - ')[1]
+					
+				}
+
+				lilArray.link= curLink[m]
+
+
+				//STUCK on this. When there is multiple level of next, how to get items in correct bucket
+				if(cliffT.origChild && childCount > 0){
+					cliffT.children[childCount-1].children.push(lilArray)
+				}
+				else{
+					cliffT.children.push(lilArray)
+				}
+			}
+
+			if(cliffT2.origChild && childCount == 0){
+				subLength = cliffT2.children.length
+				console.log('Child Length: ' +subLength)
+			}
+			//Stuck on this, related to above
+			if(cliffT.origChild && childCount < subLength){
+				console.log('Subarray')
+				childCount++
+			}
+			else if(cliffT.origChild && childCount >= subLength){
+				//make sure our increment does not get away from us
+				testInc--
+				botLvCount++
+			}
+			else{
+				//console.log('TopLv')
+				childCount=0
+			}
+
+			var arrTest= shortCodes.indexOf(shortCliff2) > -1;
+
+			if(arrTest){
+				//If this level is still ongoing
+				if(finjson.children[topLvCount].children[botLvCount+1]){
+					console.log(shortCliff2)
+					console.log(shortAnchor2)
+					if(shortCliff2 !== shortAnchor2){
+						latest= shortCliff
+					}
+					//Only increment if there is a change coming up
+					else
+						botLvCount++
+
+					//This gets rid of an off by 1 error in an exceptionally hacky way
+					if(shortCliff2 !== shortAnchor2 && shortCliff === shortAnchor){
+						console.log('BEING INCREMENTED')
+						testInc++
+					}
+				}
+			}
+			else{
+				childCount++
+				botLvCount++
+			}
+
+		}
+
+
 		res.send([obj, finjson])
 	})
-		
 })
 
 

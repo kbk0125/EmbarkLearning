@@ -19,8 +19,7 @@ $.get('/testPath2', function(res){
     source: res[0],
     minLength:1
   })
-  //runD3(res[1])
-  runSubD3(res[1])
+  runD3(res[1])
 })
 
 /*$.get('/specRepo', function(res){
@@ -64,8 +63,6 @@ function runD3(root){
       .on("click", function(d) {
         //NEEDS FIXING
         if (focus !== d && d.children){
-          console.log(focus)
-          console.log(d)
           zoom(d), d3.event.stopPropagation();
         }
         if(d.depth>0){
@@ -126,6 +123,7 @@ function runD3(root){
     else{
       var parUniq= d3.select("#circle-node-"+ui.item.value).datum().parent.uniq
       $("#circle-node-"+parUniq).d3Click()
+      $("#circle-node-"+ui.item.value).css('fill', '#fdae6b')
     }
     
   });
