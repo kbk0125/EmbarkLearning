@@ -1,0 +1,373 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name='description' content='An interactive CSS positioning tutorial for beginners that teaches all the basics through building an ice cream sundae.'>
+    <title>CSS Sundae | Learn CSS Positioning</title>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <meta name="viewport", content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="CSS Sundae | Learn CSS Positioning">
+    <meta property="og:type" content="website" >       
+    <meta property="og:url" content="https://www.rtfmanual.io/csssundae/">
+    <meta property="og:description" content="An interactive CSS positioning tutorial for beginners that teaches all the basics through building an ice cream sundae.">
+    <meta property="og:image" content="https://www.rtfmanual.io/csssundae/mainlogosquare.png">
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@devmanual" />
+    <meta name="twitter:title" content="Build Ice Cream Sundae with CSS" />
+    <meta name="twitter:description" content="An interactive CSS positioning tutorial" />
+    <meta name="twitter:image" content="https://www.rtfmanual.io/csssundae/mainlogosquare.png" />
+    
+    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="/css/csssundae.css">
+    <link rel="shortcut icon" type="image/ico" href='/img/csssundae/favicon.ico'>
+</head>
+<body>
+    <div id='container'>
+        <div class='intro'>
+            <div class='ctr'>
+                <h1> Learn CSS positioning by building an ice cream sundae </h1>
+                <p> Master the fundamentals of CSS positioning with this interactive tutorial </p>
+                <div class='actionBtn startbtn'> Get Started </div>
+            </div>
+        </div>
+        <div id="topBar">
+            <img src='/img/csssundae/mainlogo.png'>
+            <h3> CSS Sundae </h3>
+            <a href='https://www.rtfmanual.io' target="_blank"><div class='actionBtn'> Discover More Popular Tutorials </div></a>
+        </div>
+        <div id='main'>
+            <div class='imgs'>
+                <div class="rightBrdr"></div>
+                <p class='rightLabel'> Total Height: 500px </p>
+                <div class="glassBrdr"></div>
+                <p class='glassLabel'> Total Height: 300px </p>
+                <img class='firstImg' src='/img/csssundae/emptyglass.png' />
+            </div>
+        </div>
+        <div id='side'>
+            <div class='sideSect first'>
+                <div class='header'>
+                    <h2> Build A CSS Sundae </h2>
+                    <p> This tutorial will help you learn the major principles of CSS positioning so you can create flowing websites </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Why do I need this? </h3>
+                    <p> Learning CSS positioning traditionally requires hours of trial and error, and confusion when your entire design changes by just toggling the position attribute. This 13 min tutorial will hopefully prevent that. </p>
+                    <h3> What is the focus? </h3>
+                    <p> You will build an ice cream sundae using these position properties: </p>
+                    <ul>
+                        <li> Static </li>
+                        <li> Relative </li>
+                        <li> Absolute </li>
+                        <li> Fixed </li>
+                    </ul>
+                    <h3> What do I need to know first? </h3>
+                    <p> You only need to know HTML basics! </p>
+                </div>
+                <div class='actionBtn2 begin'> Go to Step 1 </div>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> The Ground Rules (1/13) </h2>
+                    <p> Let's establish some basic definitions </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> An ice cream sundae consists of... </h3>
+                    <ul>
+                        <li> Glass </li>
+                        <li> Ice cream scoops </li>
+                        <li> Cherries </li>
+                        <li> Whipped Cream </li>
+                    </ul>
+                    <h3> The final HTML will look like... </h3>
+                    <pre class="prettyprint"><p class='code'>&lt;div class="fullSundae"&gt;
+        &lt;div class="cherry"&gt;&lt;/div&gt;
+        &lt;div class="whippedCream"&gt;&lt;/div&gt;
+        &lt;div class="iceCreamScoop"&gt;&lt;/div&gt;
+        &lt;div class="iceCreamScoop"&gt;&lt;/div&gt;
+        &lt;div class="glass"&gt;
+                &lt;div class="cherry topCherry"&gt;&lt;/div&gt;
+                &lt;div class="cherry bottomCherry"&gt;&lt;/div&gt;
+                &lt;div class="iceCreamScoop topScoop"&gt;&lt;/div&gt;
+                &lt;div class="iceCreamScoop middleScoop"&gt;&lt;/div&gt;
+                &lt;div class="iceCreamScoop"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;</p></pre>
+                </div>
+                <div class='actionBtn2 next finalCone'> Go to Step 2 </div>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Some Key Facts (2/13) </h2>
+                    <p> This image sets the direction for how we will build the sundae </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Ice cream scoops v. glass </h3>
+                    <p> The number of ice cream scoops is limited by the glass height. We cannot keep stacking ice cream scoops forever. Eventually, the whole beautiful setup would topple over. </p>
+                    <h3> Cherries have separate rules </h3>
+                    <p> You can put the cherries wherever you darn please. Cherries do not obey the flow and stacking of the scoops.They are smaller, and can fit in nooks and crannies where you cannot fit an ice cream scoop. And, more cherries will not upset the order of the scoops. </p>
+                    <h3> Whipped cream on top </h3>
+                    <p> The whipped cream sits on top, no matter how many scoops there are. Have you ever seen an ice cream sundae with the whipped cream in the middle, and none on top? Neither have I. </p>
+                </div>
+                <div class='actionBtn2 next glassReturn'> Go to Step 3 </div>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Position: Static (3/13) </h2>
+                    <p> This is the default position attribute </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> The Entire Sundae </h3>
+                    <p> As shown in the previous image, our whole sundae can handle 5 scoops of ice cream. Let's assume that the sundae has a height of <b> 500px</b>. There is no need to state the position property explicitly, since "static" is default. </p>
+                    <p class='fillIn'> Give your fullSundae div a height of 500px, no need to specify position. </p>
+                    <pre class="prettyprint"><p class='code'> .fullSundae{
+    <input type='text' name='heightInput1' id='height1'>
+}</p></pre>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 valid1'> Go to Step 4 </div>
+                <p class='warn'> Did you set height to 500px? </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Position: Static (4/13) </h2>
+                    <p> This is the default position attribute </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> The Top Scoops </h3>
+                    <p> We are going to do this a little out of order. Let's add the top scoops since it is straightforward. Each scoop should have a height of <b> 100px</b>. </p>
+                    <p class='fillIn'> Give each iceCreamScoop at the top level a height of 100px. </p>
+                    <pre class="prettyprint"><p class='code'> .fullSundae > .iceCreamScoop{
+    <input type='text' name='heightInput2' id='height2'>
+}</p></pre>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 valid2'> Go to Step 5 </div>
+                <p class='warn'> Did you set height to 100px? </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Position: Relative (5/13) </h2>
+                    <p> Let's prepare the glass, a container div</p>
+                </div>
+                <div class='txtbod'>
+                    <h3> The Glass </h3>
+                    <p> There are two components to the glass div: the glass itself, and the scoops inside. Each must have position relative. Let's do the glass first. Since the glass contains three scoops, it is 60% of the height of the entire div. It also must have position relative to accomodate the cherries, which we will cover in the position absolute section. </p>
+                    <p class='fillIn'> Give your glass div a height of 60% and position relative. </p>
+                    <pre class="prettyprint"><p class='code'> .fullSundae{
+    <textarea name='relInput1' id='rel1'></textarea>
+}</p></pre>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 valid3'> Go to Step 6 </div>
+                <p class='warn'> Did you set position relative? </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Position: Relative (6/13) </h2>
+                    <p> Let's add the ice cream scoops</p>
+                </div>
+                <div class='txtbod'>
+                    <h3> The Scoops </h3>
+                    <p> There are three scoops within the glass. Since they fill the glass, they must each be 33.3% of the height, and position relative. Relative is important so that we are able to adjust their position in relation to their parent container, the glass. </p>
+                    <p class='fillIn'> Give each scoop a height of 33.3% and position relative. </p>
+                    <pre class="prettyprint"><p class='code'> .fullSundae > .iceCreamScoop{
+    width: 80%;
+    <textarea name='relInput2' id='rel2'></textarea>
+}</p></pre>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 valid4'> Go to Step 7 </div>
+                <p class='warn'> Did you set height to 33.3%? </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Position: Relative (7/13) </h2>
+                    <p> Practicing position relative</p>
+                </div>
+                <div class='txtbod'>
+                    <h3>Moving The Scoops </h3>
+                    <p> The top two scoops of the glass are not perfectly aligned. The top scoop is skewed right, and the middle scoop is skewed left. Let's make sure the code reflects that using position relative. There is a 20% gap on the right of the top scoop, and a 20% gap on the left of the middle scoop. </p>
+                    <p class='fillIn'> Position relative can be used to shift a div by a percentage in relation to the parent. Use the 'left' and 'right' attributes to shift each sccop by 20%. </p>
+                    <pre class="prettyprint"><p class='code'> .fullSundae > .iceCreamScoop.topScoop{
+    <input type='text' name='relInput3' id='rel3'>
+}
+.fullSundae > .iceCreamScoop.middleScoop{
+    <input type='text' name='relInput4' id='rel4'>
+}</p></pre>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 valid5'> Go to Step 8 </div>
+                <p class='warn'> Did you set move each scoop right or left by 20%? </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Position: Fixed (8/13) </h2>
+                    <p> Let's add the whipped cream on top</p>
+                </div>
+                <div class='txtbod'>
+                    <h3> The Whipped Cream </h3>
+                    <p> Whipped cream is always on top of the sundae. This is independent of height. In other words, it does not affect the scoop count or the arrangement of the scoops. If you have a massive pile of whipped cream on top, you will still be able to fit 5 scoops without overflowing or toppling. </p>
+                    <div class='actionBtn showScoops'> Show Size Options </div>
+
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 valid6 next'> Go to Step 9 </div>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Position: Fixed (9/13) </h2>
+                    <p> Let's add the whipped cream on top</p>
+                </div>
+                <div class='txtbod'>
+                    <h3> The Whipped Cream </h3>
+                    <p> We want the whipped cream to always stay on top. So let's added position fixed and set top to 0. </p>
+                    <p class='fillIn'> Add position fixed and top 0. </p>
+                    <pre class="prettyprint"><p class='code'> .whippedCream{
+    <textarea name='fixInput1' id='fix1'></textarea>
+}</p></pre>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 valid7'> Go to Step 10 </div>
+                <p class='warn'> Did you set top to 0? </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Position: Absolute (10/13) </h2>
+                    <p> Let's add some cherries!</p>
+                </div>
+                <div class='txtbod'>
+                    <h3> The Cherries </h3>
+                    <p> Position absolute allows us to place items in specific places, without disrupting the flow of other elements. But there is one major caveat- these items do not "stack" like the glass and ice cream scoops do. This makes cherries a perfect example, since they can be crammed into different gaps of the glass without upsetting the scoops. </p>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 next'> Go to Step 11 </div>
+                <p class='warn'> Did you set top to 0? </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Position: Absolute (11/13) </h2>
+                    <p> Let's add some cherries!</p>
+                </div>
+                <div class='txtbod'>
+                    <h3> The Cherries </h3>
+                    <p> Let's put one cherry on top. Again, this does not interfere with the flow of the scoops. Put it 50% from the left and top 0. </p>
+                    <p class='fillIn'> Add left of 50% and top 0 to the topmost cherry. </p>
+                    <pre class="prettyprint"><p class='code'> .fullSundae > cherry{
+position:absolute;
+    <textarea name='absInput1' id='abs1'></textarea>
+}</p></pre>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 valid8'> Go to Step 12 </div>
+                <p class='warn'> Did you set left to 50%? </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Position: Absolute (12/13) </h2>
+                    <p> Let's add some cherries!</p>
+                </div>
+                <div class='txtbod'>
+                    <h3> The Cherries </h3>
+                    <p> Remember when we added position: relative to the glass way back when? This is why: because when we place position absolute elements, they move relative to the nearest parent that is NOT position static. So, if we want to add two cherries to the glass, it is good that it is position relative. Again, the cherries will not upset the main flow of ice cream scoops. </p>
+                    <p class='fillIn'> Add one cherry 5px from the left, and 5px from the top. Add another cherry 15px from the bottom, and 2px from the left. </p>
+                    <pre class="prettyprint"><p class='code'> .glass .cherry.topCherry{
+    position:absolute;
+    <textarea name='absInput2' id='abs2'></textarea>
+}
+.glass .cherry.bottomCherry{
+    position:absolute;
+    <textarea name='absInput3' id='abs3'></textarea>
+}
+}</p></pre>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 valid9'> Finish! </div>
+                <p class='warn'> Re-read instructions! </p>
+            </div>
+        </div>
+        <div class='sideSect'>
+            <div class='header'>
+                <h2> Final Code (13/13) </h2>
+            </div>
+            <pre class="prettyprint"><p class='code'>&lt;div class="fullSundae"&gt;
+        &lt;div class="cherry"&gt;&lt;/div&gt;
+        &lt;div class="whippedCream"&gt;&lt;/div&gt;
+        &lt;div class="iceCreamScoop"&gt;&lt;/div&gt;
+        &lt;div class="iceCreamScoop"&gt;&lt;/div&gt;
+        &lt;div class="glass"&gt;
+                &lt;div class="cherry topCherry"&gt;&lt;/div&gt;
+                &lt;div class="cherry bottomCherry"&gt;&lt;/div&gt;
+                &lt;div class="iceCreamScoop topScoop"&gt;&lt;/div&gt;
+                &lt;div class="iceCreamScoop middleScoop"&gt;&lt;/div&gt;
+                &lt;div class="iceCreamScoop"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+
+.fullSundae{
+    height:500px;
+    position:static;
+}
+
+.fullSundae > .iceCreamScoop{
+    height: 100px;
+}
+
+.fullSundae > .cherry{
+    position:absolute;
+    top:10px;
+    left:50%;
+}
+
+.glass{
+    position:relative;
+    height:60%;
+}
+
+.glass > .iceCreamScoop{
+    height:33%;
+    position:relative;
+}
+
+.iceCreamScoop.topScoop{
+    right:20%;
+}
+
+.iceCreamScoop.middleScoop{
+    left:20%;
+}
+
+.cherry.topCherry{
+    position:absolute;
+    left: 5px;
+    top:5px;
+}
+
+.cherry.bottomCherry{
+    position:absolute;
+    left: 5px;
+    bottom:15px;
+}</p></pre>
+            <a class='lastLink' href='https://www.rtfmanual.io' target="_blank"><div class='actionBtn'> Discover More Popular Tutorials </div></a>
+        </div>
+        <div class='footer'>
+            <p> <a href='https://medium.freecodecamp.com/css-positioning-explained-by-building-an-ice-cream-sundae-831cb884bfa9' target='__blank'>Read the original article</a> on Medium
+            </p>
+        </div>
+    </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" charset="utf-8"></script> 
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?autoload=true&amp;skin=sunburst"></script>
+<script src='/js/csssundae.js'> </script>   
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-74762625-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>
