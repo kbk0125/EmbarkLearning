@@ -221,9 +221,14 @@ span.def{
   display: none;
 }
 
+.showScoops{
+  display: table;
+  margin: 8px auto;
+}
+
 .glassLabel{
   position: absolute;
-  bottom:53%;
+  bottom:54%;
   right:-164px;
   color:#3394d4;
   display: none;

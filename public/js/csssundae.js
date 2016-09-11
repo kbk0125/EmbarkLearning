@@ -65,7 +65,7 @@ $('.valid2').click(function(){
 	checkInputs(correct, this)
 	$('.firstImg').attr('src', '/img/csssundae/coneStatic1.png')
 	$('.rightBrdr').css('height', '120%')
-	$('.rightLabel').css('bottom', '115%')
+	$('.rightLabel').css('bottom', '117%')
 })
 
 $('.valid3').click(function(){
@@ -89,21 +89,23 @@ $('.valid5').click(function(){
 $('.showScoops').click(function(){
 	$('.imgs').addClass('fat')
     $('.firstImg').attr('src', '/img/csssundae/threeStacks.png')
+    $('.measurem').hide()
 })
 
 $('.valid6').click(function(){
 	$('.imgs').removeClass('fat')
 	$('.firstImg').attr('src', '/img/csssundae/coneStatic2.png')
+	$('.measurem').show()
 })
 
 $('.valid7').click(function(){
 	var correct= [['#fix1','top']]
 	checkInputs(correct, this)
 	$('.firstImg').attr('src', '/img/csssundae/coneStatic3.png')
-	$('.rightBrdr').css('height', '100%')
-	$('.rightLabel').css('bottom', '95%')
-	$('.glassBrdr').css('height', '60%')
-	$('.glassLabel').css('bottom', '55%')
+	$('.rightBrdr').css('height', '105%')
+	$('.rightLabel').css('bottom', '104%')
+	$('.glassBrdr').css('height', '48%')
+	$('.glassLabel').css('bottom', '46%')
 })
 
 $('.valid8').click(function(){
@@ -111,9 +113,9 @@ $('.valid8').click(function(){
 	checkInputs(correct, this)
 	$('.firstImg').attr('src', '/img/csssundae/coneStatic4.png')
 	$('.rightBrdr').css('height', '100%')
-	$('.rightLabel').css('bottom', '95%')
-	$('.glassBrdr').css('height', '60%')
-	$('.glassLabel').css('bottom', '55%')
+	$('.rightLabel').css('bottom', '98%')
+	$('.glassBrdr').css('height', '46%')
+	$('.glassLabel').css('bottom', '44%')
 })
 
 $('.valid9').click(function(){

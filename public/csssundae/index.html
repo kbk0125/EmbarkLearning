@@ -38,10 +38,10 @@
         </div>
         <div id='main'>
             <div class='imgs'>
-                <div class="rightBrdr"></div>
-                <p class='rightLabel'> Total Height: 500px </p>
-                <div class="glassBrdr"></div>
-                <p class='glassLabel'> Total Height: 300px </p>
+                <div class="rightBrdr measurem"></div>
+                <p class='rightLabel measurem'> Total Height: 500px </p>
+                <div class="glassBrdr measurem"></div>
+                <p class='glassLabel measurem'> Total Height: 300px </p>
                 <img class='firstImg' src='/img/csssundae/emptyglass.png' />
             </div>
         </div>
@@ -188,8 +188,8 @@
                 </div>
                 <div class='txtbod'>
                     <h3>Moving The Scoops </h3>
-                    <p> The top two scoops of the glass are not perfectly aligned. The top scoop is skewed right, and the middle scoop is skewed left. Let's make sure the code reflects that using position relative. There is a 20% gap on the right of the top scoop, and a 20% gap on the left of the middle scoop. </p>
-                    <p class='fillIn'> Position relative can be used to shift a div by a percentage in relation to the parent. Use the 'left' and 'right' attributes to shift each sccop by 20%. </p>
+                    <p> The top two scoops of the glass are not perfectly aligned. The top scoop leans left, and the middle scoop leans right. Let's make sure the code reflects that using position relative. There is a 20% gap on the right of the top scoop, and a 20% gap on the left of the middle scoop. </p>
+                    <p class='fillIn'> Position relative can be used to shift a div by a percentage in relation to the parent. Use the 'left' and 'right' attributes to shift each scoop by 20%. </p>
                     <pre class="prettyprint"><p class='code'> .fullSundae > .iceCreamScoop.topScoop{
     <input type='text' name='relInput3' id='rel3'>
 }
@@ -255,7 +255,7 @@
                     <p> Let's put one cherry on top. Again, this does not interfere with the flow of the scoops. Put it 50% from the left and top 0. </p>
                     <p class='fillIn'> Add left of 50% and top 0 to the topmost cherry. </p>
                     <pre class="prettyprint"><p class='code'> .fullSundae > cherry{
-position:absolute;
+    position:absolute;
     <textarea name='absInput1' id='abs1'></textarea>
 }</p></pre>
                 </div>
@@ -279,19 +279,19 @@ position:absolute;
 .glass .cherry.bottomCherry{
     position:absolute;
     <textarea name='absInput3' id='abs3'></textarea>
-}
 }</p></pre>
                 </div>
                 <div class='actionBtn3 backBtn'> Back </div>
                 <div class='actionBtn2 valid9'> Finish! </div>
                 <p class='warn'> Re-read instructions! </p>
             </div>
-        </div>
-        <div class='sideSect'>
-            <div class='header'>
-                <h2> Final Code (13/13) </h2>
-            </div>
-            <pre class="prettyprint"><p class='code'>&lt;div class="fullSundae"&gt;
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Final Code (13/13) </h2>
+                </div>
+                <div class='txtbod'>
+                    <a class='lastLink' href='https://docs.google.com/forms/d/e/1FAIpQLSfAEMEOwkGpObsWRk467M4ZeuKEG03-BCsmSEv-cqXnwBkcBA/viewform' target="_blank"><div class='actionBtn'> Suggest Another Topic </div></a>
+                    <pre class="prettyprint"><p class='code'>&lt;div class="fullSundae"&gt;
         &lt;div class="cherry"&gt;&lt;/div&gt;
         &lt;div class="whippedCream"&gt;&lt;/div&gt;
         &lt;div class="iceCreamScoop"&gt;&lt;/div&gt;
@@ -349,7 +349,9 @@ position:absolute;
     left: 5px;
     bottom:15px;
 }</p></pre>
-            <a class='lastLink' href='https://www.rtfmanual.io' target="_blank"><div class='actionBtn'> Discover More Popular Tutorials </div></a>
+                </div>
+                <a class='lastLink' href='https://www.rtfmanual.io' target="_blank"><div class='actionBtn'> Discover More Popular Tutorials </div></a>
+            </div>
         </div>
         <div class='footer'>
             <p> <a href='https://medium.freecodecamp.com/css-positioning-explained-by-building-an-ice-cream-sundae-831cb884bfa9' target='__blank'>Read the original article</a> on Medium
