@@ -137,6 +137,10 @@ app.get('/d3garden', function(req, res) {
 	res.sendFile(path.join(__dirname + '/public/d3garden/index.html'));
 });
 
+app.get('/guides', function(req, res) {
+	res.sendFile(path.join(__dirname + '/public/guides/index.html'));
+});
+
 app.get('/csssundae', function(req, res) {
 	res.sendFile(path.join(__dirname + '/public/csssundae/index.html'));
 });
