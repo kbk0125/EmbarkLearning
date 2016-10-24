@@ -46,8 +46,8 @@ textarea {
   font-family: inherit;
 }
 
-a {
-  text-decoration: none;
+a, a > p{
+  color:#3394d4;
 }
 
 a:hover {
@@ -174,53 +174,49 @@ p{
 }
 
 .cards h3{
-  margin:8px 0 ;
+  margin:8px 0 16px 0;
   color: #7979c7;
 }
 
 .card{
-  background-color: white;
-  padding:4px 8px;
-  width:30%;
-  margin: 0 8px 16px 0;
-  border:1px solid #aaa;
-  border-radius:8px;
+  width:31%;
+  margin: 4px 16px 16px 0px;
   display: inline-block;
   vertical-align: top;
 }
 
-.topLine{
-  padding:4px 0px 8px 0px;
+.bodySec{
+  display: inline-block;
+  width: 70%;
 }
 
-.topLine p{
+.topLine{
   font-size: 18px;
   display: inline-block;
-  padding-left: 2px;
   color: #404040;
+  padding:2px 0px 0px 0px;
 }
 
 .card .subTitle{
-  color:#3394d4;
-  padding-top: 8px;
+  padding: 4px 0 8px 0;
 }
 
 .card .minor{
   font-weight: 300;
-  font-size: 12px;
+  font-size: 14px;
+  margin-bottom: 4px;
 }
 
 .card img{
-  width:100%;
+  width:25%;
+  margin-right: 3%;
   position: relative;
+  display: inline-block;
+  vertical-align: top;
 }
 
 .topics{
   margin-bottom: 16px;
-}
-
-.card:hover .subTitle{
-  color:#7979c7;
 }
 
 .action{
@@ -248,15 +244,22 @@ p{
   }
 
   .card{
-    width: 28%;
+    width: 30%;
   }
 
-  .topLine p{
-    font-size: 15px;
+  .card img{
+    width: auto;
+    height: 65px;
+    display: block;
+    margin: 0 0 4px 0;
   }
 
-  .card .subTitle{
-    font-size: 12px;
+  .bodySec{
+    width:100%;
+  }
+
+  .topLine{
+    font-size: 16px;
   }
 
   .action .actionBtn3{
@@ -313,7 +316,7 @@ p{
   }
 
   .card{
-    width: 43%;
+    width: 45%;
   }
 }
 
@@ -322,9 +325,28 @@ p{
     width:280px;
   }
 
+  #main{
+    margin-top:0;
+  }
+
   .card{
     width:100%;
     margin-right: 0;
+  }
+
+  .card img{
+    width:12%;
+    height:auto;
+    display: inline-block;
+    margin: 0 3% 0 0;
+  }
+
+  .bodySec{
+    width: 83%;
+  }
+
+  .topLine{
+    padding: 0;
   }
 
   .major{
