@@ -54,6 +54,13 @@ a:hover {
   text-decoration: underline;
 }
 
+img.resetStyle, div.resetStyle{
+  display: none;
+  left: auto;
+  right:auto;
+  position: static;
+}
+
 .actionBtn {
   border-radius: 2px;
   background-color: #f15a5a;
@@ -108,7 +115,7 @@ span.def{
 
 .ctr{
   text-align: center;
-  width: 765px;
+  width: 780px;
   height: 125px;
   position: absolute;
   top: 0;
@@ -121,6 +128,13 @@ span.def{
 .ctr div{
   display: inline-block;
   margin-top: 16px;
+}
+
+.startChal{
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: 8px;
+  font-size: 16px;
 }
 
 #topBar {
@@ -162,6 +176,21 @@ span.def{
   background-color: #ecf0f1;
 }
 
+.showHTML, .showHTML2{
+  float:right;
+  margin: 8px 8px 0 0;
+  display: none;
+}
+
+.htmlSnip, .htmlSnip2{
+  z-index: 100;
+  right:8px;
+  top:48px;
+  position: absolute;
+  width: auto !important;
+  display: none;
+}
+
 #main .imgs{
   margin: auto;
   display: block;
@@ -183,6 +212,74 @@ span.def{
 
 .imgs .firstImg{
   width: 100%;
+}
+
+.livingRoom{
+  display: none;
+}
+
+.entertainmentCtr{
+  width: 60%;
+  position: absolute;
+  bottom: 0;
+  left:20%;
+  text-align: center;
+}
+
+.tv{
+  width:60%;
+  margin:0 auto;
+}
+
+.stand{
+  width: 100%;
+}
+
+.books{
+  position: relative;
+  width:36%;
+}
+
+.book1{
+  left:3%;
+}
+
+.book2{
+  left:30%;
+}
+
+.light{
+  width:120px;
+  position: absolute;
+  top:40px;
+}
+
+.light1{
+  left:20%;
+}
+
+.light2{
+  right: 20%;
+}
+
+.phantomOverlay{
+  position: absolute;
+  height: 15%;
+  top:71%;
+  width: 93%;
+  left:3.5%;
+}
+
+.phantBox{
+  width: 33.3%;
+  text-align: left;
+  float:left;
+  height: 100%;
+  display: inline-block;
+}
+
+.etSummary{
+  display: none;
 }
 
 .absoluted{
@@ -221,7 +318,7 @@ span.def{
   display: none;
 }
 
-.showScoops{
+.showScoops, .showETCenter, .testBtn{
   display: table;
   margin: 8px auto;
 }
@@ -290,6 +387,10 @@ span.def{
 
 .sideSect .header, .sideSect .txtbod, .sideSect .uniqData{
   text-align: left;
+}
+
+.txtbod > p{
+  margin-top: 4px;
 }
 
 .uniqData .indent{

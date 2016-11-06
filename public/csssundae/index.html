@@ -26,9 +26,10 @@
     <div id='container'>
         <div class='intro'>
             <div class='ctr'>
-                <h1> Learn CSS positioning by building an ice cream sundae </h1>
+                <h1> Learn CSS Positioning by Building an Ice Cream Sundae </h1>
                 <p> Master the fundamentals of CSS positioning with this interactive tutorial </p>
                 <div class='actionBtn startbtn'> Get Started </div>
+                <p class='startChal'> Skip to Practice Section </p>
             </div>
         </div>
         <div id="topBar">
@@ -37,6 +38,36 @@
             <a href='https://docs.google.com/forms/d/e/1FAIpQLSduCP7uKZowR6guEAsKi85mZPm3qKQHEKv0snurwUJam4ukPA/viewform' target="_blank"><div class='actionBtn'> Give Feedback </div></a>
         </div>
         <div id='main'>
+            <div class=' actionbtn3 small showHTML'> Show HTML </div>
+            <pre class="prettyprint htmlSnip"><p class='code'>&lt;div class="fullSundae"&gt;
+        &lt;div class="cherry"&gt;&lt;/div&gt;
+        &lt;div class="whippedCream"&gt;&lt;/div&gt;
+        &lt;div class="iceCreamScoop"&gt;&lt;/div&gt;
+        &lt;div class="iceCreamScoop"&gt;&lt;/div&gt;
+        &lt;div class="glass"&gt;
+                &lt;div class="cherry topCherry"&gt;&lt;/div&gt;
+                &lt;div class="cherry bottomCherry"&gt;&lt;/div&gt;
+                &lt;div class="iceCreamScoop topScoop"&gt;&lt;/div&gt;
+                &lt;div class="iceCreamScoop middleScoop"&gt;&lt;/div&gt;
+                &lt;div class="iceCreamScoop"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;</p></pre>
+            <pre class="prettyprint htmlSnip2"><p class='code'>&lt;div class="livingRoom"&gt;
+        &lt;div class="light light1"&gt;&lt;/div&gt;
+        &lt;div class="light light2"&gt;&lt;/div&gt;
+        &lt;div class="entertainmentCenter"&gt;
+                &lt;div class="tv"&gt;&lt;/div&gt;
+                &lt;div class="stand"&gt;
+                        &lt;div class="section"&gt;
+                                &lt;div class="books"&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="section"&gt;&lt;/div&gt;
+                        &lt;div class="section"&gt;
+                                &lt;div class="books"&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+                &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;</p></pre>
             <div class='imgs'>
                 <div class="rightBrdr measurem"></div>
                 <p class='rightLabel measurem'> Total Height: 500px </p>
@@ -44,16 +75,33 @@
                 <p class='glassLabel measurem'> Total Height: 300px </p>
                 <img class='firstImg' src='/img/csssundae/emptyglass.png' />
             </div>
+            <div class ='livingRoom'>
+                <img class='light light1' src='/img/csssundae/light.png' />
+                <img class='light light2' src='/img/csssundae/light.png' />
+                <div class='entertainmentCtr'>
+                    <img class='tv' src='/img/csssundae/television.png' />
+                    <div class='phantomOverlay'>
+                        <div class='phantBox pBox1'>
+                            <img class='books book1' src='/img/csssundae/books.png' />
+                        </div>
+                        <div class='phantBox pBox2'></div>
+                        <div class='phantBox pBox3'>
+                            <img class='books book2' src='/img/csssundae/books.png' />
+                        </div>
+                    </div>
+                    <img class='stand' src='/img/csssundae/tvstand.png' />
+                </div>
+            </div>
         </div>
         <div id='side'>
             <div class='sideSect first'>
                 <div class='header'>
                     <h2> Build A CSS Sundae </h2>
-                    <p> This tutorial will help you learn the major principles of CSS positioning so you can create flowing websites </p>
+                    <p> This tutorial will help you learn the major principles of CSS positioning so you can create flowing websites. </p>
                 </div>
                 <div class='txtbod'>
                     <h3> Why do I need this? </h3>
-                    <p> Learning CSS positioning traditionally requires hours of trial and error, and confusion when your entire design changes by just toggling the position attribute. This 13 min tutorial will hopefully prevent that. </p>
+                    <p> Learning CSS positioning traditionally requires hours of trial and error, and confusion when your entire design changes by just toggling the position attribute. This 15 min tutorial will hopefully prevent that. </p>
                     <h3> What is the focus? </h3>
                     <p> You will build an ice cream sundae using these position properties: </p>
                     <ul>
@@ -69,7 +117,7 @@
             </div>
             <div class='sideSect'>
                 <div class='header'>
-                    <h2> The Ground Rules (1/13) </h2>
+                    <h2> The Ground Rules (1/15) </h2>
                     <p> Let's establish some basic definitions </p>
                 </div>
                 <div class='txtbod'>
@@ -99,14 +147,14 @@
             </div>
             <div class='sideSect'>
                 <div class='header'>
-                    <h2> Some Key Facts (2/13) </h2>
+                    <h2> Some Key Facts (2/15) </h2>
                     <p> This image sets the direction for how we will build the sundae </p>
                 </div>
                 <div class='txtbod'>
                     <h3> Ice cream scoops v. glass </h3>
                     <p> The number of ice cream scoops is limited by the glass height. We cannot keep stacking ice cream scoops forever. Eventually, the whole beautiful setup would topple over. </p>
                     <h3> Cherries have separate rules </h3>
-                    <p> You can put the cherries wherever you darn please. Cherries do not obey the flow and stacking of the scoops.They are smaller, and can fit in nooks and crannies where you cannot fit an ice cream scoop. And, more cherries will not upset the order of the scoops. </p>
+                    <p> You can put the cherries wherever you darn please. Cherries do not obey the flow and stacking of the scoops. They are smaller, and can fit in nooks and crannies where you cannot fit an ice cream scoop. And, more cherries will not upset the order of the scoops. </p>
                     <h3> Whipped cream on top </h3>
                     <p> The whipped cream sits on top, no matter how many scoops there are. Have you ever seen an ice cream sundae with the whipped cream in the middle, and none on top? Neither have I. </p>
                 </div>
@@ -114,7 +162,7 @@
             </div>
             <div class='sideSect'>
                 <div class='header'>
-                    <h2> Position: Static (3/13) </h2>
+                    <h2> Position: Static (3/15) </h2>
                     <p> This is the default position attribute </p>
                 </div>
                 <div class='txtbod'>
@@ -131,7 +179,7 @@
             </div>
             <div class='sideSect'>
                 <div class='header'>
-                    <h2> Position: Static (4/13) </h2>
+                    <h2> Position: Static (4/15) </h2>
                     <p> This is the default position attribute </p>
                 </div>
                 <div class='txtbod'>
@@ -148,12 +196,13 @@
             </div>
             <div class='sideSect'>
                 <div class='header'>
-                    <h2> Position: Relative (5/13) </h2>
+                    <h2> Position: Relative (5/15) </h2>
                     <p> Let's prepare the glass, a container div</p>
                 </div>
                 <div class='txtbod'>
                     <h3> The Glass </h3>
-                    <p> There are two components to the glass div: the glass itself, and the scoops inside. Each must have position relative. Let's do the glass first. Since the glass contains three scoops, it is 60% of the height of the entire div. It also must have position relative to accomodate the cherries, which we will cover in the position absolute section. </p>
+                    <p> There are two components to the glass div: the glass itself, and the scoops inside. Each must have position relative. Let's do the glass first. </p> 
+                    <p>Since the glass contains three scoops, it is 60% of the height of the entire div. It also must have position relative to accomodate the cherries, which we will cover in the position:absolute section. </p>
                     <p class='fillIn'> Give your glass div a height of 60% and position relative. </p>
                     <pre class="prettyprint"><p class='code'> .fullSundae{
     <textarea name='relInput1' id='rel1'></textarea>
@@ -165,12 +214,13 @@
             </div>
             <div class='sideSect'>
                 <div class='header'>
-                    <h2> Position: Relative (6/13) </h2>
+                    <h2> Position: Relative (6/15) </h2>
                     <p> Let's add the ice cream scoops</p>
                 </div>
                 <div class='txtbod'>
                     <h3> The Scoops </h3>
-                    <p> There are three scoops within the glass. Since they fill the glass, they must each be 33.3% of the height, and position relative. Relative is important so that we are able to adjust their position in relation to their parent container, the glass. </p>
+                    <p> There are three scoops within the glass. Since they fill the glass, they must each be 33.3% of the height, and position relative.</p> 
+                    <p>Relative is important so that we are able to adjust their position in relation to their parent container, the glass. </p>
                     <p class='fillIn'> Give each scoop a height of 33.3% and position relative. </p>
                     <pre class="prettyprint"><p class='code'> .fullSundae > .iceCreamScoop{
     width: 80%;
@@ -183,7 +233,7 @@
             </div>
             <div class='sideSect'>
                 <div class='header'>
-                    <h2> Position: Relative (7/13) </h2>
+                    <h2> Position: Relative (7/15) </h2>
                     <p> Practicing position relative</p>
                 </div>
                 <div class='txtbod'>
@@ -203,21 +253,37 @@
             </div>
             <div class='sideSect'>
                 <div class='header'>
-                    <h2> Position: Fixed (8/13) </h2>
+                    <h2> Position: Relative (8/15) </h2>
+                    <p> Summary of position relative</p>
+                </div>
+                <div class='txtbod'>
+                    <h3>Use relative when... </h3>
+                    <ul>
+                        <li> You need to set a container for position:absolute elements (the cherries which we will do later) </li>
+                        <li> You want to shift elements in one direction within the container (ice cream scoops that sit unevenly) </li>
+                    </ul>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 next'> Go to Step 9 </div>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Position: Fixed (9/15) </h2>
                     <p> Let's add the whipped cream on top</p>
                 </div>
                 <div class='txtbod'>
                     <h3> The Whipped Cream </h3>
-                    <p> Whipped cream is always on top of the sundae. If you have a massive pile of whipped cream on top, you will still be able to fit 5 scoops without overflowing or toppling. Similarly, position fixed elements always stay in the same position on the user's screen, no matter how long the body is. </p>
+                    <p> Whipped cream is always on top of the sundae. If you have a massive pile of whipped cream on top, you will still be able to fit 5 scoops without overflowing or toppling. </p>
+                    <p>Similarly, position fixed elements always stay in the same position on the user's screen, no matter how long the body is. </p>
                     <div class='actionBtn showScoops'> Show Size Options </div>
 
                 </div>
                 <div class='actionBtn3 backBtn'> Back </div>
-                <div class='actionBtn2 valid6 next'> Go to Step 9 </div>
+                <div class='actionBtn2 valid6 next'> Go to Step 10 </div>
             </div>
             <div class='sideSect'>
                 <div class='header'>
-                    <h2> Position: Fixed (9/13) </h2>
+                    <h2> Position: Fixed (10/15) </h2>
                     <p> Let's add the whipped cream on top</p>
                 </div>
                 <div class='txtbod'>
@@ -229,25 +295,26 @@
 }</p></pre>
                 </div>
                 <div class='actionBtn3 backBtn'> Back </div>
-                <div class='actionBtn2 valid7'> Go to Step 10 </div>
+                <div class='actionBtn2 valid7'> Go to Step 11 </div>
                 <p class='warn'> Did you set top to 0? </p>
             </div>
             <div class='sideSect'>
                 <div class='header'>
-                    <h2> Position: Absolute (10/13) </h2>
+                    <h2> Position: Absolute (11/15) </h2>
                     <p> Let's add some cherries!</p>
                 </div>
                 <div class='txtbod'>
                     <h3> The Cherries </h3>
-                    <p> Position absolute allows us to place items in specific places, without disrupting the flow of other elements. But there is one major caveat- these items do not "stack" like the glass and ice cream scoops do. This makes cherries a perfect example, since they can be crammed into different gaps of the glass without upsetting the scoops. </p>
+                    <p> Position absolute allows us to place items in specific places, without disrupting the flow of other elements. But there is one major caveat- these items do not "stack" like the glass and ice cream scoops do. </p>
+                    <p> This makes cherries a perfect example, since they can be crammed into different gaps of the glass without upsetting the scoops. </p>
                 </div>
                 <div class='actionBtn3 backBtn'> Back </div>
-                <div class='actionBtn2 next'> Go to Step 11 </div>
+                <div class='actionBtn2 next'> Go to Step 12 </div>
                 <p class='warn'> Did you set top to 0? </p>
             </div>
             <div class='sideSect'>
                 <div class='header'>
-                    <h2> Position: Absolute (11/13) </h2>
+                    <h2> Position: Absolute (12/15) </h2>
                     <p> Let's add some cherries!</p>
                 </div>
                 <div class='txtbod'>
@@ -260,17 +327,18 @@
 }</p></pre>
                 </div>
                 <div class='actionBtn3 backBtn'> Back </div>
-                <div class='actionBtn2 valid8'> Go to Step 12 </div>
+                <div class='actionBtn2 valid8'> Go to Step 13 </div>
                 <p class='warn'> Did you set left to 50%? </p>
             </div>
             <div class='sideSect'>
                 <div class='header'>
-                    <h2> Position: Absolute (12/13) </h2>
+                    <h2> Position: Absolute (13/15) </h2>
                     <p> Let's add some cherries!</p>
                 </div>
                 <div class='txtbod'>
                     <h3> The Cherries </h3>
-                    <p> Remember when we added position: relative to the glass way back when? This is why: because when we place position absolute elements, they move relative to the nearest parent that is NOT position static. So, if we want to add two cherries to the glass, it is good that it is position relative. Again, the cherries will not upset the main flow of ice cream scoops. </p>
+                    <p> Remember when we added position: relative to the glass way back when? Here is why: because when we place position absolute elements, they move relative to the nearest parent that is NOT position static. </p>
+                    <p>So, if we want to add two cherries within the glass, the glass should have position relative. Again, the cherries will not upset the main flow of ice cream scoops. </p>
                     <p class='fillIn'> Add one cherry 5px from the left, and 5px from the top. Add another cherry 15px from the bottom, and 2px from the left. </p>
                     <pre class="prettyprint"><p class='code'> .glass .cherry.topCherry{
     position:absolute;
@@ -282,15 +350,31 @@
 }</p></pre>
                 </div>
                 <div class='actionBtn3 backBtn'> Back </div>
-                <div class='actionBtn2 valid9'> Finish! </div>
+                <div class='actionBtn2 valid9'> Summary </div>
                 <p class='warn'> Re-read instructions! </p>
             </div>
             <div class='sideSect'>
                 <div class='header'>
-                    <h2> Final Code (13/13) </h2>
+                    <h2> Position: Absolute (14/15) </h2>
+                    <p> Summary of position absolute</p>
                 </div>
                 <div class='txtbod'>
-                    <a class='lastLink' href='https://docs.google.com/forms/d/e/1FAIpQLSfAEMEOwkGpObsWRk467M4ZeuKEG03-BCsmSEv-cqXnwBkcBA/viewform' target="_blank"><div class='actionBtn'> Suggest Another Topic </div></a>
+                    <h3>Use absolute when... </h3>
+                    <ul>
+                        <li> You need to place elements precisely outside the normal flow of elements </li>
+                        <li> You do not need your elements to stack </li>
+                    </ul>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 next'> Finish! </div>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Final Code (15/15) </h2>
+                </div>
+                <div class='txtbod'>
+                    <div class='actionBtn2 next'> Go To Practice Section </div>
+                    <a class='lastLink' href='https://docs.google.com/forms/d/e/1FAIpQLSduCP7uKZowR6guEAsKi85mZPm3qKQHEKv0snurwUJam4ukPA/viewform' target="_blank"><div class='actionBtn'> Give Feedback </div></a>
                     <pre class="prettyprint"><p class='code'>&lt;div class="fullSundae"&gt;
         &lt;div class="cherry"&gt;&lt;/div&gt;
         &lt;div class="whippedCream"&gt;&lt;/div&gt;
@@ -350,8 +434,180 @@
     bottom:15px;
 }</p></pre>
                 </div>
-                <a class='lastLink' href='https://www.rtfmanual.io' target="_blank"><div class='actionBtn'> Discover More Popular Tutorials </div></a>
             </div>
+            <div class='sideSect practiceStart'>
+                <div class='header'>
+                    <h2> Challenge Prep (1/8) </h2>
+                    <p> You need to put together a living room with CSS positioning</p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Survey The Scene </h3>
+                    <p> Check out the following living room scene, including lights, a TV, a stand, and books. What position property should each element have?</p>
+                    <div class='actionBtn showETCenter'> Show HTML </div>
+                    <pre class="prettyprint etSummary"><p class='code'>&lt;div class="livingRoom"&gt;
+        &lt;div class="light light1"&gt;&lt;/div&gt;
+        &lt;div class="light light2"&gt;&lt;/div&gt;
+        &lt;div class="entertainmentCenter"&gt;
+                &lt;div class="tv"&gt;&lt;/div&gt;
+                &lt;div class="stand"&gt;
+                        &lt;div class="section"&gt;
+                                &lt;div class="books"&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="section"&gt;&lt;/div&gt;
+                        &lt;div class="section"&gt;
+                                &lt;div class="books"&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+                &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;</p></pre>
+                </div>
+                <div class='actionBtn2 next hideET'> Get Started </div>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> The Lights (2/8) </h2>
+                    <p> What position should the lights have?</p>
+                </div>
+                <div class='txtbod'>
+                    <h3> The Flow of Elements </h3>
+                    <p> First question: Are the lights part of the main flow of elements? Do they stack? Take a look. </p>
+                    <p class='fillIn'>Light 1 is 20% from the left. Light 2 is 20% from the right.</p>
+                    <pre class="prettyprint"><p class='code'> .light .light1{
+    <textarea name='interInput1' id='inter1'></textarea>
+}
+.light .light2{
+    <textarea name='interInput1' id='inter2'></textarea>
+}</p></pre>
+                    <div class='actionBtn testBtn test1'> Test Solution </div>
+                </div>
+                <div class='actionBtn2 intervalid1'> Continue </div>
+                <p class='warn'> Does your answer contain a valid position value? </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> The Lights (3/8) </h2>
+                    <p> What position should the lights have?</p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Position:Absolute </h3>
+                    <p> The lights are not part of any flow. And, they must be placed individually. You do not stack the lights. So they must be position:absolute; </p>
+                    <p> In fact, the entertainment center div as a whole is position:absolute as well. It must start from the bottom of the screen. </p>
+                    <pre class="prettyprint"><p class='code'>
+.entertainmentCtr{
+    position:absolute;
+    width:60%;
+    bottom:0;
+    left:20%;
+    text-align:center;
+}
+                    </p></pre>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 next showETCenter'> Continue </div>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> The Entertainment Center (4/8) </h2>
+                    <p> What position should the entertainment center have?</p>
+                </div>
+                <div class='txtbod'>
+                    <h3> The Flow of Elements </h3>
+                    <p> Do the pieces of the entertainment center flow together? Does it make sense to stack them? </p>
+                    <p class='fillIn'>The TV has a width of 60%. The stand has a width of 100%.</p>
+                    <pre class="prettyprint"><p class='code'> .tv{
+    <textarea name='interInput2' id='inter3'></textarea>
+}
+.stand{
+    <textarea name='interInput2' id='inter4'></textarea>
+}</p></pre>
+                    <div class='actionBtn testBtn test2'> Test Solution </div>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 intervalid2'> Continue </div>
+                <p class='warn'> Does your answer contain a valid position value? </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> The Entertainment Center (5/8) </h2>
+                    <p> What position should the pieces of the entertainment center have?</p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Position:Static </h3>
+                    <p> The TV div stacks on top of the stand div. There is no unusual arrangement. </p>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 next'> Continue </div>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Books (6/8) </h2>
+                    <p> What position should the books have?</p>
+                </div>
+                <div class='txtbod'>
+                    <h3> The Flow of Elements </h3>
+                    <p> Within the stand, there are three sections where we can store books. In the far left section, we want our books to start 3% from the left side of the section. In the far right section, we want our books to start 20% from the left side of the div.</p>
+                    <p class='fillIn'>Make the books within the left section 3% from the left side, and the books in the right section 20% from the left edge. Do NOT use the margin property!</p>
+                    <pre class="prettyprint"><p class='code'> .leftSection > .books{
+    <textarea name='interInput3' id='inter5'></textarea>
+}
+.rightSection > .books{
+    <textarea name='interInput3' id='inter6'></textarea>
+}</p></pre>
+                    <div class='actionBtn testBtn test3'> Test Solution </div>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 intervalid3'> Continue </div>
+                <p class='warn'> Does your answer contain a valid position value? </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> The Books (7/8) </h2>
+                    <p> What position should the books have?</p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Position:Relative </h3>
+                    <p> Since we are not using the margin property, the books must have position:relative so we can move them with the "left" property. When we set "left" to 3%, that means they are moving by 3% of the width of their parent container. </p>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 next'> Finish </div>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Final Code (8/8) </h2>
+                </div>
+                <div class='txtbod'>
+                    <a class='lastLink' href='https://docs.google.com/forms/d/e/1FAIpQLSduCP7uKZowR6guEAsKi85mZPm3qKQHEKv0snurwUJam4ukPA/viewform' target="_blank"><div class='actionBtn'> Give Feedback </div></a>
+                    <pre class="prettyprint"><p class='code'>
+.light1{
+    position:absolute;
+    left:20%;
+}
+
+.light2{
+    position:absolute;
+    right:20%;
+}
+
+.tv{
+    position:static;
+    width:60%;
+}
+
+.stand{
+    position:static;
+    width:100%;
+}
+
+.leftSection > .books{
+    position:relative;
+    left:3%;
+}
+
+.rightSection > .books{
+    position:relative;
+    left:20%;
+}
+</p></pre>
         </div>
         <div class='footer'>
             <p> <a href='https://medium.freecodecamp.com/css-positioning-explained-by-building-an-ice-cream-sundae-831cb884bfa9' target='__blank'>Read the original article</a> on Medium
