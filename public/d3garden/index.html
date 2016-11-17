@@ -52,7 +52,7 @@
             <div class='sideSect first'>
                 <div class='header'>
                     <h2> Welcome to the D3 Garden </h2>
-                    <p> This tutorial will help you learn the major principles of D3 so you can easy build custom graphs. </p>
+                    <p> This tutorial will help you learn the major principles of D3 so you can easily build custom graphs. </p>
                 </div>
                 <div class='txtbod'>
                     <h3> Why do I need this? </h3>
@@ -130,7 +130,7 @@
                     <pre class="prettyprint"><p class='code'> svg.selectAll('rect.bar') </p></pre>
                     <p> This statement looks for all <a href= 'https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes' target='__blank'>rect elements</a> (from SVG specification) with class 'bar'. If there are none, it creates an empty set.
                     <h3> Your turn! </h3>
-                    <p class='code'> svg. </p>
+                    <p class='code'> svg </p>
                     <p> Create an empty set of rect elements with class 'colorBar' </p>
                     <input type='text' name='selectInput' id='select1'>
                     <a href='https://bost.ocks.org/mike/selection/' target='__blank'><p>Docs</p></a>
@@ -180,7 +180,7 @@
                     <pre class="prettyprint"><p class='code'> svg.selectAll('rect.bar').data(data) </p></pre>
                     <p> Data() declares the object or array you will be iterating through. Pretty straightforward.
                     <h3> Your turn! </h3>
-                    <p class='code'> svg.selectAll('rect.bar'). </p>
+                    <p class='code'> svg.selectAll('rect.bar') </p>
                     <p id='seedId'> Add the data contained in the variable tomatoes </p>
                     <input type='text' name='dataInput' id='data1'>
                     <a href='http://alignedleft.com/tutorials/d3/binding-data' target='__blank'><p>Docs</p></a>
@@ -201,11 +201,11 @@
                     <h3> In The Garden </h3>
                     <p> This adds the seeds you selected in the past step to the garden, and matches the number of holes with number of plants. There are now 20 seeds in holes ready to be structured.</p>
                     <h3> Your turn! </h3>
-                    <p class='code'> svg.selectAll('rect.bar').data(data). </p>
+                    <p class='code'> svg.selectAll('rect.bar').data(data) </p>
                     <p> Add your enter statement, that is it! </p>
                     <input type='text' name='enterInput' id='enter1'>
                     <a href='http://alignedleft.com/tutorials/d3/binding-data' target='__blank'><p>Docs</p></a>
-                    <p class='displayObj'> Show Entire Object </p>
+                    <p class='displayObj'> Show Full Array </p>
                 </div>
                 <div class='actionBtn3 backBtn'> Back </div>
                 <div class='actionBtn2 valid4'> Plant the Seeds </div>
@@ -223,11 +223,11 @@
                     <p> You want the seeds you planted to grow in a defined way. We will add complementary structures like trellises to the garden to help our plants grow vertically.</p>
                     <pre class="prettyprint"><p class='code'> svg.selectAll('rect.bar').data(data)<br>.enter().append('rect') </p></pre>
                     <h3> Your turn! </h3>
-                    <p class='code'> svg.selectAll('rect.bar').data(data).enter(). </p>
+                    <p class='code'> svg.selectAll('rect.bar').data(data).enter() </p>
                     <p> Append a rect element for each item in your data </p>
                     <input type='text' name='appendInput' id='append1'>
                     <a href='http://alignedleft.com/tutorials/d3/binding-data' target='__blank'><p>Docs</p></a>
-                    <p class='displayObj'> Show Entire Object </p>
+                    <p class='displayObj'> Show Full Array </p>
                 </div>
                 <div class='actionBtn3 backBtn'> Back </div>
                 <div class='actionBtn2 valid5'> Add The Structure </div>
@@ -265,7 +265,7 @@
                     <p> Write out the statement above, which defines the width based on the 'width' property of each item in the data object </p>
                     <input type='text' name='widthInput' id='width1'>
                     <a href='https://github.com/d3/d3/wiki/Selections' target='__blank'><p>Docs</p></a>
-                    <p class='displayObj'> Show Entire Object </p>
+                    <p class='displayObj'> Show Full Array </p>
                 </div>
                 <div class='actionBtn3 backBtn'> Back </div>
                 <div class='actionBtn2 valid6'> Define The Height </div>
@@ -286,7 +286,7 @@
                     <p> Write out the statement above, which defines the height based on the 'height' property of each item in the data object </p>
                     <input type='text' name='heightInput' id='height1'>
                     <a href='https://github.com/d3/d3/wiki/Selections' target='__blank'><p>Docs</p></a>
-                    <p class='displayObj'> Show Entire Object </p>
+                    <p class='displayObj'> Show Full Array </p>
                 </div>
                 <div class='actionBtn3 backBtn'> Back </div>
                 <div class='actionBtn2 valid7'> How To Position The Plants </div>
@@ -300,7 +300,7 @@
                 <div class='txtbod'>
                     <h3> What It Does </h3>
                     <pre class="prettyprint"><p class='code'> .attr('x' , function (d,i) { return i * d.width }) </p></pre>
-                    <p> In last statement we ended up with... one plant. That was disappointing. We also need to define x values for each bar so that they do not stack on top of each other, like they did in the last step. </p>
+                    <p> In last statement we ended up with... a bunch of plants stacked on top of one another. That was disappointing. We also need to define x values for each bar so that they do not stack on top of each other, like they did in the last step. </p>
                     <p> Using the index of each bar, we can move them right to spread them out. We can multiply this index by the width of each bar to spread them out. </p>
                     <h3> In The Garden </h3>
                     <p> Now each plant will align with the appropriate structure as opposed to being stacked on top of each other in the first position.</p>
@@ -308,7 +308,7 @@
                     <p> Write out the statement above, which defines the x-position based on the index and separates based on bar width </p>
                     <input type='text' name='xInput' id='x1'>
                     <a href='http://alignedleft.com/tutorials/d3/making-a-bar-chart' target='__blank'><p>Docs</p></a>
-                    <p class='displayObj'> Show Entire Object </p>
+                    <p class='displayObj'> Show Full Array </p>
                 </div>
                 <div class='actionBtn3 backBtn'> Back </div>
                 <div class='actionBtn2 valid8'> How To Position The Plants </div>
@@ -334,7 +334,7 @@
             </div>
             <div class='sideSect codeSnip'>
                 <h3> Done! Final Code </h3>
-                <pre>
+                <pre class='prettyPrint'>
                     <code>
 var w= 535;
 var h= 250;
@@ -362,6 +362,7 @@ svg.selectAll('rect.colorBar')
     .attr('fill', 'white')
                     </code>
                 </pre>
+                <a href='https://docs.google.com/forms/d/e/1FAIpQLScXarO-g1SP6XIRcl4Svbk6f0kv0j8gE4dVfLkpyiAfrPawng/viewform' target="_blank"><div class='actionBtn'> Give Feedback </div></a>
                 <div class='actionBtn2 axesStart'> Add X and Y Axis </div>
             </div>
             <div class='sideSect'>
@@ -423,7 +424,7 @@ svg.selectAll('rect.colorBar')
                     <h3> How to define an axis </h3>
                     <pre class="prettyprint"><p class='code'> var xAxis = d3.svg.axis().scale(xScale) </p></pre>
                     <div class='code'> <pre class="prettyprint inline">d3.svg.axis()</pre> = Indicates that we want to create an element with the characteristics of an axis i.e. can have labels and tick marks </div>
-                    <div class='code'> <pre class="prettyprint inline">.scale(xScale)</pre> = Specifies that twe wantto use the xScale we already specified </div>
+                    <div class='code'> <pre class="prettyprint inline">.scale(xScale)</pre> = Specifies that we want to use the xScale we already specified </div>
                     <h3> Your turn! </h3>
                     <p class='code'> var xAxis = </p>
                     <p> Add an axis </p>
@@ -449,7 +450,7 @@ svg.selectAll('rect.colorBar')
                     <h3> In The Garden </h3>
                     <p> We can now add a fence to our garden </p>
                     <h3> Your turn! </h3>
-                    <p class='code'> svg. </p>
+                    <p class='code'> svg </p>
                     <p> Append a g element </p>
                     <input type='text' name='xaxisInput' id='xaxis3'>
                     <p> Call xAxis </p>
@@ -496,7 +497,7 @@ svg.selectAll('rect.colorBar')
                     <h3> In The Garden </h3>
                     <p> We can now add a fence to our garden </p>
                     <h3> Your turn! </h3>
-                    <p class='code'> svg. </p>
+                    <p class='code'> svg </p>
                     <p> Append a g element </p>
                     <input type='text' name='yaxisInput' id='yaxis3'>
                     <p> Call yAxis </p>
@@ -518,7 +519,7 @@ svg.selectAll('rect.colorBar')
                     <pre class="prettyprint"><p class='code'> svg.append("g")<br>.attr("transform", "translate(0," + (height) + ")").call(xAxis); </p></pre>
                     <div class='code'> <pre class="prettyprint inline">.attr("transform", "translate(0," + (height) + ")")</pre> = Translate takes two arguments: right and down. This statement moves the axis 0 units right, and moves it downward bythe entire height of the svg. In other words, the bottom</div>
                     <h3> Your turn! </h3>
-                    <p class='code'> svg.append("g"). </p>
+                    <p class='code'> svg.append("g") </p>
                     <p> Move the axis to the bottom of the SVG </p>
                     <input type='text' name='xaxisInput' id='xaxis5'>
                 </div>
@@ -529,7 +530,8 @@ svg.selectAll('rect.colorBar')
             </div>
             <div class='sideSect codeSnip'>
                 <h3> Done! Final Code </h3>
-                <pre>
+                <a href='https://docs.google.com/forms/d/e/1FAIpQLScXarO-g1SP6XIRcl4Svbk6f0kv0j8gE4dVfLkpyiAfrPawng/viewform' target="_blank"><div class='actionBtn'> Give Feedback </div></a>
+                <pre class='prettyPrint'>
                     <code>
 var w= 535;
 var h= 250;

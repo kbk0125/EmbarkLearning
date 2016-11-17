@@ -1,3 +1,5 @@
+var pageCount= 0;
+
 var tomatoes = [
     {"width": 25, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "red"},
     {"width": 25, "height": Math.floor(Math.random() * (100 - 60 + 1)) + 60, "color": "red"},
@@ -88,12 +90,54 @@ function nextSide(prev){
     $(par).hide();
     $(par).next().show()
     $('#main').children('.uniqData').hide()
+
+    //update page History with HTMl History API
+    pageCount++
+    history.pushState(null,null, '/d3garden/'+pageCount)
 }
 
 function prevSide(prev){
     var par= $(prev).parents('.sideSect')
     $(par).hide();
     $(par).prev().show()
+
+    //update page History with HTMl History API
+    pageCount--
+    history.pushState(null,null, '/d3garden/'+pageCount)
+}
+
+function validator(res, ans){
+    var counter = 0;
+    for(var i=0; i< res.length; i++){
+        //see if specific input contains the appropriate property name
+        var testVal1= $(res[i]).val().indexOf(ans[i][0]) > -1;
+        //see if specific input contains the appropriate property value
+        var testVal2= $(res[i]).val().indexOf(ans[i][1]) > -1;
+        
+        //check if line has quotes, unless it is specifically marked as not needing quotes
+        if(ans[i][2] === false)
+            var quotes = true
+        else
+            var quotes= $(res[i]).val().indexOf('"') > -1 || $(res[i]).val().indexOf('\'') > -1;
+        // check if line has a semi-colon
+        var parens= $(res[i]).val().indexOf('(') > -1 && $(res[i]).val().indexOf(')') > -1;
+
+        var period= $(res[i]).val().indexOf('.') > -1;
+
+        // if it has both correct property name and value, and semi and colon are in there
+        if(testVal1 && testVal2 && quotes && parens && period)
+            counter++
+        else if(!(quotes && parens && period)){
+            return('Does every element have quotes and parentheses and a period? Check answer ' +(i+1))
+        }
+        else{
+            return('Check answer on input '+(i+1)+'. Your syntax seems to be right, but you have the wrong answer.')
+        }
+    }
+
+    if(counter === res.length){
+        return true;
+    }
 }
 
 $('.resize').resizable({
@@ -143,24 +187,27 @@ $('.svgTrig').click(function(){
 })
 
 $('.valid').click(function(){
-    var selectState= $("#svg1").val().indexOf("gardenDiv") > -1
-    var appendState= $("#svg2").val().indexOf("svg") > -1
-    var widthState= $("#svg3").val().indexOf(boxWidth) > -1
-    var heightState= $("#svg4").val().indexOf(boxHeight) > -1
+    var answers= [$("#svg1"), $("#svg2"), $("#svg3"), $("#svg4")]
+    var curAnswers= [['d3.select', '.gardenDiv'], ['.append', 'svg'], ['.attr', boxWidth+'px'], ['.attr', boxHeight+'px'] ]
 
-    if(selectState && appendState && widthState && heightState){
+    var finAnswer= validator(answers, curAnswers)
+    console.log(finAnswer)
+
+    if(finAnswer === true){
         nextSide(this)
         $('.graph').css('border', '1px solid #404040')
     }
     else{
-        $(this).siblings('.warn').show();
+        $(this).siblings('.warn').text(finAnswer).show();
     }
 })
 
 $('.valid2').click(function(){
-    var allState= $('#select1').val().indexOf('rect.colorBar') > -1
+    var answers= [$('#select1')]
+    var curAnswers= [['selectAll', 'rect.colorBar']]
+    var finAnswer= validator(answers, curAnswers)
 
-    if(allState){
+    if(finAnswer === true){
         nextSide(this)
         //determine nuber that can fit in across row
         widthLim= Math.floor(boxWidth/80) -1
@@ -182,7 +229,7 @@ $('.valid2').click(function(){
         newWidth= boxArea*boxRat*0.8
     }
     else{
-        $(this).siblings('.warn').show();
+        $(this).siblings('.warn').text(finAnswer).show();
     }
 })
 
@@ -201,20 +248,26 @@ $('.seedTrig').click(function(){
 })
 
 $('.valid3').click(function(){
-    var dataState= $("#data1").val().indexOf(activeData) > -1
+    var answers= [$('#data1')]
+    var curAnswers= [['data', activeData, false]]
+    var finAnswer= validator(answers, curAnswers)
 
-    if(dataState){
+    if(finAnswer === true){
         nextSide(this)
     }
     else{
-        $(this).siblings('.warn').show();
+        $(this).siblings('.warn').text(finAnswer).show();
     }
 })
 
 $('.valid4').click(function(){
     var enterState= $("#enter1").val().indexOf('enter') > -1
 
-    if(enterState){
+    var answers= [$('#enter1')]
+    var curAnswers= [['enter', 'enter', false]]
+    var finAnswer= validator(answers, curAnswers)
+
+    if(finAnswer === true){
         nextSide(this)
 
         for(var i=0; i<20; i++){
@@ -227,14 +280,18 @@ $('.valid4').click(function(){
         $('.resize').children('.seeds').children('div').width(newWidth).height(newHeight);
     }
     else{
-        $(this).siblings('.warn').show();
+        $(this).siblings('.warn').text(finAnswer).show();
     }
 })
 
 $('.valid5').click(function(){
     var appendState= $("#append1").val().indexOf('rect') > -1
 
-    if(appendState){
+    var answers= [$('#append1')]
+    var curAnswers= [['append', 'rect']]
+    var finAnswer= validator(answers, curAnswers)
+
+    if(finAnswer === true){
         nextSide(this)
 
         $('.resize').children('.seeds').children('div').remove()
@@ -246,60 +303,69 @@ $('.valid5').click(function(){
         $('.resize').children('.struct').children('div').width(newWidth).height(newHeight)
     }
     else{
-        $(this).siblings('.warn').show();
+        $(this).siblings('.warn').text(finAnswer).show();
     }
 })
 
 $('.valid6').click(function(){
-    var widthState= $("#width1").val().indexOf('return') > -1
+    var answers= [$('#width1')]
+    var curAnswers= [['return', 'd.width']]
+    var finAnswer= validator(answers, curAnswers)
 
-    if(widthState){
+    if(finAnswer === true){
         nextSide(this)
     }
     else{
-        $(this).siblings('.warn').show();
+        $(this).siblings('.warn').text(finAnswer).show();
     }
 })
 
 $('.valid7').click(function(){
-    var heightState= $("#height1").val().indexOf('return') > -1
+    var answers= [$('#height1')]
+    var curAnswers= [['return', 'd.height']]
+    var finAnswer= validator(answers, curAnswers)
 
-    if(heightState){
+    // REVIEW, make plant upside down with CSS
+    if(finAnswer === true){
         nextSide(this)
         $('.graph').css('border', 'none')
         d3step1()
         for(var i=0; i<1; i++){
-            $('.resize').children('.plant').append('<div><img class="eachplant" src="/img/d3garden/'+activePlant+'plant.png"></div>')
+            $('.resize').children('.plant').append('<div><img class="eachplant reversed" src="/img/d3garden/'+activePlant+'plant.png"></div>')
         }
         $('.resize').children('.plant').children('div').width(newWidth).height(newHeight)
     }
     else{
-        $(this).siblings('.warn').show();
+        $(this).siblings('.warn').text(finAnswer).show();
     }
 })
 
 $('.valid8').click(function(){
-    var xState= $("#x1").val().indexOf('d.width') > -1
+    var answers= [$('#x1')]
+    var curAnswers= [['return', 'd.width']]
+    var finAnswer= validator(answers, curAnswers)
 
-    if(xState){
+    if(finAnswer === true){
         nextSide(this)
         $('.graph').html('')
         d3step2()
         $('.resize').children('.plant').children('div').remove()
         for(var i=0; i<20; i++){
-            $('.resize').children('.plant').append('<div><img class="eachplant" src="/img/d3garden/'+activePlant+'plant.png"></div>')
+            $('.resize').children('.plant').append('<div><img class="eachplant reversed" src="/img/d3garden/'+activePlant+'plant.png"></div>')
         }
         $('.resize').children('.plant').children('div').width(newWidth).height(newHeight)
     }
     else{
-        $(this).siblings('.warn').show();
+        $(this).siblings('.warn').text(finAnswer).show();
     }
 })
 
 $('.valid9').click(function(){
-    var yState= $("#y1").val().indexOf('d.height') > -1
+    var answers= [$('#y1')]
+    var curAnswers= [['return', 'divHeight']]
+    var finAnswer= validator(answers, curAnswers)
 
-    if(yState){
+    if(finAnswer === true){
         nextSide(this)
         $('.graphProg').hide()
         runD3(eval(activeData))
@@ -307,7 +373,7 @@ $('.valid9').click(function(){
         $('.gardenDiv').show()
     }
     else{
-        $(this).siblings('.warn').show();
+        $(this).siblings('.warn').text(finAnswer).show();
     }
 })
 
@@ -424,65 +490,71 @@ $('.axesStart').click(function(){
 })
 
 $('.valid10').click(function(){
-    var xState1= $("#xscale1").val().indexOf('d3.scale.linear()') > -1
-    var xState2= $("#xscale2").val().indexOf('data.length') > -1
-    var xState3= $("#xscale3").val().indexOf('.range') > -1
+    var answers= [$('#xscale1'), $("#xscale2"), $("#xscale3")]
+    var curAnswers= [['scale', 'linear()', false], ['domain', 'data.length', false], ['range', 'width', false]]
+    var finAnswer= validator(answers, curAnswers)
 
-    if(xState1 && xState2 && xState3){
+    if(finAnswer === true){
         nextSide(this)
     }
     else{
-        $(this).siblings('.warn').show();
+        $(this).siblings('.warn').text(finAnswer).show();
     }
 })
 
 $('.valid11').click(function(){
-    var yState1= $("#yscale1").val().indexOf('d3.scale.linear()') > -1
-    var yState2= $("#yscale2").val().indexOf('d3.max') > -1
-    var yState3= $("#yscale3").val().indexOf('.range') > -1
 
-    if(yState1 && yState2 && yState3){
+    var answers= [$('#yscale1'), $("#yscale2"), $("#yscale3")]
+    var curAnswers= [['scale', 'linear()', false], ['d3.max', 'd.height', false], ['range', 'height', false]]
+    var finAnswer= validator(answers, curAnswers)
+
+    if(finAnswer === true){
         nextSide(this)
     }
     else{
-        $(this).siblings('.warn').show();
+        $(this).siblings('.warn').text(finAnswer).show();
     }
 })
 
 $('.valid12').click(function(){
-    var xaxis1= $("#xaxis1").val().indexOf('d3.svg.axis()') > -1
-    var xaxis2= $("#xaxis2").val().indexOf('.scale(xScale)') > -1
+    var answers= [$('#xaxis1'), $("#xaxis2")]
+    var curAnswers= [['svg', 'axis()', false], ['scale', 'xScale', false]]
+    var finAnswer= validator(answers, curAnswers)
 
-    if(xaxis1 && xaxis2){
+    if(finAnswer === true){
         nextSide(this)
     }
     else{
-        $(this).siblings('.warn').show();
+        $(this).siblings('.warn').text(finAnswer).show();
     }
 })
 
 $('.valid13').click(function(){
-    var xaxis3= $("#xaxis3").val().indexOf('.append') > -1
-    var xaxis4= $("#xaxis4").val().indexOf('xAxis') > -1
 
-    if(xaxis3 && xaxis4){
+    var answers= [$('#xaxis3'), $("#xaxis4")]
+    var curAnswers= [['append', 'g'], ['call', 'xAxis', false]]
+    var finAnswer= validator(answers, curAnswers)
+
+    if(finAnswer === true){
         nextSide(this)
         $('.resize').append("<img class='topLine' src='/img/fencehoriz.png'/>")
     }
     else{
-        $(this).siblings('.warn').show();
+        $(this).siblings('.warn').text(finAnswer).show();
     }
 })
 
 $('.valid14').click(function(){
-    var yaxis1= $("#yaxis1").val().indexOf('d3.svg.axis()') > -1
-    var yaxis2= $("#yaxis2").val().indexOf('.scale(yScale)') > -1
 
-    if(yaxis1 && yaxis2){
+    var answers= [$('#yaxis1'), $("#yaxis2")]
+    var curAnswers= [['svg', 'axis()', false], ['scale', 'yScale', false]]
+    var finAnswer= validator(answers, curAnswers)
+
+    if(finAnswer === true){
         nextSide(this)
     }
     else{
-        $(this).siblings('.warn').show();
+        $(this).siblings('.warn').text(finAnswer).show();
     }
 })
 
@@ -490,19 +562,26 @@ $('.valid15').click(function(){
     var yaxis3= $("#yaxis3").val().indexOf('.append') > -1
     var yaxis4= $("#yaxis4").val().indexOf('yAxis') > -1
 
-    if(yaxis3 && yaxis4){
+    var answers= [$('#yaxis3'), $("yxaxis4")]
+    var curAnswers= [['append', 'g'], ['call', 'yAxis', false]]
+    var finAnswer= validator(answers, curAnswers)
+
+    if(finAnswer === true){
         nextSide(this)
         $('.resize').append("<img class='leftLine' src='/img/fencevert.png'/>")
     }
     else{
-        $(this).siblings('.warn').show();
+        $(this).siblings('.warn').text(finAnswer).show();
     }
 })
 
 $('.valid16').click(function(){
-    var xaxis5= $("#xaxis5").val().indexOf('translate') > -1
 
-    if(xaxis5){
+    var answers= [$('#xaxis5')]
+    var curAnswers= [['transform', 'height']]
+    var finAnswer= validator(answers, curAnswers)
+
+    if(finAnswer === true){
         nextSide(this)
         $('.graphProg').hide()
         $('.gardenDiv').html('')
@@ -511,6 +590,6 @@ $('.valid16').click(function(){
         $('.gardenDiv').show()
     }
     else{
-        $(this).siblings('.warn').show();
+        $(this).siblings('.warn').text(finAnswer).show();
     }
 })

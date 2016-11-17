@@ -54,6 +54,10 @@ a:hover {
   text-decoration: underline;
 }
 
+.reversed{
+  transform: rotate( -180deg );
+}
+
 .actionBtn {
   border-radius: 2px;
   background-color: #f15a5a;
@@ -327,7 +331,7 @@ span.def{
   text-decoration: none;
 }
 
-.lastLink div, .codeSnip div.actionBtn2{
+.lastLink div, .codeSnip div.actionBtn2 , .codeSnip div.actionBtn{
   display: table;
   margin: auto;
 }
