@@ -1,4 +1,5 @@
 var pageCount= 0;
+var curWidth= '';
 
 $('#topBar img').click(function(){
     window.location.reload()

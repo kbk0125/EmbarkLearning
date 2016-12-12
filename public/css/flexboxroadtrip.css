@@ -1,0 +1,96 @@
+#main img{
+	width: 90%;
+	margin-top: 2%;
+	margin-left:2%;
+}
+
+#main img.interImg{
+	width: 90%;
+}
+
+.roadPlot{
+	position: absolute;
+	top:0;
+	left:0;
+	width:91%;
+	margin-left: 2%;
+	margin-top: 9%;
+}
+
+.topL{
+	width: 100%;
+}
+
+.topL1{
+	border-bottom: 3px dashed #3394d4
+}
+
+.topL2{
+	border-top: 3px dashed #3394d4
+}
+
+.topL p{
+	color:#404040;
+	display: inline-block;
+	font-size: 16px;
+	font-weight: 700;
+}
+
+.topL .rightLab{
+	float: right;
+}
+
+.lightUp{
+	position: absolute;
+	top:0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.lightUp div{
+	width:20%;
+	height: 20%;
+	display: none;
+	float: left;
+	opacity:0.5;
+}
+
+.stops{
+	display: flex;
+	border: 1px solid #ccc;
+	position: relative;
+}
+
+.stop{
+	height:22px;
+	width:14%;
+	border:1px solid #999;
+	background-color: orangered;
+	text-align: center;
+	color: white;
+	margin: 0 4px;
+	display: none;
+}
+
+.stopType2{
+	display: none;
+}
+
+.sampleDiv{
+	height:50px;
+	width:14%;
+	border:1px solid #aaa;
+	background-color: #e6e6e6;
+	border-radius:4px;
+	display: none;
+}
+
+.sampleHead{
+	width:100%;
+	padding:4px 0;
+	color:#404040;
+	background-color: #ccc;
+	text-align: center;
+	font-weight: 700;
+}

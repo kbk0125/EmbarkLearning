@@ -1,0 +1,741 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name='description' content='An interactive CSS flexbox tutorial for beginners that teaches all the basics through roadtripping across the United States.'>
+    <title>Flexbox Roadtrip | Learn CSS Flexbox</title>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <meta name="viewport", content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Flexbox Roadtrip | Learn CSS Flexbox">
+    <meta property="og:type" content="website" >       
+    <meta property="og:url" content="https://www.rtfmanual.io/flexboxroadtrip/">
+    <meta property="og:description" content="An interactive CSS flexbox tutorial for beginners that teaches all the basics through roadtripping across the United States.">
+    <meta property="og:image" content="https://s21.postimg.org/j832mbw53/mainimg.png">
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@devmanual" />
+    <meta name="twitter:title" content="Plan a Roadtrip with Flexbox" />
+    <meta name="twitter:description" content="An interactive CSS flexbox tutorial" />
+    <meta name="twitter:image" content="https://s21.postimg.org/j832mbw53/mainimg.png" />
+    
+    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="/css/flexboxroadtrip.css">
+    <link rel="stylesheet" type="text/css" href="/css/tutorials.css">
+    <link rel="stylesheet" type="text/css" href="/css/prism.css">
+    <link rel="shortcut icon" type="image/ico" href='/img/roadtrip/favicon.ico'>
+</head>
+<body>
+    <div id='container'>
+        <div class='intro'>
+            <div class='ctr'>
+                <h1> Learn CSS Flexbox by Roadtripping Across the Country </h1>
+                <p> Master the fundamentals of CSS flexbox with this interactive tutorial </p>
+                <div class='actionBtn startbtn'> Get Started </div>
+                <p class='startChal'> Skip to Practice Section </p>
+            </div>
+        </div>
+        <div id="topBar">
+            <img src='/img/roadtrip/mainimg.png'>
+            <h3> Flexbox Roadtrip </h3>
+            <a href='https://docs.google.com/forms/d/e/1FAIpQLSduCP7uKZowR6guEAsKi85mZPm3qKQHEKv0snurwUJam4ukPA/viewform' target="_blank"><div class='actionBtn'> Give Feedback </div></a>
+        </div>
+        <div id='main'>
+            <div class=' actionbtn small codeSub'> Show as Web Layout </div>
+            <div class=' actionbtn3 small showHTML'> Show HTML </div>
+            <pre class='htmlSnip snip1'><code class="language-markup">&lt;div class="northernRoadtrip"&gt;
+    &lt;div class="seattleVisit"&gt;&lt;/div&gt;
+    &lt;div class="yellowstoneVisit"&gt;&lt;/div&gt;
+    &lt;div class="mountrushmoreVisit"&gt;&lt;/div&gt;
+    &lt;div class="chicagoVisit"&gt;&lt;/div&gt;
+    &lt;div class="bostonVisit"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <pre class='htmlSnip snip2'><code class="language-markup">&lt;div class="westernRoadtrip"&gt;
+    &lt;div class="seattleVisit"&gt;&lt;/div&gt;
+    &lt;div class="portlandVisit"&gt;&lt;/div&gt;
+    &lt;div class="norCalVisit"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <pre class='htmlSnip snip3'><code class="language-markup">&lt;div class="westernRoadtrip"&gt;
+    &lt;div class="seattleVisit"&gt;&lt;/div&gt;
+    &lt;div class="sanFranVisit"&gt;&lt;/div&gt;
+    &lt;div class="sanDiegoVisit"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <pre class='htmlSnip snip4'><code class="language-markup">&lt;div class="centralRoadtrip"&gt;
+    &lt;div class="sanFranVisit"&gt;&lt;/div&gt;
+    &lt;div class="stLouisVisit"&gt;&lt;/div&gt;
+    &lt;div class="washingtonDCVisit"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <pre class='htmlSnip snip5'><code class="language-markup">&lt;div class="detourRoadtrip"&gt;
+    &lt;div class="seattleVisit"&gt;&lt;/div&gt;
+    &lt;div class="denverVisit"&gt;&lt;/div&gt;
+    &lt;div class="mountrushmoreVisit"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <pre class='htmlSnip snip6'><code class="language-markup">&lt;div class="otherRoadtrip"&gt;
+    &lt;div class="seattleVisit"&gt;&lt;/div&gt;
+    &lt;div class="yellowstoneVisit"&gt;&lt;/div&gt;
+    &lt;div class="mountrushmoreVisit"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <div class='roadPlot'>
+                <div class='topL topL1'>
+                    <p class='leftLab'> 0 Days </p>
+                    <p class='rightLab'> 14 Days </p>
+                </div>
+                <div class='stops'>
+                    <div class='lightUp'>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class='sampleDiv origdiv'>
+                        <div class='sampleHead'> 1. Sample Div </div>
+                    </div>
+                    <div class='sampleDiv origdiv'>
+                        <div class='sampleHead'> 2. Sample Div </div>
+                    </div>
+                    <div class='sampleDiv origdiv'>
+                        <div class='sampleHead'> 3. Sample Div </div>
+                    </div>
+                    <div class='sampleDiv divType2'>
+                        <div class='sampleHead'> 4. Sample Div </div>
+                    </div>
+                    <div class='sampleDiv divType2'>
+                        <div class='sampleHead'> 5. Sample Div </div>
+                    </div>
+                    <div class='stop origStop'>Stop 1- 2 Days</div>
+                    <div class='stop origStop'>Stop 2-2 Days</div>
+                    <div class='stop origStop'>Stop 3-2 Days</div>
+                    <div class='stop stopType2'>Stop 4-2 Days</div>
+                    <div class='stop stopType2'>Stop 5-2 Days</div>
+                </div>
+                <div class='topL topL2'>
+                    <p class='leftLab'> 0 Days </p>
+                    <p class='rightLab'> 14 Days </p>
+                </div>
+            </div>
+            <img class='backgroundImg' src='/img/roadtrip/blankUSmap3.svg'>
+        </div>
+        <div id='side'>
+            <div class='sideSect first'>
+                <div class='header'>
+                    <h2> Go On a Flexbox Roadtrip </h2>
+                    <p> This tutorial will help you learn the major principles of CSS flexbox so you can create responsive websites. </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Why do I need this? </h3>
+                    <p> Flexbox introduces an entirely different way to build responsive websites. No display inline-block/block, and no floats! If you can successfully learn the basics, you can write more maintanable code that is ready for mobile responsiveness </p>
+                    <h3> What is the focus? </h3>
+                    <p> You will plan a roadtrip using these properties: </p>
+                    <ul>
+                        <li> justify-content </li>
+                        <li> flex-direction </li>
+                        <li> align-items </li>
+                        <li> align-self </li>
+                        <li> order </li>
+                    </ul>
+                    <h3> What do I need to know first? </h3>
+                    <p> You need to know HTML basics, as well as CSS's position property and display property.</p>
+                </div>
+                <div class='actionBtn2 begin'> Go to Step 1 </div>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> The Ground Rules (1/18) </h2>
+                    <p> Let's establish some basic definitions </p>
+                </div>
+                <div class='actionBtn3 showGrid'> Show Grid </div>
+                <div class='txtbod'>
+                    <h3> Here are the rules for our roadtrip: </h3>
+                    <p> 1. The US Highway System is actually arranged on a grid system, going east-west and north-south. Click the button above to check it out. </p>
+                    <p> 2. For this tutorial, you can only travel along one direction at a time. Only north, south, east or west.</p>
+                    <p> 3. Our start point will be Seattle, in the top left corner. </p>
+                </div>
+                <div class='actionBtn2 next hideGrid'> Go to Step 2 </div>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> The First Roadtrip (2/18) </h2>
+                    <p> We will go east from Seattle to Boston first </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Here is a very basic example. </h3>
+                    <p> On our first trip, we will be taking the route east, from Seattle to Boston. We will be making three stops for 2 days apiece, the first will be Seattle itself, followed by Yellowstone National Park, followed by Mount Rushmore. </p>
+                    <h3> The final HTML will look like... </h3>
+                    <pre><code class="language-markup">&lt;div class="northernRoadtrip"&gt;
+    &lt;div class="seattleVisit"&gt;&lt;/div&gt;
+    &lt;div class="yellowstoneVisit"&gt;&lt;/div&gt;
+    &lt;div class="mountrushmoreVisit"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 next'> Go to Step 3 </div>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> justify-content (3/18) </h2>
+                    <p> Determining left-to right spread of the trip </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> justify-content determines horizontal spacing </h3>
+                    <p> We can use justify-content to determine how our stops are spread out across the country. The default value is "flex-start", which aligns all divs to the left side. </p>
+                    <h3> The final CSS will look like... </h3>
+                    <pre><code class="language-css"> .northernRoadtrip{
+    display:flex;
+    justify-content:flex-start;
+}</code></pre>
+                    <h3> Quick review of other options: </h3>
+                    <ul>
+                        <li> Flex-end: all three stops on the east side of country</li>
+                        <li> Center: all three stops in the middle of the country</li>
+                        <li> Space-between: stop once at beginning and end with even spaced stops in middle</li>
+                        <li> Space-around: Three evenly spaced stops in the middle of the country without stopping at beginning or end</li>
+                    </ul>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 next'> Go to Step 4 </div>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> justify-content (4/18) </h2>
+                    <p> Determining left to right spread of the trip </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Here is a test for you! </h3>
+                    <p> Let's say you want to stop in Yellowstone, Mount Rushmore and Chicago for 2 days apiece. What justify-content property would you use? Click "Show HTML" on the left if you need to review HTML structure. </p>
+                    <h3> Quick review of options: </h3>
+                    <ul>
+                        <li> Flex-end: all three stops on the right side of country</li>
+                        <li> Center: all three stops in the middle of the country</li>
+                       <li> Space-between: stop once at beginning and end with even spaced stops in middle</li>
+                        <li> Space-around: Three evenly spaced stops in the middle of the country without stopping at beginning or end</li>
+                    </ul>
+                    <h3> The final CSS will look like... </h3>
+                    <pre class='prettyprint'><p>.northernRoadtrip{
+    display:flex;
+    <input type='text' name='justInput1' id='rel1'>
+}</p></pre>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 valid1'> Go to Step 5 </div>
+                <p class='warn'> Does your answer contain a valid justify-content value? </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> justify-content (5/18) </h2>
+                    <p> Determining left to right spread of the trip </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Here is one more test </h3>
+                    <p> Alright, now you want to stop in 5 areas across the US - Seattle, Yellowstone, Mount Rushmore, Chicago, and Boston. What justify-content property would you use? Click "Show HTML" on the left if you need to review HTML structure. </p>
+                    <h3> Quick review of options: </h3>
+                    <ul>
+                        <li> Flex-end: all three stops on the right side of country</li>
+                        <li> Center: all three stops in the middle of the country</li>
+                        <li> Space-between: stop once at beginning and end with even spaced stops in middle</li>
+                        <li> Space-around: Three evenly spaced stops in the middle of the country without stopping at beginning or end</li>
+                    </ul>
+                    <h3> The final CSS will look like... </h3>
+                    <pre class='prettyprint'><p>.northernRoadtrip{
+    display:flex;
+    <input type='text' name='justInput2' id='rel2'>
+}</p></pre>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 valid2'> Go to Step 6 </div>
+                <p class='warn'> Does your answer contain a valid justify-content value? </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> flex-direction (6/18) </h2>
+                    <p> Determining if divs flow horizontally or vertically </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Here is a very basic example. </h3>
+                    <p> On our next trip, we will be taking the route south, with stops in Seattle, Portland and Northern California. The trip ends in San Diego.</p>
+                    <h3> The final HTML will look like... </h3>
+                    <pre><code class="language-markup">&lt;div class="westernRoadtrip"&gt;
+    &lt;div class="seattleVisit"&gt;&lt;/div&gt;
+    &lt;div class="portlandVisit"&gt;&lt;/div&gt;
+    &lt;div class="norCalVisit"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 next vertTrip'> Go to Step 7 </div>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> flex-direction (7/18) </h2>
+                    <p> Determining if divs flow horizontally or vertically </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> flex-direction allows us to go vertical </h3>
+                    <p> We can use flex-direction to go north-south. The default value is "row", which is left to right. "Column" allows us to go north to south. </p>
+                    <h3> The final CSS will look like... </h3>
+                    <pre><code class="language-css"> .westernRoadtrip{
+    display:flex;
+    flex-direction:column;
+}</code></pre>
+                    <h3> Quick review of other options: </h3>
+                    <ul>
+                        <li> Column: Travel top to bottom</li>
+                        <li> Column-reverse: Travel bottom to top</li>
+                        <li> row-reverse: right to left</li>
+                    </ul>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 next'> Go to Step 8 </div>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> flex-direction (8/18) </h2>
+                    <p> Determining if divs flow horizontally or vertically </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Simply stating flex-direction is not enough. </h3>
+                    <p> What kind of roadrip takes three stops at the very beginning, then drives 20 hours straight without stopping in California? Not a roadtrip you would want to be on. </p>
+                    <p> You can combine "justify-content" with "flex-direction" to spread your divs vertically. </p>
+                    <p>What combo would you use if you wanted to stop in Seattle, San Francisco and San Diego? Click "Show HTML" if you need a snippet. </p>
+                    <h3> Quick review of justify-content options: </h3>
+                    <ul>
+                        <li> Flex-end: all three stops at the end</li>
+                        <li> Center: all three stops in the middle</li>
+                        <li> Space-between: stop once at beginning and end with even spaced stops in middle</li>
+                        <li> Space-around: Three evenly spaced stops in the middle of the country without stopping at beginning or end</li>
+                    </ul>
+                    <h3> The final CSS will look like... </h3>
+                    <pre class='prettyprint'><p>.westernRoadtrip{
+    display:flex;
+    <textarea type='text' name='flexInput1' id='flex1'></textarea>
+}</p></pre>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 valid3'> Go to Step 9 </div>
+                <p class='warn'> Does your answer contain a valid flex-direction value? </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> flex-direction (9/18) </h2>
+                    <p> Determining if divs flow horizontally or vertically </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> One more challenge </h3>
+                    <p> Alright, now let's say you want to go the opposite direction. You want to start in San Diego and hang out there for a few days, then head up to San Francisco, then finish the trip in Seattle. </p>
+                    <p> The HTML is going to stay the same, so what CSS would you use to complete this trip, where you start at the bottom and go up? </p>
+                    <h3> Quick review of flex-direction options: </h3>
+                    <ul>
+                        <li> Column: Travel top to bottom</li>
+                        <li> Column-reverse: Travel bottom to top</li>
+                        <li> row-reverse: right to left</li>
+                    </ul>
+                    <h3> The final CSS will look like... </h3>
+                    <pre class='prettyprint'><p>.westernRoadtrip{
+    display:flex;
+    <textarea type='text' name='flexInput2' id='flex2'></textarea>
+}</p></pre>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 valid4'> Go to Step 10 </div>
+                <p class='warn'> Does your answer contain a valid flex-direction value? </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> align-items (10/18) </h2>
+                    <p> Determining if divs flow horizontally or vertically </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Here is a very basic example. </h3>
+                    <p> Perhaps you know what to expect next! On our next trip, we will be taking the route east, starting in San Francisco, then stopping in Saint Louis, then ending in Washington DC. That's right, now we can adjust the vertical position of the whole line</p>
+                    <h3> The final HTML will look like... </h3>
+                    <pre><code class="language-markup">&lt;div class="centralRoadtrip"&gt;
+    &lt;div class="sanFranVisit"&gt;&lt;/div&gt;
+    &lt;div class="stLouisVisit"&gt;&lt;/div&gt;
+    &lt;div class="washDCVisit"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 next horizTrip'> Go to Step 11 </div>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> align-items (11/18) </h2>
+                    <p> Determining how far north or south your divs will go </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> align items allows us to take multiple paths across the country </h3>
+                    <p> If we want to take the central route across the US from west to east, we need to move all divs south! Align-items allows us to do this. </p>
+                    <h3> The final CSS will look like... </h3>
+                    <pre><code class="language-css"> .centralRoadtrip{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}</code></pre>
+                    <h3> Quick review of other options: </h3>
+                    <ul>
+                        <li> flex-start: default</li>
+                        <li> flex-end: Align to bottom of United States</li>
+                    </ul>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 next'> Go to Step 12 </div>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> align-items (12/18) </h2>
+                    <p> Determining how far north or south your divs will go </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Now let's combine a couple concepts. </h3>
+                    <p> In the last part, we just looked at taking a central route. Now let's combine two concepts you have already learned. </p>
+                    <p> Now, you want to take a roadtrip that starts in Jacksonville, FL, in the southeast corner of the US. You then want to stop in Dallas, Texas, then head on over to San Diego. You are starting east, and going west, and you need to write the CSS to get there. </p>
+                    <h3> Quick review of align-items options: </h3>
+                    <ul>
+                        <li> flex-start: default</li>
+                        <li> center: align to center of united states</li>
+                        <li> flex-end: Align to bottom of United States</li>
+                    </ul>
+                    <h3> The final CSS will look like... </h3>
+                    <pre class='prettyprint'><p>.southernRoadtrip{
+    display:flex;
+    justify-content:space-between;
+    <textarea type='text' name='alignInput1' id='align1'></textarea>
+}</p></pre>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 valid5'> Go to Step 13 </div>
+                <p class='warn'> Does your answer contain a valid flex-direction value? </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> align-self (13/18) </h2>
+                    <p> Finally able to move outside of a straight line </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Make stops along different routes </h3>
+                    <p> So far, all the rules have assumed that you are travelling along one route- going north, south, east or west. Of course, on real roadtrips, you probably want to make a detour in order to see speficic sites. Align-self allows you to change your north-south positioning so you can take a stop that is out of line with the rest.</p>
+                    <p> Now we are taking a roadtrip that starts in Seattle, stops in Denver before heading back up to Mount Rushmore.</p>
+                    <h3> The final HTML will look like... </h3>
+                    <pre><code class="language-markup">&lt;div class="detourRoadtrip"&gt;
+    &lt;div class="seattleVisit"&gt;&lt;/div&gt;
+    &lt;div class="denverVisit"&gt;&lt;/div&gt;
+    &lt;div class="mountrushmoreVisit"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 next varyTrip'> Go to Step 14 </div>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> align-self (14/18) </h2>
+                    <p> Finally able to move outside of a straight line </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> align-self allows us to take a detour</h3>
+                    <p> Denver is not along the northern roadtrip, but we need to write the CSS that will allow us to stop there. </p>
+                    <h3> The final CSS will look like... </h3>
+                    <pre><code class="language-css"> .detourRoadtrip{
+    display:flex;
+    justify-content:flex-start;
+    align-items:flex-start;
+}
+.denverVisit{
+    align-self:center;
+}</code></pre>
+                    <h3> Quick review of other options: </h3>
+                    <ul>
+                        <li> flex-start: default</li>
+                        <li> center: Align to center of United States</li>
+                        <li> flex-end: Align to bottom of United States</li>
+                    </ul>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 next'> Go to Step 15 </div>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> align-self (15/18) </h2>
+                    <p> Finally able to move outside of a straight line </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Here's your challenge </h3>
+                    <p> Now, you want to take a roadtrip that starts in San Francisco, makes a stop in Chicago (northern), then heads on to Washington DC to finish the trip. You need to write the CSS to get there. </p>
+                    <h3> Quick review of align-items options: </h3>
+                    <ul>
+                        <li> flex-start: default</li>
+                        <li> center: align to center of united states</li>
+                        <li> flex-end: Align to bottom of United States</li>
+                    </ul>
+                    <h3> The final CSS will look like... </h3>
+                    <pre class='prettyprint'><p>.detourRoadtrip{
+    display:flex;
+    justify-content:space-between;
+    <input type='text' name='detourInput1' id='detour1'></textarea>
+}
+.chicagoVisit{
+    <input type='text' name='detourInput2' id='detour2'></textarea>
+}</p></pre>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 valid6'> Go to Step 16 </div>
+                <p class='warn'> Does your answer contain a valid align-self value? </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> order (16/18) </h2>
+                    <p> Divs appear in different order than HTML </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Make your stops out of order </h3>
+                    <p> Alright, most logical people would make their stops in a general order that would not cause them to double back and create extra driving. But sometimes, there are exceptions. Like that sausage making competition in Chicago that you absolutely need to see. Or a square dance festival near Mount Rushmore.</p>
+                    <p> What if our roadtrip starts in Seattle, but then goes to Mount Rushmore before heading back to Yellowstone. BUT...</p>
+                    <h3> The final HTML will look like... </h3>
+                    <pre><code class="language-markup">&lt;div class="otherRoadtrip"&gt;
+    &lt;div class="seattleVisit"&gt;&lt;/div&gt;
+    &lt;div class="yellowstoneVisit"&gt;&lt;/div&gt;
+    &lt;div class="mountrushmoreVisit"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 next horizTrip2'> Go to Step 17 </div>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> order (17/18) </h2>
+                    <p> Divs appear in different order than HTML </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Change the order around with HTML</h3>
+                    <p> The Mount Rushmore trip is third in HTML, but should be second stop on the trip. We can use the order property to fix this. The default value for order is 0, so we can change the system around by giving seattleVisit a value of -2, and mountRushmoreVisit a value of -1. Yellowstone will follow.</p>
+                    <h3> The final CSS will look like... </h3>
+                    <pre><code class="language-css"> .otherRoadtrip{
+    display:flex;
+    justify-content:flex-start;
+    align-items:flex-start;
+}
+.seattleVisit{
+    order:-2;
+}
+.mountRushmoreVisit{
+    order:-1;   
+}</code></pre>
+                    <h3> Quick review of order </h3>
+                    <ul>
+                        <li> Lowest ordered div comes first</li>
+                        <li> Divs no longer reflect the order of HTML</li>
+                    </ul>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 next changeOrder'> Go to Step 18 </div>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> order (18/18) </h2>
+                    <p> Divs appear in different order than HTML </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Here's your challenge </h3>
+                    <p> Now, you want to take a roadtrip that starts in San Francisco, makes a stop in Denver, then goes backward to Salt Lake City. You need to write the CSS to get there. </p>
+                    <h3> Quick review of order </h3>
+                    <ul>
+                        <li> Lowest ordered div comes first </li>
+                        <li> Divs no longer reflect the order of HTML </li>
+                    </ul>
+                    <h3> The final CSS will look like... </h3>
+                    <pre class='prettyprint'><p>.otherRoadtrip{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+}
+.sanfranRoadtrip{
+    <input type='text' name='otherInput1' id='other1'></textarea>
+}
+.denverRoadtrip{
+    <input type='text' name='otherInput2' id='other2'></textarea>
+}</p></pre>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 valid7'> Go To Practice Problems </div>
+                <p class='warn'> Does your answer contain a valid order value? </p>
+            </div>
+            <div class='sideSect practiceStart'>
+                <div class='header'>
+                    <h2> Challenge 1/5 </h2>
+                    <p> Test out your skills </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Here's your challenge </h3>
+                    <p> Here is your trip. Can you write the code that will get you there? </p>
+                    <p> Start in Seattle </p>
+                    <p> Continue to Saint Louis </p>
+                    <p> End in Jacksonville </p>
+                    <h3> The final CSS will look like... </h3>
+                    <pre class='prettyprint'><p>.roadtrip{
+    display:flex;
+    align-items:flex-start;
+    flex-direction:row;
+    justify-content:space-between;
+}
+.stLouisRoadtrip{
+    <input type='text' name='chalInput1' id='chal11'></textarea>
+}
+.jacksonvilletrip{
+    <input type='text' name='otherInput2' id='chal12'></textarea>
+}</p></pre>
+                </div>
+                <a target="__blank" href='https://css-tricks.com/snippets/css/a-guide-to-flexbox/'><p>Review the Docs</p></a>
+                <div class='actionBtn3 hBox1'> Highlight on Map </div>
+                <div class='actionBtn2 chalvalid1'> Run It </div>
+                <p class='warn'> Do you remember which property moves individual divs vertically? </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Challenge 2/5 </h2>
+                    <p> Test out your skills </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Here's your challenge </h3>
+                    <p> Here is your trip. Can you write the code that will get you there? </p>
+                    <p> Start in Dallas </p>
+                    <p> Continue to San Francisco </p>
+                    <p> End in Mount Rushmore </p>
+                    <h3> The final CSS will look like... </h3>
+                    <pre class='prettyprint'><p>.roadtrip{
+    display:flex;
+    justify-content:space-between;
+    <textarea type='text' name='chalInput2' id='chal21'></textarea>
+}
+.sanFranRoadtrip{
+    <input type='text' name='chalInput2' id='chal22'>
+}</p></pre>
+                </div>
+                <a target="__blank" href='https://css-tricks.com/snippets/css/a-guide-to-flexbox/'><p>Review the Docs</p></a>
+                <div class='actionBtn3 hBox2'> Highlight on Map </div>
+                <div class='actionBtn2 chalvalid2'> Run It </div>
+                <p class='warn'> Do you remember how the system changes when you change flex-direction? </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Challenge 3/5 </h2>
+                    <p> Test out your skills </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Here's your challenge </h3>
+                    <p> Here is your trip. Can you write the code that will get you there? </p>
+                    <p> Start in Boston </p>
+                    <p> Continue to Mount Rushmore </p>
+                    <p> End in San Diego </p>
+                    <h3> The final CSS will look like... </h3>
+                    <pre class='prettyprint'><p>.roadtrip{
+    display:flex;
+    justify-content:space-between;
+    <textarea type='text' name='chalInput3' id='chal31'></textarea>
+}
+.sanDiegoRoadtrip{
+    <input type='text' name='chalInput3' id='chal32'>
+}</p></pre>
+                </div>
+                <a target="__blank" href='https://css-tricks.com/snippets/css/a-guide-to-flexbox/'><p>Review the Docs</p></a>
+                <div class='actionBtn3 hBox3'> Highlight on Map </div>
+                <div class='actionBtn2 chalvalid3'> Run It </div>
+                <p class='warn'> Do you remember how the system changes when you change flex-direction? </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Challenge 4/5 </h2>
+                    <p> Test out your skills </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Here's your challenge </h3>
+                    <p> Here is your trip. Can you write the code that will get you there? </p>
+                    <p> Start in Buffalo </p>
+                    <p> Continue to Saint Louis </p>
+                    <p> End in Idaho </p>
+                    <h3> The final CSS will look like... </h3>
+                    <pre class='prettyprint'><p>.roadtrip{
+    display:flex;
+    align-items:flex-start
+    <textarea type='text' name='chalInput4' id='chal41'></textarea>
+}
+.saintlouisRoadtrip{
+    <input type='text' name='chalInput4' id='chal42'>
+}</p></pre>
+                </div>
+                <a target="__blank" href='https://css-tricks.com/snippets/css/a-guide-to-flexbox/'><p>Review the Docs</p></a>
+                <div class='actionBtn3 hBox4'> Highlight on Map </div>
+                <div class='actionBtn2 chalvalid4'> Run It </div>
+                <p class='warn'> Do you remember how to align divs so that they do not hug the borders of the container? </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Challenge 5/5 </h2>
+                    <p> Test out your skills </p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Here's your challenge </h3>
+                    <p> Here is your trip. Can you write the code that will get you there? </p>
+                    <p> Start in San Diego </p>
+                    <p> Continue to Saint Louis </p>
+                    <p> End in Seattle </p>
+                    <h3> The final CSS will look like... </h3>
+                    <pre class='prettyprint'><p>.roadtrip{
+    display:flex;
+    align-items:flex-start
+    <textarea type='text' name='chalInput5' id='chal51'></textarea>
+}
+.saintlouisRoadtrip{
+    <input type='text' name='chalInput5' id='chal52'>
+}</p></pre>
+                </div>
+                <a target="__blank" href='https://css-tricks.com/snippets/css/a-guide-to-flexbox/'><p>Review the Docs</p></a>
+                <div class='actionBtn3 hBox5'> Highlight on Map </div>
+                <div class='actionBtn2 chalvalid5'> Run It </div>
+                <p class='warn'> Do you remember how to align divs so that they do not hug the borders of the container? </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Congrats! You made it!</h2>
+                    <p> Hit the "Feedback" button above if you have suggestions. </p>
+                </div>
+            </div>
+            <div class='footer'>
+                <p> <a href='https://medium.freecodecamp.com/css-flexbox-explained-by-road-tripping-across-the-country-1217b69c390e#.3wvyrundj' target='__blank'>Read the original article</a> on Medium
+                </p>
+            </div>
+        </div>
+    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" charset="utf-8"></script> 
+<script src="/js/prism.js"></script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?autoload=true&amp;skin=sunburst"></script>   
+<script src='/js/flexboxroadtrip.js'> </script>   
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-74762625-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

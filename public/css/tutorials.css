@@ -41,9 +41,14 @@ svg {
   margin: 0;
 }
 
+li{
+  color: #404040;
+  font-size: 14px;
+}
+
 input,
 textarea {
-  font-family: inherit;
+  font-family: monospace;
 }
 
 a {
@@ -52,6 +57,18 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+pre.prettyprint{
+  margin: 8px 0 !important;
+  padding: 0.5em !important;
+}
+
+pre.prettyprint.inline{
+  width: auto !important;
+  display: inline-block !important;
+  margin: 0 !important;
+  padding: 0.25em !important
 }
 
 img.resetStyle, div.resetStyle{
@@ -89,7 +106,7 @@ img.resetStyle, div.resetStyle{
   cursor: pointer;
 }
 
-.actionBtn3.small{
+.actionBtn3.small, .actionBtn2.small, .actionBtn.small{
   font-size: 14px;
   padding: 0.25em 0.5em;
 }
@@ -176,158 +193,18 @@ span.def{
   background-color: #ecf0f1;
 }
 
-.showHTML, .showHTML2{
+.showHTML, .showHTML2, .codeSub{
   float:right;
   margin: 8px 8px 0 0;
-  display: none;
+  clear:right;
 }
 
 .htmlSnip, .htmlSnip2{
   z-index: 100;
   right:8px;
-  top:48px;
+  top:64px;
   position: absolute;
   width: auto !important;
-  display: none;
-}
-
-#main .imgs{
-  margin: auto;
-  display: block;
-  position: absolute;
-  width: 20%;
-  vertical-align: bottom;
-  bottom: 10px;
-  left: 41%;
-}
-
-.imgs.fat{
-  width:60% !important;
-  left:19% !important;
-}
-
-.imgs img{
-  position: relative;
-}
-
-.imgs .firstImg{
-  width: 100%;
-}
-
-.livingRoom{
-  display: none;
-}
-
-.entertainmentCtr{
-  width: 60%;
-  position: absolute;
-  bottom: 0;
-  left:20%;
-  text-align: center;
-}
-
-.tv{
-  width:60%;
-  margin:0 auto;
-}
-
-.stand{
-  width: 100%;
-}
-
-.books{
-  position: relative;
-  width:36%;
-}
-
-.book1{
-  left:3%;
-}
-
-.book2{
-  left:30%;
-}
-
-.light{
-  width:120px;
-  position: absolute;
-  top:40px;
-}
-
-.light1{
-  left:20%;
-}
-
-.light2{
-  right: 20%;
-}
-
-.phantomOverlay{
-  position: absolute;
-  height: 15%;
-  top:71%;
-  width: 93%;
-  left:3.5%;
-}
-
-.phantBox{
-  width: 33.3%;
-  text-align: left;
-  float:left;
-  height: 100%;
-  display: inline-block;
-}
-
-.etSummary{
-  display: none;
-}
-
-.absoluted{
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  right: 0;
-  left: 0;
-  margin: auto;
-}
-
-.rightBrdr{
-  height:200%;
-  position: absolute;
-  width:2px;
-  bottom: 0;
-  background-color: #aaa;
-  right:-10px;
-  display: none;
-}
-
-.rightLabel{
-  position: absolute;
-  bottom:196%;
-  right:-153px;
-  display: none;
-}
-
-.glassBrdr{
-  height:57%;
-  position: absolute;
-  width:2px;
-  bottom: 0;
-  background-color: #3394d4;
-  right:-20px;
-  display: none;
-}
-
-.showScoops, .showETCenter, .testBtn{
-  display: table;
-  margin: 8px auto;
-}
-
-.glassLabel{
-  position: absolute;
-  bottom:54%;
-  right:-164px;
-  color:#3394d4;
   display: none;
 }
 
@@ -355,38 +232,16 @@ span.def{
   cursor: pointer;
 }
 
-.sideSect.codeSnip{
-  text-align: left;
-}
-
-.sideSect p.fillIn{
-  margin-top: 8px;
-  color: #404040;
-}
-
-.lastLink{
-  text-align: center;
-}
-
-.lastLink:hover{
-  text-decoration: none;
-}
-
-.lastLink div, .codeSnip div.actionBtn2{
-  display: table;
-  margin: auto;
-}
-
-.codeSnip code{
-  font-size: 14px;
-}
-
 .sideSect.first{
   display: block;
 }
 
 .sideSect .header, .sideSect .txtbod, .sideSect .uniqData{
   text-align: left;
+}
+
+.txtbod {
+  padding-top: 12px;
 }
 
 .txtbod > p{
@@ -416,10 +271,6 @@ span.def{
   margin-top: 12px;
 }
 
-.txtbod {
-  padding-top: 12px;
-}
-
 .sideSect .actionBtn2{
   display: inline-block;
   margin: 24px auto 0 auto;
@@ -439,30 +290,11 @@ span.def{
   border-radius: 2px;
   color: #fafafa;
   resize:none;
+  font-size: 14px;
 }
 
 .sideSect > h3{
   margin: 12px 0;
-}
-
-.seedType{
-  text-align: center;
-  width: 25%;
-  padding: 0 8px;
-  display: inline-block;
-}
-
-.seedType .actionBtn3{
-  margin-top: 4px;
-  display: inline-block;
-}
-
-.uniqData{
-  margin-top: 12px;
-}
-
-.seedType img{
-  height: 40px;
 }
 
 .footer{
@@ -478,20 +310,4 @@ span.def{
 
 .footer p{
   color: #404040;
-}
-
-pre.prettyprint{
-  margin: 8px 0 !important;
-  padding: 0.5em !important;
-}
-
-pre.prettyprint p{
-  font-family: monospace;
-}
-
-pre.prettyprint.inline{
-  width: auto !important;
-  display: inline-block !important;
-  margin: 0 !important;
-  padding: 0.25em !important
 }

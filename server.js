@@ -133,6 +133,10 @@ app.get('/forloopfactory', function(req, res) {
 	res.sendFile(path.join(__dirname + '/public/forloopfactory/index.html'));
 });
 
+app.get('/flexboxroadtrip', function(req, res) {
+	res.sendFile(path.join(__dirname + '/public/flexboxroadtrip/index.html'));
+});
+
 app.get('/d3garden', function(req, res) {
 	res.sendFile(path.join(__dirname + '/public/d3garden/index.html'));
 });
