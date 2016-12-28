@@ -202,9 +202,8 @@ p{
 }
 
 .card .minor{
-  font-weight: 300;
   font-size: 14px;
-  margin-bottom: 4px;
+  margin: 4px 0 8px 0;
 }
 
 .card img{
@@ -343,6 +342,10 @@ p{
 
   .bodySec{
     width: 83%;
+  }
+
+  .card .minor{
+    margin: 4px 0 12px 0;
   }
 
   .topLine{
