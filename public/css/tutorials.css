@@ -11,7 +11,7 @@ body {
 }
 
 @font-face {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 @font-face {
@@ -22,7 +22,7 @@ h1,
 h2,
 h3 {
   color: #404040;
-  font-family: 'Lato';
+  font-family: 'Roboto';
   font-weight: 700;
   margin: 0;
 }
@@ -35,15 +35,19 @@ textarea,
 div,
 text,
 svg {
-  color: #999;
-  font-family: 'Lato';
+  color: #737373;
+  font-family: 'Roboto';
   font-weight: 400;
   margin: 0;
 }
 
+ul{
+  padding-left: 24px;
+}
+
 li{
   color: #404040;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 input,
@@ -62,6 +66,12 @@ a:hover {
 pre.prettyprint{
   margin: 8px 0 !important;
   padding: 0.5em !important;
+  font-size:16px;
+  font-family: monospace;
+}
+
+pre.prettyprint p{
+  font-family: monospace;
 }
 
 pre.prettyprint.inline{
@@ -116,23 +126,42 @@ img.resetStyle, div.resetStyle{
   display: none;
 }
 
+.warn span{
+  font-family: monospace;
+  color: #404040;
+}
+
 span.def{
   color: #690;
 }
 
-.intro{
+.intro, .compBox{
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  z-index:8;
   background-color: rgba(255,255,255, 0.9)
+}
+
+.intro{
+  z-index:8;
+}
+
+.compBox{
+  z-index: 7;
+  display: none;
+}
+
+.compBox .fa{
+  font-size: 60px;
+  color: green;
+  margin-bottom:8px;
 }
 
 .ctr{
   text-align: center;
-  width: 780px;
+  width: 810px;
   height: 125px;
   position: absolute;
   top: 0;
@@ -186,10 +215,19 @@ span.def{
 
 #main{
   position: absolute;
-  top: 45px;
+  top: 46px;
   bottom: 0;
   left: 0;
-  width: 70%;
+  width: 67%;
+  background-color: #ecf0f1;
+}
+
+#main2{
+  position: absolute;
+  top: 46px;
+  bottom: 0;
+  left: 50%;
+  width: 50%;
   background-color: #ecf0f1;
 }
 
@@ -210,13 +248,24 @@ span.def{
 
 #side{
   position: absolute;
-  top: 45px;
+  top: 46px;
   bottom: 50px;
   overflow-y: auto; 
   right: 0;
-  width: 30%;
+  width: 33%;
   background-color: #fafafa;
   border-left: 1px solid #e6e6e6;
+}
+
+#side2{
+  position: absolute;
+  top: 46px;
+  bottom: 0px;
+  overflow-y: auto; 
+  left: 0;
+  width: 50%;
+  background-color: #fafafa;
+  border-right: 1px solid #e6e6e6;
 }
 
 .sideSect{
@@ -253,7 +302,7 @@ span.def{
 }
 
 .sideSect p{
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .sideSect .code{
@@ -301,7 +350,7 @@ span.def{
   position: fixed;
   bottom: 0;
   right:0;
-  width: 30%;
+  width: 33%;
   background: #f3f3f3;
   text-align: center;
   font-size: 18px;

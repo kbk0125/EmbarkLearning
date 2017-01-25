@@ -10,13 +10,13 @@ $('#topBar img').click(function(){
 //make sure this resizes appropriately when it resizes
 $(window).resize(function(){
     var imgHeight= $('#main img').height()
-    $('.stops').height(imgHeight*0.75)
+    $('.stops').height(imgHeight*0.73)
 })
 
 $('.startbtn, .startChal').click(function(){
     $(this).parents('.intro').fadeOut();
     var imgHeight= $('#main img').height()
-    $('.stops').height(imgHeight*0.75)
+    $('.stops').height(imgHeight*0.73)
 })
 
 $('.startChal').click(function(){
@@ -60,17 +60,23 @@ var wrongCount=0;
 
 //function checkInputs(arr, thisButton, start, end, inc, cb){
 
+
 function checkInputs(arr, thisButton, answer){
     var counter = 0;
+
     for(var i=0; i< arr.length; i++){
+        /*http://stackoverflow.com/questions/17938186/trimming-whitespace-from-the-end-of-a-string-only-with-jquery*/
+        var trimmedAns= $(arr[i][0]).val().replace(/\s*$/,"");
+        console.log(trimmedAns)
         //see if specific input contains the appropriate property name
-        var testVal1= $(arr[i][0]).val().indexOf(arr[i][1]) > -1;
+        var testVal1= trimmedAns.indexOf(arr[i][1]) > -1;
         //see if specific input contains the appropriate property value
-        var testVal2= $(arr[i][0]).val().indexOf(arr[i][2]) > -1;
+        var testVal2= trimmedAns.indexOf(arr[i][2]) > -1;
         //check if line ends with semi colon
-        var endSemi= $(arr[i][0]).val().substr(-1) === ";";
+        var endSemi= trimmedAns.substr(-1) === ";";
         // check if line has a semi-colon
-        var midQ= $(arr[i][0]).val().indexOf(":") > -1;
+        var midQ= trimmedAns.indexOf(":") > -1;
+        var colPos= trimmedAns.indexOf(":")
         // make sure we save original err msg
         var origMsg= $(thisButton).siblings('.warn').text()
 
@@ -81,20 +87,31 @@ function checkInputs(arr, thisButton, answer){
             $(thisButton).siblings('.warn').text('Do you have a colon and a semi-colon included?').show();
             wrongCount++;
         }
+        else if(!testVal1){
+            $(thisButton).siblings('.warn').text('Do you have the correct property name(s)?').show();
+            wrongCount++;
+        }
+        else if(testVal1 && !testVal2){
+            $(thisButton).siblings('.warn').text('Do you have the correct value or function?').show();
+            wrongCount++;
+        }
+        //this case should never happen but fuck it I am leaving it in there
         else{
             $(thisButton).siblings('.warn').text(origMsg).show();
             wrongCount++;
         }
 
         //user has gotten it wrong three times or more
-        if (wrongCount > 2)
-            $(thisButton).siblings('.warn').text('The answer is- '+answer).show();
+        if (wrongCount > 3)
+            //put it in a span so the answer looks distinct
+            $(thisButton).siblings('.warn').html("The answer is- <span>"+answer+"</span>").show();
     }
 
     if(counter === arr.length){
         //if(cb)
         //  cb(start, end, inc)
         wrongCount=0;
+        $(thisButton).siblings('.warn').hide()
         nextSide(thisButton)
     }
 }
@@ -166,7 +183,7 @@ $('.hideGrid').click(function(){
 
 $('.valid1').click(function(){
     var correct= [['#rel1','justify-content','center']]
-    var finAnswer= 'justify-content:center;'
+    var finAnswer= "</br>justify-content:center;"
     checkInputs(correct, this, finAnswer)
     var newStr= $('#rel1').val().replace(/;/g, ":")
     var keyval = newStr.split(":")[1]
@@ -176,7 +193,7 @@ $('.valid1').click(function(){
 
 $('.valid2').click(function(){
     var correct= [['#rel2','justify-content','space-between']]
-    var finAnswer= 'justify-content:space-between;'
+    var finAnswer= '</br>justify-content:space-between;'
     
     all5=true
     $('.stopType2').show()
@@ -198,7 +215,7 @@ $('.vertTrip').click(function(){
 
 $('.valid3').click(function(){
     var correct= [['#flex1','justify-content','space-between'], ['#flex1','flex-direction','column']]
-    var finAnswer= 'flex-direction:column; justify-content:space-between;'
+    var finAnswer= '</br>flex-direction:column; </br>justify-content:space-between;'
 
     checkInputs(correct, this, finAnswer)
 
@@ -214,7 +231,7 @@ $('.valid3').click(function(){
 
 $('.valid4').click(function(){
     var correct= [['#flex2','flex-direction','column-reverse'], ['#flex2','justify-content','space-between']]
-    var finAnswer= 'flex-direction:column-reverse; justify-content:space-between;'
+    var finAnswer= '</br>flex-direction:column-reverse; </br>justify-content:space-between;'
 
     checkInputs(correct, this, finAnswer)
 
@@ -236,7 +253,7 @@ $('.horizTrip').click(function(){
 
 $('.valid5').click(function(){
     var correct= [['#align1','flex-direction','row-reverse'], ['#align1','align-items','flex-end']]
-    var finAnswer= 'flex-direction:row-reverse; align-items:flex-end;'
+    var finAnswer= '</br>flex-direction:row-reverse; </br>align-items:flex-end;'
 
     checkInputs(correct, this, finAnswer)
 
@@ -260,7 +277,7 @@ $('.varyTrip').click(function(){
 
 $('.valid6').click(function(){
     var correct= [['#detour1','align-items','center'], ['#detour2','align-self','flex-start']]
-    var finAnswer= 'align items: center; And .chicagoRoadtrip has align-self:flex-start;'
+    var finAnswer= '</br>align items: center; </br>And .chicagoRoadtrip has align-self:flex-start;'
 
     checkInputs(correct, this, finAnswer)
 
@@ -286,7 +303,7 @@ $('.horizTrip2').click(function(){
 
 $('.valid7').click(function(){
     var correct= [['#other1','order','-2'], ['#other2','order','-1']]
-    var finAnswer= 'The value for denverVisit must be less than 0 but greater than San Fran visit'
+    var finAnswer= '</br>The value for denverVisit must be less than 0 but greater than San Fran visit'
 
     checkInputs(correct, this, finAnswer)
 
@@ -312,7 +329,7 @@ $('.changeOrder').click(function(){
 
 $('.chalvalid1').click(function(){
     var correct= [['#chal11','align-self','center'], ['#chal12','align-self','flex-end']]
-    var finAnswer= 'align-self:center; Answer 2 is align-self: flex-end;'
+    var finAnswer= '</br>align-self:center; </br>Answer 2 is align-self: flex-end;'
 
     resetStops()
     checkInputs(correct, this, finAnswer)
@@ -336,7 +353,7 @@ $('.hBox1').click(function(){
 
 $('.chalvalid2').click(function(){
     var correct= [['#chal21','align-items','center'], ['#chal21','flex-direction','column-reverse'], ['#chal22','align-self','flex-start']]
-    var finAnswer= 'align-items:center; flex-direction:column-reverse; Answer 2 is align-self: flex-start;'
+    var finAnswer= '</br>align-items:center; flex-direction:column-reverse; </br>Answer 2 is align-self: flex-start;'
 
     resetStops()
     checkInputs(correct, this, finAnswer)
@@ -362,7 +379,7 @@ $('.hBox2').click(function(){
 
 $('.chalvalid3').click(function(){
     var correct= [['#chal31','align-items','flex-start'], ['#chal31','flex-direction','row-reverse'], ['#chal32','align-self','flex-end']]
-    var finAnswer= 'align-items:flex-start; flex-direction:row-reverse; Answer 2 is align-self: flex-end;'
+    var finAnswer= '</br>align-items:flex-start; flex-direction:row-reverse; </br>Answer 2 is align-self: flex-end;'
 
     resetStops()
     checkInputs(correct, this, finAnswer)
@@ -388,7 +405,7 @@ $('.hBox3').click(function(){
 
 $('.chalvalid4').click(function(){
     var correct= [['#chal41','justify-content','space-around'], ['#chal41','flex-direction','row-reverse'], ['#chal42','align-self','center']]
-    var finAnswer= 'justify-content:space-around; flex-direction:row-reverse; Answer 2 is align-self: center;'
+    var finAnswer= '</br>justify-content:space-around; flex-direction:row-reverse; </br>Answer 2 is align-self: center;'
 
     resetStops()
     checkInputs(correct, this, finAnswer)
@@ -414,7 +431,7 @@ $('.hBox4').click(function(){
 
 $('.chalvalid5').click(function(){
     var correct= [['#chal51','justify-content','space-between'], ['#chal51','flex-direction','column-reverse'], ['#chal52','align-self','center']]
-    var finAnswer= 'justify-content:space-between; flex-direction:column-reverse; Answer 2 is align-self: center;'
+    var finAnswer= '</br>justify-content:space-between; flex-direction:column-reverse; </br>Answer 2 is align-self: center;'
 
     resetStops()
     checkInputs(correct, this, finAnswer)

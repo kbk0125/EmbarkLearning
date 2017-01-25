@@ -12,10 +12,15 @@ var webpackHotMiddleware = require('webpack-hot-middleware');
 var config = require('./webpack.config.js');
 var Xray = require('x-ray');
 var x = Xray();
+var morgan = require('morgan');
 
 var isDeveloping = process.env.NODE_ENV !== 'production';
 var port = isDeveloping ? 8080 : process.env.PORT;
 
+
+// This is to fix the the Stormpath thing so that we can create a user NEED TO REVIEW WHAT IT DID
+//Now need to fix POSTs due to new format
+//And need to figure out Social Login
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(require('serve-favicon')(__dirname+'/public/img/favicon.ico'));
 
@@ -119,6 +124,8 @@ connection.query('SELECT 1 FROM Votes LIMIT 1;', function(err, rows, fields) {
 
 //ROUTING
 
+
+
 app.use(express.static(__dirname + '/public'));
 
 app.get('/devguide', function(req, res) {
@@ -160,6 +167,11 @@ app.get('/learnd3', function(req, res) {
 app.get('/tutorialsoup', function(req, res) {
 	res.sendFile(path.join(__dirname + '/tutorialsoup/index.html'));
 });
+
+app.get('/jsconstruction', function(req, res) {
+	res.sendFile(path.join(__dirname + '/jsconstruction/index.html'));
+});
+
 
 
 app.get('/testPath2', function (req,res){
@@ -584,6 +596,7 @@ app.post('/addLink', function(req, res){
 	//UPDATED SINCE AXIOS, used to be just req.body
 	var plan = JSON.parse(req.body.finForm);
 	var curTime = Math.floor(Date.now() / 1000)
+	console.log(plan)
 
 	connection.query('SELECT MAX(id) AS idx FROM Links;', function (err, result, fields) {
 		if (err) throw err;
@@ -664,6 +677,7 @@ if (isDeveloping) {
 	var compiler = webpack(config);
 	var middleware = webpackMiddleware(compiler, {
 		publicPath: config.output.publicPath,
+		noInfo:true,
 		contentBase: 'src',
 		stats: {
 			colors: true,
@@ -692,30 +706,6 @@ if (isDeveloping) {
 }
 
 
-// viewed at http://localhost:8080
-/*basicRouter.get('/', function(req, res) {
-	console.log('in1')
-	res.sendFile(path.join(__dirname + '/app/index.html'));
-});
-
-basicRouter.get('/devguide', function(req, res) {
-	res.sendFile(path.join(__dirname + '/public/devguide/index.html'));
-});
-
-basicRouter.get('/learnd3', function(req, res) {
-	res.sendFile(path.join(__dirname + '/public/learnd3/index.html'));
-});
-
-basicRouter.get('/tutorialsoup', function(req, res) {
-	res.sendFile(path.join(__dirname + '/tutorialsoup/index.html'));
-});
-
-basicRouter.get('/*', function(req, res) {
-	console.log('in2')
-	res.sendFile(path.join(__dirname + '/index.html'));
-});*/
-
-//app.use('/', basicRouter)
 console.log('PORT:' +port)
 app.listen(port, '0.0.0.0', function onStart(err) {
 	console.log('PORT:' +port)

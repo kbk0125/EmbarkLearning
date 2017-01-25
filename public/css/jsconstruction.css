@@ -1,0 +1,210 @@
+p{
+	line-height: 140%;
+}
+
+
+.interactme{
+	display: none;
+}
+
+#interact1{
+	display: block;
+}
+#interact1 img{
+	width:250px;
+	display: block;
+	margin: 0 auto;
+}
+
+.codeFocus{
+	text-align: center;
+	color:#999;
+	padding:24px 0;
+	display: inline-block;
+}
+
+.codeFocus.stacked{
+	padding:24px 0 0 0;
+}
+
+.codeFocus span{
+	color:red;
+	position: relative;
+}
+
+.varDec, .memberDec, .funcDec{
+	position: relative;
+	text-align: center;
+}
+
+.codeLine{
+	position: relative;
+	margin-left: 12px;
+}
+
+.codeLine.indented{
+	margin-left: 48px;
+}
+
+.varDec{
+	background-image: url('/img/jsbuilder/truck.png');
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.varDec.leftPush{
+	background-position: left;
+	text-align: left;
+	margin-left: 12px;
+}
+
+.nameCase{
+	display: inline-block;
+	position: relative;
+}
+
+.varDec.hiddenBack{
+	background-image:none;
+}
+
+.codeExp{
+	position: absolute;
+	text-align: left;
+	display: none;
+	z-index: 8;
+}
+
+.codeExp div{
+	margin: 0 0.5%;
+	padding: 4px 0.5%;
+	width:47.5%;
+	vertical-align: top;
+	display: inline-block;
+	background-color: #fafafa;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+.splitAnim{
+	display: none;
+	position: absolute;
+	top:24px;
+	width:100%;
+	text-align: left;
+}
+
+.splitAnim div{
+	display: inline-block;
+}
+
+.nameLab{
+	width: 27%;
+	margin-left: 4%;
+	text-align: center;
+	color: white;
+	vertical-align: top;
+}
+
+.valLab{
+	width: 0%;
+	font-size: 24px;
+	color: orangered;
+	text-align: center;
+	transform:rotate(30deg);
+	float:right;
+}
+
+.stake{
+	display: none;
+	position: absolute;
+	right: -42px;
+	top:9px;
+	height: 60%;
+}
+
+.arm{
+    display: none;
+    height: 80px;
+    margin-bottom: -24px;
+    margin-left: auto;
+    margin-right: 37px;
+}
+
+img.point{
+	display: inline-block;
+	width: 35px;
+	vertical-align: bottom;
+}
+
+.numHover{
+	display: none;
+	position: absolute;
+	font-size: 24px;
+}
+
+.fence{
+	display: none;
+	position: absolute;
+	width:30px;
+}
+
+.hierarchy{
+	margin: 12px 0 0 12px;
+}
+
+.hierarchy h2{
+	color: #7979c7;
+}
+
+.hierarchy h3{
+	color:#3394d4;
+	margin: 8px 0 8px 12px;
+}
+
+.hierarchy i.fa{
+	font-size: 24px;
+	vertical-align: bottom;
+	pointer-events:none;
+}
+
+.hierarchy p{
+	margin-left: 30px
+}
+
+.hierInfo{
+    background-color: #fafafa;
+    padding: 4px 8px;
+    border-radius: 4px;
+    width: 90%;
+}
+
+.hierInfo h3{
+	color: #999;
+    margin: 0 0 4px 0;
+}
+
+.hierInfo p{
+	margin: 0;
+}
+
+.straightened{
+	width:67%;
+	-webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    transform:rotate(0deg);
+}
+
+
+
+.tilted{
+/* Safari */
+-webkit-transform: rotate(45deg);
+/* Firefox */
+-moz-transform: rotate(45deg);
+/* IE */
+-ms-transform: rotate(45deg);
+transform: rotate(45deg);
+}
