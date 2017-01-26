@@ -2,6 +2,14 @@ p{
 	line-height: 140%;
 }
 
+.sideSect h3{
+	font-size: 18px;
+}
+
+.sideSect h3 i{
+	color: orangered;
+}
+
 
 .interactme{
 	display: none;
@@ -99,8 +107,8 @@ p{
 }
 
 .nameLab{
-	width: 27%;
-	margin-left: 4%;
+	width: 25%;
+	margin-left: 9%;
 	text-align: center;
 	color: white;
 	vertical-align: top;

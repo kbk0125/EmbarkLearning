@@ -130,7 +130,7 @@ function checkInputs(arr, thisButton, wildChar, answer){
         cellySide(thisButton, randComp)
 
         $('.interactme').hide()
-        $('#interact'+(pageCount+1)).show()
+        $('#interact'+(pageCount+1)).show('slow')
     }
 }
 
@@ -224,7 +224,7 @@ function replaceFinger(el){
 $('.begin, .next').click(function(){
 
     $('.interactme').hide()
-    $('#interact'+(pageCount+1)).show()
+    $('#interact'+(pageCount+1)).show('slow')
 
 })
 
@@ -256,7 +256,11 @@ $('.codeFocus').on('mouseover', '.showStake', function(){
 })
 
 $('.valid1').click(function(){
-    var correct= [['#var1','foreman',"'"]]
+    // hack to make sure it accepts all quotes
+    var replaceQuote= $('#var1').val().replace(/'/g, '"');
+    $('#var1').val(replaceQuote)
+
+    var correct= [['#var1','foreman','"']]
     var finAnswer= "var foreman = 'yourName';"
     checkInputs(correct, this, ['='], finAnswer)
 })
