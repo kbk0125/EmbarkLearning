@@ -129,6 +129,7 @@ img.resetStyle, div.resetStyle{
 .warn span{
   font-family: monospace;
   color: #404040;
+  display: block;
 }
 
 span.def{

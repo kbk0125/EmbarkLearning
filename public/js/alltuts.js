@@ -70,8 +70,14 @@ function prevSide(prev){
     $('.htmlSnip').hide()
 }
 
+// Good validation needs to have
+// 2 correct custom things and 2 pieces of Javascript?
+// 2 examples of punctuation that is correct
+// 1 thing that it can NOT include
+// good error handling that spits out correct error
 
-function checkInputs(arr, thisButton, wildChar, answer){
+
+function checkInputs(arr, thisButton, answer){
     var counter = 0;
 
     //wildChar shows one other specific Character that the string should have, like . or =
@@ -79,32 +85,58 @@ function checkInputs(arr, thisButton, wildChar, answer){
     for(var i=0; i< arr.length; i++){
         /*http://stackoverflow.com/questions/17938186/trimming-whitespace-from-the-end-of-a-string-only-with-jquery*/
         var trimmedAns= $(arr[i][0]).val().replace(/\s*$/,"");
+        var wrongPhrase = '';
+        var wrongCharacter = '';
+        var falsePos = '';
 
-        //see if specific input contains the appropriate property name
-        var testVal1= trimmedAns.indexOf(arr[i][1]) > -1;
-        //see if specific input contains the appropriate property value
-        var testVal2= trimmedAns.indexOf(arr[i][2]) > -1;
-        //check if line ends with semi colon
-        var endSemi= trimmedAns.substr(-1) === ";";
-        // check if line has a semi-colon
-        var midQ= trimmedAns.indexOf(wildChar[i]) > -1;
+        //check if it contains all key phrases
+        for(var j=0; j < arr[i][1].length; j++){
+            var activeChar= arr[i][1][j];
+            if(trimmedAns.indexOf(activeChar) == -1)
+                wrongPhrase = activeChar;
+        }
+
+        for(var k=0; k < arr[i][2].length; k++){
+            var activeChar= arr[i][2][k];
+            if(trimmedAns.indexOf(activeChar) == -1)
+                wrongCharacter = activeChar;
+        }
+
+        // this is for the Characters we don't want to see in there
+        for(var l=0; l < arr[i][3].length; l++){
+            var activeChar= arr[i][3][l];
+            if(trimmedAns.indexOf(activeChar) > -1)
+                falsePos = activeChar;
+        }
 
         // make sure we save original err msg
-        var origMsg= $(thisButton).siblings('.warn').text()
+        var origMsg= $(thisButton).siblings('.warn').text();
 
         // if it has both correct property name and value, and semi and colon are in there
-        if(testVal1 && testVal2 && endSemi && midQ)
+        if(wrongCharacter.length == 0 && falsePos.length ==0 && wrongPhrase.length ==0)
             counter++
-        else if(!(endSemi && midQ)){
-            $(thisButton).siblings('.warn').text('Do you have '+wildChar[i]+' and a semi-colon included?').show();
+        else if(wrongPhrase.length > 0 && wrongCount == 0){
+            $(thisButton).siblings('.warn').text('Did you spell everything correctly in answer '+(i+1)+'?').show();
             wrongCount++;
         }
-        else if(!testVal1){
-            $(thisButton).siblings('.warn').text('Do you have the correct variable name(s)?').show();
+        else if(wrongPhrase.length > 0 && wrongCount > 0){
+            $(thisButton).siblings('.warn').text('I think you are missing ' + wrongPhrase + 'in answer ' +(i+1)).show();
             wrongCount++;
         }
-        else if(testVal1 && !testVal2){
-            $(thisButton).siblings('.warn').text('Do you have the correct value(s)?').show();
+        else if(wrongCharacter.length > 0 && wrongCount == 0){
+            $(thisButton).siblings('.warn').text('Did you remember all the correct syntax?').show();
+            wrongCount++;
+        }
+        else if(wrongCharacter.length > 0 && wrongCount > 0){
+            $(thisButton).siblings('.warn').text('I think you forgot to include: '+wrongCharacter + 'in answer ' +(i+1)).show();
+            wrongCount++;
+        }
+        else if(falsePos.length > 0 && wrongCount == 0){
+            $(thisButton).siblings('.warn').text('You included a character that should not be in there in answer ' +(i+1)+'!').show();
+            wrongCount++;
+        }
+        else if(falsePos.length > 0 && wrongCount > 0){
+            $(thisButton).siblings('.warn').text('You included ' +falsePos+ 'in answer '+(i+1)+', which should not be in there.' ).show();
             wrongCount++;
         }
         //this case should never happen but fuck it I am leaving it in there
@@ -114,9 +146,13 @@ function checkInputs(arr, thisButton, wildChar, answer){
         }
 
         //user has gotten it wrong three times or more
-        if (wrongCount > 3)
+        if (wrongCount > 4)
             //put it in a span so the answer looks distinct
-            $(thisButton).siblings('.warn').html("The answer is- <span>"+answer+"</span>").show();
+            if(answer.length == 1)
+                $(thisButton).siblings('.warn').html("The answer is- <span>"+answer[0]+"</span>").show();
+            else{
+                $(thisButton).siblings('.warn').html("The answer is- <span>"+answer[0]+"</span><span>"+answer[1]+"</span>").show();
+            }
     }
 
     if(counter === arr.length){
@@ -130,7 +166,7 @@ function checkInputs(arr, thisButton, wildChar, answer){
         cellySide(thisButton, randComp)
 
         $('.interactme').hide()
-        $('#interact'+(pageCount+1)).show('slow')
+        $('#interact'+(pageCount+1)).show('slow').css('display', 'inline-block');
     }
 }
 
@@ -224,14 +260,14 @@ function replaceFinger(el){
 $('.begin, .next').click(function(){
 
     $('.interactme').hide()
-    $('#interact'+(pageCount+1)).show('slow')
+    $('#interact'+(pageCount+1)).show('slow').css('display', 'inline-block');
 
 })
 
 $('.backBtn').click(function(){
 
     $('.interactme').hide()
-    $('#interact'+(pageCount+1)).show()
+    $('#interact'+(pageCount+1)).show().css('display', 'inline-block');
 
 })
 
@@ -260,9 +296,13 @@ $('.valid1').click(function(){
     var replaceQuote= $('#var1').val().replace(/'/g, '"');
     $('#var1').val(replaceQuote)
 
-    var correct= [['#var1','foreman','"']]
-    var finAnswer= "var foreman = 'yourName';"
-    checkInputs(correct, this, ['='], finAnswer)
+    var correct= [['#var1',
+        ['var ', 'foreman'],
+        ['"', '=', ';'],
+        ['(', ')', '{', '}']
+    ]];
+    var finAnswer= ["var foreman = 'yourName';"]
+    checkInputs(correct, this, finAnswer)
 })
 
 $('#var1').on("change paste keyup", function(){
@@ -275,9 +315,13 @@ $('#var1').on("change paste keyup", function(){
 })
 
 $('.valid2').click(function(){
-    var correct= [['#var2','days',"100"]]
-    var finAnswer= "var days = 100;"
-    checkInputs(correct, this, ['='], finAnswer)
+    var correct= [['#var2',
+        ['var ', 'days', 100],
+        ['=', ';'],
+        ['(', ')', '{', '}', '"', "'"]
+    ]]
+    var finAnswer= ["var days = 100;"]
+    checkInputs(correct, this, finAnswer)
 })
 
 $('#var2').on("change paste keyup", function(){
@@ -288,6 +332,95 @@ $('#var2').on("change paste keyup", function(){
     var newStr2= newStr.split(';').join('<span class="showStake">;</span>')
     $('#interact5').find('.codeFocus').html(newStr2)
 })
+
+$('.valid7').click(function(){
+    var correct= [['#var3',
+        ['var ', 'siteActive', 'false'],
+        ['=', ';'],
+        ['(', ')', '{', '}', '"', "'"]
+    ]]
+    var finAnswer= ["var siteActive = false;"]
+    checkInputs(correct, this, finAnswer)
+})
+
+$('#var3').on("change paste keyup", function(){
+    var val=$(this).val();
+    $('#interact6').find('.codeFocus').text(val)
+    var curStr= $('#interact6').find('.codeFocus').text()
+    var newStr= curStr.split('=').join('<span class="loadTruck">=</span>')
+    var newStr2= newStr.split(';').join('<span class="showStake">;</span>')
+    $('#interact6').find('.codeFocus').html(newStr2)
+})
+
+$('.valid8').click(function(){
+    var correct= [['#var4',
+        ['var ', 'contractors', '5'],
+        ['=', ';'],
+        ['(', ')', '{', '}', '"', "'"]
+    ],
+    ['#var5',
+        ['contractors', '10'],
+        ['=', ';'],
+        ['(', ')', '{', '}', '"', "'", 'var']
+    ]]
+    var finAnswer= ["var contractors = 5;", "contractors=10;"]
+    checkInputs(correct, this, finAnswer)
+})
+
+$('#var4').on("change paste keyup", function(){
+    var val=$(this).val();
+    $('#interact7').find('.codeFocus').first().text(val)
+    var curStr= $('#interact7').find('.codeFocus').first().text()
+    var newStr= curStr.split('=').join('<span class="loadTruck">=</span>')
+    var newStr2= newStr.split(';').join('<span class="showStake">;</span>')
+    $('#interact7').find('.codeFocus').first().html(newStr2)
+})
+
+$('#var5').on("change paste keyup", function(){
+    var val=$(this).val();
+    $('#interact7').find('.codeFocus').last().text(val)
+    var curStr= $('#interact7').find('.codeFocus').last().text()
+    var newStr= curStr.split('=').join('<span class="loadTruck">=</span>')
+    var newStr2= newStr.split(';').join('<span class="showStake">;</span>')
+    $('#interact7').find('.codeFocus').last().html(newStr2)
+})
+
+
+$('.valid9').click(function(){
+    var correct= [['#comp1',
+        ['workers', 'hardHats'],
+        ['===', ';'],
+        ['(', ')', '{', '}', '"', "'"]
+    ]]
+    var finAnswer= ["workers === hardhats;"]
+    checkInputs(correct, this, finAnswer)
+})
+
+$('.valid10').click(function(){
+    // hack to make sure it accepts all quotes
+    var replaceQuote= $('#comp2').val().replace(/'/g, '"');
+    $('#comp2').val(replaceQuote)
+
+    var correct= [['#comp2',
+        ['roofType', 'shingles'],
+        ['===', '"', ';'],
+        ['(', ')', '{', '}']
+    ]]
+    var finAnswer= ["roofType === 'shingles';"]
+    checkInputs(correct, this, finAnswer)
+})
+
+$('.valid11').click(function(){
+
+    var correct= [['#comp3',
+        ['nailCount', '700'],
+        ['===', ';'],
+        ['(', ')', '{', '}', '"', "'"]
+    ]]
+    var finAnswer= ["nailCount === 700;"]
+    checkInputs(correct, this, finAnswer)
+})
+
 
 $('.codeFocus').on('mouseover', '.pointFinger', function(){
     // Exception because we are removing the original this from DOM
@@ -305,21 +438,21 @@ $('.memberDec').mouseleave(function(){
 
 $('.obj').mouseover(function(){
     var title='architectureTeam'+$(this).text()
-    var desc= 'The ' + $(this).text() + 'is a member of'+$(this).closest('h2').text()+', but also an object. You must write the statement above to select this member.'
+    var desc= 'The ' + $(this).text() + 'is a member of'+$(this).parents('div').find('h2').text()+', but also an object. You must write the statement above to select this member.'
     var wholeSum= '<div class="hierInfo"><h3>'+title+'</h3><p>'+desc+'</p></div>'
     $(this).after(wholeSum)
 })
 
 $('.meth').mouseover(function(){
     var title='architectureTeam'+$(this).text()
-    var desc= 'The ' + $(this).text() + 'is a method of'+$(this).closest('h2').text()+'. The methods listed here are the specific capabilities of the architectureTeam'
+    var desc= 'The ' + $(this).text() + 'is a method of'+$(this).parents('div').find('h2').text()+'. The methods listed here are the specific capabilities of the architectureTeam'
     var wholeSum= '<div class="hierInfo"><h3>'+title+'</h3><p>'+desc+'</p></div>'
     $(this).after(wholeSum)
 })
 
 $('.lev3').mouseover(function(){
-    var title='architectureTeam'+$(this).closest('h3').text()+$(this).text()
-    var desc= 'The ' + $(this).text() + 'is a method of '+$(this).closest('h3').text()+'. That element is the only one who can complete this method.'
+    var title='architectureTeam'+$(this).prev('h3').text()+$(this).text()
+    var desc= 'The ' + $(this).text() + 'is a method of '+$(this).prev('h3').text()+'. That element is the only one who can complete this method.'
     var wholeSum= '<div class="hierInfo"><h3>'+title+'</h3><p>'+desc+'</p></div>'
     $(this).after(wholeSum)
 })
@@ -329,18 +462,22 @@ $('.obj, .meth, .lev3').mouseleave(function(){
 })
 
 $('.valid3').click(function(){
-    var correct= [['#mem1','crane',"()"]]
-    var finAnswer= "crane.operator.pushButton();, for example"
-    checkInputs(correct, this, ['.'], finAnswer)
+    var correct= [['#mem1',
+        ['crane'],
+        ['()', '.', ";"],
+        ['{', '}', '"', "'"]
+    ]]
+    var finAnswer= ["crane.operator.pushButton();"]
+    checkInputs(correct, this, finAnswer)
 })
 
 $('#mem1').on("change paste keyup", function(){
     var val=$(this).val();
-    $('#interact9').find('.codeFocus').text(val)
-    var curStr= $('#interact9').find('.codeFocus').text()
+    $('#interact14').find('.codeFocus').text(val)
+    var curStr= $('#interact14').find('.codeFocus').text()
     var newStr= curStr.split('.').join('<span class="pointFinger">.</span>')
     var newStr2= newStr.split(';').join('<span class="showStake">;</span>')
-    $('#interact9').find('.codeFocus').html(newStr2)
+    $('#interact14').find('.codeFocus').html(newStr2)
 })
 
 $('.codeFocus').on('mouseover', '.lowerCrane', function(){
@@ -355,18 +492,24 @@ $('.funcDec, .codeLine').mouseleave(function(){
 })
 
 $('.valid4').click(function(){
-    var correct= [['#param1','accelerate',"5"]]
-    var finAnswer= "crane.accelerate(5);"
-    checkInputs(correct, this, ['.'], finAnswer)
+    var correct= [['#param1',
+        ['accelerate', 5, 'crane'],
+        ['(', '.', ')', ";"],
+        ['{', '}', '"', "'"]
+    ]]
+    var finAnswer= ["crane.accelerate(5);"]
+    checkInputs(correct, this, finAnswer)
+
+    $('.lineNums').children('h1').removeClass('funkySpace');
 })
 
 $('#param1').on("change paste keyup", function(){
     var val=$(this).val();
-    $('#interact11').find('.codeFocus').text(val)
-    var curStr= $('#interact11').find('.codeFocus').text()
+    $('#interact16').find('.codeFocus').text(val)
+    var curStr= $('#interact16').find('.codeFocus').text()
     var newStr= curStr.split('(').join('<span class="lowerCrane">(</span>')
     var newStr2= newStr.split(')').join('<span class="lowerCrane">)</span>')
-    $('#interact11').find('.codeFocus').html(newStr2)
+    $('#interact16').find('.codeFocus').html(newStr2)
 })
 
 
@@ -374,7 +517,25 @@ $('.showValue').mouseover(function(){
     revealFuncDesc(this)
 
     var position=$(this).position()
-    $(this).parent().siblings('.numHover').css({'top': position.top-20, 'left':position.left+40}).show('drop', 'slow')
+    $(this).parent().siblings('.numHover').css({'top': position.top-20, 'left':position.left+40}).show('drop',{direction: 'down'}, 'slow')
+    var that=this;
+    setTimeout(function(){
+        $(that).parent().siblings('.numHover').fadeOut('slow')
+    }, 1000)
+})
+
+$('.codeFocus').on('mouseover', '.downNumber', function(){
+    var position=$(this).position()
+    $(this).parent().siblings('.numHover').css({'top': position.top-30, 'left':position.left+40}).show('drop',{direction: 'up'}, 'slow')
+    var that=this;
+    setTimeout(function(){
+        $(that).parent().siblings('.numHover').fadeOut('slow')
+    }, 1000)
+})
+
+$('.codeFocus').on('mouseover', '.upNumber', function(){
+    var position=$(this).position()
+    $(this).parent().siblings('.numHover').css({'top': position.top-30, 'left':position.left+40}).show('drop',{direction: 'down'}, 'slow')
     var that=this;
     setTimeout(function(){
         $(that).parent().siblings('.numHover').fadeOut('slow')
@@ -388,47 +549,65 @@ $('.showFence').mouseover(function(){
 })
 
 $('.valid5').click(function(){
-    var correct= [['#func1','bricks',"20"], ['#func2','return',"2"]]
-    var finAnswer= "var bricks=20; return count + 5;"
-    checkInputs(correct, this, ['=', '*'], finAnswer)
+    var correct= [['#func1',
+        ['bricks',"20", "var "],
+        ["=", ";"],
+        ['(', ')', '{', '}', '"', "'"]
+    ], 
+    ['#func2',
+        ['return ', 'count', 2],
+        ['*', ";"],
+        ['(', ')', '{', '}', '"', "'"]
+    ]]
+    var finAnswer= ["var bricks=20;", "return count * 2;"]
+    checkInputs(correct, this, finAnswer)
 })
 
 $('#func1').on("change paste keyup", function(){
     var val=$(this).val();
-    $('#interact14').find('.varStatement').text(val)
-    var curStr= $('#interact14').find('.varStatement').text()
+    $('#interact19').find('.varStatement').text(val)
+    var curStr= $('#interact19').find('.varStatement').text()
     var newStr= curStr.split('=').join('<span class="loadTruck">=</span>')
-    $('#interact14').find('.varStatement').html(newStr)
+    $('#interact19').find('.varStatement').html(newStr)
 })
 
 $('#func2').on("change paste keyup", function(){
     var val=$(this).val();
-    $('#interact14').find('.returnStatement').text(val)
-    var curStr= $('#interact14').find('.returnStatement').text()
+    $('#interact19').find('.returnStatement').text(val)
+    var curStr= $('#interact19').find('.returnStatement').text()
     var newStr= curStr.split('count').join('<span class="showValue">count</span>')
-    $('#interact14').find('.returnStatement').html(newStr)
+    $('#interact19').find('.returnStatement').html(newStr)
 })
 
 $('.valid6').click(function(){
-    var correct= [['#func3','function pourConcrete',"walkway"], ['#func4','return',"walkway"]]
-    var finAnswer= "function pourConcrete(walkway){ return walkway * 2;"
-    checkInputs(correct, this, ['{', '*'], finAnswer)
+    var correct= [['#func3',
+        ['function ', 'pourConcrete',"walkway"],
+        ['(', ')', "{"],
+        ['.', '=', '}', ';']
+    ], 
+    ['#func4',
+        ['return',"walkway", "3"],
+        ["*", ';'],
+        ['(', ')', '{', '}', '"', "'"]
+    ]]
+    var finAnswer= ["function pourConcrete(walkway){", "return walkway * 3;"]
+    checkInputs(correct, this, finAnswer)
 })
 
 $('#func3').on("change paste keyup", function(){
     var val=$(this).val();
-    $('#interact16').find('.functionDefStatement').text(val)
-    var curStr= $('#interact16').find('.functionDefStatement').text()
+    $('#interact21').find('.functionDefStatement').text(val)
+    var curStr= $('#interact21').find('.functionDefStatement').text()
     var newStr= curStr.split('(').join('<span class="lowerCrane">(</span>')
     var newStr2= newStr.split(')').join('<span class="lowerCrane">)</span>')
     var newStr3= newStr2.split('{').join('<span class="showFence">{</span>')
-    $('#interact16').find('.functionDefStatement').html(newStr3)
+    $('#interact21').find('.functionDefStatement').html(newStr3)
 })
 
 $('#func4').on("change paste keyup", function(){
     var val=$(this).val();
-    $('#interact16').find('.returnStatement').text(val)
-    var curStr= $('#interact16').find('.returnStatement').text()
+    $('#interact21').find('.returnStatement').text(val)
+    var curStr= $('#interact21').find('.returnStatement').text()
     var newStr= curStr.split('walkway').join('<span class="showValue">walkway</span>')
-    $('#interact16').find('.returnStatement').html(newStr)
+    $('#interact21').find('.returnStatement').html(newStr)
 })

@@ -10,13 +10,29 @@ p{
 	color: orangered;
 }
 
+.lineNums{
+	width: 5%;
+	text-align: center;
+	display: inline-block;
+}
+
+.lineNums h1{
+	color:#ccc;
+	padding:28px 0 0 0;
+}
+
+.lineNums h1.funkySpace{
+	padding: 26px 0 21px 0;
+}
 
 .interactme{
 	display: none;
+	width: 94%;
+	vertical-align: top;
 }
 
 #interact1{
-	display: block;
+	display: inline-block;
 }
 #interact1 img{
 	width:250px;
@@ -86,7 +102,7 @@ p{
 .codeExp div{
 	margin: 0 0.5%;
 	padding: 4px 0.5%;
-	width:47.5%;
+	width:47%;
 	vertical-align: top;
 	display: inline-block;
 	background-color: #fafafa;
@@ -108,7 +124,7 @@ p{
 
 .nameLab{
 	width: 25%;
-	margin-left: 9%;
+	padding-left: 8%;
 	text-align: center;
 	color: white;
 	vertical-align: top;
@@ -148,7 +164,10 @@ img.point{
 .numHover{
 	display: none;
 	position: absolute;
-	font-size: 24px;
+	font-size: 28px;
+	background-color: #ecf0f1;
+	z-index:20;
+	padding: 0 4px;
 }
 
 .fence{
