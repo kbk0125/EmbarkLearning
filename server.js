@@ -12,7 +12,7 @@ var webpackHotMiddleware = require('webpack-hot-middleware');
 var config = require('./webpack.config.js');
 var Xray = require('x-ray');
 var x = Xray();
-var morgan = require('morgan');
+//var morgan = require('morgan');
 
 var isDeveloping = process.env.NODE_ENV !== 'production';
 var port = isDeveloping ? 8080 : process.env.PORT;
