@@ -18,7 +18,7 @@ var LinkCount=React.createClass({
 var intro = React.createClass({
 	newState : function(e){
 		this.props.updateState(
-			e.target.value,
+			e.target.dataset.gen,
 			''
 		)
 	},
@@ -33,25 +33,25 @@ var intro = React.createClass({
 	                <p> Upvote the ones you like or add new ones that helped you. <br/> For the developers, by the developers.</p>
 	                <div className="featureRow">
 	                    <div className='mainPgCat'>
-	                        <div className='actionBtn initChoice specClick' value='html' onClick={this.newState}><span className='symbol'>{'< />'}</span><p> HTML/CSS</p></div>
+	                        <div className='actionBtn initChoice specClick' data-gen='html' onClick={this.newState}><span className='symbol'>{'< />'}</span><p> HTML/CSS</p></div>
 	                        <LinkCount uniq='html' voteTot={this.props.voteTot} />
 	                    </div>
 	                    <div className='mainPgCat'>
-	                        <div className='actionBtn initChoice specClick' value='javascript' onClick={this.newState}><span className='symbol'>{'{..}'}</span><p> Javascript</p></div>
+	                        <div className='actionBtn initChoice specClick' data-gen='javascript' onClick={this.newState}><span className='symbol'>{'{..}'}</span><p> Javascript</p></div>
 	                        <LinkCount uniq='javascript' voteTot={this.props.voteTot} />
 	                    </div>
 	                    <div className='mainPgCat'>
-	                        <div className='actionBtn initChoice specClick' value='databases' onClick={this.newState}><i className="fa fa-database"></i><p> Databases </p></div>
+	                        <div className='actionBtn initChoice specClick' data-gen='databases' onClick={this.newState}><i className="fa fa-database"></i><p> Databases </p></div>
 	                        <LinkCount uniq='databases' voteTot={this.props.voteTot} />
 	                    </div>
 	                </div>
 	                <div className="featureRow second">
 	                    <div className='mainPgCat'>
-	                        <div className='actionBtn initChoice specClick' value='userexperience' onClick={this.newState}><i className="fa fa-users"></i><p className="smallTxt"> User Experience </p></div>
+	                        <div className='actionBtn initChoice specClick' data-gen='userexperience' onClick={this.newState}><i className="fa fa-users"></i><p className="smallTxt"> User Experience </p></div>
 	                        <LinkCount uniq='userexperience' voteTot={this.props.voteTot} />
 	                    </div>
 	                    <div className='mainPgCat' >
-	                        <div className='actionBtn initChoice specClick' value='webdesign' onClick={this.newState}><i className="fa fa-area-chart"></i><p> Web Design </p></div>
+	                        <div className='actionBtn initChoice specClick' data-gen='webdesign' onClick={this.newState}><i className="fa fa-area-chart"></i><p> Web Design </p></div>
 	                        <LinkCount uniq='webdesign' voteTot={this.props.voteTot} />
 	                    </div>
 	                    <div className='mainPgCat phantomBox'></div>

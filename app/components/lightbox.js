@@ -37,7 +37,7 @@ var Lightbox = React.createClass({
 		var words = e.target.value.split(' ');
 
 		if(words.length >8){
-			console.log(words)
+			//console.log(words)
 			e.preventDefault();
 			e.stopPropagation();
 		}
@@ -50,7 +50,8 @@ var Lightbox = React.createClass({
 		e.preventDefault()
 		var form = e.target.elements;
 		var targ= e.target
-		console.log(this.props.mainCat)
+		//console.log(this.props.postMain)
+		//console.log(this.props.postSub)
 
 		//HACKY FIX WITH A FEW EDGE CASES. Need to reconcile these two states in a better way
 		if(this.props.postMain.length)
@@ -95,9 +96,10 @@ var Lightbox = React.createClass({
 			
 		}
 		else{
-			console.log(this.props)
-			console.log(subCat.value)
-			console.log(document.querySelector('input[name="category"]').value)
+			//console.log(this.props)
+			//console.log(subCat.value)
+			//console.log(document.querySelector('input[name="subcat"]').value)
+			//console.log(document.querySelector('input[name="category"]').value)
 			this.props.updateErr(
 				'Please fill out each field',
 				''
@@ -126,7 +128,7 @@ var Lightbox = React.createClass({
 	                <div className='formWrap'>
 	                    <form id='sendform' onSubmit={this.handleSubmit}>
 	                        <input type='text' className='invis' name='category' defaultValue={this.props.mainCat} />
-	                        <input type='text' className='invis' name='subcat' defaultValue={this.props.subcat} />
+	                        <input type='text' className='invis' name='subcat' defaultValue={this.props.subCat} />
 	                        <div className='chunk'>
 	                            <div className='head'>
 	                                <h3> Have A Resource That Helped You? </h3>
@@ -141,22 +143,22 @@ var Lightbox = React.createClass({
 	                                <input type="text" className='wordLimit' name="title" onKeyPress={this.checkWords}/>
 	                                <p> Challenge Level </p>
 	                                <div className="radioSet">
-	                                    <label for="smchoice1" ><input type="radio" id="smchoice1" name="radio1" value='beginner' /><span>Beginner</span></label>
-	                                    <label for="smchoice2" ><input type="radio" id="smchoice2" name="radio1" value='intermediate' /><span>Intermediate</span></label>
-	                                    <label for="smchoice3" ><input type="radio" id="smchoice3" name="radio1" value='advanced' /><span>Advanced</span></label>
+	                                    <label htmlFor="smchoice1" ><input type="radio" id="smchoice1" name="radio1" value='beginner' /><span>Beginner</span></label>
+	                                    <label htmlFor="smchoice2" ><input type="radio" id="smchoice2" name="radio1" value='intermediate' /><span>Intermediate</span></label>
+	                                    <label htmlFor="smchoice3" ><input type="radio" id="smchoice3" name="radio1" value='advanced' /><span>Advanced</span></label>
 	                                </div>
 	                                <p className='formError large'>{this.props.errMsg}</p>
 	                            </div>
 	                            <div className='col2'>
 	                                <p> Brief Description ({this.props.charCount+1}/140): </p> 
-	                                <textarea className='descLimit' name="desc" maxlength="140" onKeyPress={this.updateChar}></textarea>
+	                                <textarea className='descLimit' name="desc" maxLength="140" onKeyPress={this.updateChar}></textarea>
 	                                <p> Type of Content </p>
 	                                <div className="radioSet">
-	                                    <label for="smchoice2.1" ><input type="radio" id="smchoice2.1" name="radio2" value='article' /><span>Article/Blog</span></label>
-	                                    <label for="smchoice2.2" ><input type="radio" id="smchoice2.2" name="radio2" value='practical' /><span>Hands On</span></label>
-	                                    <label for="smchoice2.3" ><input type="radio" id="smchoice2.3" name="radio2" value='video' /><span>Video</span></label>
-	                                    <label for="smchoice2.4" ><input type="radio" id="smchoice2.4" name="radio2" value='book' /><span>Book</span></label>
-	                                    <label for="smchoice2.5" ><input type="radio" id="smchoice2.5" name="radio2" value='course' /><span>Course</span></label>
+	                                    <label htmlFor="smchoice2.1" ><input type="radio" id="smchoice2.1" name="radio2" value='article' /><span>Article/Blog</span></label>
+	                                    <label htmlFor="smchoice2.2" ><input type="radio" id="smchoice2.2" name="radio2" value='practical' /><span>Hands On</span></label>
+	                                    <label htmlFor="smchoice2.3" ><input type="radio" id="smchoice2.3" name="radio2" value='video' /><span>Video</span></label>
+	                                    <label htmlFor="smchoice2.4" ><input type="radio" id="smchoice2.4" name="radio2" value='book' /><span>Book</span></label>
+	                                    <label htmlFor="smchoice2.5" ><input type="radio" id="smchoice2.5" name="radio2" value='course' /><span>Course</span></label>
 	                                </div>
 	                                <input type='submit' name='fin' value='Done' className='actionBtn formBtn' />
 	                            </div>

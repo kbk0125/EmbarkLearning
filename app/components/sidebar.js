@@ -6,8 +6,10 @@ var SideCats= React.createClass({
 	//https://facebook.github.io/react/docs/thinking-in-react.html
 	newState : function(e){
 		var id= e.target.id.length ? e.target.id :''
+
+		console.log(id)
 		this.props.updateState(
-			e.target.value,
+			e.target.dataset.gen,
 			id
 		)
 	},
@@ -28,13 +30,13 @@ var SideCats= React.createClass({
 				var shown= 'listSelect hide'
 
 			if (el.indexOf('head') > -1){
-				var str=<div className="catHead" key={i} value={this.props.choices[el].gen} onClick={this.newState}>
+				var str=<div className="catHead" key={i} data-gen={this.props.choices[el].gen} onClick={this.newState}>
 				<i className={arrow}></i>
 				<p className={highlight}>{this.props.choices[el].name}</p>
 				</div>
 			}
 			else{
-				var str= <p className={shown} key={i} id={this.props.choices[el].spec} value={this.props.choices[el].gen} onClick={this.newState}> {this.props.choices[el].name} </p>
+				var str= <p className={shown} key={i} id={this.props.choices[el].spec} data-gen={this.props.choices[el].gen} onClick={this.newState}> {this.props.choices[el].name} </p>
 			}
 
 			allChoices.push(str)
