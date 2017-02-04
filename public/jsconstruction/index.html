@@ -45,6 +45,14 @@
             <a href='https://docs.google.com/forms/d/e/1FAIpQLSduCP7uKZowR6guEAsKi85mZPm3qKQHEKv0snurwUJam4ukPA/viewform' target="_blank"><div class='actionBtn'> Give Feedback </div></a>
         </div>
         <div id='side2'>
+            <i class="sectJump fa fa-bars" aria-hidden="true"></i>
+            <div class='chooseSection'>
+                <i class="fa fa-times" aria-hidden="true"></i>
+                <p data-jump="1"> 1: Variables </p>
+                <p data-jump="7"> 7: Comparison </p>
+                <p data-jump="10"> 10: Methods </p>
+                <p data-jump="16"> 16: Functions </p>
+            </div>
             <div class='sideSect first'>
                 <div class='header'>
                     <h2> JavaScript Syntax Comes to Life (0/20)</h2>
@@ -101,7 +109,8 @@
                 </div>
                 <div class='txtbod'>
                     <h3> Your Turn! </h3>
-                    <p> You are the director of this construction site. Time to name a foreman. Create a variable <i>foreman</i> with the name of your choice.</p>
+                    <p> You are the director of this construction site. Time to name a foreman. </p>
+                    <p> Create a variable <i>foreman</i> with the name of your choice.</p>
                     <pre class='prettyprint'><p><input type='text' name='varIn' id='var1'></p></pre>
                     <h3><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> 
                         After typing an answer, hover over the statement to the right if you would like a reminder how the pieces work! </h3>
@@ -178,7 +187,11 @@
                     <pre class='prettyprint'><p> employeeCount = 20; </p></pre>
                     <p> You can also <b> change the value </b> of a variable. Check out the syntax above. Notice how we do not declare "var" again? That means we are modifying the value of a previously created variable. </p>
                     <h3> Your turn! </h3>
-                    <p> Create a variable <i>contractors</i> and set it to 5. You then choose to hire 5 more contractors. So <b> change the value </b> of the variable to 10.</p>
+                    <ol> 
+                        <li> Create a variable <i>contractors</i> and set it to 5. </li> 
+                        <li> You then choose to hire 5 more contractors </li> 
+                        <li> So <b> change the value </b> of the variable to 10.</li>
+                    </ol>
                     <pre class='prettyprint'><p><input type='text' name='varIn' id='var4'><input type='text' name='varIn' id='var5'></p></pre>
                     <h3> <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                         After you start typing, hover over the statement to the right if you would like a reminder how the pieces work! </h3>
@@ -224,7 +237,7 @@ var foreman2 = 'Ed';
 foreman1 === foreman2;</p></pre>
                     <p> This would result in 'false', because the strings are not the exact same </p>
                     <h3> Your turn! </h3>
-                    <p> Create a statmement that compares roofType with a word that is identical to its value.</p>
+                    <p> Create a statmement that compares roofType with a word that is identical to its <b>value.</b></p>
                     <pre class='prettyprint'><p> var roofType = 'shingles';
 <input type='text' name='compIn' id='comp2'></p></pre>
                 </div>
@@ -357,7 +370,7 @@ nailCount = nailCount + 200;
                 <div class='actionBtn2 valid4 validate'> Go to Step 16 </div>
                 <p class='warn'> Did you include a number? </p>
             </div>
-            <div class='sideSect'>
+            <div class='sideSect practiceStart'>
                 <div class='header'>
                     <h2> Intro to Functions (16/20) </h2>
                     <p> Functions are repeatable and reusable code segments</p>
@@ -417,7 +430,11 @@ addBrick(bricks);
                 </div>
                 <div class='txtbod'>
                     <h3> Track Values Throughout Your Functions </h3>
-                    <p> Time for a test! The situation has changed. Now, you start with a stack of 20 bricks. And you need to rewrite your function so that it doubles the original amount of bricks. You will need to use the <a target="__blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators">multiply operator</a>. </p>
+                    <p> Time for a test! The situation has changed. </p> 
+                    <ol>
+                        <li> Now, you start with a stack of 20 bricks. </li> 
+                        <li>And you need to rewrite your function so that it doubles the original amount of bricks. You will need to use the <a target="__blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators">multiply operator</a>. </li>
+                    </ol>
                     <pre class='prettyprint'><p><input type='text' name='funcIn' id='func1'>
 function addBrick(count){
     <input type='text' name='funcIn' id='func2'>
@@ -470,7 +487,11 @@ var finalBrickCount = addBrick(bricks);
                 </div>
                 <div class='txtbod'>
                     <h3> Write Your Own Function </h3>
-                    <p> Check out the code below. You need to write a function, pourConcrete(), that takes a parameter <i> walkway</i> and triples the amount of concrete that is poured in. You will need to use the <a target="__blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators">multiply operator</a>. </p>
+                    <p> Check out the code below. </p> 
+                    <ol>
+                        <li> You need to write a function, pourConcrete(), that takes a parameter <i> walkway</i>... </li>
+                        <li>... and triples the amount of concrete that is poured in. You will need to use the <a target="__blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators">multiply operator</a>. </li>
+                    </ol>
                     <pre class='prettyprint'><p> var concrete= 10;
 <input type='text' name='funcIn' id='func3'>
     <input type='text' name='funcIn' id='func4'>
@@ -970,7 +991,8 @@ pourConcrete(concrete)
                     <div class='nameCase'>
                         <img class='arm' src='/img/jsbuilder/smCrane.png' />
                         <img class='fence' src='/img/jsbuilder/safetyFence.png' />
-                        <h1 class='codeFocus stacked'>function addBrick(<span class="lowerCrane">count</span>)<span class='showFence'>{</span></h1> 
+                        <h3 class='numHover'> 20 </h3>
+                        <h1 class='codeFocus stacked'>function addBrick(<span class="lowerCrane downNumber">count</span>)<span class='showFence'>{</span></h1> 
                     </div>
                     <div class='codeExp paramWords'>
                         <div class='left'>
@@ -1004,7 +1026,8 @@ pourConcrete(concrete)
                 <div class='codeLine'>
                     <div class='nameCase'>
                         <img class='arm' src='/img/jsbuilder/smCrane.png' />
-                        <h1 class='codeFocus stacked'>var finalBrickCount= addBrick(<span class="lowerCrane">bricks</span>)</h1> 
+                        <h3 class='numHover'> 20 </h3>
+                        <h1 class='codeFocus stacked'>var finalBrickCount= addBrick(<span class="lowerCrane upNumber">bricks</span>)</h1> 
                     </div>
                     <div class='codeExp paramWords'>
                         <div class='left'>
@@ -1073,11 +1096,11 @@ pourConcrete(concrete)
                 <div class='codeLine'>
                     <div class='nameCase'>
                         <img class='arm' src='/img/jsbuilder/smCrane.png' />
-                        <h1 class='codeFocus stacked'>addConcrete(<span class="lowerCrane">concrete</span>)</h1> 
+                        <h1 class='codeFocus stacked'>pourConcrete(<span class="lowerCrane">concrete</span>)</h1> 
                     </div>
                     <div class='codeExp paramWords'>
                         <div class='left'>
-                            Step 2/4 - addConcrete calls the function you defined above
+                            Step 2/4 - pourConcrete calls the function you defined above
                         </div>
                         <div class='right'>
                             Step 2/4 - The parameter is concrete, so it grabs the value of 10 off the bricks truck.

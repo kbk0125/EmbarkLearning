@@ -173,6 +173,13 @@ app.get('/jsconstruction', function(req, res) {
 });
 
 
+//Finally figured out this fix
+//https://expressjs.com/en/api.html#res.redirect
+app.get('/jsconstruction*', function(req, res) {
+	res.redirect('/jsconstruction');
+});
+
+
 
 app.get('/testPath2', function (req,res){
 	//Grabs all Li elements and links, li for structure, a@href for linking to the actual sites

@@ -121,9 +121,10 @@ img.resetStyle, div.resetStyle{
   padding: 0.25em 0.5em;
 }
 
-.warn{
+.warn {
   color:red;
   display: none;
+  font-size: 18px;
 }
 
 .warn span{
@@ -340,7 +341,7 @@ span.def{
   border-radius: 2px;
   color: #fafafa;
   resize:none;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .sideSect > h3{

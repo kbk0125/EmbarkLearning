@@ -18,8 +18,12 @@ $('.startbtn, .startChal').click(function(){
 $('.startChal').click(function(){
     pageCount=16
     history.pushState(null,null, '/jsconstruction/'+pageCount)
+    
     $('.sideSect').hide();
     $('.practiceStart').show();
+    
+    $('.interactme').hide();
+    $('#interact16').show().css('display', 'inline-block');
 })
 
 function nextSide(prev){
@@ -191,6 +195,31 @@ var compliments = [
     "You Da Bomb!",
     "This is too easy..."
 ]
+
+
+//Toggle specific slide
+$('.chooseSection i').click(function(){
+    $(this).parent().hide();
+})
+
+$('.sectJump').click(function(){
+    $('.chooseSection').show();
+})
+
+$('.chooseSection p').click(function(){
+    var slide=$(this).data('jump')
+
+    $('.sideSect').hide();
+    $('.sideSect').eq(slide).show();
+    
+
+    //update page History with HTMl History API
+    pageCount =slide
+    history.pushState(null,null, '/jsconstruction/'+pageCount)
+
+    $('.interactme').hide()
+    $('#interact'+(pageCount+1)).show().css('display', 'inline-block');
+})
 
 function revealVarDesc(el){
     $(el).parents('.nameCase').siblings('.varWords').show();
@@ -438,14 +467,14 @@ $('.memberDec').mouseleave(function(){
 
 $('.obj').mouseover(function(){
     var title='architectureTeam'+$(this).text()
-    var desc= 'The ' + $(this).text() + 'is a member of'+$(this).parents('div').find('h2').text()+', but also an object. You must write the statement above to select this member.'
+    var desc= 'The ' + $(this).text() + 'is a member of'+$(this).closest('div').find('h2').text()+', but also an object. You must write the statement above to select this member.'
     var wholeSum= '<div class="hierInfo"><h3>'+title+'</h3><p>'+desc+'</p></div>'
     $(this).after(wholeSum)
 })
 
 $('.meth').mouseover(function(){
     var title='architectureTeam'+$(this).text()
-    var desc= 'The ' + $(this).text() + 'is a method of'+$(this).parents('div').find('h2').text()+'. The methods listed here are the specific capabilities of the architectureTeam'
+    var desc= 'The ' + $(this).text() + 'is a method of'+$(this).closest('div').find('h2').text()+'. The methods listed here are the specific capabilities of the architectureTeam'
     var wholeSum= '<div class="hierInfo"><h3>'+title+'</h3><p>'+desc+'</p></div>'
     $(this).after(wholeSum)
 })
@@ -611,3 +640,19 @@ $('#func4').on("change paste keyup", function(){
     var newStr= curStr.split('walkway').join('<span class="showValue">walkway</span>')
     $('#interact21').find('.returnStatement').html(newStr)
 })
+
+//make sure back button functions
+window.onpopstate = function(){
+    var prev =location.pathname;
+    var str = prev.split("/");
+    str.shift();
+    var newSlide=str[1];
+
+    pageCount=newSlide
+
+    $('.sideSect').hide();
+    $('.sideSect').eq(newSlide).show();
+
+    $('.interactme').hide()
+    $('#interact'+(pageCount)).show().css('display', 'inline-block');
+}
