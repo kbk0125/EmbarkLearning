@@ -74,13 +74,8 @@ function prevSide(prev){
     $('.htmlSnip').hide()
 }
 
-// Good validation needs to have
-// 2 correct custom things and 2 pieces of Javascript?
-// 2 examples of punctuation that is correct
-// 1 thing that it can NOT include
-// good error handling that spits out correct error
-
-
+//if I wanted to check for multiple occurences of one character
+//http://stackoverflow.com/questions/4009756/how-to-count-string-occurrence-in-string
 function checkInputs(arr, thisButton, answer){
     var counter = 0;
 
@@ -120,32 +115,39 @@ function checkInputs(arr, thisButton, answer){
         if(wrongCharacter.length == 0 && falsePos.length ==0 && wrongPhrase.length ==0)
             counter++
         else if(wrongPhrase.length > 0 && wrongCount == 0){
-            $(thisButton).siblings('.warn').text('Did you spell everything correctly in answer '+(i+1)+'?').show();
+            $(thisButton).siblings('.warn').text('Did you spell everything correctly in answer '+(i+1)+'?').show('slide');
+            $(arr[i][0]).effect('highlight');
             wrongCount++;
         }
         else if(wrongPhrase.length > 0 && wrongCount > 0){
-            $(thisButton).siblings('.warn').text('I think you are missing ' + wrongPhrase + 'in answer ' +(i+1)).show();
+            $(thisButton).siblings('.warn').text('I think you are missing ' + wrongPhrase + ' in answer ' +(i+1)).show('slide');
+            $(arr[i][0]).effect('highlight');
             wrongCount++;
         }
         else if(wrongCharacter.length > 0 && wrongCount == 0){
-            $(thisButton).siblings('.warn').text('Did you remember all the correct syntax?').show();
+            $(thisButton).siblings('.warn').text('Did you remember all the correct syntax?').show('slide');
+            $(arr[i][0]).effect('highlight');
             wrongCount++;
         }
         else if(wrongCharacter.length > 0 && wrongCount > 0){
-            $(thisButton).siblings('.warn').text('I think you forgot to include: '+wrongCharacter + 'in answer ' +(i+1)).show();
+            $(thisButton).siblings('.warn').text('I think you forgot to include '+wrongCharacter + ' in answer ' +(i+1)).show('slide');
+            $(arr[i][0]).effect('highlight');
             wrongCount++;
         }
         else if(falsePos.length > 0 && wrongCount == 0){
-            $(thisButton).siblings('.warn').text('You included a character that should not be in there in answer ' +(i+1)+'!').show();
+            $(thisButton).siblings('.warn').text('You included a character that should not be in there in answer ' +(i+1)+'!').show('slide');
+            $(arr[i][0]).effect('highlight');
             wrongCount++;
         }
         else if(falsePos.length > 0 && wrongCount > 0){
-            $(thisButton).siblings('.warn').text('You included ' +falsePos+ 'in answer '+(i+1)+', which should not be in there.' ).show();
+            $(thisButton).siblings('.warn').text('You included ' +falsePos+ 'in answer '+(i+1)+', which should not be in there.' ).show('slide');
+            $(arr[i][0]).effect('highlight');
             wrongCount++;
         }
         //this case should never happen but fuck it I am leaving it in there
         else{
-            $(thisButton).siblings('.warn').text(origMsg).show();
+            $(thisButton).siblings('.warn').text(origMsg).show('slide');
+            $(arr[i][0]).effect('highlight');
             wrongCount++;
         }
 
@@ -153,9 +155,9 @@ function checkInputs(arr, thisButton, answer){
         if (wrongCount > 4)
             //put it in a span so the answer looks distinct
             if(answer.length == 1)
-                $(thisButton).siblings('.warn').html("The answer is- <span>"+answer[0]+"</span>").show();
+                $(thisButton).siblings('.warn').html("The answer is- <span>"+answer[0]+"</span>").show('slide');
             else{
-                $(thisButton).siblings('.warn').html("The answer is- <span>"+answer[0]+"</span><span>"+answer[1]+"</span>").show();
+                $(thisButton).siblings('.warn').html("The answer is- <span>"+answer[0]+"</span><span>"+answer[1]+"</span>").show('slide');
             }
     }
 
@@ -612,7 +614,7 @@ $('.valid6').click(function(){
     var correct= [['#func3',
         ['function ', 'pourConcrete',"walkway"],
         ['(', ')', "{"],
-        ['.', '=', '}', ';']
+        ['.', '=', '}', ';', '"', "'"]
     ], 
     ['#func4',
         ['return',"walkway", "3"],

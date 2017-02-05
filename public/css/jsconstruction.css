@@ -124,10 +124,11 @@ p{
 
 .nameLab{
 	width: 25%;
-	padding-left: 8%;
+	margin-left: 8%;
 	text-align: center;
 	color: white;
 	vertical-align: top;
+	background-color: #404040;
 }
 
 .valLab{
@@ -257,7 +258,7 @@ img.point{
 	font-size: 16px;
 }
 
-.chooseSection i:hover, .sectJump p:hover{
+.chooseSection i:hover, .chooseSection p:hover{
 	color: #3394d4;
 }
 

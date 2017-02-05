@@ -76,7 +76,7 @@
                 </div>
                 <div class='txtbod'>
                     <h3> What can variables do for ME? </h3>
-                    <p> Variables allow you to track specific traits and values as you manipulate your website. They link all your functions, event handlers, you name it together. In order to begin to track a specific value, you declare a variable with a <b>statement</b>.</p>
+                    <p> Variables allow you to track specific traits and values as you manipulate your website. They link all your functions, event handlers, you name it together. In order to begin to track a specific value, you <b>declare</b> a variable with a <b>statement</b>.</p>
                     <pre class='prettyprint'><p> var site ='active';</p></pre>
                     <h3> It's like a truck that carries a value </h3>
                     <p> Think of your entire JavaScript file as a construction site. The variables are trucks that carry values to the appropriate place around the site at any given point. The =, or <b>assignment operator</b>, can change this value. <p>The = sign is a ramp that loads a value up so the variable can carry it around </p>
@@ -110,7 +110,7 @@
                 <div class='txtbod'>
                     <h3> Your Turn! </h3>
                     <p> You are the director of this construction site. Time to name a foreman. </p>
-                    <p> Create a variable <i>foreman</i> with the name of your choice.</p>
+                    <p> Create a variable named <i>foreman</i> with a <b>value</b> your choice. The value needs to be a string.</p>
                     <pre class='prettyprint'><p><input type='text' name='varIn' id='var1'></p></pre>
                     <h3><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> 
                         After typing an answer, hover over the statement to the right if you would like a reminder how the pieces work! </h3>
@@ -135,7 +135,7 @@
                     </ul>
                     <pre class='prettyprint'><p> var employees = 20;</p></pre>
                     <h3> Your turn! </h3>
-                    <p> Create a variable <i>days</i> and set it to 100 to show how long you have been on the job.</p>
+                    <p> Create a variable named <i>days</i> and set it to 100 to show how long you have been on the job.</p>
                     <pre class='prettyprint'><p><input type='text' name='varIn' id='var2'></p></pre>
                     <h3> <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                         After you start typing, hover over the statement to the right if you would like a reminder how the pieces work! </h3>
@@ -161,7 +161,7 @@
                     <pre class='prettyprint'><p> var dealWon = false;</p></pre>
                     <p> This is called a <b>boolean</b>. There are two options: <b>true</b> or <b>false</b>. You can use it to flip a switch in your code. So if you want to indicate if something is active or inactive, use this. </p>
                     <h3> Your turn! </h3>
-                    <p> Create a variable <i>siteActive</i> and set it to false to show that nobody is onsite.</p>
+                    <p> Create a variable names <i>siteActive</i> and set it to <b>false</b> to show that nobody is onsite.</p>
                     <pre class='prettyprint'><p><input type='text' name='varIn' id='var3'></p></pre>
                     <h3> <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                         After you start typing, hover over the statement to the right if you would like a reminder how the pieces work! </h3>
@@ -185,12 +185,12 @@
                         <li> <b>Object</b>: Store more complex data, rather than one line at a time</li>
                     </ul>
                     <pre class='prettyprint'><p> employeeCount = 20; </p></pre>
-                    <p> You can also <b> change the value </b> of a variable. Check out the syntax above. Notice how we do not declare "var" again? That means we are modifying the value of a previously created variable. </p>
+                    <p> You can also <b> change the value </b> of a variable. Check out the syntax above. Notice how we do not <b>declare</b> "var" again? That means we are modifying the <b>value</b> of a previously created variable. </p>
                     <h3> Your turn! </h3>
                     <ol> 
                         <li> Create a variable <i>contractors</i> and set it to 5. </li> 
                         <li> You then choose to hire 5 more contractors </li> 
-                        <li> So <b> change the value </b> of the variable to 10.</li>
+                        <li> So <b> change the value </b> of the variable to 10 in line 2.</li>
                     </ol>
                     <pre class='prettyprint'><p><input type='text' name='varIn' id='var4'><input type='text' name='varIn' id='var5'></p></pre>
                     <h3> <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
@@ -209,19 +209,19 @@
                     <h3> An Alternative Kind of Equals Sign </h3>
                     <p> Alright, since the = sign is the <b>assignment operator</b>, we definitely cannot use that to compare two values.</p> 
                     <p> To check if two values are identical, we will use ===, or the operator for <b> strict equality</b>.</p>
-                    <pre class='prettyprint'><p>var checkins=20;
+                    <pre class='prettyprint'><p>var checkins = 20;
 var checkouts = 20;
 checkins === checkouts;</p></pre>
                     <p> This would result in <i>true</i>, because 20 is exactly equal to 20. Notice how this is different from a normal equals sign. You are not assigning any values. You are just checking if two numbers are equal. </p>
                     <h3> Your turn! </h3>
-                    <p> Check if the two values are exactly equal.</p>
-                    <pre class='prettyprint'><p> var workers = 20;
+                    <p> Check if the two values are exactly equal using <b> strict equality </b>.</p>
+                    <pre class='prettyprint'><p>var workers = 20;
 var hardHats = 19;
 <input type='text' name='compIn' id='comp1'></p></pre>
                 </div>
                 <div class='actionBtn3 backBtn'> Back </div>
                 <div class='actionBtn2 valid9 validate'> Go to Step 8 </div>
-                <p class='warn'> Is your answer a number or string? </p>
+                <p class='warn'> Did you remember to use strict equality? </p>
             </div>
             <div class='sideSect'>
                 <div class='header'>
@@ -235,10 +235,10 @@ var hardHats = 19;
                     <pre class='prettyprint'><p> var foreman1 = 'Ted';
 var foreman2 = 'Ed';
 foreman1 === foreman2;</p></pre>
-                    <p> This would result in 'false', because the strings are not the exact same </p>
+                    <p> This would result in <b>false</b>, because the strings are not the exact same </p>
                     <h3> Your turn! </h3>
                     <p> Create a statmement that compares roofType with a word that is identical to its <b>value.</b></p>
-                    <pre class='prettyprint'><p> var roofType = 'shingles';
+                    <pre class='prettyprint'><p>var roofType = 'shingles';
 <input type='text' name='compIn' id='comp2'></p></pre>
                 </div>
                 <div class='actionBtn3 backBtn'> Back </div>
@@ -254,7 +254,7 @@ foreman1 === foreman2;</p></pre>
                     <h3> An Alternative Kind of Equals Sign </h3>
                     <p> Remember the difference between <b> declaring </b> a variable and <b> setting its value </b> at a later point.</p>
                     <h3> Your turn! </h3>
-                    <p> Check out the statement below. Complete the last line to make a true statement that compares the value of nailCount.</p>
+                    <p> Check out the statement below. Complete the last line to make a true statement that compares the <b>value</b> of nailCount.</p>
                     <pre class='prettyprint'><p>var nailCount= 500;
 nailCount = nailCount + 200;
 <input type='text' name='compIn' id='comp3'></p></pre>
@@ -289,7 +289,7 @@ nailCount = nailCount + 200;
                 </div>
                 <div class='txtbod'>
                     <h3> Members show grouping </h3>
-                    <p> These are NOT members like members of a club. A better way to describe: what are the capabilities of the entire group? Let's look at the architecture team for this site. This is how the team is organized, and how you might call people or methods up to do certain things.</p>
+                    <p> These are NOT members like members of a club. A better way to describe: what are the capabilities of the group and its members? Let's look at the architecture team for this site. This is how the team is organized, and how you might call people or methods up to do certain things.</p>
                     <pre class='prettyprint'><p> architectureTeam.technicalWriter</p></pre>
                     <h3> <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> 
                         Check out the hierarchy to the right. Hover over each element to see relationships. </h3>
@@ -469,7 +469,7 @@ var finalBrickCount = addBrick(bricks);
                     </p></pre>
                     <p> When you call addBrick() at line 5, it simply removes the value from the bricks truck (20, in this case) </p>
                     <ol>
-                        <li> The value of 20 becomes the argument in line 2, then...  </li>
+                        <li> The value of 20 becomes the parameter in line 2, then...  </li>
                         <li> 20 is fed into the 'return' statement on line 3. </li>
                         <li> But it needs somewhere to go from there! </li>
                     </ol>

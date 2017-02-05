@@ -124,7 +124,7 @@ img.resetStyle, div.resetStyle{
 .warn {
   color:red;
   display: none;
-  font-size: 18px;
+  font-size: 18px !important;
 }
 
 .warn span{
