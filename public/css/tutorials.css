@@ -121,6 +121,19 @@ img.resetStyle, div.resetStyle{
   padding: 0.25em 0.5em;
 }
 
+.actionBtn4{
+  border-radius: 2px;
+  background-color: #999;
+  color: #fff;
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+
+.actionBtn4.lg{
+  font-size:18px;
+}
+
+
 .warn {
   color:red;
   display: none;

@@ -10,6 +10,13 @@ p{
 	color: orangered;
 }
 
+.advanceBtn{
+	pointer-events:none;
+	width:147px;
+	margin: 24px auto 0 auto;
+	opacity:0.4;
+}
+
 .lineNums{
 	width: 5%;
 	text-align: center;
@@ -34,6 +41,7 @@ p{
 #interact1{
 	display: inline-block;
 }
+
 #interact1 img{
 	width:250px;
 	display: block;
@@ -66,8 +74,8 @@ p{
 	margin-left: 12px;
 }
 
-.codeLine.indented{
-	margin-left: 48px;
+.codeLine.indented, .varDec.indented{
+	margin-left: 48px !important;
 }
 
 .varDec{
@@ -160,6 +168,12 @@ img.point{
 	display: inline-block;
 	width: 35px;
 	vertical-align: bottom;
+}
+
+img.coneImg{
+	display: inline-block;
+	width: 20px;
+	vertical-align: middle;
 }
 
 .numHover{

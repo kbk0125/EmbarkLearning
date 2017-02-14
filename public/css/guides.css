@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: #fafafa;
+  background-color: #ecf0f1;
   transition: 250ms;
 }
 
@@ -136,7 +136,7 @@ p{
 }
 
 #main{
-  width:900px;
+  width:960px;
   margin: 10px auto;
   margin-bottom: 120px;
 }
@@ -153,7 +153,7 @@ p{
   border-radius: 4px;
   padding:2px 6px;
   transition:250ms;
-  border:1px solid #fafafa;
+  border:2px solid #ccc;
   cursor: pointer;
 }
 
@@ -162,14 +162,14 @@ p{
 }
 
 .topics .segment.chosen{
-  border:1px solid #e6e6e6;
+  border:2px solid #999;
 }
 
 .topics .segment:hover{
-  border:1px solid #e6e6e6;
+  border:2px solid #404040;
 }
 
-.pane.css{
+.pane.css, .pane.sql{
   display: none;
 }
 
@@ -179,10 +179,14 @@ p{
 }
 
 .card{
-  width:31%;
-  margin: 4px 16px 16px 0px;
+  width:30%;
+  margin: 4px 8px 16px 0px;
+  padding: 8px 6px;
   display: inline-block;
   vertical-align: top;
+  background-color: white;
+  border:1px solid #ccc;
+  border-radius: 4px;
 }
 
 .bodySec{
@@ -243,7 +247,7 @@ p{
   }
 
   .card{
-    width: 30%;
+    width: 29%;
   }
 
   .card img{
@@ -315,7 +319,7 @@ p{
   }
 
   .card{
-    width: 45%;
+    width: 44%;
   }
 }
 

@@ -50,8 +50,9 @@
                 <i class="fa fa-times" aria-hidden="true"></i>
                 <p data-jump="1"> 1: Variables </p>
                 <p data-jump="7"> 7: Comparison </p>
-                <p data-jump="10"> 10: Methods </p>
-                <p data-jump="16"> 16: Functions </p>
+                <p data-jump="10"> 10: If Statements </p>
+                <p data-jump="15"> 15: Methods </p>
+                <p data-jump="21"> 21: Functions </p>
             </div>
             <div class='sideSect first'>
                 <div class='header'>
@@ -116,7 +117,7 @@
                         After typing an answer, hover over the statement to the right if you would like a reminder how the pieces work! </h3>
                 </div>
                 <div class='actionBtn3 backBtn'> Back </div>
-                <div class='actionBtn2 valid1 validate'> Go to Step 4 </div>
+                <div class='actionBtn2 vartest1'> Test It </div>
                 <p class='warn'> Does your answer contain an '='? </p>
             </div>
             <div class='sideSect'>
@@ -141,7 +142,7 @@
                         After you start typing, hover over the statement to the right if you would like a reminder how the pieces work! </h3>
                 </div>
                 <div class='actionBtn3 backBtn'> Back </div>
-                <div class='actionBtn2 valid2 validate'> Go to Step 5 </div>
+                <div class='actionBtn2 vartest2'> Test It </div>
                 <p class='warn'> Is your answer a number or string? </p>
             </div>
             <div class='sideSect'>
@@ -167,7 +168,7 @@
                         After you start typing, hover over the statement to the right if you would like a reminder how the pieces work! </h3>
                 </div>
                 <div class='actionBtn3 backBtn'> Back </div>
-                <div class='actionBtn2 valid7 validate'> Go to Step 6 </div>
+                <div class='actionBtn2 vartest3'> Test It </div>
                 <p class='warn'> Is your answer a number or string? </p>
             </div>
             <div class='sideSect'>
@@ -197,7 +198,7 @@
                         After you start typing, hover over the statement to the right if you would like a reminder how the pieces work! </h3>
                 </div>
                 <div class='actionBtn3 backBtn'> Back </div>
-                <div class='actionBtn2 valid8 validate'> Go to Step 5 </div>
+                <div class='actionBtn2 vartest4'> Test It </div>
                 <p class='warn'> Is your answer a number or string? </p>
             </div>
             <div class='sideSect'>
@@ -220,7 +221,7 @@ var hardHats = 19;
 <input type='text' name='compIn' id='comp1'></p></pre>
                 </div>
                 <div class='actionBtn3 backBtn'> Back </div>
-                <div class='actionBtn2 valid9 validate'> Go to Step 8 </div>
+                <div class='actionBtn2 comptest1'> Test It </div>
                 <p class='warn'> Did you remember to use strict equality? </p>
             </div>
             <div class='sideSect'>
@@ -237,12 +238,12 @@ var foreman2 = 'Ed';
 foreman1 === foreman2;</p></pre>
                     <p> This would result in <b>false</b>, because the strings are not the exact same </p>
                     <h3> Your turn! </h3>
-                    <p> Create a statmement that compares roofType with a word that is identical to its <b>value.</b></p>
+                    <p> Create a statmement that compares <i>roofType</i> with a word that is identical to its <b>value.</b></p>
                     <pre class='prettyprint'><p>var roofType = 'shingles';
 <input type='text' name='compIn' id='comp2'></p></pre>
                 </div>
                 <div class='actionBtn3 backBtn'> Back </div>
-                <div class='actionBtn2 valid10 validate'> Go to Step 9 </div>
+                <div class='actionBtn2 comptest2'> Test It </div>
                 <p class='warn'> Is your answer a number or string? </p>
             </div>
             <div class='sideSect'>
@@ -260,8 +261,116 @@ nailCount = nailCount + 200;
 <input type='text' name='compIn' id='comp3'></p></pre>
                 </div>
                 <div class='actionBtn3 backBtn'> Back </div>
-                <div class='actionBtn2 valid11 validate'> Go to Step 10 </div>
+                <div class='actionBtn2 comptest3'> Test It </div>
                 <p class='warn'> Is your answer a number or string? </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Intro to if Statements (10/20) </h2>
+                    <p> Write your code based on the result of a strict equality comparison</p>
+                </div>
+                <div class='txtbod'>
+                    <h3> If Statement Fundamentals </h3>
+                    <p> Since we just learned how to compare variables and values, we now need to learn how to write code that depends upon a comparison statement, or <b> condition </b>.</p>
+                    <p> <b>If statements</b> allow us to run a specific set of instructions based on the result of a comparison statement. </p>
+                    <pre class='prettyprint'><p> if(contract === 'signed')</p></pre>
+                    <h3> The if statement sets up caution cones </h3>
+                    <p>We can only enter the if statement if we have passed the condition in between the parentheses</p>
+                    <p> This makes our comparison statement actionable! With an if statement, we have to figure out if the <b> condition </b> is true before we can proceed. </p>
+                    <h3> <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> 
+                        Check out the statement to the right. Hover over the ( or ) and see how it works. </h3>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 next'> Go to Step 11 </div>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Intro to if Statements (11/20) </h2>
+                    <p> Write your code based on the result of a strict equality comparison</p>
+                </div>
+                <div class='txtbod'>
+                    <h3> If Statement Fundamentals </h3>
+                    <p> Think of the if statement and two parentheses as cautionary cones. You can only enter the following statements if the <b> condition</b> between the cones is true.</p>
+                    <p> Write an if statement that looks at a variable <i> siteActive </i> and evaulates whether it is <b> false </b> or not. </p>
+                    <pre class='prettyprint'><p><input type='text' name='ifIn' id='if1'></p></pre>
+                    <h3> <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> 
+                        After you start typing, check out the right section to see if you are on the right track. </h3>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 iftest1'> Test It </div>
+                <p class='warn'> Did you include a condition? </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Intro to if Statements (12/20) </h2>
+                    <p> Write your code based on the result of a strict equality comparison</p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Bringing in the Body </h3>
+                    <p> Okay, now we need to outline the code that will run based on whether we can enter the traffic cones. We can do this with brackets {}.</p>
+                    <p> This is very important! </p>
+                    <pre class='prettyprint'><p>if(siteActive === false){
+    var gate = 'closed';
+}</p></pre>
+                    <h3> The {} are like a safety fence </h3>
+                    <p> If the cones tell use that we need to pause to see if we are allowed in, the brackets {} tell us what happens next!</p>
+                    <p> These statements will only run if the if <b> condition </b> evaluates to true. In this case, if the site is not active, the gates will be closed. </p>
+                    <h3> <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> 
+                        Check out the statement to the right. Hover over the brackets {} or parentheses () and see how it works. </h3>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 next'> Continue </div>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Intro to if Statements (13/20) </h2>
+                    <p> Write your code based on the result of a strict equality comparison</p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Change a Value </h3>
+                    <p> Let's change our code based on an if statement! We are going to declare a value, then change it based on the result of an if statement.</p>
+                    <ol>
+                        <li> The variable siteStatus has been initiated with a value of <b>'open'</b>.</li>
+                        <li> Write an if statement that checks if the variable <i> weather </i> is set to <b> 'rainy'</b> </li>
+                        <li> If it is, change the <b> value </b> of <i>siteStatus </i> to <b> 'closed' </b> </li>
+                    </ol>
+                    <pre class='prettyprint'><p> var siteStatus ='open';
+<input type='text' name='ifIn' id='if2'>
+    <input type='text' name='ifIn' id='if3'>
+}</p></pre>
+                    <h3> <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> 
+                        After you start typing, check out the right section to see if you are on the right track. </h3>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 iftest2'> Test It </div>
+                <p class='warn'> Did you include a condition? </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Intro to if Statements (14/20) </h2>
+                    <p> Write your code based on the result of a strict equality comparison</p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Else Statements </h3>
+                    <p> Let's add in an <b> else </b> statement. It's pretty simple- if the if statement evaluates to false, the else code will run!</p>
+                    <ol>
+                        <li> The variable bathrooms has been initiated with a value of <b>1</b>.</li>
+                        <li> Write an if statement that checks if the variable <i> children </i> is set to <b> 2</b> </li>
+                        <li> If the value is not 2, change the <b> value </b> of <i>bathrooms </i> to <b> 2 </b>  </li>
+                    </ol>
+                    <pre class='prettyprint'><p> var bathrooms = 1;
+<input type='text' name='ifIn' id='if4'>
+    bathrooms = 3;
+}
+else {
+    <input type='text' name='ifIn' id='if5'>
+}</p></pre>
+                    <h3> <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> 
+                        After you start typing, check out the right section to see if you are on the right track. </h3>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 iftest3'> Test It </div>
+                <p class='warn'> Did you include a condition? </p>
             </div>
             <div class='sideSect'>
                 <div class='header'>
@@ -271,7 +380,7 @@ nailCount = nailCount + 200;
                 <div class='txtbod'>
                     <h3> Members show grouping </h3>
                     <p> Imagine you are directing your construction site, and you need someone to dig a ditch to put in some plumbing. You see some guy sitting idly, and you yell at him to get on it. Unfortunately for you, that guy was an electrician. And now he is going to cost you thousands of dollars with his mistakes.</p>
-                    <p> The <b>member operator</b> clearly defines what elements are members of which groups, and what those elements are capable of. So if you ordered an electrician to dig a hole, your code can yell at you and tell you that it is not possible.
+                    <p> The <b>member operator</b> clearly defines what elements are members of which groups, and what those elements are capable of. So if you ordered an electrician to dig a hole, your code can yell at you and tell you that it is not possible. </p>
                     <pre class='prettyprint'><p> crane.pickup();</p></pre>
                     <h3> The . indicates an order is being given </h3>
                     <p> The ., or the <b> member operator</b> quickly shows the relationship between these two. Crane, on the left, is an <b> object</b>, which has specific parts and capabilities. On the right, pickup(), is the <b> method() </b>, which is a specific capability of the crane
@@ -330,7 +439,7 @@ nailCount = nailCount + 200;
                     </p></pre>
                 </div>
                 <div class='actionBtn3 backBtn'> Back </div>
-                <div class='actionBtn2 valid3 validate'> Go to Step 14 </div>
+                <div class='actionBtn2 memtest1'> Test It </div>
                 <p class='warn'> Did you include a method? </p>
             </div>
             <div class='sideSect'>
@@ -367,7 +476,7 @@ nailCount = nailCount + 200;
                     </p></pre>
                 </div>
                 <div class='actionBtn3 backBtn'> Back </div>
-                <div class='actionBtn2 valid4 validate'> Go to Step 16 </div>
+                <div class='actionBtn2 paramtest1'> Test It </div>
                 <p class='warn'> Did you include a number? </p>
             </div>
             <div class='sideSect practiceStart'>
@@ -450,7 +559,7 @@ addBrick(bricks);
                         See it live on the right</h3>
                 </div>
                 <div class='actionBtn3 backBtn'> Back </div>
-                <div class='actionBtn2 valid5 validate'> Go to Step 19 </div>
+                <div class='actionBtn2 functest1'> Test It </div>
                 <p class='warn'> Did you include a number? </p>
             </div>
             <div class='sideSect'>
@@ -502,7 +611,7 @@ pourConcrete(concrete)
                         See it live on the right</h3>
                 </div>
                 <div class='actionBtn3 backBtn'> Back </div>
-                <div class='actionBtn2 valid6 validate'> Go to Step 14 </div>
+                <div class='actionBtn2 functest3'> Test It </div>
                 <p class='warn'> Did you include the correct parameter name? </p>
             </div>
         </div>
@@ -574,7 +683,7 @@ pourConcrete(concrete)
                             <div class='nameLab'> foreman </div> 
                             <div class='valLab'> 'yourName' </div> 
                         </div>
-                        <h1 class='codeFocus'> </h1> 
+                        <h1 class='codeFocus userIn'> </h1> 
                     </div>
                     <div class='codeExp varWords'>
                         <div class='left'>
@@ -593,6 +702,7 @@ pourConcrete(concrete)
                         </div>
                     </div>
                 </div>
+                <div class='advanceBtn actionBtn4 lg'> Advance to Step 4 </div>
             </div>
             <div class='interactme' id='interact5'>
                 <div class='varDec hiddenBack'>
@@ -602,7 +712,7 @@ pourConcrete(concrete)
                             <div class='nameLab'> days </div> 
                             <div class='valLab'> 100 </div> 
                         </div>
-                        <h1 class='codeFocus'> </h1> 
+                        <h1 class='codeFocus userIn'> </h1> 
                     </div>
                     <div class='codeExp varWords'>
                         <div class='left'>
@@ -621,6 +731,7 @@ pourConcrete(concrete)
                         </div>
                     </div>
                 </div>
+                <div class='advanceBtn actionBtn4 lg'> Advance to Step 4 </div>
             </div>
             <div class='interactme' id='interact6'>
                 <div class='varDec hiddenBack'>
@@ -630,7 +741,7 @@ pourConcrete(concrete)
                             <div class='nameLab'> siteActive </div> 
                             <div class='valLab'> false </div> 
                         </div>
-                        <h1 class='codeFocus'> </h1> 
+                        <h1 class='codeFocus userIn'> </h1> 
                     </div>
                     <div class='codeExp varWords'>
                         <div class='left'>
@@ -649,6 +760,7 @@ pourConcrete(concrete)
                         </div>
                     </div>
                 </div>
+                <div class='advanceBtn actionBtn4 lg'> Advance to Step 4 </div>
             </div>
             <div class='interactme' id='interact7'>
                 <div class='varDec hiddenBack'>
@@ -658,7 +770,7 @@ pourConcrete(concrete)
                             <div class='nameLab'> contractors </div> 
                             <div class='valLab'> 5 </div> 
                         </div>
-                        <h1 class='codeFocus'> </h1> 
+                        <h1 class='codeFocus userIn'> </h1> 
                     </div>
                     <div class='codeExp varWords'>
                         <div class='left'>
@@ -684,7 +796,7 @@ pourConcrete(concrete)
                             <div class='nameLab'> contractors </div> 
                             <div class='valLab'> 10 </div> 
                         </div>
-                        <h1 class='codeFocus'> </h1> 
+                        <h1 class='codeFocus userIn'> </h1> 
                     </div>
                     <div class='codeExp varWords'>
                         <div class='left'>
@@ -703,12 +815,283 @@ pourConcrete(concrete)
                         </div>
                     </div>
                 </div>
+                <div class='advanceBtn actionBtn4 lg'> Advance to Step 4 </div>
             </div>
             <div class='interactme' id='interact8'>
+                <div class='advanceBtn actionBtn4 lg'> Advance to Step 8 </div>
             </div>
             <div class='interactme' id='interact9'>
+                <div class='advanceBtn actionBtn4 lg'> Advance to Step 9 </div>
             </div>
             <div class='interactme' id='interact10'>
+                <div class='advanceBtn actionBtn4 lg'> Advance to Step 10 </div>
+            </div>
+            <div class='interactme'>
+                <div class='ifDec'>
+                    <div class='nameCase'>
+                        <h1 class='codeFocus'> if<span class='coneShow'>(</span>contract === 'signed'<span class='coneShow'>)</span></h1> 
+                    </div>
+                    <div class='codeExp ifWords'>
+                        <div class='left'>
+                            The <b>if statement</b> will let us enter the following code block based on the result of the <b> condition </b>.
+                        </div>
+                        <div class='right'>
+                            We need to figure out if this <b> condition </b> evaluates to true.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='interactme'>
+                <div class='ifDec'>
+                    <div class='nameCase'>
+                        <h1 class='codeFocus userIn'> </h1> 
+                    </div>
+                    <div class='codeExp ifWords'>
+                        <div class='left'>
+                            The <b>if statement</b> will let us enter the following code block based on the result of the <b> condition </b>.
+                        </div>
+                        <div class='right'>
+                            We need to figure out if this <b> condition </b> evaluates to true.
+                        </div>
+                    </div>
+                </div>
+                <div class='advanceBtn actionBtn4 lg'> Advance to Step 4 </div>
+            </div>
+            <div class='interactme'>
+                <div class='codeLine ifDec'>
+                    <div class='nameCase'>
+                        <img class='fence' src='/img/jsbuilder/safetyFence.png' />
+                        <h1 class='codeFocus'> if<span class='coneShow'>(</span>siteActive === false<span class='coneShow'>)</span> <span class='showFence'>{ </span></h1> 
+                    </div>
+                    <div class='codeExp ifWords'>
+                        <div class='left'>
+                            The <b>if statement</b> will let us enter the following code block based on the result of the <b> condition </b>.
+                        </div>
+                        <div class='right'>
+                            We need to figure out if this <b> condition </b> evaluates to true.
+                        </div>
+                    </div>
+                </div>
+                <div class='varDec leftPush indented hiddenBack'>
+                    <div class='nameCase'>
+                        <img class='stake' src='/img/jsbuilder/post.png' />
+                        <div class='splitAnim'>
+                            <div class='nameLab'> gate </div> 
+                            <div class='valLab'> 'closed' </div> 
+                        </div>
+                        <h1 class='codeFocus'> var gate<span class='loadTruck'> = </span>'closed'<span class='showStake'>; </span></h1> 
+                    </div>
+                    <div class='codeExp varWords'>
+                        <div class='left'>
+                            This is the variable <b>name</b>. It carries the variable value around.
+                        </div>
+                        <div class='right'>
+                            This is the variable <b>value</b>. It can be easily changed, but it will always be attached to the name.
+                        </div>
+                    </div>
+                    <div class='codeExp semiWords'>
+                        <div class='left'>
+                            
+                        </div>
+                        <div class='right'>
+                            This semi-colon ends every statement and sets a boudary for what your browser should read. Semi-colons only end statements, so the browser reads what is to the left of it.
+                        </div>
+                    </div>
+                </div>
+                <div class='codeLine'>
+                    <div class='nameCase'>
+                        <img class='fence' src='/img/jsbuilder/safetyFenceRight.png' />
+                        <h1 class='codeFocus'><span class='showFence'>}</span></h1> 
+                    </div>
+                </div>
+            </div>
+            <div class='interactme'>
+                <div class='varDec leftPush hiddenBack'>
+                    <div class='nameCase'>
+                        <img class='stake' src='/img/jsbuilder/post.png' />
+                        <div class='splitAnim'>
+                            <div class='nameLab'> siteStatus </div> 
+                            <div class='valLab'> 'open' </div> 
+                        </div>
+                        <h1 class='codeFocus'> var siteStatus<span class='loadTruck'> = </span>'open'<span class='showStake'>; </span></h1> 
+                    </div>
+                    <div class='codeExp varWords'>
+                        <div class='left'>
+                            This is the variable <b>name</b>. It carries the variable value around.
+                        </div>
+                        <div class='right'>
+                            This is the variable <b>value</b>. It can be easily changed, but it will always be attached to the name.
+                        </div>
+                    </div>
+                    <div class='codeExp semiWords'>
+                        <div class='left'>
+                            
+                        </div>
+                        <div class='right'>
+                            This semi-colon ends every statement and sets a boudary for what your browser should read. Semi-colons only end statements, so the browser reads what is to the left of it.
+                        </div>
+                    </div>
+                </div>
+                <div class='codeLine ifDec'>
+                    <div class='nameCase'>
+                        <img class='fence' src='/img/jsbuilder/safetyFenceRight.png' />
+                        <h1 class='codeFocus userIn'> </h1> 
+                    </div>
+                    <div class='codeExp ifWords'>
+                        <div class='left'>
+                            The <b>if statement</b> will let us enter the following code block based on the result of the <b> condition </b>.
+                        </div>
+                        <div class='right'>
+                            We need to figure out if this <b> condition </b> evaluates to true.
+                        </div>
+                    </div>
+                </div>
+                <div class='varDec leftPush hiddenBack indented'>
+                    <div class='nameCase'>
+                        <img class='stake' src='/img/jsbuilder/post.png' />
+                        <div class='splitAnim'>
+                            <div class='nameLab'> siteStatus </div> 
+                            <div class='valLab'> 'closed' </div> 
+                        </div>
+                        <h1 class='codeFocus userIn'> </h1> 
+                    </div>
+                    <div class='codeExp varWords'>
+                        <div class='left'>
+                            This is the variable <b>name</b>. It carries the variable value around.
+                        </div>
+                        <div class='right'>
+                            This is the variable <b>value</b>. It can be easily changed, but it will always be attached to the name.
+                        </div>
+                    </div>
+                    <div class='codeExp semiWords'>
+                        <div class='left'>
+                            
+                        </div>
+                        <div class='right'>
+                            This semi-colon ends every statement and sets a boudary for what your browser should read. Semi-colons only end statements, so the browser reads what is to the left of it.
+                        </div>
+                    </div>
+                </div>
+                <div class='codeLine'>
+                    <div class='nameCase'>
+                        <img class='fence' src='/img/jsbuilder/safetyFenceRight.png' />
+                        <h1 class='codeFocus'><span class='showFence'>}</span></h1> 
+                    </div>
+                </div>
+                <div class='advanceBtn actionBtn4 lg'> Advance to Step 4 </div>
+            </div>
+            <div class='interactme'>
+                <div class='varDec leftPush hiddenBack'>
+                    <div class='nameCase'>
+                        <img class='stake' src='/img/jsbuilder/post.png' />
+                        <div class='splitAnim'>
+                            <div class='nameLab'> bathrooms </div> 
+                            <div class='valLab'> 1 </div> 
+                        </div>
+                        <h1 class='codeFocus'> var bathrooms<span class='loadTruck'> = </span>1<span class='showStake'>; </span></h1> 
+                    </div>
+                    <div class='codeExp varWords'>
+                        <div class='left'>
+                            This is the variable <b>name</b>. It carries the variable value around.
+                        </div>
+                        <div class='right'>
+                            This is the variable <b>value</b>. It can be easily changed, but it will always be attached to the name.
+                        </div>
+                    </div>
+                    <div class='codeExp semiWords'>
+                        <div class='left'>
+                            
+                        </div>
+                        <div class='right'>
+                            This semi-colon ends every statement and sets a boudary for what your browser should read. Semi-colons only end statements, so the browser reads what is to the left of it.
+                        </div>
+                    </div>
+                </div>
+                <div class='codeLine ifDec'>
+                    <div class='nameCase'>
+                        <img class='fence' src='/img/jsbuilder/safetyFenceRight.png' />
+                        <h1 class='codeFocus userIn'> </h1> 
+                    </div>
+                    <div class='codeExp ifWords'>
+                        <div class='left'>
+                            The <b>if statement</b> will let us enter the following code block based on the result of the <b> condition </b>.
+                        </div>
+                        <div class='right'>
+                            We need to figure out if this <b> condition </b> evaluates to true.
+                        </div>
+                    </div>
+                </div>
+                <div class='varDec leftPush hiddenBack indented'>
+                    <div class='nameCase'>
+                        <img class='stake' src='/img/jsbuilder/post.png' />
+                        <div class='splitAnim'>
+                            <div class='nameLab'> bathrooms </div> 
+                            <div class='valLab'> 3 </div> 
+                        </div>
+                        <h1 class='codeFocus'> bathrooms<span class='loadTruck'> = </span>3<span class='showStake'>; </span></h1> 
+                    </div>
+                    <div class='codeExp varWords'>
+                        <div class='left'>
+                            This is the variable <b>name</b>. It carries the variable value around.
+                        </div>
+                        <div class='right'>
+                            This is the variable <b>value</b>. It can be easily changed, but it will always be attached to the name.
+                        </div>
+                    </div>
+                    <div class='codeExp semiWords'>
+                        <div class='left'>
+                            
+                        </div>
+                        <div class='right'>
+                            This semi-colon ends every statement and sets a boudary for what your browser should read. Semi-colons only end statements, so the browser reads what is to the left of it.
+                        </div>
+                    </div>
+                </div>
+                <div class='codeLine'>
+                    <div class='nameCase'>
+                        <img class='fence' src='/img/jsbuilder/safetyFenceRight.png' />
+                        <h1 class='codeFocus'><span class='showFence'>}</span></h1> 
+                    </div>
+                </div>
+                <div class='codeLine'>
+                    <div class='nameCase'>
+                        <img class='fence' src='/img/jsbuilder/safetyFenceRight.png' />
+                        <h1 class='codeFocus'>else <span class='showFence'>{</span></h1> 
+                    </div>
+                </div>
+                <div class='varDec leftPush hiddenBack indented'>
+                    <div class='nameCase'>
+                        <img class='stake' src='/img/jsbuilder/post.png' />
+                        <div class='splitAnim'>
+                            <div class='nameLab'> bathrooms </div> 
+                            <div class='valLab'> 3 </div> 
+                        </div>
+                        <h1 class='codeFocus userIn'> </h1> 
+                    </div>
+                    <div class='codeExp varWords'>
+                        <div class='left'>
+                            This is the variable <b>name</b>. It carries the variable value around.
+                        </div>
+                        <div class='right'>
+                            This is the variable <b>value</b>. It can be easily changed, but it will always be attached to the name.
+                        </div>
+                    </div>
+                    <div class='codeExp semiWords'>
+                        <div class='left'>
+                            
+                        </div>
+                        <div class='right'>
+                            This semi-colon ends every statement and sets a boudary for what your browser should read. Semi-colons only end statements, so the browser reads what is to the left of it.
+                        </div>
+                    </div>
+                </div>
+                <div class='codeLine'>
+                    <div class='nameCase'>
+                        <img class='fence' src='/img/jsbuilder/safetyFenceRight.png' />
+                        <h1 class='codeFocus'><span class='showFence'>}</span></h1> 
+                    </div>
+                </div>
+                <div class='advanceBtn actionBtn4 lg'> Advance to Step 4 </div>
             </div>
             <div class='interactme' id='interact11'>
                 <div class='memberDec hiddenBack'>
@@ -752,7 +1135,7 @@ pourConcrete(concrete)
                 <div class='memberDec hiddenBack'>
                     <div class='nameCase'>
                         <img class='stake' src='/img/jsbuilder/post.png' />
-                        <h1 class='codeFocus'></h1> 
+                        <h1 class='codeFocus userIn'></h1> 
                     </div>
                     <div class='codeExp memWords'>
                         <div class='left'>
@@ -763,6 +1146,7 @@ pourConcrete(concrete)
                         </div>
                     </div>
                 </div>
+                <div class='advanceBtn actionBtn4 lg'> Advance to Step 4 </div>
             </div>
             <div class='interactme' id='interact15'>
                 <div class='funcDec'>
@@ -784,7 +1168,7 @@ pourConcrete(concrete)
                 <div class='funcDec'>
                     <div class='nameCase'>
                         <img class='arm' src='/img/jsbuilder/smCrane.png' />
-                        <h1 class='codeFocus'> </h1> 
+                        <h1 class='codeFocus userIn'> </h1> 
                     </div>
                     <div class='codeExp paramWords'>
                         <div class='left'>
@@ -795,6 +1179,7 @@ pourConcrete(concrete)
                         </div>
                     </div>
                 </div>
+                <div class='advanceBtn actionBtn4 lg'> Advance to Step 4 </div>
             </div>
             <div class='interactme' id='interact17'>
                 <div class='codeLine'>
@@ -830,6 +1215,7 @@ pourConcrete(concrete)
                         <h1 class='codeFocus'>}</h1> 
                     </div>
                 </div>
+                <div class='advanceBtn actionBtn4 lg'> Advance to Step 4 </div>
             </div>
             <div class='interactme' id='interact18'>
                 <div class='varDec hiddenBack leftPush'>
@@ -908,7 +1294,7 @@ pourConcrete(concrete)
                             <div class='nameLab'> bricks </div> 
                             <div class='valLab'> 20 </div> 
                         </div>
-                        <h1 class='codeFocus varStatement'> </h1> 
+                        <h1 class='codeFocus varStatement userIn'> </h1> 
                     </div>
                     <div class='codeExp varWords'>
                         <div class='left'>
@@ -937,7 +1323,7 @@ pourConcrete(concrete)
                 <div class='codeLine indented'>
                     <div class='nameCase'>
                         <h3 class='numHover'> 20 </h3>
-                        <h1 class='codeFocus stacked returnStatement'></h1> 
+                        <h1 class='codeFocus stacked returnStatement userIn'></h1> 
                     </div>
                     <div class='codeExp paramWords'>
                         <div class='left'>
@@ -968,6 +1354,7 @@ pourConcrete(concrete)
                         </div>
                     </div>
                 </div>
+                <div class='advanceBtn actionBtn4 lg'> Advance to Step 4 </div>
             </div>
             <div class='interactme' id='interact20'>
                 <div class='varDec hiddenBack leftPush'>
@@ -1062,7 +1449,7 @@ pourConcrete(concrete)
                     <div class='nameCase'>
                         <img class='arm' src='/img/jsbuilder/smCrane.png' />
                         <img class='fence' src='/img/jsbuilder/safetyFence.png' />
-                        <h1 class='codeFocus stacked functionDefStatement'></h1> 
+                        <h1 class='codeFocus stacked functionDefStatement userIn'></h1> 
                     </div>
                     <div class='codeExp paramWords'>
                         <div class='left'>
@@ -1076,7 +1463,7 @@ pourConcrete(concrete)
                 <div class='codeLine indented'>
                     <div class='nameCase'>
                         <h3 class='numHover'> 10 </h3>
-                        <h1 class='codeFocus stacked returnStatement'></h1> 
+                        <h1 class='codeFocus stacked returnStatement userIn'></h1> 
                     </div>
                     <div class='codeExp paramWords'>
                         <div class='left'>
@@ -1107,6 +1494,7 @@ pourConcrete(concrete)
                         </div>
                     </div>
                 </div>
+                <div class='advanceBtn actionBtn4 lg'> Done! </div>
             </div>
         </div>
     </div>
