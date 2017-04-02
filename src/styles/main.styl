@@ -187,6 +187,58 @@ a
 					@media (max-width: 560px)
 						width 300px	
 						margin-left 0
+.mySignup
+	width 290px
+	margin 24px auto
+	background-color #fafafa
+	padding 0px 0px 8px 0px
+	border 1px solid #ccc
+	border-radius 4px
+	hr
+		border-color #e6e6e6
+		margin 0 0 8px 0
+	h3
+		font-weight 400
+		color white
+		padding 8px 0
+		background-color #d99063
+		padding-left 8px
+	> a
+		background-color #3B5998
+		display block
+		text-align center
+		color white
+		padding 8px 0
+		width 80%
+		margin 8px auto
+		border-radius 2px
+	.sp-login-form
+		padding 0 8px
+		label
+			font-weight 300
+		input
+			margin-top 4px
+			margin-bottom 8px
+			padding 4px
+			font-size 14px
+			width 90%
+			border-radius 2px
+			border 1px solid #ccc
+		button
+			@extend .actionBtnMin
+			border none
+			font-family inherit
+			text-align center
+			margin 4px auto
+			display block
+			font-size 16px
+		a
+			float none
+			color #3394d4
+			text-align center
+			display block
+			font-size 14px
+			
 .lightBox
 	z-index 100
 	position absolute
@@ -227,15 +279,24 @@ a
 		margin 10px 0 0 8px
 		@media (max-width: 600px)
 			display none
-	.menuToggle
+	.rightMen
 		float right
-		color #404040
-		font-size 30px
-		margin 2px 12px 0 0
-		display none
-		cursor pointer
-		@media (max-width: 850px)
-			display block
+		a
+			color #3394d4
+			margin-right 12px
+			@media (max-width: 850px)
+				display none
+		.actionBtn
+			display inline-block
+		.menuToggle
+			float right
+			color #404040
+			font-size 30px
+			margin 2px 12px 0 0
+			display none
+			cursor pointer
+			@media (max-width: 850px)
+				display block
 #sideBar
 	background-color #2C3E50
 	width 270px

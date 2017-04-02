@@ -728,9 +728,9 @@ $('.iftest2').click(function(){
         [';', '}', '.']
     ],['#if3',
         ['siteStatus', '=', '"', "closed", ';'],
-        ['var ', ')', '{', '}', '(', "."]
+        ['var ', ')', '{', '}', '(', ".", "==="]
     ]]
-    var finAnswer= ["if (weather === 'rainy'){", "siteStatus === 'closed';"]
+    var finAnswer= ["if (weather === 'rainy'){", "siteStatus = 'closed';"]
     checkInputs(correct, this, finAnswer)
 })
 

@@ -14,7 +14,7 @@ var ResList = React.createClass({
 		var id = e.target.dataset.val.split(",")[0]
 		var votes = e.target.dataset.val.split(",")[1]
 		var targ= e.target
-		console.log(id)
+		//console.log(id)
 		var obj ={}
 		obj['id'] = id
 		obj['votes'] = votes
@@ -54,7 +54,7 @@ var ResList = React.createClass({
 
 	    		var test= axios.get(fullImgLink)
 	    			.then(function(res){
-	    				console.log('yes')
+	    				//console.log('yes')
 	    			})
 	    			.catch(function(err){
 	    				console.log('no')
