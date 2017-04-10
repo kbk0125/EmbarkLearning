@@ -23,7 +23,7 @@ h2,
 h3 {
   color: #404040;
   font-family: 'Roboto';
-  font-weight: 700;
+  font-weight: 500;
   margin: 0;
 }
 
@@ -181,12 +181,11 @@ p{
 .card{
   width:30%;
   margin: 4px 8px 16px 0px;
-  padding: 8px 6px;
+  padding: 8px 0px 8px 6px;
   display: inline-block;
   vertical-align: top;
   background-color: white;
-  border:1px solid #ccc;
-  border-radius: 4px;
+  border:1px solid #e6e6e6;
 }
 
 .bodySec{
@@ -198,20 +197,34 @@ p{
   font-size: 18px;
   display: inline-block;
   color: #404040;
-  padding:2px 0px 0px 0px;
+  padding:4px 0px 0px 0px;
 }
 
 .card .subTitle{
-  padding: 4px 0 8px 0;
+  padding: 4px 0 16px 0;
 }
 
 .card .minor{
   font-size: 14px;
   margin: 4px 0 8px 0;
+  background-color: #3394d4;
+  color: white;
+  text-align: center;
+  padding: 4px 8px;
+  border-radius: 2px;
+}
+
+.card .minor .fa{
+  margin-right:4px;
+}
+
+.card .minor:hover{
+  background-color:#7979c7;
+  transition:250ms;
 }
 
 .card img{
-  width:25%;
+  width:45px;
   margin-right: 3%;
   position: relative;
   display: inline-block;
@@ -243,16 +256,20 @@ p{
 
 @media screen and (max-width: 1000px) {
   #main, .action{
-    width:600px;
+    width:95%;
   }
 
   .card{
     width: 29%;
   }
 
+  .card .minor{
+    display: inline-block;
+  }
+
   .card img{
     width: auto;
-    height: 65px;
+    height: 50px;
     display: block;
     margin: 0 0 4px 0;
   }
@@ -310,9 +327,6 @@ p{
 }
 
 @media screen and (max-width: 700px) {
-  #main{
-    width: 400px;
-  }
 
   .action{
     margin-left: 0;
