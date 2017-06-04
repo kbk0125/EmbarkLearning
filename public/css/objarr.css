@@ -1,7 +1,10 @@
 .arrStat, .objStat, .bothStat{
 	position: relative;
+	display: none
+}
+
+.arrStat, .bothStat{
 	padding-bottom:120px;
-	display: none;
 }
 
 .advanceBtn.clickReady{
@@ -27,11 +30,19 @@
 	padding:4px;
 }
 
-.arrLatest span{
-	padding-left: 0px;
+.objLatest{
+	background-color:#404040;
+	font-size:16px;
+	color:white;
+	padding:4px;
 }
 
-.arrTip, .maptip{
+.objLatest span{
+	display: block;
+	padding-left: 8px;
+}
+
+.arrTip, .objTip, .maptip{
 	background-color: white;
 	text-align: center;
 	padding: 4px;
@@ -40,6 +51,10 @@
 	pointer-events:none;
 	display: none;
 	z-index:20;
+}
+
+.objTip{
+	text-align: left;
 }
 
 .maptip{
@@ -53,6 +68,22 @@
 .arrTip img{
 	width: 30px;
 	margin-bottom: 6px;
+}
+
+.objTip img{
+	width: 125px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.objTip div{
+	display: inline-block;
+}
+
+.objTip p{
+	padding-top: 4px;
+	padding-left: 4px;
+	color:#404040;
 }
 
 .mapM{
@@ -69,6 +100,11 @@
 #eastvill{
 	right:20%;
 	bottom:50%;	
+}
+
+#chelsea{
+	left:40%;
+	top:25%;
 }
 
 .advanceBtn{

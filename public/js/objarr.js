@@ -5,7 +5,10 @@ var pageCount= 0;
 //if wrong more than 3 times, show answer
 var wrongCount=0;
 var grillDay=['o','o','o','o','o','o','o','o','o','o','o','o','o','o','o','o','o','o','o','o','o','o','o','o'];
-var prevGrill=[];
+var prevGrill=[[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]];
+
+var order1 = {name:'Dave', location:'chelsea'};
+var oldOrder=[{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}];
 
 var compliments = [
     "Swell Job!",
@@ -25,22 +28,6 @@ $('.startbtn, .startChal').click(function(){
     $(this).parents('.intro').fadeOut();
 })
 
-function nextSide(prev){
-    var par= $(prev).parents('.sideSect')
-
-    $(par).hide();
-
-    $(par).next().show('clip')
-
-    //update page History with HTMl History API
-    pageCount++
-    history.pushState(null,null, '/objects-arrays-practice/'+pageCount)
-
-    //hide the HTML snip if it is up
-    $('.htmlSnip').hide()
-
-}
-
 function redoArray(){
      //update the array
     //$('.arrLatest').html('var grillDay = ['+grillDay+'];')
@@ -54,10 +41,62 @@ function redoArray(){
     $('.arrLatest').append('];');
 }
 
-function cellySide(prev, comp){
+function redoObj(){
+
+    var splitO= JSON.stringify(order1).substr(1,JSON.stringify(order1).length-2);
+    console.log(pageCount)
+    console.log(splitO)
+    var parts = $.map(splitO.split(','), function(v){
+        //https://stackoverflow.com/questions/3651294/remove-quotes-from-keys-in-a-json-string-using-jquery
+        //remove unnecesary quotes
+        v=v.replace(/"(\w+)"\s*:/g, '$1:');
+        return $('<span>', {text:v+','});
+    });
+    $('.objLatest').text('var order = {')
+    $('.objLatest').append(parts);
+    $('.objLatest').append('};');
+}
+
+function storeResults(){
+    if(pageCount < 6)
+        prevGrill[pageCount]= grillDay.slice()
+    else if(pageCount >= 6){
+        //for(var k in order1) oldOrder[pageCount][k]=order1[k];
+        oldOrder[pageCount] = Object.assign({}, order1);
+        //console.log(oldOrder[pageCount])
+    }
+}
+
+function retrieveResults(){
+    if(pageCount < 6)
+        grillDay= prevGrill[pageCount]
+    else if(pageCount >= 6){
+        //for(var k in order1) oldOrder[pageCount][k]=order1[k];
+        order1= Object.assign({}, oldOrder[pageCount]);
+        //console.log(oldOrder[pageCount])
+    }
+}
+
+function nextSide(prev){
+    var par= $(prev).parents('.sideSect')
+
+    $(par).hide();
+
+    $(par).next().show('clip')
+
+    //update page History with HTMl History API
+    pageCount++
+    history.pushState(null,null, '/objects-arrays-practice/'+pageCount)
+
+    storeResults();
+}
+
+
+function cellySide(comp){
     var par= $('.sideSect').eq(pageCount)
     $(par).hide();
     $('.randComp').text(comp)
+    console.log($('.randComp').text())
     $('.compBox').fadeIn();
 
 
@@ -70,19 +109,8 @@ function cellySide(prev, comp){
     pageCount++
     history.pushState(null,null, '/objects-arrays-practice/'+pageCount)
 
-    //hide the HTML snip if it is up
-    $('.htmlSnip').hide()
+    storeResults()
 }
-
-$('.advanceBtn').click(function(){
-    //Get random compliment
-    var randComp = compliments[Math.floor(Math.random() * compliments.length)];
-    cellySide(randComp)
-
-    $('.arrTip').fadeOut('slow')
-    $('.advanceBtn').removeClass('clickReady');
-    redoArray();
-})
 
 function prevSide(prev){
     var par= $(prev).parents('.sideSect')
@@ -93,9 +121,31 @@ function prevSide(prev){
     pageCount--
     history.pushState(null,null, '/objects-arrays-practice/'+pageCount)
 
-    //hide the HTML snip if it is up
-    $('.htmlSnip').hide()
+
+    retrieveResults()
+    if(pageCount < 6)
+        redoArray();
+    else if(pageCount >=6)
+        redoObj();
 }
+
+$('.advanceBtn').click(function(){
+    //Get random compliment
+    var randComp = compliments[Math.floor(Math.random() * compliments.length)];
+    cellySide(randComp)
+
+    $('.arrTip').fadeOut('slow')
+    $('.objTip').fadeOut('slow')
+    $('.advanceBtn').removeClass('clickReady');
+
+    if(pageCount < 6)
+        redoArray();
+    else if(pageCount >=6){
+        console.log('this should happen second')
+        redoObj();
+
+    }
+})
 
 //if I wanted to check for multiple occurences of one character
 //http://stackoverflow.com/questions/4009756/how-to-count-string-occurrence-in-string
@@ -103,7 +153,6 @@ function checkInputs(arr, thisButton, answer){
     var counter = 0;
 
     //wildChar shows one other specific Character that the string should have, like . or =
-    console.log(arr[0])
     for(var i=0; i< arr.length; i++){
         /*http://stackoverflow.com/questions/17938186/trimming-whitespace-from-the-end-of-a-string-only-with-jquery*/
         var trimmedAns= $(arr[i][0]).val().replace(/\s*$/,"");
@@ -185,23 +234,63 @@ function checkInputs(arr, thisButton, answer){
         $(thisButton).siblings('.warn').hide()
 
         // enable continue button
-        var keyInd=arr[0][3][0];
-        var keyTxt=arr[0][3][1];
-        grillDay[keyInd] = keyTxt;
-        $('.advanceBtn').addClass('clickReady');
+        if(pageCount<6){
+            var keyInd=arr[0][3][0];
+            var keyTxt=arr[0][3][1];
+            grillDay[keyInd] = keyTxt;
+        }
+        else if(pageCount>=6){
+            order1 = {};
+            for(var i=0; i< arr.length; i++){
+                var keyInd=arr[i][3][0];
+                //remove unnecessary quotes from beginning and end
+                var keyTxt=arr[i][3][1].replace(/\"/g, "");
 
+                order1[keyInd] = keyTxt
+
+            }
+        }
+
+        $('.advanceBtn').addClass('clickReady');
     }
 }
 
 $('.begin, .next').click(function(){
-
     nextSide(this)
-
 })
 
 $('.backBtn').click(function(){
     prevSide(this)
 })
+
+//Toggle specific slide
+$('.chooseSection i').click(function(){
+    $(this).parent().hide();
+})
+
+$('.sectJump').click(function(){
+    $('.chooseSection').show();
+})
+
+$('.chooseSection p').click(function(){
+    var slide=$(this).data('jump')
+
+    $('.sideSect').hide();
+    $('.sideSect').eq(slide).show();
+    $('#midCol').children().hide()
+    
+
+    //update page History with HTMl History API
+    pageCount =slide
+    history.pushState(null,null, '/objects-arrays-practice/'+pageCount)
+
+    if(slide== 1){
+        storeResults()
+        redoArray()
+    }
+})
+
+
 
 //END GLOBAL STUFF
 
@@ -210,6 +299,11 @@ $('.showArr').click(function(){
     $('.arrStat').fadeIn();
     $('.advanceBtn').fadeIn();
     redoArray()
+})
+
+$('.showObj').click(function(){
+    $('.objStat').fadeIn();
+    $('.advanceBtn').fadeIn();
 })
 
 
@@ -254,22 +348,75 @@ $('.arrtest2').click(function(){
     checkInputs(correct, this, finAnswer)
 })
 
+$('#obj1').on("change paste keyup", function(){
+    var val=$(this).val();
 
-//make sure back button functions
-window.onpopstate = function(){
-    var prev =location.pathname;
-    var str = prev.split("/");
-    str.shift();
-    var newSlide=str[1];
+    if(val.indexOf(':') > -1){
 
-    pageCount=newSlide
+        $('.objLatest span').eq(0).text(val)
+        $('.objLatest span').eq(0).mouseover();
+    }
+})
 
-    $('.sideSect').hide();
-    $('.sideSect').eq(newSlide).show();
+$('#obj2').on("change paste keyup", function(){
+    var val=$(this).val();
 
-    $('.interactme').hide()
-    $('.interactme').eq(pageCount).show().css('display', 'inline-block');
-}
+    if(val.indexOf(':') > -1){
+
+        $('.objLatest span').eq(1).text(val)
+        $('.objLatest span').eq(1).mouseover();
+    }
+})
+
+$('.objtest1').click(function(){
+    // hack to make sure it accepts all quotes
+    var replaceQuote1= $('#obj1').val().replace(/'/g, '"');
+    $('#obj1').val(replaceQuote1)
+    var replaceQuote2= $('#obj2').val().replace(/'/g, '"');
+    $('#obj2').val(replaceQuote2)
+
+    var correct= [['#obj1',
+        ['name', ':', '"', 'katie', '"', ','],
+        ['(', ')', '{', '}', 'var'],
+        ['name','"katie"']
+    ],
+    ['#obj2',
+        ['location', ':', '"', 'westvillage', '"',],
+        ['(', ')', '{', '}', 'var'],
+        ['location','"westvillage"']
+    ]]
+    var finAnswer= ["name: 'katie',", "location:'westvillage'"]
+    checkInputs(correct, this, finAnswer)
+})
+
+$('#obj3').on("change paste keyup", function(){
+    var val=$(this).val();
+
+    if(val.indexOf('name') > -1 && val.indexOf('=') > -1){
+
+        // this checks if it has two square brackers
+        var sqMatch = val.match(/\[(.*?)\]/)[1];
+        var eqMatch= val.split('=')[1]
+
+        $('.objLatest span').eq(0).text('name: '+eqMatch+',')
+        $('.objLatest span').eq(0).mouseover();
+    }
+})
+
+$('.objtest2').click(function(){
+    // hack to make sure it accepts all quotes
+    var replaceQuote1= $('#obj3').val().replace(/'/g, '"');
+    $('#obj3').val(replaceQuote1)
+
+    var correct= [['#obj3',
+        ['order', '[', 'name', ']', '=', '"', 'joe', '"', ';'],
+        ['(', ')', '{', '}', 'var'],
+        ['name','"joe"']
+    ]]
+    var finAnswer= ["order[name] = 'joe';"]
+    checkInputs(correct, this, finAnswer)
+})
+
 
 $('.arrLatest').on('mouseover', 'span', function(){
     var str= $(this).text().trim();
@@ -283,12 +430,12 @@ $('.arrLatest').on('mouseover', 'span', function(){
 
     $('.mapTip').hide()
 
+    //if it contains a letter more than just o
     if (str.match(/[a-z]/i) && str.length >2) {
         var newStr= str.replace(/,/g , "");
         $('.grillStat').text('Location: '+newStr)
 
         var firstFour=str.substring(1,5).toLowerCase();
-        console.log(firstFour)
 
         var keyMarker=$(".mapContain").find("[data-short='" + firstFour + "']");
 
@@ -306,6 +453,32 @@ $('.arrLatest').mouseleave(function(){
     }, 1000)
 });
 
+
+$('.objLatest').on('mouseover', 'span', function(){
+    var str= $(this).text().trim().split(':');
+    var position=$(this).position()
+
+    $('.propName').text('Key: '+str[0])
+    $('.valName').text('Value: '+str[1].split(',')[0])
+    var width=Number($('.objTip').width())/2
+    $('.objTip').css({'top': position.top+30, 'left':position.left-(width/2)}).fadeIn('slow')
+    
+})
+
+$('.objLatest').mouseleave(function(){
+    setTimeout(function(){
+        $('.objTip').fadeOut('slow')
+    }, 1000)
+});
+
+
+
+
+
+
+
+
+//THIS DOES NOT WORK YET
 $('.mapContain').on('mouseover', '.mapM', function(){
     var shortN= $(this).data('short')
 
@@ -342,14 +515,30 @@ $('.triggerArrPopUp').click(function(){
     $('.advanceBtn').addClass('clickReady');
 })
 
-$('.triggerTransPopUp').click(function(){
-    $('.arrLatest').children('span').eq(9).text('"transit",')
-
-    grillDay[9]= '"transit"'
-
-
-    $('.arrLatest').children('span').eq(9).mouseover();
+$('.triggerObjPopUp').click(function(){
+    $('#chelsea').show();
+    redoObj()
+    order1 = {key1:'', key2: ''};
     
     // enable continue button
     $('.advanceBtn').addClass('clickReady');
 })
+
+//make sure back button functions
+window.onpopstate = function(){
+    var prev =location.pathname;
+    var str = prev.split("/");
+    str.shift();
+    var newSlide=str[1];
+
+    pageCount=newSlide
+
+    $('.sideSect').hide();
+    $('.sideSect').eq(newSlide).show();
+
+    storeResults()
+    if(pageCount < 6)
+        redoArray();
+    else if(pageCount >=6)
+        redoObj();
+}

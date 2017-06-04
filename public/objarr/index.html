@@ -44,6 +44,13 @@
             <a href='https://docs.google.com/forms/d/e/1FAIpQLSduCP7uKZowR6guEAsKi85mZPm3qKQHEKv0snurwUJam4ukPA/viewform' target="_blank"><div class='actionBtn'> Give Feedback </div></a>
         </div>
         <div id='side3'>
+            <i class="sectJump fa fa-bars" aria-hidden="true"></i>
+            <div class='chooseSection'>
+                <i class="fa fa-times" aria-hidden="true"></i>
+                <p data-jump="1"> 1: Arrays </p>
+                <p data-jump="6"> 6: Objects </p>
+                <p data-jump="10"> 10: Combining the Two </p>
+            </div>
             <div class='sideSect first'>
                  <div class='header'>
                     <h2> When to Use Objects and Arrays (0/15)</h2>
@@ -60,7 +67,7 @@
                 </div>
                 <div class='actionBtn2 begin'> Go to Step 1 </div>
             </div>
-            <div class='sideSect'>
+            <div class='sideSect newSect'>
                  <div class='header'>
                     <h2> The Scenario (1/15)</h2>
                     <p> Here is the task you need to complete</p>
@@ -90,7 +97,7 @@
                     <p> Each grill can be booked for 24 hours a day (duh). So, we need a way to track whether each grill has already been booked or not. We need to use an <b>array</b>, since order matters a lot when planning a day! </p>
                     <h3> Size of Array </h3>
                     <p> The array needs to have 24 slots, one for each hour of the day. Check out the array to the right to see a grill that is available all 24 hours of the day.</p>
-                    <pre class='prettyprint'><p> grillDay[8] = 'WallStreet'</p></pre>
+                    <pre class='prettyprint'><p> grillDay[8] = 'wallstreet'</p></pre>
                     <h3> Creating A Booking </h3>
                     <p> Let's just use the location to define the booking for now. The above statement means that the grill needs to be at Wall Street at 8AM. </p>
                 </div>
@@ -108,7 +115,7 @@
                     <h3> Position in the Array </h3>
                     <p> So, if you wanted to check if the grill was booked from 4AM-5AM (I see you are nocturnal), all you would need to do is check index 4 of the array.</p>
                     <h3> Your Turn </h3>
-                    <p> You want to book the grill from 7PM-8PM. You live in the "EastVillage". Create your booking in the <b>grillDay</b> array! </p>
+                    <p> You want to book the grill from 7PM-8PM. You live in the "eastvillage". Create your booking in the <b>grillDay</b> array! </p>
                     <pre class='prettyprint'><p><input type='text' name='arrIn' id='arr1'></p></pre>
                     <h3><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> 
                         After you start typing, the array to the right will show live feedback! </h3>
@@ -154,6 +161,99 @@
                 <div class='actionBtn2 arrTest2'> Check Answer </div>
                 <p class='warn'> Check if your booking starts at 8PM! </p>
             </div>
+            <div class='sideSect newSect'>
+                 <div class='header'>
+                    <h2> Intro to Objects (6/15)</h2>
+                    <p> When to use objects v. arrays</p>
+                </div>
+                <div class='txtbod'>
+                    <h3> The Challenge </h3>
+                    <p> Now that we can book grills, we need to figure out how to format the order itself. This ensures the order will be delivered successfully </p>
+                    <h3> What are the key features of the app? </h3>
+                    <ul>
+                        <li> Users submit an order with <b>name and location</b> </li>
+                        <li> Users book grills in <b>one hour intervals</b></li>
+                        <li> There needs to be an <b>hour of travel time</b> after each booking to bring the grill back to the warehouse and clean it.</li>
+                    </ul>
+                    <h3> How should we store this information?</h3>
+                    <p> We are going to use an <b>object</b> here. Much like a newspaper, objects work well when you need to break your data up into sections. Order is not a big deal. </p>
+                </div>
+                <div class='actionBtn2 next showObj'> Go to Step 7 </div>
+            </div>
+            <div class='sideSect'>
+                 <div class='header'>
+                    <h2> Setting up an Object (7/15)</h2>
+                    <p> Let's take a look at how to organize our order</p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Info with an Order </h3>
+                    <p>You can imagine that an incoming order from a user might have a bunch of useful info: name, location, phone number, cost etc. We will just stick to name and location right now. </p>
+                    <h3> Setting up fields </h3>
+                    <p> The object needs to have two <b> key-value pairs</b>. One for name, and one for location.</p>
+                    <pre class='prettyprint'><p> var order = {
+    name: 'dave',
+    location: 'chelsea'
+};</p></pre>
+                    <h3> Creating An Order </h3>
+                    <p> If your name was Dave and you lived in Chelsea, this is what your order would look like! </p>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 triggerObjPopUp'> Show Me </div>
+            </div>
+            <div class='sideSect'>
+                 <div class='header'>
+                    <h2> Creating an Object (8/15)</h2>
+                    <p> Create an order from a user</p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Why use an object? </h3>
+                    <p> Data labels are a big deal with an order from a user. These are known as <b> keys</b> </p>
+                    <h3> Your Turn </h3>
+                    <p> Your <i>name</i> is "Katie". Your <i>location</i> is the "WestVillage". Create your booking in the <b>order</b> object! The two keys are name and location.</p>
+                    <pre class='prettyprint' id='objq1'><p class='tester'>var order= {
+    <input type='text' name='objIn' id='obj1' >
+    <input type='text' name='objIn' id='obj2'>
+}</p></pre>
+                    <h3><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> 
+                        After you start typing, the object to the right will show live feedback! </h3>
+                    
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 objTest1'> Check Answer </div>
+                <p class='warn'> Check if you got the keys right! </p>
+            </div>
+            <div class='sideSect'>
+                 <div class='header'>
+                    <h2> Changing an Object (9/15)</h2>
+                    <p> Change the values in your object</p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Objects Use Labels </h3>
+                    <p>Since order is not the defining way that we organize objects, it is always easy to add a new <b> key-value pair </b>. Or, we can change an exisitng pair by assigning a new <b> value </b> </p>
+                    <pre class='prettyprint'><p> order[location] = 'wallstreet'</p></pre>
+                    <h3> New Value in An Order </h3>
+                    <p> If Katie from our previous example changed her location to 'wallstreet', this is what it would look like in code.  </p>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 next'> Next </div>
+            </div>
+            <div class='sideSect'>
+                 <div class='header'>
+                    <h2> Changing an Object (10/15)</h2>
+                    <p> Switch the name associated with a user order</p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Your Turn </h3>
+                    <p> You want to switch the name on the order to your friend, Joe. Change the value of the <b>name </b> property in the order object to 'Joe'.</p>
+                    <pre class='prettyprint' id='objq2'><p class='tester'><input type='text' name='objIn' id='obj3' ></p></pre>
+                    <h3><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> 
+                        After you start typing, the object to the right will show live feedback! </h3>
+                    
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 objTest2'> Check Answer </div>
+                <p class='warn'> Check if you got the keys right! </p>
+            </div>
         </div>
         <div id='midCol'>
             <div class='arrStat'>
@@ -171,6 +271,19 @@
                 </div>
             </div>
             <div class='objStat'>
+                <h3>
+                    <img src='/img/objarr/fullpaper.png'>
+                    Objects
+                </h3>
+                <p class='objLatest'> var order = {};</p>
+                <div class='objTip'>
+                    <div class="arrow-up"></div>
+                    <img src='/img/objarr/sectionImg.png'>
+                    <div>
+                        <p class='propName'> </p>
+                        <p class='valName'></p>
+                    </div>
+                </div>
             </div>
             <div class='bothStat'>
             </div>
@@ -185,6 +298,7 @@
                 </div>
                 <img class='mapM' id='wallst' src='/img/objarr/mapmarker.png' data-short="wall">
                 <img class='mapM' id='eastvill' src='/img/objarr/mapmarker.png' data-short="east">
+                <img class='mapM' id='chelsea' src='/img/objarr/mapmarker.png' data-short="chel">
 
                 <img class='fullBG' src='/img/objarr/NYFullImg.png'>
             </div>

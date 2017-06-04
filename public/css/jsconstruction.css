@@ -239,43 +239,6 @@ img.coneImg{
     transform:rotate(0deg);
 }
 
-.sectJump{
-	font-size: 24px;
-	color: #404040;
-	cursor: pointer;
-	position: absolute;
-    right: 0;
-    padding: 6px 8px 0 8px;
-}
-
-.sectJump:hover{
-	color: #999;
-}
-
-.chooseSection{
-	cursor: pointer;
-	position: absolute;
-    right: 0;
-    padding: 6px 8px;
-    background-color: #e6e6e6;
-    display: none;
-}
-
-.chooseSection p{
-	margin: 4px 0;
-	font-weight: 300;
-}
-
-.chooseSection i{
-	text-align: right;
-	display: block;
-	font-size: 16px;
-}
-
-.chooseSection i:hover, .chooseSection p:hover{
-	color: #3394d4;
-}
-
 
 
 .tilted{
