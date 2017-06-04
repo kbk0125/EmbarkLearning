@@ -18,23 +18,14 @@ body {
   font-family: 'FontAwesome';
 }
 
-h1,
-h2,
-h3 {
+h1,h2,h3 {
   color: #404040;
   font-family: 'Roboto';
   font-weight: 700;
   margin: 0;
 }
 
-p,
-li,
-form,
-input,
-textarea,
-div,
-text,
-svg {
+p,li,form,input,textarea,div,text,svg {
   color: #737373;
   font-family: 'Roboto';
   font-weight: 400;
@@ -50,13 +41,16 @@ li{
   font-size: 16px;
 }
 
-input,
-textarea {
+input,textarea {
   font-family: monospace;
 }
 
 a {
   text-decoration: none;
+}
+
+a h3{
+  color: #3394d4;
 }
 
 a:hover {
@@ -246,6 +240,33 @@ span.def{
   background-color: #ecf0f1;
 }
 
+#midCol{
+  position: absolute;
+  top: 46px;
+  bottom: 0;
+  left: 40%;
+  width: 35%;
+  background-color: #ecf0f1;
+}
+
+#rightCol{
+  position: absolute;
+  top: 46px;
+  bottom: 0;
+  left: 75%;
+  width: 25%;
+  background-color: #fafafa;
+}
+
+#rightCol .mapContain{
+  position: relative;
+}
+
+#rightCol .fullBG{
+  width: 100%;
+  max-height: 100%;
+}
+
 .showHTML, .showHTML2, .codeSub{
   float:right;
   margin: 8px 8px 0 0;
@@ -283,6 +304,17 @@ span.def{
   border-right: 1px solid #e6e6e6;
 }
 
+#side3{
+  position: absolute;
+  top: 46px;
+  bottom: 0px;
+  overflow-y: auto; 
+  left: 0;
+  width: 40%;
+  background-color: #fafafa;
+  border-right: 1px solid #e6e6e6;
+}
+
 .sideSect{
   padding: 4px 8px;
   text-align: center;
@@ -310,6 +342,12 @@ span.def{
 
 .txtbod > p{
   margin-top: 4px;
+}
+
+.txtbod .inImg{
+  width:50px;
+  display: block;
+  margin:8px auto;
 }
 
 .uniqData .indent{

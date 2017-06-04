@@ -1,0 +1,209 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name='description' content='An interactive JavaScript tutorial that will help you learn objects and arrays lightning fast by actually practicing.'>
+    <title>JavaScript Objects/Arrays Visual Practice</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <meta name="viewport", content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="JavaScript Objects/Arrays Visual Practice">
+    <meta property="og:type" content="website" >       
+    <meta property="og:url" content="https://www.rtfmanual.io/objects-arrays-practice/">
+    <meta property="og:description" content="An interactive JavaScript tutorial that will help you learn objects and arrays lightning fast by actually practicing.">
+    <meta property="og:image" content="https://s21.postimg.org/j832mbw53/mainimg.png">
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@devmanual" />
+    <meta name="twitter:title" content="JavaScript Objects/Arrays Visual Practice" />
+    <meta name="twitter:description" content="Learn objects and arrays by building Grillber, the Uber for Grills" />
+    <meta name="twitter:image" content="https://s21.postimg.org/j832mbw53/mainimg.png" />
+    
+    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="/css/tutorials.css">
+    <link rel="stylesheet" type="text/css" href="/css/objarr.css">
+    <link rel="shortcut icon" type="image/ico" href='/img/roadtrip/favicon.ico'>
+</head>
+<body>
+    <div id='container'>
+        <div class='intro'>
+            <div class='ctr'>
+                <h1> Learn JavaScript Objects/Arrays by Practicing </h1>
+                <p> Master the fundamentals of objects and arrays by applying them in a visualized tutorial </p>
+                <div class='actionBtn startbtn'> Get Started </div>
+            </div>
+        </div>
+        <div class='compBox'>
+            <div class='ctr'>
+                <i class="fa fa-check-circle" aria-hidden="true"></i>
+                <h1 class='randComp'> Nice Work! </h1>
+            </div>
+        </div>
+        <div id="topBar">
+            <img src='/img/objarr/fullgrill.png'>
+            <h3> Objects/Arrays Practice </h3>
+            <a href='https://docs.google.com/forms/d/e/1FAIpQLSduCP7uKZowR6guEAsKi85mZPm3qKQHEKv0snurwUJam4ukPA/viewform' target="_blank"><div class='actionBtn'> Give Feedback </div></a>
+        </div>
+        <div id='side3'>
+            <div class='sideSect first'>
+                 <div class='header'>
+                    <h2> When to Use Objects and Arrays (0/15)</h2>
+                    <p> JavaScript objects and arrays get easier once you understand when to use them.</p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Why do I need this? </h3>
+                    <p> Objects and arrays are two common ways to store data in JavaScript. Unfortunately, it can be hard to choose when to use each one! </p>
+                    <h3> What is the focus? </h3>
+                    <p> We are going to use a highly visual method to help you understand each data structure. We are going to walk you through an example of building Grillber, the Uber for grills. </p>
+                    <h3> What do I need to know first? </h3>
+                    <p> You need to know the very basics of objects and arrays, which you can read about below. </p>
+                    <a target="__blank" href="https://medium.freecodecamp.com/javascript-arrays-and-objects-are-just-like-books-and-newspapers-6e1cbd8a1746"><h3> Read this article first if you need to learn the basics </h3></a>
+                </div>
+                <div class='actionBtn2 begin'> Go to Step 1 </div>
+            </div>
+            <div class='sideSect'>
+                 <div class='header'>
+                    <h2> The Scenario (1/15)</h2>
+                    <p> Here is the task you need to complete</p>
+                </div>
+                <div class='txtbod'>
+                    <h3> The Challenge </h3>
+                    <p> You have been tasked with building Grillber, the Uber for Grills. Here is how it works- a lot of people do not have the room to store a grill, or they grill too infrequently. This app will deliver a grill to people that order via their app. And then Grillber will pick the grill up when they are done. </p>
+                    <img class='inImg' src='/img/objarr/fullgrill.png'>
+                    <h3> Why is it in New York City? </h3>
+                    <p> New York has a lot of people that would like to grill, but live in tiny apartments. This is a good place to start because the popuation density is so high. </p>
+                    <h3> What are the key features of the app? </h3>
+                    <ul>
+                        <li> Users submit an order with <b>name and location</b> </li>
+                        <li> Users book grills in <b>one hour intervals</b></li>
+                        <li> There needs to be an <b>hour of travel time</b> after each booking to bring the grill back to the warehouse and clean it.</li>
+                    </ul>
+                </div>
+                <div class='actionBtn2 next showArr'> Go to Step 2 </div>
+            </div>
+            <div class='sideSect'>
+                 <div class='header'>
+                    <h2> Setting Up The Array (2/15)</h2>
+                    <p> Let's take a look at how to organize our grills first</p>
+                </div>
+                <div class='txtbod'>
+                    <h3> A "Grill-Day" </h3>
+                    <p> Each grill can be booked for 24 hours a day (duh). So, we need a way to track whether each grill has already been booked or not. We need to use an <b>array</b>, since order matters a lot when planning a day! </p>
+                    <h3> Size of Array </h3>
+                    <p> The array needs to have 24 slots, one for each hour of the day. Check out the array to the right to see a grill that is available all 24 hours of the day.</p>
+                    <pre class='prettyprint'><p> grillDay[8] = 'WallStreet'</p></pre>
+                    <h3> Creating A Booking </h3>
+                    <p> Let's just use the location to define the booking for now. The above statement means that the grill needs to be at Wall Street at 8AM. </p>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 triggerArrPopUp'> Show Me </div>
+            </div>
+            <div class='sideSect'>
+                 <div class='header'>
+                    <h2> Booking Specific Slots (3/15)</h2>
+                    <p> Let's take a look at how to organize our grills first</p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Why use an array? </h3>
+                    <p> Arrays make it really easy to create booking slots. Unike actual Uber, where length of the trip varies, these grills are booked in hour-long intervals. So index 0 of the array corresponds to midnight to 1am. </p>
+                    <h3> Position in the Array </h3>
+                    <p> So, if you wanted to check if the grill was booked from 4AM-5AM (I see you are nocturnal), all you would need to do is check index 4 of the array.</p>
+                    <h3> Your Turn </h3>
+                    <p> You want to book the grill from 7PM-8PM. You live in the "EastVillage". Create your booking in the <b>grillDay</b> array! </p>
+                    <pre class='prettyprint'><p><input type='text' name='arrIn' id='arr1'></p></pre>
+                    <h3><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> 
+                        After you start typing, the array to the right will show live feedback! </h3>
+                    
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 arrTest1'> Check Answer </div>
+                <p class='warn'> Check if your booking starts at 7PM! </p>
+            </div>
+            <div class='sideSect'>
+                 <div class='header'>
+                    <h2> Transit Times (4/15)</h2>
+                    <p> Incorporate transit times into your calculations</p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Two hours at once </h3>
+                    <p> In our original paramters, we can see that we need to add an extra hour for transit and cleaning to every booking. </p>
+                    <h3> Using index </h3>
+                    <p> Index determines the position within the array. Our first booking was index 8, the 9th element in the array. So this one needs to have an index of 9, or the 10th element in the array.</p>
+                    <pre class='prettyprint'><p> grillDay[9] = 'transit'</p></pre>
+                    <h3> Add Transit time </h3>
+                    <p> The above statement means that the grill will be in transit from 9AM-10AM. </p>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 triggerTransPopUp'> Show Me </div>
+            </div>
+            <div class='sideSect'>
+                 <div class='header'>
+                    <h2> Transit Times (5/15)</h2>
+                    <p> Incorporate transit times into your calculations</p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Filling Out The Chapters </h3>
+                    <p> Many "chapters" of the array are still empty. That is alright. The data structure makes it clear that you have 24 available slots, this case. IF you booked on half-hour intervals, then there would be 48. </p>
+                    <h3> Your Turn </h3>
+                    <p> Add transit time after the 7-8PM booking in the grillDay array. Use <b> 'transit' </b> to indicate transit time </p>
+                    <pre class='prettyprint'><p><input type='text' name='arrIn' id='arr2'></p></pre>
+                    <h3><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> 
+                        After you start typing, the array to the right will show live feedback! </h3>
+                    
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 arrTest2'> Check Answer </div>
+                <p class='warn'> Check if your booking starts at 8PM! </p>
+            </div>
+        </div>
+        <div id='midCol'>
+            <div class='arrStat'>
+                <h3>
+                    <img src='/img/objarr/book.png'>
+                    Array
+                </h3>
+                <p class='arrLatest'></p>
+                <div class='arrTip'>
+                    <div class="arrow-up"></div>
+                    <img src='/img/objarr/chapter.png'>
+                    <p class='position'></p>
+                    <p class='time'></p>
+                    <p class='grillStat'></p>
+                </div>
+            </div>
+            <div class='objStat'>
+            </div>
+            <div class='bothStat'>
+            </div>
+            <div class='advanceBtn actionBtn4'> Advance to Next Step </div>
+        </div>
+        <div id='rightCol'>
+            <div class='mapContain'>
+                <div class='mapTip'>
+                    <p class='position'></p>
+                    <p class='time'></p>
+                    <p class='grillStat'></p>
+                </div>
+                <img class='mapM' id='wallst' src='/img/objarr/mapmarker.png' data-short="wall">
+                <img class='mapM' id='eastvill' src='/img/objarr/mapmarker.png' data-short="east">
+
+                <img class='fullBG' src='/img/objarr/NYFullImg.png'>
+            </div>
+        </div>
+    </div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" charset="utf-8"></script> 
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?autoload=true&amp;skin=sunburst"></script>   
+<script src='/js/objarr.js'> </script>   
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-74762625-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

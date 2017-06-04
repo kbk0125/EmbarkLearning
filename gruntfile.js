@@ -63,13 +63,11 @@ module.exports = function(grunt) {
       // for stylesheets, watch css and less files 
       // only run stylus stylesheets:
       css: {
-        files: ['src/styles/*.styl'], 
-        tasks: ['stylus'] 
+        files: ['public/css/*.css'] 
       },
       // for scripts, run jshint and uglify 
       scripts: { 
-        files: 'public/js/*.js',
-        tasks: ['jshint'] 
+        files: ['public/js/*.js']
       } 
     },
     concurrent: {

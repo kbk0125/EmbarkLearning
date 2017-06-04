@@ -6,10 +6,10 @@ var basicRouter = express.Router();
 var bodyParser = require('body-parser')
 var parseUrlencoded= bodyParser.urlencoded({extended:false});
 var categories = require( "./categories.js" )
-var webpack = require('webpack');
-var webpackMiddleware = require('webpack-dev-middleware');
-var webpackHotMiddleware = require('webpack-hot-middleware');
-var config = require('./webpack.config.js');
+//var webpack = require('webpack');
+//var webpackMiddleware = require('webpack-dev-middleware');
+//var webpackHotMiddleware = require('webpack-hot-middleware');
+//var config = require('./webpack.config.js');
 var Xray = require('x-ray');
 var x = Xray();
 //var morgan = require('morgan');
@@ -172,11 +172,19 @@ app.get('/jsconstruction', function(req, res) {
 	res.sendFile(path.join(__dirname + '/jsconstruction/index.html'));
 });
 
+app.get('/objects-arrays-practice', function(req, res) {
+	res.sendFile(path.join(__dirname + '/public/objarr/index.html'));
+});
+
 
 //Finally figured out this fix
 //https://expressjs.com/en/api.html#res.redirect
 app.get('/jsconstruction*', function(req, res) {
 	res.redirect('/jsconstruction');
+});
+
+app.get('/objects-arrays-practice*', function(req, res) {
+	res.redirect('/objects-arrays-practice');
 });
 
 
@@ -681,7 +689,7 @@ app.get('/objSend', function(req,res){
 
 
 if (isDeveloping) {
-	var compiler = webpack(config);
+	/*var compiler = webpack(config);
 	var middleware = webpackMiddleware(compiler, {
 		publicPath: config.output.publicPath,
 		noInfo:true,
@@ -694,7 +702,7 @@ if (isDeveloping) {
 			chunkModules: false,
 			modules: false
 		}
-	});
+	});*/
 
 	//NEED TO FIGURE OUT: Wildcard router messes up images
 

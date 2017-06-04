@@ -20,7 +20,6 @@ $('#topBar img').click(function(){
 })
 
 $('.startbtn, .startChal').click(function(){
-    $(this).parents('.intro').fadeOut();
 })
 
 $('.startChal').click(function(){

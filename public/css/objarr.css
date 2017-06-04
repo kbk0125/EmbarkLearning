@@ -1,0 +1,92 @@
+.arrStat, .objStat, .bothStat{
+	position: relative;
+	padding-bottom:120px;
+	display: none;
+}
+
+.advanceBtn.clickReady{
+	pointer-events:auto;
+	background-color: green;
+	opacity: 1;
+}
+
+#midCol h3{
+	margin: 8px 0;
+	text-align: center;
+}
+
+#midCol h3 img{
+	width:50px;
+	vertical-align: middle;
+}
+
+.arrLatest{
+	background-color:#404040;
+	font-size:12px;
+	color:white;
+	padding:4px;
+}
+
+.arrLatest span{
+	padding-left: 0px;
+}
+
+.arrTip, .maptip{
+	background-color: white;
+	text-align: center;
+	padding: 4px;
+	border-radius: 4px;
+	position: absolute;
+	pointer-events:none;
+	display: none;
+	z-index:20;
+}
+
+.maptip{
+	text-align: left;
+}
+
+.arrTip p{
+	font-size:14px;
+}
+
+.arrTip img{
+	width: 30px;
+	margin-bottom: 6px;
+}
+
+.mapM{
+	width:25px;
+	position: absolute;
+	display: none;
+}
+
+#wallst{
+	left:19%;
+	bottom:8%;	
+}
+
+#eastvill{
+	right:20%;
+	bottom:50%;	
+}
+
+.advanceBtn{
+	pointer-events:none;
+	width:153px;
+	margin: 12px auto 0 auto;
+	opacity:0.4;
+	font-size: 16px;
+	display: none;
+}
+
+.arrow-up {
+  width: 0; 
+  height: 0;
+  position: absolute;
+  top:-10px;
+  left:41%; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid white;
+}
