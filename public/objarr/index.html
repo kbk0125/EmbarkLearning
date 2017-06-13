@@ -49,7 +49,7 @@
                 <i class="fa fa-times" aria-hidden="true"></i>
                 <p data-jump="1"> 1: Arrays </p>
                 <p data-jump="6"> 6: Objects </p>
-                <p data-jump="10"> 10: Combining the Two </p>
+                <p data-jump="11"> 11: Combining the Two </p>
             </div>
             <div class='sideSect first'>
                  <div class='header'>
@@ -151,7 +151,7 @@
                     <h3> Filling Out The Chapters </h3>
                     <p> Many "chapters" of the array are still empty. That is alright. The data structure makes it clear that you have 24 available slots, this case. IF you booked on half-hour intervals, then there would be 48. </p>
                     <h3> Your Turn </h3>
-                    <p> Add transit time after the 7-8PM booking in the grillDay array. Use <b> 'transit' </b> to indicate transit time </p>
+                    <p> Add transit time as an 8-9PM booking in the grillDay array. Use <b> 'transit' </b> to indicate transit time </p>
                     <pre class='prettyprint'><p><input type='text' name='arrIn' id='arr2'></p></pre>
                     <h3><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> 
                         After you start typing, the array to the right will show live feedback! </h3>
@@ -209,7 +209,7 @@
                     <h3> Why use an object? </h3>
                     <p> Data labels are a big deal with an order from a user. These are known as <b> keys</b> </p>
                     <h3> Your Turn </h3>
-                    <p> Your <i>name</i> is "Katie". Your <i>location</i> is the "WestVillage". Create your booking in the <b>order</b> object! The two keys are name and location.</p>
+                    <p> Your <i>name</i> is "Katie". Your <i>location</i> is the "westvillage". Create your booking in the <b>order</b> object! The two keys are name and location.</p>
                     <pre class='prettyprint' id='objq1'><p class='tester'>var order= {
     <input type='text' name='objIn' id='obj1' >
     <input type='text' name='objIn' id='obj2'>
@@ -230,7 +230,7 @@
                 <div class='txtbod'>
                     <h3> Objects Use Labels </h3>
                     <p>Since order is not the defining way that we organize objects, it is always easy to add a new <b> key-value pair </b>. Or, we can change an exisitng pair by assigning a new <b> value </b> </p>
-                    <pre class='prettyprint'><p> order[location] = 'wallstreet'</p></pre>
+                    <pre class='prettyprint'><p> order[location] = 'wallstreet';</p></pre>
                     <h3> New Value in An Order </h3>
                     <p> If Katie from our previous example changed her location to 'wallstreet', this is what it would look like in code.  </p>
                 </div>
@@ -244,7 +244,7 @@
                 </div>
                 <div class='txtbod'>
                     <h3> Your Turn </h3>
-                    <p> You want to switch the name on the order to your friend, Joe. Change the value of the <b>name </b> property in the order object to 'Joe'.</p>
+                    <p> You want to switch the name on the order to your friend, Joe. Change the value of the <b>name </b> property in the <i>order</i> object to 'Joe'.</p>
                     <pre class='prettyprint' id='objq2'><p class='tester'><input type='text' name='objIn' id='obj3' ></p></pre>
                     <h3><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> 
                         After you start typing, the object to the right will show live feedback! </h3>
@@ -254,6 +254,120 @@
                 <div class='actionBtn2 objTest2'> Check Answer </div>
                 <p class='warn'> Check if you got the keys right! </p>
             </div>
+            <div class='sideSect newSect'>
+                 <div class='header'>
+                    <h2> Combining the Two (11/15)</h2>
+                    <p> Putting both grill-days and orders into the same data structure</p>
+                </div>
+                <div class='txtbod'>
+                    <h3> The Challenge </h3>
+                    <p> Okay. We now have a data structure for booking grills hour-by-hour, and another for orders. Now, how can we properly combine them into one sortable structure? </p>
+                    <h3> What are the key features of the app? </h3>
+                    <ul>
+                        <li> Users submit an order with <b>name and location</b> </li>
+                        <li> Users book grills in <b>one hour intervals</b></li>
+                        <li> There needs to be an <b>hour of travel time</b> after each booking to bring the grill back to the warehouse and clean it.</li>
+                    </ul>
+                    <h3> How should we store this information?</h3>
+                    <p> We need to create an array full of objects. The array will still have 24 slots, but each order will be in the form of an object rather than a string. </p>
+                </div>
+                <div class='actionBtn2 next showBoth'> Go to Step 12 </div>
+            </div>
+            <div class='sideSect'>
+                 <div class='header'>
+                    <h2> Combining the Two (12/15)</h2>
+                    <p> Putting both grill-days and orders into the same data structure</p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Booking + Transit Times </h3>
+                    <p> We also need to figure out how to handle transit times. This can just be a new value for the 'location' property </p>
+                    <h3> Setting up fields </h3>
+                    <p> Each object still has two <b> key-value pairs</b>. One for name, and one for location.</p>
+                    <pre class='prettyprint'><p> grillDay[16] = {
+    name: 'joe', location: 'westvillage'
+};
+grillDay[17] = {
+    name: 'joe', location: 'transit'
+};</p></pre>
+                    <h3> Creating An Order </h3>
+                    <p> If your name was Joe, you ordered at 4PM, and you lived in the West Village, this is what your order would look like! We also include the second entry so we leave ample time to prep the grill for the next customer. </p>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 triggerBothPopUp'> Show Me </div>
+            </div>
+            <div class='sideSect'>
+                 <div class='header'>
+                    <h2> Combining the Two (13/15)</h2>
+                    <p> Putting both grill-days and orders into the same data structure</p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Why is this a good combination? </h3>
+                    <p> You need the labels provided by objects, while you need the order from arrays. You can book the grills for specific times without needing complex JavaScript for interpreting time within an object.  </p>
+                    <h3> Your Turn </h3>
+                    <ol> 
+                        <li>Your <i>name</i> is "Jordan". </li> 
+                        <li>Your <i>location</i> is "gramercy". </li>  
+                        <li>The two keys are name and location. </li>
+                        <li>You are booking the grill at 9AM, which is already shown. </li>
+                        <li>Make sure that the location of your second entry is 'transit'. </li> 
+                    </ol>
+                    <p>Create your booking in the <b>grillDay</b> array! </p>
+                    <pre class='prettyprint'><p>grillDay[9] = {
+    <input type='text' name='bothIn' id='both1'>
+};
+grillDay[10] = {
+    <input type='text' name='bothIn' id='both2'>
+};</p></pre>
+                    <h3><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> 
+                        After you start typing, the object to the right will show live feedback! </h3>
+                    
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 bothTest1'> Check Answer </div>
+                <p class='warn'> Check if you got the keys right! </p>
+            </div>
+            <div class='sideSect'>
+                <div class='header'>
+                    <h2> Cancelling an Order (14/15)</h2>
+                    <p> Remove orders from the array</p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Remove an Order + Transit </h3>
+                    <p>We can easily remove an order by resetting the object to an empty object. All we need to know is the position in the array. We also need to remember to remove the transit period </p>
+                    <pre class='prettyprint'><p>grillDay[20] = {};
+grillDay[21]={};
+</p></pre>
+                    <h3> Resetting an Item in the Array </h3>
+                    <p> Let's say someone had created an order at 8PM, but then cancelled. We could use the code above to remove their order and the transit period from the grillDay array.  </p>
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 next'> Next </div>
+            </div>
+            <div class='sideSect'>
+                 <div class='header'>
+                    <h2> Cancelling an Order (15/15)</h2>
+                    <p> Remove orders from the array</p>
+                </div>
+                <div class='txtbod'>
+                    <h3> Your Turn </h3>
+                    <p> Joe from the West Village cancelled his order from 4PM. You need to erase his order from the array, as well as the transit time associated.
+                    <p>Erase those bookings in the <b>grillDay</b> array! </p>
+                    <pre class='prettyprint'><p><input type='text' name='bothIn' id='both3'>
+<input type='text' name='bothIn' id='both4'></p></pre>
+                    <h3><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> 
+                        After you start typing, the object to the right will show live feedback! </h3>
+                    
+                </div>
+                <div class='actionBtn3 backBtn'> Back </div>
+                <div class='actionBtn2 bothTest2'> Check Answer </div>
+                <p class='warn'> Check if you got the keys right! </p>
+            </div>
+            <div class='sideSect'>
+                 <div class='header'>
+                    <h2> Congrats, you finished!</h2>
+                    <p> Interested in more? Email me at kevin (at) rtfmanual.io</p>
+                </div>
+            </div>
         </div>
         <div id='midCol'>
             <div class='arrStat'>
@@ -262,7 +376,7 @@
                     Array
                 </h3>
                 <p class='arrLatest'></p>
-                <div class='arrTip'>
+                <div class='arrTip tTip'>
                     <div class="arrow-up"></div>
                     <img src='/img/objarr/chapter.png'>
                     <p class='position'></p>
@@ -276,7 +390,7 @@
                     Objects
                 </h3>
                 <p class='objLatest'> var order = {};</p>
-                <div class='objTip'>
+                <div class='objTip tTip'>
                     <div class="arrow-up"></div>
                     <img src='/img/objarr/sectionImg.png'>
                     <div>
@@ -286,6 +400,20 @@
                 </div>
             </div>
             <div class='bothStat'>
+                <h3>
+                    <img src='/img/objarr/book.png'>
+                    <img src='/img/objarr/fullpaper.png'>
+                    Combining Both
+                </h3>
+                <p class='bothLatest'>var grillDay = [];</p>
+                <div class='bothTip tTip'>
+                    <div class="arrow-up"></div>
+                    <img src='/img/objarr/chapter.png'>
+                    <p class='position'></p>
+                    <p class='time'></p>
+                    <p class='nameThis'></p>
+                    <p class='grillStat'></p>
+                </div>
             </div>
             <div class='advanceBtn actionBtn4'> Advance to Next Step </div>
         </div>
@@ -295,10 +423,14 @@
                     <p class='position'></p>
                     <p class='time'></p>
                     <p class='grillStat'></p>
+                    <p class='propName'> </p>
+                    <p class='valName'></p>
                 </div>
                 <img class='mapM' id='wallst' src='/img/objarr/mapmarker.png' data-short="wall">
                 <img class='mapM' id='eastvill' src='/img/objarr/mapmarker.png' data-short="east">
                 <img class='mapM' id='chelsea' src='/img/objarr/mapmarker.png' data-short="chel">
+                <img class='mapM' id='westvill' src='/img/objarr/mapmarker.png' data-short="west">
+                <img class='mapM' id='gramercy' src='/img/objarr/mapmarker.png' data-short="gram">
 
                 <img class='fullBG' src='/img/objarr/NYFullImg.png'>
             </div>

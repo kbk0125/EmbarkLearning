@@ -3,7 +3,7 @@
 	display: none
 }
 
-.arrStat, .bothStat{
+.arrStat, .bothStat, .objStat{
 	padding-bottom:120px;
 }
 
@@ -23,18 +23,18 @@
 	vertical-align: middle;
 }
 
-.arrLatest{
+.arrLatest, .bothLatest{
 	background-color:#404040;
 	font-size:12px;
 	color:white;
-	padding:4px;
+	padding: 6px 4px;
 }
 
 .objLatest{
 	background-color:#404040;
 	font-size:16px;
 	color:white;
-	padding:4px;
+	padding:6px 4px;
 }
 
 .objLatest span{
@@ -42,7 +42,7 @@
 	padding-left: 8px;
 }
 
-.arrTip, .objTip, .maptip{
+.arrTip, .objTip, .maptip, .bothTip{
 	background-color: white;
 	text-align: center;
 	padding: 4px;
@@ -61,11 +61,11 @@
 	text-align: left;
 }
 
-.arrTip p{
+.arrTip p, .bothTip p{
 	font-size:14px;
 }
 
-.arrTip img{
+.arrTip img, .bothTip img{
 	width: 30px;
 	margin-bottom: 6px;
 }
@@ -90,6 +90,7 @@
 	width:25px;
 	position: absolute;
 	display: none;
+	padding:8px;
 }
 
 #wallst{
@@ -102,9 +103,19 @@
 	bottom:50%;	
 }
 
+#westvill{
+	left:20%;
+	bottom:50%;	
+}
+
 #chelsea{
 	left:40%;
 	top:25%;
+}
+
+#gramercy{
+	right: 25%;
+	top: 22%;
 }
 
 .advanceBtn{

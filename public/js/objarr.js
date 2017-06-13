@@ -10,6 +10,8 @@ var prevGrill=[[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]];
 var order1 = {name:'Dave', location:'chelsea'};
 var oldOrder=[{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}];
 
+var bothComb= [{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{name: 'joe', location: 'westvillage'},{name: 'joe', location: 'transit'},{},{},{},{},{},{}];
+
 var compliments = [
     "Swell Job!",
     "Excellent Work!",
@@ -44,8 +46,7 @@ function redoArray(){
 function redoObj(){
 
     var splitO= JSON.stringify(order1).substr(1,JSON.stringify(order1).length-2);
-    console.log(pageCount)
-    console.log(splitO)
+
     var parts = $.map(splitO.split(','), function(v){
         //https://stackoverflow.com/questions/3651294/remove-quotes-from-keys-in-a-json-string-using-jquery
         //remove unnecesary quotes
@@ -55,6 +56,20 @@ function redoObj(){
     $('.objLatest').text('var order = {')
     $('.objLatest').append(parts);
     $('.objLatest').append('};');
+}
+
+function redoBoth(){
+     //update the array
+    //$('.arrLatest').html('var grillDay = ['+grillDay+'];')
+    var splitR= JSON.stringify(bothComb).substr(1,JSON.stringify(bothComb).length-2);
+
+    var parts = $.map(splitR.split('{'), function(v,i){
+        if(i>0)
+            return $('<span>', {text:'{' +v});
+    });
+    $('.bothLatest').text('var grillDay = [')
+    $('.bothLatest').append(parts);
+    $('.bothLatest').append('];');
 }
 
 function storeResults(){
@@ -96,7 +111,7 @@ function cellySide(comp){
     var par= $('.sideSect').eq(pageCount)
     $(par).hide();
     $('.randComp').text(comp)
-    console.log($('.randComp').text())
+
     $('.compBox').fadeIn();
 
 
@@ -141,7 +156,6 @@ $('.advanceBtn').click(function(){
     if(pageCount < 6)
         redoArray();
     else if(pageCount >=6){
-        console.log('this should happen second')
         redoObj();
 
     }
@@ -239,7 +253,7 @@ function checkInputs(arr, thisButton, answer){
             var keyTxt=arr[0][3][1];
             grillDay[keyInd] = keyTxt;
         }
-        else if(pageCount>=6){
+        else if(pageCount>=6 && pageCount <11){
             order1 = {};
             for(var i=0; i< arr.length; i++){
                 var keyInd=arr[i][3][0];
@@ -250,8 +264,16 @@ function checkInputs(arr, thisButton, answer){
 
             }
         }
+        else if(pageCount >= 11){
+            for(var i=0; i< arr.length; i++){
+                var keyInd=arr[i][3][0];
+                var keyTxt=arr[i][3][1];
+                bothComb[keyInd] = keyTxt;
+            }
+        }
 
         $('.advanceBtn').addClass('clickReady');
+        $('.advanceBtn').effect('shake')
     }
 }
 
@@ -296,18 +318,29 @@ $('.chooseSection p').click(function(){
 
 
 $('.showArr').click(function(){
+    $('.mapM').hide()
     $('.arrStat').fadeIn();
     $('.advanceBtn').fadeIn();
     redoArray()
 })
 
 $('.showObj').click(function(){
+    $('.mapM').hide()
+    $('.arrStat').hide();
     $('.objStat').fadeIn();
     $('.advanceBtn').fadeIn();
 })
 
+$('.showBoth').click(function(){
+    $('.mapM').hide()
+    $('.arrStat').hide();
+    $('.objStat').hide();
+    $('.bothStat').fadeIn();
+    $('.advanceBtn').fadeIn();
+})
 
-$('.arrtest1').click(function(){
+
+$('.arrTest1').click(function(){
     // hack to make sure it accepts all quotes
     var replaceQuote= $('#arr1').val().replace(/'/g, '"');
     $('#arr1').val(replaceQuote)
@@ -326,6 +359,8 @@ $('#arr1, #arr2').on("change paste keyup", function(){
     var val=$(this).val();
     var strMatch=val.split('=')[1];
 
+    $('#eastvill').show();
+
     if(val.match(/\[(.*?)\]/) && val.indexOf('=') > -1){
         // this checks if it has two square brackers
         var sqMatch = val.match(/\[(.*?)\]/)[1];
@@ -334,12 +369,14 @@ $('#arr1, #arr2').on("change paste keyup", function(){
     }
 })
 
-$('.arrtest2').click(function(){
+$('.arrTest2').click(function(){
     // hack to make sure it accepts all quotes
     var replaceQuote= $('#arr2').val().replace(/'/g, '"');
     $('#arr2').val(replaceQuote)
 
-    var correct= [['#arr1',
+    console.log('testing')
+
+    var correct= [['#arr2',
         ['grillDay', '[', '20', ']', '=', '"', 'transit', '"', ';'],
         ['(', ')', '{', '}'],
         [20,'"transit"']
@@ -350,6 +387,7 @@ $('.arrtest2').click(function(){
 
 $('#obj1').on("change paste keyup", function(){
     var val=$(this).val();
+    $('#westvill').show();
 
     if(val.indexOf(':') > -1){
 
@@ -417,6 +455,78 @@ $('.objtest2').click(function(){
     checkInputs(correct, this, finAnswer)
 })
 
+$('#both1').on("change paste keyup", function(){
+    var val=$(this).val();
+    $('#gramercy').show();
+
+    if(val.indexOf(':') > -1){
+
+        $('.bothLatest span').eq(9).text('{'+val +'}')
+        $('.bothLatest span').eq(9).mouseover();
+    }
+})
+
+$('#both2').on("change paste keyup", function(){
+    var val=$(this).val();
+
+    if(val.indexOf(':') > -1){
+
+        $('.bothLatest span').eq(10).text('{'+val +'}')
+        $('.bothLatest span').eq(10).mouseover();
+    }
+})
+
+
+$('.bothtest1').click(function(){
+    // hack to make sure it accepts all quotes
+    var replaceQuote1= $('#both1').val().replace(/'/g, '"');
+    $('#both1').val(replaceQuote1)
+    var replaceQuote2= $('#both2').val().replace(/'/g, '"');
+    $('#both2').val(replaceQuote2)
+
+    var correct= [['#both1',
+        ['name', ':', '"', 'jordan', '"', ',', 'location', ':', '"', 'gramercy', '"'],
+        ['(', ')', '{', '}', 'var', '[', ']'],
+        [9, {name: 'jordan', location:'gramercy'}]
+    ],
+    ['#both2',
+        ['name', ':', '"', 'jordan', '"', ',', 'location', ':', '"', 'transit', '"'],
+        ['(', ')', '{', '}', 'var', '[', ']'],
+        [10, {name: 'jordan', location:'transit'}]
+    ]]
+    var finAnswer= ["name: 'jordan', location:'gramercy'","name: 'jordan', location:'transit'" ]
+    checkInputs(correct, this, finAnswer)
+})
+
+$('#both3, #both4').on("change paste keyup", function(){
+    var val=$(this).val();
+    var strMatch=val.split('=')[1];
+
+    if(val.match(/\[(.*?)\]/) && val.indexOf('=') > -1){
+        // this checks if it has two square brackets
+        var sqMatch = val.match(/\[(.*?)\]/)[1];
+        $('.bothLatest span').eq(sqMatch).text(strMatch.split(';')[0]+',')
+        $('.bothLatest span').eq(sqMatch).mouseover();
+    }
+})
+
+$('.bothtest2').click(function(){
+
+    var correct= [['#both3',
+        ['grillDay', '[', '16', ']', '=', '{', '}', ';'],
+        ['(', ')', '"', "'", ':', ","],
+        [16,{}]
+    ],
+    ['#both4',
+        ['grillDay', '[', '17', ']', '=', '{', '}', ';'],
+        ['(', ')', '"', "'", ':', ","],
+        [17, {}]
+    ]];
+    var finAnswer= ["grillDay[16] = {};", "grillDay[17] = {};"]
+    checkInputs(correct, this, finAnswer)
+})
+
+
 
 $('.arrLatest').on('mouseover', 'span', function(){
     var str= $(this).text().trim();
@@ -425,10 +535,8 @@ $('.arrLatest').on('mouseover', 'span', function(){
     var width=Number($('.arrTip').width())/2
 
     $('.arrTip').css({'top': position.top+30, 'left':position.left-width}).fadeIn('slow')
-    $('.position').text('Chapter: '+spanindex)
+    $('.position').text('Index/Chapter: '+spanindex)
     $('.time').text('Time: '+spanindex+':00 - '+(spanindex+1)+':00')
-
-    $('.mapTip').hide()
 
     //if it contains a letter more than just o
     if (str.match(/[a-z]/i) && str.length >2) {
@@ -439,8 +547,9 @@ $('.arrLatest').on('mouseover', 'span', function(){
 
         var keyMarker=$(".mapContain").find("[data-short='" + firstFour + "']");
 
-        if ($("[data-short^='"+firstFour+"']").length > 0)
+        if ($("[data-short^='"+firstFour+"']").length > 0){
             setMapTip(keyMarker)
+        }
     }
     else{
         $('.grillStat').text('Available')
@@ -453,15 +562,90 @@ $('.arrLatest').mouseleave(function(){
     }, 1000)
 });
 
+$('.bothLatest').on('mouseover', 'span', function(){
+    var str= $(this).text().trim();
+    var spanindex= $(this).index();
+    var position=$(this).position()
+
+    $('.position').text('Index/Chapter: '+spanindex)
+    $('.time').text('Time: '+spanindex+':00 - '+(spanindex+1)+':00')
+    var width=Number($('.bothTip').width())/2
+
+    $('.bothTip').css({'top': position.top+30, 'left':position.left-width}).fadeIn('slow')
+    
+
+    $('.mapTip').hide()
+
+    //if it contains a letter more than just o
+    if (str.match(/[a-z]/i) && str.length >2) {
+        str = str.slice(0, -1);
+        var lastChar = str.substr(str.length - 1);
+
+        if(lastChar =='}'){
+            var asObj= JSON.parse(str)
+            $('.nameThis').text('Name: '+asObj['name'])
+            $('.grillStat').text('Location: '+asObj['location'])
+            
+
+            var firstFour=str.split(':')[2].substring(1,5).toLowerCase();
+            console.log(firstFour)
+            var keyMarker=$(".mapContain").find("[data-short='" + firstFour + "']");
+
+            if ($("[data-short^='"+firstFour+"']").length > 0)
+                setMapTip(keyMarker)
+        }
+
+        else{
+            var asObj = $(this).text().trim().replace('}', '').split(',');
+            var firstProp= asObj[0]
+            var secProp= asObj[1]
+            $('.nameThis').text('Name: '+firstProp.split(':')[1])
+            if(secProp)
+                $('.grillStat').text('Location: '+secProp.split(':')[1])
+
+
+
+            var splitter= str.split(':')
+            if(splitter.length > 2){
+                var firstFour=splitter[2].replace(/'/g, "").substring(0,4).toLowerCase();
+
+                var keyMarker=$(".mapContain").find("[data-short='" + firstFour + "']");
+
+                if ($("[data-short^='"+firstFour+"']").length > 0 && firstFour.length ==4)
+                    setMapTip(keyMarker)
+            }
+        }
+    }
+    else{
+        $('.nameThis').text('')
+        $('.grillStat').text('Available')
+    }
+})
+
+$('.bothLatest').mouseleave(function(){
+    setTimeout(function(){
+        $('.bothTip').fadeOut('slow')
+    }, 1000)
+});
+
 
 $('.objLatest').on('mouseover', 'span', function(){
     var str= $(this).text().trim().split(':');
     var position=$(this).position()
+    $('.mapTip').children('p').text('')
 
     $('.propName').text('Key: '+str[0])
     $('.valName').text('Value: '+str[1].split(',')[0])
     var width=Number($('.objTip').width())/2
     $('.objTip').css({'top': position.top+30, 'left':position.left-(width/2)}).fadeIn('slow')
+
+    var firstFour=str[1].replace(/'/g, "").substring(1,5).toLowerCase();
+
+    var keyMarker=$(".mapContain").find("[data-short='" + firstFour + "']");
+
+    if ($("[data-short^='"+firstFour+"']").length > 0 && firstFour.length ==4){
+        setMapTip(keyMarker)
+    }
     
 })
 
@@ -477,19 +661,20 @@ $('.objLatest').mouseleave(function(){
 
 
 
-
-//THIS DOES NOT WORK YET
 $('.mapContain').on('mouseover', '.mapM', function(){
     var shortN= $(this).data('short')
+    var that=$(this)
 
-    grillDay.forEach(function(d,i){
-        if(d.toLowerCase().indexOf(shortN) > -1){
-            console.log(i)
-        }
-    })
+    //this is potential circular logic/ watch out
+    $("span:contains("+shortN+")").mouseover()
 
-    setMapTip($(this))
+})
 
+$('.mapContain').on('mouseleave', '.mapM', function(){
+    setTimeout(function(){
+        $('.tTip').fadeOut('slow')
+        $('.mapTip').hide();
+    }, 1000)
 })
 
 function setMapTip(marker){
@@ -501,9 +686,9 @@ function setMapTip(marker){
 }
 
 $('.triggerArrPopUp').click(function(){
-    $('.arrLatest').children('span').eq(8).text('"WallStreet",')
+    $('.arrLatest').children('span').eq(8).text('"wallstreet",')
 
-    grillDay[8]= '"WallStreet"'
+    grillDay[8]= '"wallstreet"'
 
 
     //callback so that it shows up correctly
@@ -515,10 +700,29 @@ $('.triggerArrPopUp').click(function(){
     $('.advanceBtn').addClass('clickReady');
 })
 
+$('.triggerTransPopUp').click(function(){
+    $('.arrLatest').children('span').eq(9).text('"transit",')
+
+    grillDay[9]= '"transit"'
+    
+    // enable continue button
+    $('.advanceBtn').addClass('clickReady');
+})
+
+
+
 $('.triggerObjPopUp').click(function(){
     $('#chelsea').show();
     redoObj()
     order1 = {key1:'', key2: ''};
+    
+    // enable continue button
+    $('.advanceBtn').addClass('clickReady');
+})
+
+$('.triggerBothPopUp').click(function(){
+    $('#westvill').show();
+    redoBoth()
     
     // enable continue button
     $('.advanceBtn').addClass('clickReady');
