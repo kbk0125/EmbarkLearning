@@ -132,7 +132,7 @@
                 </div>
                 <div class='txtbod'>
                     <h3> Two hours at once </h3>
-                    <p> In our original paramters, we can see that we need to add an extra hour for transit and cleaning to every booking. </p>
+                    <p> In our original parameters, we can see that we need to add an extra hour for transit and cleaning to every booking. </p>
                     <h3> Using index </h3>
                     <p> Index determines the position within the array. Our first booking was index 8, the 9th element in the array. So this one needs to have an index of 9, or the 10th element in the array.</p>
                     <pre class='prettyprint'><p> grillDay[9] = 'transit'</p></pre>
@@ -149,7 +149,7 @@
                 </div>
                 <div class='txtbod'>
                     <h3> Filling Out The Chapters </h3>
-                    <p> Many "chapters" of the array are still empty. That is alright. The data structure makes it clear that you have 24 available slots, this case. IF you booked on half-hour intervals, then there would be 48. </p>
+                    <p> Many "chapters" of the array are still empty. That's alright. The data structure (array) makes it clear that you have 24 available slots, in this case. If you booked on half-hour intervals, then there would be 48. </p>
                     <h3> Your Turn </h3>
                     <p> Add transit time as an 8-9PM booking in the grillDay array. Use <b> 'transit' </b> to indicate transit time </p>
                     <pre class='prettyprint'><p><input type='text' name='arrIn' id='arr2'></p></pre>
@@ -168,7 +168,7 @@
                 </div>
                 <div class='txtbod'>
                     <h3> The Challenge </h3>
-                    <p> Now that we can book grills, we need to figure out how to format the order itself. This ensures the order will be delivered successfully </p>
+                    <p> Now that we can book grills, we need to figure out how to format the orders from app Grillber users. This ensures the grill will be delivered successfully </p>
                     <h3> What are the key features of the app? </h3>
                     <ul>
                         <li> Users submit an order with <b>name and location</b> </li>
@@ -191,8 +191,8 @@
                     <h3> Setting up fields </h3>
                     <p> The object needs to have two <b> key-value pairs</b>. One for name, and one for location.</p>
                     <pre class='prettyprint'><p> var order = {
-    name: 'dave',
-    location: 'chelsea'
+    name: "dave",
+    location: "chelsea"
 };</p></pre>
                     <h3> Creating An Order </h3>
                     <p> If your name was Dave and you lived in Chelsea, this is what your order would look like! </p>
@@ -209,11 +209,11 @@
                     <h3> Why use an object? </h3>
                     <p> Data labels are a big deal with an order from a user. These are known as <b> keys</b> </p>
                     <h3> Your Turn </h3>
-                    <p> Your <i>name</i> is "Katie". Your <i>location</i> is the "westvillage". Create your booking in the <b>order</b> object! The two keys are name and location.</p>
-                    <pre class='prettyprint' id='objq1'><p class='tester'>var order= {
+                    <p> Your <i>name</i> is "katie". Your <i>location</i> is the "westvillage". Create your booking in the <b>order</b> object! The two keys are name and location.</p>
+                    <pre class='prettyprint' id='objq1'><p class='tester'>var order = {
     <input type='text' name='objIn' id='obj1' >
     <input type='text' name='objIn' id='obj2'>
-}</p></pre>
+};</p></pre>
                     <h3><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> 
                         After you start typing, the object to the right will show live feedback! </h3>
                     
@@ -229,7 +229,7 @@
                 </div>
                 <div class='txtbod'>
                     <h3> Objects Use Labels </h3>
-                    <p>Since order is not the defining way that we organize objects, it is always easy to add a new <b> key-value pair </b>. Or, we can change an exisitng pair by assigning a new <b> value </b> </p>
+                    <p>Since order is not the defining way that we organize objects, it is always easy to add a new <b> key-value pair </b>. Or, we can change an exisiting pair by assigning a new <b> value </b> </p>
                     <pre class='prettyprint'><p> order[location] = 'wallstreet';</p></pre>
                     <h3> New Value in An Order </h3>
                     <p> If Katie from our previous example changed her location to 'wallstreet', this is what it would look like in code.  </p>
@@ -244,7 +244,7 @@
                 </div>
                 <div class='txtbod'>
                     <h3> Your Turn </h3>
-                    <p> You want to switch the name on the order to your friend, Joe. Change the value of the <b>name </b> property in the <i>order</i> object to 'Joe'.</p>
+                    <p> You want to switch the name on the order to your friend, Joe. Change the value of the <b>name </b> property in the <i>order</i> object to 'joe'.</p>
                     <pre class='prettyprint' id='objq2'><p class='tester'><input type='text' name='objIn' id='obj3' ></p></pre>
                     <h3><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> 
                         After you start typing, the object to the right will show live feedback! </h3>
@@ -305,7 +305,7 @@ grillDay[17] = {
                     <p> You need the labels provided by objects, while you need the order from arrays. You can book the grills for specific times without needing complex JavaScript for interpreting time within an object.  </p>
                     <h3> Your Turn </h3>
                     <ol> 
-                        <li>Your <i>name</i> is "Jordan". </li> 
+                        <li>Your <i>name</i> is "jordan". </li> 
                         <li>Your <i>location</i> is "gramercy". </li>  
                         <li>The two keys are name and location. </li>
                         <li>You are booking the grill at 9AM, which is already shown. </li>

@@ -423,7 +423,7 @@ $('.objtest1').click(function(){
         ['(', ')', '{', '}', 'var'],
         ['location','"westvillage"']
     ]]
-    var finAnswer= ["name: 'katie',", "location:'westvillage'"]
+    var finAnswer= ['name: "katie",', 'location: "westvillage"']
     checkInputs(correct, this, finAnswer)
 })
 
