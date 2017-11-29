@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: #ecf0f1;
+  background-color: white;
   transition: 250ms;
 }
 
@@ -58,15 +58,6 @@ p{
   font-size: 14px;
 }
 
-.fa.fa-css3{
-  color: #63acd9;
-  display: inline-block;
-}
-
-.fa.fa-code{
-  color:#f15a5a;
-  display: inline-block;
-}
 
 .actionBtn {
   border-radius: 2px;
@@ -103,7 +94,7 @@ p{
 
 #topBar {
   width: 100%;
-  background-color: white;
+  background-color: #fafafa;
   border-bottom: 1px solid #e6e6e6;
   width: 100%;
   padding: 4px 0 2px 0;
@@ -135,10 +126,82 @@ p{
   margin-top: 2px;
 }
 
+.rightMenu{
+  float:right;
+  margin-right: 4px;
+}
+
+.rightMenu p{
+  display: inline-block;
+  margin: 10px 8px 0 8px;
+}
+
+.heroBanner{
+  position: relative;
+}
+
+.whiteScreen{
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom: 0;
+  background-color: white;
+  background: url('/img/brainback2.jpg') no-repeat center center;
+  background-size: cover;
+  z-index: -1;
+  opacity:0.7;
+}
+
+.heroTxt{
+  padding-bottom:90px;
+  padding-top:110px;
+  width:700px;
+  padding-left:40px;
+}
+
+.heroTxt h1{
+  font-weight: 700;
+}
+
+.heroTxt > p{
+  margin-top:16px;
+  font-size:18px;
+  color: #404040;
+}
+
+.action{
+    width: 600px;
+    background-color: white;
+    border: 1px solid #999;
+    border-radius:2px;
+    margin-top:64px;
+    padding:12px;
+}
+
+.action p{
+  color:#999;
+  margin-top:8px;
+}
+
+
+
+
+
 #main{
   width:960px;
-  margin: 10px auto;
-  margin-bottom: 120px;
+  margin: 20px auto;
+  padding-bottom: 60px;
+}
+
+.topics{
+  margin-bottom: 16px;
+}
+
+.topics >h2{
+  font-weight:300;
+  color:#999;
+  margin-bottom:4px;
 }
 
 .topics .major{
@@ -149,68 +212,75 @@ p{
 
 .topics .segment{
   display: inline-block;
-  margin:8px 4px 4px 0;
-  border-radius: 4px;
-  padding:2px 6px;
+  margin:24px 16px 16px 0;
   transition:250ms;
-  border:2px solid #ccc;
+  font-size:18px;
+  font-weight: 300;
+  color:#3394d4;
+  text-decoration: underline;
   cursor: pointer;
 }
 
-.segment.css{
-  display: none;
-}
-
-.topics .segment.chosen{
-  border:2px solid #999;
-}
-
 .topics .segment:hover{
-  border:2px solid #404040;
+  color: #999;
 }
 
-.pane.css, .pane.sql, .pane.git{
-  display: none;
+.pane h2{
+  margin-top:48px;
 }
 
 .cards h3{
-  margin:8px 0 16px 0;
+  margin:16px 0;
   color: #7979c7;
 }
 
 .card{
-  width:30%;
+  width:100%;
   margin: 4px 8px 16px 0px;
-  padding: 8px 0px 8px 6px;
+  padding: 8px 0px 0px 6px;
   display: inline-block;
   vertical-align: top;
   background-color: white;
   border:1px solid #e6e6e6;
 }
 
+.card img{
+  width:45px;
+  margin-right: 12px;
+  margin-bottom:8px;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+}
+
 .bodySec{
   display: inline-block;
-  width: 70%;
+  width: 60%;
+}
+
+.buttons{
+  display: inline-block;
+  float:right;
 }
 
 .topLine{
   font-size: 18px;
   display: inline-block;
   color: #404040;
-  padding:4px 0px 0px 0px;
+  padding:2px 0px 0px 0px;
 }
 
 .card .subTitle{
-  padding: 4px 0 16px 0;
+  padding: 4px 0 8px 0;
 }
 
 .card .minor{
   font-size: 14px;
-  margin: 4px 0 8px 0;
+  margin: 0px 16px 8px 0;
   background-color: #3394d4;
   color: white;
   text-align: center;
-  padding: 4px 8px;
+  padding: 4px 12px;
   border-radius: 2px;
 }
 
@@ -223,171 +293,120 @@ p{
   transition:250ms;
 }
 
-.card img{
-  width:45px;
-  margin-right: 3%;
-  position: relative;
-  display: inline-block;
-  vertical-align: top;
+.about p{
+  font-size: 16px;
+  color: #404040;
+  margin:24px 0;
 }
 
-.topics{
-  margin-bottom: 16px;
-}
 
-.action{
-    position: fixed;
-    bottom: 0px;
-    padding-bottom: 8px;
-    width: 900px;
-    background-color: #fafafa;
-    border: 2px solid #f15a5a;
-    border-bottom: none;
-    border-radius:4px;
-    padding-top:4px;
-}
 
-.action .actionBtn3{
-  display: inline-block;
-  float: right;
-  margin-top: 28px;
-  margin-right: 8px;
-}
 
 @media screen and (max-width: 1000px) {
-  #main, .action{
-    width:95%;
+
+  .heroTxt{
+    padding: 80px 10% 40px 10%;
+    width:80%;
+    text-align: center;
   }
 
-  .card{
-    width: 29%;
+  .action{
+    margin: 64px auto 0 auto;
   }
 
-  .card .minor{
-    display: inline-block;
+  #main{
+    width:700px;
+    margin-top:48px;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .heroTxt h1{
+    font-size:26px;
   }
 
-  .card img{
-    width: auto;
-    height: 50px;
-    display: block;
-    margin: 0 0 4px 0;
-  }
-
-  .bodySec{
-    width:100%;
-  }
-
-  .topLine{
+  .heroTxt p{
     font-size: 16px;
   }
 
-  .action .actionBtn3{
-    font-size: 14px;
-  }
-
-  #mc_embed_signup{
-    width:65% !important;
-  }
-
-  #mc_embed_signup label{
-    font-size: 14px !important;
-  }
-
-  #mc_embed_signup input.email{
-    font-size: 12px !important;
-    width:250px !important;
-  }
-}
-
-@media screen and (max-width: 768px) {
   .action{
-    text-align: center;
-    width:400px;
-    margin-left: 100px;
-  }
-
-  #main{
-    margin-bottom: 180px;
-  }
-
-  .action .actionBtn3{
-    display: table;
-    margin: 8px auto 0 auto;
-    float: none;
-  }
-
-  #mc_embed_signup{
-    width:75% !important;
-  }
-
-  #mc_embed_signup input.email{
-    width:100% !important;
-  }
-}
-
-@media screen and (max-width: 700px) {
-
-  .action{
-    margin-left: 0;
-  }
-
-  .card{
-    width: 44%;
-  }
-}
-
-@media screen and (max-width: 420px) {
-  #main, .action{
-    width:280px;
-  }
-
-  #main{
-    margin-top:0;
-  }
-
-  .card{
     width:100%;
-    margin-right: 0;
-  }
-
-  .card img{
-    width:12%;
-    height:auto;
-    display: inline-block;
-    margin: 0 3% 0 0;
   }
 
   .bodySec{
-    width: 83%;
-  }
-
-  .card .minor{
-    margin: 4px 0 12px 0;
-  }
-
-  .topLine{
-    padding: 0;
-  }
-
-  .major{
-    display: none;
-  }
-
-  .action .actionBtn3{
-    display: none;
-  }
-
-  #mc_embed_signup{
-    width:90% !important;
-  }
-
-  #mc_embed_signup label{
-    font-size: 11px !important;
+    width:260px;
   }
 
   #main{
-    margin-bottom: 120px;
+    width:95%;
+    margin: 48px 0% 0 2%;
+  }
+
+  .rightMenu{
+    display: none;
+  }
+
+  #mc_embed_signup form .clear input{
+    margin: 12px auto 0 auto !important;
+    display: block;
+    width: 160px;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .heroTxt{
+    padding: 40px 5% 20px 5%;
+    width:90%;
+  }
+
+  .heroTxt h1{
+    font-size:18px;
+  }
+
+  .topics > h2{
+    font-size: 18px;
+  }
+
+  .topics .major{
+    font-size: 14px;
+  }
+
+  .heroTxt p, .action h3{
+    font-size: 14px;
+  }
+
+  .action{
+    margin-top:32px;
+    width: 260px;
+  }
+
+  #main{
+    margin-top: 24px;
+    text-align: center;
+  }
+
+  .bodySec{
+    width:220px;
+  }
+
+  .action p{
+    display: none;
+  }
+
+  .card{
+    text-align: left;
+    width:290px;
+  }
+
+  .buttons{
+    float: none;
+    display: block;
+    width: 200px;
+    margin-left: 60px;
+  }
+
+  .card .minor{
+    padding:8px 12px;
   }
 }
     
