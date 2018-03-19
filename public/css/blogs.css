@@ -1,0 +1,60 @@
+h1,
+h2,
+h3 {
+  color: #999;
+  font-family: 'Roboto';
+  font-weight: 700;
+  margin: 0;
+}
+
+h2, h3{
+	margin-top:32px;
+}
+
+#blogBody p, #blogBody li{
+  color: #404040;
+  font-family: 'Lora';
+  font-weight: 400;
+  font-size: 16px;
+}
+
+#blogBody p{
+  margin: 8px 0 16px 0;
+  line-height: 140%;
+}
+
+#blogBody{
+	width:800px;
+	display: block;
+	margin:0 auto 32px auto;
+}
+
+
+#blogBody img, .picto{
+	width:100%;
+	margin: 32px 0;
+}
+
+
+
+@media screen and (max-width: 850px) {
+	#blogBody{
+		width: 95%;
+		margin-left:2.5%;
+		margin-right:2.5%;
+	}
+}
+
+@media screen and (max-width: 570px) {
+	#blogBody{
+		margin-top: 8px;
+	}
+
+	h1{
+		font-size: 24px;
+	}
+
+	#blogBody img.headerImg{
+		margin: 8px 0 16px 0;
+	}
+}

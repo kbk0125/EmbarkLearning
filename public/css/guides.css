@@ -185,7 +185,21 @@ p{
 }
 
 
+.explain p{
+  font-size:16px;
+  margin:4px 0;
+}
 
+.explain img{
+  margin-top:16px;
+  width:100%;
+  padding:8px;
+  border: 1px solid #ccc;
+}
+
+.explain div li{
+  color:#404040;
+}
 
 
 #main{
@@ -235,7 +249,7 @@ p{
 }
 
 .card{
-  width:100%;
+  width:48%;
   margin: 4px 8px 16px 0px;
   padding: 8px 0px 0px 6px;
   display: inline-block;
@@ -260,7 +274,8 @@ p{
 
 .buttons{
   display: inline-block;
-  float:right;
+  margin-left:60px;
+  margin-top:12px;
 }
 
 .topLine{
@@ -279,6 +294,7 @@ p{
   margin: 0px 16px 8px 0;
   background-color: #3394d4;
   color: white;
+  display: inline-block;
   text-align: center;
   padding: 4px 12px;
   border-radius: 2px;
@@ -308,6 +324,19 @@ p{
     padding: 80px 10% 40px 10%;
     width:80%;
     text-align: center;
+  }
+
+  .card{
+    width:100%;
+  }
+
+  .buttons{
+    margin:0;
+    float:right;
+  }
+
+  .card .minor{
+    display: block;
   }
 
   .action{
@@ -383,6 +412,14 @@ p{
   #main{
     margin-top: 24px;
     text-align: center;
+  }
+
+  #main .explain{
+    text-align: left;
+  }
+
+  #main .explain p, #main .explain li{
+    font-size:14px;
   }
 
   .bodySec{

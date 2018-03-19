@@ -176,6 +176,10 @@ app.get('/objects-arrays-practice', function(req, res) {
 	res.sendFile(path.join(__dirname + '/public/objarr/index.html'));
 });
 
+app.get('/javascript-functions-explained', function(req, res) {
+	res.sendFile(path.join(__dirname + '/public/functionsblog/index.html'));
+});
+
 
 //Finally figured out this fix
 //https://expressjs.com/en/api.html#res.redirect
