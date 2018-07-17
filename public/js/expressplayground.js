@@ -145,6 +145,7 @@ editor.getSession().on("changeAnnotation", function(){
 //either need to do it this way or look at each individual span
 
 /*things I want to cover
+Just fixed image path
 */
 
 let imgObj = {
