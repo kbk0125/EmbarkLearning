@@ -168,6 +168,10 @@ app.get('/tutorialsoup', function(req, res) {
 	res.sendFile(path.join(__dirname + '/tutorialsoup/index.html'));
 });
 
+app.get('/express-playground', function(req, res) {
+	res.sendFile(path.join(__dirname + '/public/expressplayground/index.html'));
+});
+
 app.get('/jsconstruction', function(req, res) {
 	res.sendFile(path.join(__dirname + '/jsconstruction/index.html'));
 });

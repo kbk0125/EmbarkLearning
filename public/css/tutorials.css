@@ -85,7 +85,7 @@ img.resetStyle, div.resetStyle{
 .actionBtn {
   border-radius: 2px;
   background-color: #f15a5a;
-  color: #fff;
+  color: #fff !important;
   padding: 0.5em 1em;
   cursor: pointer;
 }
