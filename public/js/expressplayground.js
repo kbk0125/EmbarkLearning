@@ -180,7 +180,7 @@ let imgObj = {
         load: 6
     },
     'params': {
-        img: '/img/expressplay/paramEx.png',
+        img: '/img/expressplay/paramEx2.png',
         exp: "The GET route is where we actually handle the user request with any parameters",
         load: 2
     },
