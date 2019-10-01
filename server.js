@@ -85,6 +85,11 @@ handleDisconnect();
 
 //CREATE TABLES
 
+
+
+/*
+9/30/19 Commenting out due to new environ
+
 connection.query('SELECT 1 FROM Links LIMIT 1;', function(err, rows, fields) { 
 	if(err){
 		connection.query('CREATE TABLE Links (' +
@@ -121,6 +126,8 @@ connection.query('SELECT 1 FROM Votes LIMIT 1;', function(err, rows, fields) {
 		console.log("Votes table exists")
 	}
 });
+
+*/
 
 //ROUTING
 
