@@ -35,7 +35,8 @@ function toTitleCase(str){
 // MySql Init
 //https://www.npmjs.com/package/mysql
 //http://code.tutsplus.com/tutorials/nodejs-for-beginners--net-26314
-var mysql = require('mysql');
+
+/* var mysql = require('mysql');
 if (process.env.NODE_ENV === 'production') {
 	console.log('PRODUCTION YO');
 	var db_config = {
@@ -84,7 +85,7 @@ handleDisconnect();
 //connection.query('DROP TABLE Votes');
 
 //CREATE TABLES
-
+*/
 
 
 /*
